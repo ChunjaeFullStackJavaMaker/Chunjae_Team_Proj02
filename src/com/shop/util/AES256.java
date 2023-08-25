@@ -1,4 +1,4 @@
-package util;
+package com.shop.util;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
