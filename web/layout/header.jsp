@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%
-    String path1 = request.getContextPath();
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="path" value="<%=request.getContextPath() %>" />
 <header class="header">
     <div class="header__top">
         <div class="container">
@@ -23,7 +23,7 @@
                             <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         </div>
                         <div class="header__top__right__language">
-                            <img src="img/language.png" alt="">
+                            <img src="${path}/img/language.png" alt="">
                             <div>English</div>
                             <span class="arrow_carrot-down"></span>
                             <ul>
@@ -44,23 +44,24 @@
             <div class="col-lg-3">
                 <div class="header__logo">
                     <a href="./index.html"><img src="../img/logo/corn_book_85-55.png" alt=""></a>
+                    <a href="${path}/"><img src="${path}/img/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./shop-grid.html">Shop</a></li>
+                        <li class="active"><a href="${path}/">Home</a></li>
+                        <li><a href="${path}/product/productList.jsp">Shop</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="./shop-details.html">Shop Details</a></li>
-                                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
-                                <li><a href="../Blog_details/blog-details.html">Blog Details</a></li>
+                                <li><a href="${path}/product/getProduct.jsp">Shop Details</a></li>
+                                <li><a href="">Shoping Cart</a></li>
+                                <li><a href="">Check Out</a></li>
+                                <li><a href="">Blog Details</a></li>
                             </ul>
                         </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Contact</a></li>
                     </ul>
                 </nav>
             </div>
