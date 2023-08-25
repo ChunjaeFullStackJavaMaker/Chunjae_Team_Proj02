@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="../img/logo/corn_book_85-55.png" alt=""></a>
+                    <a href="${path}/"><img src="${path}/img/logo/corn_book_85-55.png" alt=""></a>
                     <a href="${path}/"><img src="${path}/img/logo.png" alt=""></a>
                 </div>
             </div>

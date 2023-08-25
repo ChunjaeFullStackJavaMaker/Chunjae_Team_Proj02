@@ -1,11 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%
-    String path12 = request.getContextPath();
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="path" value="<%=request.getContextPath() %>" />
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
     <div class="humberger__menu__logo">
-        <a href="#"><img src="<%=path12%>/img/logo.png" alt=""></a>
+        <a href="#"><img src="${path}/img/logo.png" alt=""></a>
     </div>
     <div class="humberger__menu__cart">
         <ul>
@@ -16,7 +16,7 @@
     </div>
     <div class="humberger__menu__widget">
         <div class="header__top__right__language">
-            <img src="<%=path12%>/img/language.png" alt="">
+            <img src="${path}/img/language.png" alt="">
             <div>English</div>
             <span class="arrow_carrot-down"></span>
             <ul>
@@ -30,18 +30,18 @@
     </div>
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
-            <li class="active"><a href="<%=path12%>/index.html">Home</a></li>
-            <li><a href="<%=path12%>/shop-grid.html">Shop</a></li>
+            <li class="active"><a href="${path}/index.html">Home</a></li>
+            <li><a href="${path}/shop-grid.html">Shop</a></li>
             <li><a href="#">Pages</a>
                 <ul class="header__menu__dropdown">
-                    <li><a href="<%=path12%>/shop-details.html">Shop Details</a></li>
-                    <li><a href="<%=path12%>/shoping-cart.html">Shoping Cart</a></li>
-                    <li><a href="<%=path12%>/checkout.html">Check Out</a></li>
-                    <li><a href="<%=path12%>/Blog_details/blog-details.html">Blog Details</a></li>
+                    <li><a href="${path}/shop-details.html">Shop Details</a></li>
+                    <li><a href="${path}/shoping-cart.html">Shoping Cart</a></li>
+                    <li><a href="${path}/checkout.html">Check Out</a></li>
+                    <li><a href="<${path}/Blog_details/blog-details.html">Blog Details</a></li>
                 </ul>
             </li>
-            <li><a href="<%=path12%>/blog.html">Blog</a></li>
-            <li><a href="<%=path12%>/contract/contact.html">Contact</a></li>
+            <li><a href="${path}/blog.html">Blog</a></li>
+            <li><a href="${path}/contract/contact.html">Contact</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>

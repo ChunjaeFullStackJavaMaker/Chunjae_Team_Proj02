@@ -34,11 +34,11 @@
 </div>
 
 <!-- Humberger Begin -->
-<%@include file="/layout/header_top.jsp"%>
+<%@include file="../layout/header_top.jsp"%>
 <!-- Humberger End -->
 
 <!-- Header Section Begin -->
-<%@include file="/layout/header.jsp"%>
+<%@include file="../layout/header.jsp"%>
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
@@ -75,7 +75,7 @@
 <!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+<section class="breadcrumb-section set-bg" data-setbg="${path}/img/breadcrumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -175,7 +175,7 @@
 <!-- Product Details Section End -->
 
 <!-- Footer Section Begin -->
-<%@ include file="/layout/footer.jsp"%>
+<%@ include file="../layout/footer.jsp"%>
 <!-- Footer Section End -->
 
 </body>
