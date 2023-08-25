@@ -1,4 +1,4 @@
-package edu.chunjae.model;
+package com.shop.model;
 
 import com.shop.model.DBConnect;
 
