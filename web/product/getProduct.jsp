@@ -2,29 +2,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="path" value="<%=request.getContextPath() %>" />
+<%@include file="../setting/head.jsp"%>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="${path}/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/style.css" type="text/css">
+    <title>제품 상세보기</title>
 </head>
 
 <body>
@@ -63,8 +49,12 @@
                 <div class="hero__search">
                     <div class="hero__search__form">
                         <form action="#">
-                            <input type="text" placeholder="What do yo u need?">
-                            <button type="submit" class="site-btn">SEARCH</button>
+                            <div class="hero__search__categories">
+                                All Categories
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="어떤 책이 필요하신가요?">
+                            <button type="submit" class="site-btn">검색</button>
                         </form>
                     </div>
                 </div>
@@ -119,11 +109,11 @@
                 <div class="product__details__text">
                     <h3>상품 이름</h3>
                     <div class="product__details__price">가격</div>
-                    <p>상품의 요약 설명</p>
+                    <p>상품 요약 설명이 들어갈 자리입니다</p>
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
-                                <input type="text" value="상품 수량">
+                                <input type="text" value="상품 수량이 들어갈 자리입니다.">
                             </div>
                         </div>
                     </div>
@@ -136,34 +126,34 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                               aria-selected="true">DESCRIPTION</a>
+                               aria-selected="true">Description</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                               aria-selected="false">VIDEO</a>
+                               aria-selected="false">Video</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                               aria-selected="false">REVIEW<span>리뷰의 갯수</span></a>
+                               aria-selected="false">Reviews <span>(리뷰의 갯수가 들어갈 자리입니다.)</span></a>
                         </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>상품 상세 정보</h6>
-                                <p>상품의 설명</p>
+                                <h6>상품 정보</h6>
+                                <p>상품의 상세정보가 들어갈 자리입니다.</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>비디오</h6>
-                                <p>비디오가 들어갈 자리입니다.</p>
+                                <h6>예시동영상</h6>
+                                <p>상품의 예시 동영상이 들어갈 자리입니다.</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>후기</h6>
-                                <p>리뷰가 들어갈 자리입니다</p>
+                                <p>리뷰와 리뷰 작성란이 들어갈 자리입니다.</p>
                             </div>
                         </div>
                     </div>
