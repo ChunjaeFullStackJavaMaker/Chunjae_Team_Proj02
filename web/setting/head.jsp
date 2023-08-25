@@ -16,11 +16,11 @@
 <link rel="stylesheet" href="<%=path10%>/css/style.css" type="text/css">
 
 <!-- Js Plugins -->
-<script src="<%=path10%>js/jquery-3.3.1.min.js"></script>
-<script src="<%=path10%>js/bootstrap.min.js"></script>
-<script src="<%=path10%>js/jquery.nice-select.min.js"></script>
-<script src="<%=path10%>js/jquery-ui.min.js"></script>
-<script src="<%=path10%>js/jquery.slicknav.js"></script>
-<script src="<%=path10%>js/mixitup.min.js"></script>
-<script src="<%=path10%>js/owl.carousel.min.js"></script>
-<script src="<%=path10%>js/main.js"></script>
+<script src="<%=path10%>/js/jquery-3.3.1.min.js"></script>
+<script src="<%=path10%>/js/bootstrap.min.js"></script>
+<script src="<%=path10%>/js/jquery.nice-select.min.js"></script>
+<script src="<%=path10%>/js/jquery-ui.min.js"></script>
+<script src="<%=path10%>/js/jquery.slicknav.js"></script>
+<script src="<%=path10%>/js/mixitup.min.js"></script>
+<script src="<%=path10%>/js/owl.carousel.min.js"></script>
+<script src="<%=path10%>/js/main.js"></script>
