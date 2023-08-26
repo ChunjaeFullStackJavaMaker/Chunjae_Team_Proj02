@@ -1,10 +1,3 @@
-CREATE DATABASE cornbook;
-
--- 윈도우 노트북 안될 때 사용
-ALTER DATABASE cornbook DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-
----------------------------------------------------------------------------------------------------------------------------
-
 -- 회원 가입 테이블
 CREATE TABLE member(
 	id VARCHAR(16) NOT NULL,   								-- 아이디
@@ -233,6 +226,8 @@ INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문9에 �
 INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문10에 대한 답변', '답변입니다. 10', 'admin', 1, 10, false);
 
 COMMIT;
+
+select * from qna;
 
 -- QnA 리스트
 SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.cnt AS cnt, a.lev AS lev,
@@ -475,7 +470,7 @@ select * from pg_tables where schemaname='public';
 -------------------------------------------------------------------------------------------
 
 -- 재고 뷰 생성
-create view inventory as (select pno, amount from receive EXCEPT select pno, amount from serve);
+create view inventory as (select re_no, amount from receive EXCEPT select se_no, amount from serve);
 
 select * from product;
 
