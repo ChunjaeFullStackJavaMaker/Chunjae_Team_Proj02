@@ -63,12 +63,17 @@
     <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet">
 
     <!-- 필요한 폰트를 로딩 : 구글 웹 폰트에서 폰트를 선택하여 해당 내용을 붙여 넣기 -->
-    <link rel="stylesheet" href="<%=path5%>/css/google.css">
-    <link rel="stylesheet" href="<%=path5%>/css/fonts.css">
+    <link rel="stylesheet" href="<%=path5%>/css/fonts-awesome.min.css">
 
     <!-- 필요한 플러그인 연결 -->
     <script src="https://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="<%=path5%>/css/common.css">
+    <link rel="stylesheet" href="<%=path5%>/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=path5%>/css/elegant-icons.css">
+    <link rel="stylesheet" href="<%=path5%>/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="<%=path5%>/css/nice-select.css">
+    <link rel="stylesheet" href="<%=path5%>/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<%=path5%>/css/slicknav.min.css">
+    <link rel="stylesheet" href="<%=path5%>/css/style.css">
     <style>
         /* 본문 영역 스타일 */
         .contents { clear:both; min-height:100vh;

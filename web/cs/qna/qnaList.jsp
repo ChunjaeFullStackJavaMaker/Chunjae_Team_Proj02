@@ -2,8 +2,9 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.util.Date" %>
-<%@ page import="com.chunjae_pro01.util.*" %>
-<%@ page import="com.chunjae_pro01.dto.*" %>
+<%@ page import="com.shop.util.*" %>
+<%@ page import="com.shop.model.*" %>
+<%@ page import="com.shop.dto.*" %>
 <%@ page import="com.chunjae_pro01.vo.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ include file="/setting/encoding.jsp"%>
