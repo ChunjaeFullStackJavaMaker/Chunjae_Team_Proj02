@@ -63,9 +63,9 @@ INSERT INTO notice(title, content, author) VALUES ('공지사항7', '여기는 �
 
 INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항9', '여기는 공지사항9입니다', 'admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항10', '여기는 공지사항10니다', 'admin');
 
 commit;
 
@@ -292,13 +292,13 @@ create table askComment(
 INSERT INTO askComment(bno, author, content) VALUES(1, 'admin', '댓글 기능 더미데이터1');
 INSERT INTO askComment(bno, author, content) VALUES(2, 'admin', '댓글 기능 더미데이터2');
 INSERT INTO askComment(bno, author, content) VALUES(3, 'shin', '댓글 기능 더미데이터3');
-INSERT INTO askComment(bno, author, content) VALUES(4, 'park', '댓글 기능 더미데이터3');
-INSERT INTO askComment(bno, author, content) VALUES(5, 'oh', '댓글 기능 더미데이터3');
-INSERT INTO askComment(bno, author, content) VALUES(6, 'shin', '댓글 기능 더미데이터3');
-INSERT INTO askComment(bno, author, content) VALUES(7, 'park', '댓글 기능 더미데이터3');
-INSERT INTO askComment(bno, author, content) VALUES(8, 'oh', '댓글 기능 더미데이터3');
-INSERT INTO askComment(bno, author, content) VALUES(1, 'shin', '댓글 기능 더미데이터3');
-INSERT INTO askComment(bno, author, content) VALUES(1, 'park', '댓글 기능 더미데이터3');
+INSERT INTO askComment(bno, author, content) VALUES(4, 'park', '댓글 기능 더미데이터4');
+INSERT INTO askComment(bno, author, content) VALUES(5, 'oh', '댓글 기능 더미데이터5');
+INSERT INTO askComment(bno, author, content) VALUES(6, 'shin', '댓글 기능 더미데이터6');
+INSERT INTO askComment(bno, author, content) VALUES(7, 'park', '댓글 기능 더미데이터7');
+INSERT INTO askComment(bno, author, content) VALUES(8, 'oh', '댓글 기능 더미데이터8');
+INSERT INTO askComment(bno, author, content) VALUES(9, 'shin', '댓글 기능 더미데이터9');
+INSERT INTO askComment(bno, author, content) VALUES(10, 'park', '댓글 기능 더미데이터10');
 
 COMMIT;
 
@@ -356,7 +356,7 @@ create table addinfo(
 -- 입고 테이블 생성
 create table receive(
 	re_no serial primary key,								-- 입고 번호
-	pno integer not null,                                -- 상품 번호
+	pno integer not null,                                   -- 상품 번호
 	amount integer default 1,	         					-- 입고 수량
 	re_price integer default 1000,			    			-- 입고 가격
 	resdate timestamp default current_timestamp		    	-- 입고 일시
@@ -367,7 +367,7 @@ create table receive(
 -- 출고 테이블 생성
 create table serve(
 	se_no serial primary key,								-- 출고 번호
-	pno integer not null, 		                        -- 상품 번호
+	pno integer not null, 		                            -- 상품 번호
 	se_price integer default 1000,					    	-- 출고 가격
 	amount integer default 1,				         		-- 출고 수량
 	resdate timestamp default current_timestamp		    	-- 출고 일시
@@ -444,7 +444,7 @@ insert into category values('U', '해외콘텐츠');
 create table cart(
 	cart_no serial primary key,				-- 카트 번호
 	cus_id varchar(20) not null,			-- 고객 아이디
-	pno integer not null,				-- 상품 번호
+	pno integer not null,				    -- 상품 번호
 	amount integer not null                 -- 상품 수량
 );
 
@@ -459,7 +459,7 @@ CREATE TABLE review(
 	star INT DEFAULT 5, 										-- 별점
 	content VARCHAR(1000), 										-- 리뷰 내용
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,		-- 리뷰 작성 일자
-	pno INT NOT NULL  										-- 상품 번호
+	pno INT NOT NULL  									      	-- 상품 번호
 );
 
 -------------------------------------------------------------------------------------------
