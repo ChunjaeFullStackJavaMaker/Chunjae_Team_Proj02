@@ -42,7 +42,7 @@ create table notice(
 	content varchar(1000),
 	author varchar(50),
 	resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	visit INTEGER DEFAULT 0
+	cnt INTEGER DEFAULT 0
 );
 
 -- 매장 전용 공지사항 더미글 추가 10건
@@ -155,7 +155,7 @@ CREATE TABLE qna(
 	content VARCHAR(1000) NOT NULL,   				-- 내용
 	author VARCHAR(16),   							-- 작성자
 	resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- 등록일
-	visit INT DEFAULT 0,   							-- 조회수
+	cnt INT DEFAULT 0,   							-- 조회수
 	lev INT DEFAULT 0, 								-- 질문(0), 답변(1)
 	par INT,										-- 질문(자신 레코드의 qno), 답변(질문의 글번호)
 	secret BOOLEAN DEFAULT false,				    -- 비밀글 유무
@@ -330,7 +330,7 @@ select * from filetest2;
 
 -- 상품 테이블 생성
 create table product(
-	pro_no serial PRIMARY KEY,
+	pno serial PRIMARY KEY,
 	cate_id VARCHAR(4) NOT NULL,								-- 품목 명
 	pro_cate_no VARCHAR(100) NOT NULL, 							-- 상품번호+Category : 1-10 이런 형식
 	price INT DEFAULT 0, 										-- 상품 가격					
@@ -345,7 +345,7 @@ create table product(
 -- 상품 부가정보 테이블 생성
 create table addinfo(
 	add_no serial primary key,
-	pro_no integer not null, 
+	pno integer not null, 
 	title varchar(200) not null,
 	movie varchar(256) default 'sample1.mp4',
 	resdate timestamp default current_timestamp
@@ -356,7 +356,7 @@ create table addinfo(
 -- 입고 테이블 생성
 create table receive(
 	re_no serial primary key,								-- 입고 번호
-	pro_no integer not null,                                -- 상품 번호
+	pno integer not null,                                -- 상품 번호
 	amount integer default 1,	         					-- 입고 수량
 	re_price integer default 1000,			    			-- 입고 가격
 	resdate timestamp default current_timestamp		    	-- 입고 일시
@@ -367,7 +367,7 @@ create table receive(
 -- 출고 테이블 생성
 create table serve(
 	se_no serial primary key,								-- 출고 번호
-	pro_no integer not null, 		                        -- 상품 번호
+	pno integer not null, 		                        -- 상품 번호
 	se_price integer default 1000,					    	-- 출고 가격
 	amount integer default 1,				         		-- 출고 수량
 	resdate timestamp default current_timestamp		    	-- 출고 일시
@@ -397,7 +397,7 @@ create table payment(
 	pay_no serial primary key,			-- 결제 번호
 	cus_id varchar(20) not null,		-- 고객 아이디
 	cus_num varchar(100),				-- 고객 번호
-	pro_no integer not null,			-- 상품 번호
+	pno integer not null,			    -- 상품 번호
 	amount integer default 1,			-- 결제 수량
 	pay_method varchar(100),			-- 결제 수단
 	pay_com varchar(100),				-- 결제 회사
@@ -444,7 +444,7 @@ insert into category values('U', '해외콘텐츠');
 create table cart(
 	cart_no serial primary key,				-- 카트 번호
 	cus_id varchar(20) not null,			-- 고객 아이디
-	pro_no integer not null,				-- 상품 번호
+	pno integer not null,				-- 상품 번호
 	amount integer not null                 -- 상품 수량
 );
 
@@ -459,7 +459,7 @@ CREATE TABLE review(
 	star INT DEFAULT 5, 										-- 별점
 	content VARCHAR(1000), 										-- 리뷰 내용
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,		-- 리뷰 작성 일자
-	pro_no INT NOT NULL  										-- 상품 번호
+	pno INT NOT NULL  										-- 상품 번호
 );
 
 -------------------------------------------------------------------------------------------
