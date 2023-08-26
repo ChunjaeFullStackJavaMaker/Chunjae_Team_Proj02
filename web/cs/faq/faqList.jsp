@@ -65,12 +65,10 @@
     <!-- 필요한 폰트를 로딩 : 구글 웹 폰트에서 폰트를 선택하여 해당 내용을 붙여 넣기 -->
     <link rel="stylesheet" href="<%=path5%>/css/google.css">
     <link rel="stylesheet" href="<%=path5%>/css/fonts.css">
-    <link rel="stylesheet" href="<%=path5%>/css/content_header.css">
 
     <!-- 필요한 플러그인 연결 -->
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <link rel="stylesheet" href="<%=path5%>/css/common.css">
-    <link rel="stylesheet" href="<%=path5%>/css/header.css">
     <style>
         /* 본문 영역 스타일 */
         .contents { clear:both; min-height:100vh;
@@ -119,7 +117,6 @@
         .inbtn:last-child { float:right; }
     </style>
 
-    <link rel="stylesheet" href="<%=path5%>/css/footer.css">
     <style>
         .btn_group { clear:both; width:800px; margin:20px auto; }
         .btn_group:after { content:""; display:block; width:100%; clear: both; }
