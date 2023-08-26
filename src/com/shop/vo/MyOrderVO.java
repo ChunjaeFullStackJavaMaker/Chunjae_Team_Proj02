@@ -6,6 +6,7 @@ public class MyOrderVO {
     private int pay_no;
     private String resdate;
     private String thumb;
+    private String description;
     private String title;
     private int amount;
     private int pay_price;
@@ -18,6 +19,7 @@ public class MyOrderVO {
                 "pay_no=" + pay_no +
                 ", resdate='" + resdate + '\'' +
                 ", thumb='" + thumb + '\'' +
+                ", description='" + description + '\'' +
                 ", title='" + title + '\'' +
                 ", amount=" + amount +
                 ", pay_price=" + pay_price +
@@ -48,6 +50,14 @@ public class MyOrderVO {
 
     public void setThumb(String thumb) {
         this.thumb = thumb;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getTitle() {

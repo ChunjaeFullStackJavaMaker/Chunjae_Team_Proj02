@@ -1,13 +1,9 @@
 package com.shop.model;
 
-import com.shop.vo.MyOrderVO;
+import com.shop.vo.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 public class MyPageDAO {
 
@@ -28,6 +24,7 @@ public class MyPageDAO {
                 order.setPay_no(rs.getInt("pay_no"));
                 order.setResdate(rs.getString("resdate"));
                 order.setThumb(rs.getString("thumb"));
+                order.setDescription(rs.getString("description"));
                 order.setTitle(rs.getString("title"));
                 order.setAmount(rs.getInt("amount"));
                 order.setPay_price(rs.getInt("pay_price"));

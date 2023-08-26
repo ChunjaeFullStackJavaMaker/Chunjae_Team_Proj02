@@ -54,24 +54,29 @@
                 </div>
             </div>
             <div class="col col-lg-9 mt-3">
-                <h4> 주문일자 </h4>
-                <hr>
-                <div class="row">
-                    <div class="col col-lg-2 d-flex align-items-center">
-                        <img src="${path}/img/product/bookthumb.jpg" alt="" width="90px" height="auto">
-                    </div>
-                    <div class="col col-lg-6">
-                        <h4> 책 제목 </h4>
-                        <p> 총 1권 / 50,000원 </p>
-                    </div>
-                    <div class="col col-lg-2 d-flex align-items-center">
-                        배송중
-                    </div>
-                    <div class="col col-lg-2 d-flex align-items-center">
-                        <button type="button" class="btn btn-outline-secondary"> 환불 </button>
-                    </div>
-                </div>
-                <hr class="mb-5">
+                <c:forEach var="order" items="${order}">
+                    <c:set var="resdate" value="${order.resdate}"></c:set>
+                    <h4> ${order.resdate} </h4>
+                    <hr>
+                    <c:if test="${resdate eq order.resdate}">
+                        <div class="row">
+                            <div class="col col-lg-2 d-flex align-items-center">
+                                <img src="${path}/img/product/${order.thumb}" alt="${order.description}" width="90px" height="auto">
+                            </div>
+                            <div class="col col-lg-6">
+                                <h4> 책 제목 </h4>
+                                <p> 총 1권 / 50,000원 </p>
+                            </div>
+                            <div class="col col-lg-2 d-flex align-items-center">
+                                배송중
+                            </div>
+                            <div class="col col-lg-2 d-flex align-items-center">
+                                <button type="button" class="btn btn-outline-secondary"> 환불 </button>
+                            </div>
+                        </div>
+                        <hr class="mb-5">
+                    </c:if>
+                </c:forEach>
 
                 <h4> 주문일자 </h4>
                 <hr>
