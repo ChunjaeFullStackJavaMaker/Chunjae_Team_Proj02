@@ -1,12 +1,13 @@
 package com.shop.model;
 
-import com.shop.dto.Payment;
-import com.shop.dto.Serve;
+import com.shop.dto.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PaymentDAO {
     static Connection conn = null;
@@ -94,6 +95,48 @@ public class PaymentDAO {
             con.close(rs, pstmt, conn);
         }
         return Pay_no;
+    }
+
+    public List<PaymentVO> getCidPaymentList(String cid){
+        List<PaymentVO> payList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.PAYMENT_SELECT_CID);
+            pstmt.setString(1, cid);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                PaymentVO pay = new PaymentVO();
+                pay.setPay_no(rs.getInt("pay_no"));
+                pay.setCus_id(rs.getString("cus_id"));
+                pay.setPro_no(rs.getInt("pro_no"));
+                pay.setAmount(rs.getInt("amount"));
+                pay.setPay_method(rs.getString("pay_method"));
+                pay.setPay_com(rs.getString("pay_com"));
+                pay.setCus_num(rs.getString("cus_num"));
+                pay.setPay_price(rs.getInt("pay_price"));
+                pay.setTitle(getTitle(pay.getPro_no()));
+                pay.setDel_state(getDel_state(pay.getPay_no()));
+                payList.add(pay);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return payList;
+    }
+
+    public String getTitle(int pno){
+        ProductDAO dao = new ProductDAO();
+        Product pro  = dao.getProduct(pno);
+        return pro.getTitle();
+    }
+
+    public int getDel_state(int pay_no){
+        DeliveryDAO dao = new DeliveryDAO();
+        Delivery del  = dao.getByPaynoDelivery(pay_no);
+        return del.getDel_state();
     }
 
 }

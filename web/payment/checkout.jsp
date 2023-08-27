@@ -1,16 +1,16 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ogani | Template</title>
-
+    <title>장바구니 결제</title>
+    <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@include file="/setting/head.jsp"%>
 </head>
 
@@ -61,7 +61,7 @@
         </div>
         <div class="checkout__form">
             <h4>Billing Details</h4>
-            <form action="/checkoutPro.do" onsubmit="return payCheck(this)">
+            <form action="${path }/checkoutPro.do" onsubmit="return payCheck(this)">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         <div class="checkout__input">
@@ -131,7 +131,7 @@
             <script>
                 $(document).ready(function(){
                     var cardArr1 = ["현대카드","농협카드","BC카드","KB카드"];
-                    var cardArr2 = ["하나카드","농협카드","BC카드"];
+                    var cardArr2 = ["하나카드","농협카드","BC카드","신한카드"];
                     var bankArr = ["카카오뱅크","농협은행","신한은행","기업은행","국민은행"];
                     $("#pay_method").change(function(){
                         var th = $(this).val();
@@ -201,7 +201,7 @@
                         var date = d.getFullYear()+''+(d.getMonth()+1)+''+d.getDate()+''+d.getHours()+''+d.getMinutes()+''+d.getSeconds();
                         IMP.init('imp11164187'); // 결제 API를 사용하기 위한 코드 입력!
                         IMP.request_pay({	      //결제 요청
-                            pg :T5102001,         //상점 거래 ID
+                            pg :"pgT5102001",         //상점 거래 ID
                             merchant_uid : '상품명_' + date, //
                             name : proName,				// 결제 명
                             amount : totalPay,					// 결제금액
