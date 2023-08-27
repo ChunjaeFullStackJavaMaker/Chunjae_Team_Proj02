@@ -20,10 +20,10 @@ public class CateProListCtrl extends HttpServlet {
         ProductDAO dao = new ProductDAO();
         List<Product> proList;
 
-        if(request.getParameter("cate_name")==""){
+        if(request.getParameter("cate_id")==""){
             proList = dao.getProductList();
         } else {
-            cate = request.getParameter("cate_name");
+            cate = request.getParameter("cate_id");
             proList = dao.getCateProductList(cate);
         }
 
