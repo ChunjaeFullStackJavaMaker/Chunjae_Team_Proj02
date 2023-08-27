@@ -3,7 +3,10 @@ package com.shop.model;
 import com.shop.vo.*;
 
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.Date;
 
 public class MyPageDAO {
 
@@ -22,7 +25,11 @@ public class MyPageDAO {
             while(rs.next()) {
                 MyOrderVO order = new MyOrderVO();
                 order.setPay_no(rs.getInt("pay_no"));
-                order.setResdate(rs.getString("resdate"));
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Date d = sdf.parse(rs.getString("resdate"));
+                order.setResdate(sdf.format(d));
+
                 order.setThumb(rs.getString("thumb"));
                 order.setDescription(rs.getString("description"));
                 order.setTitle(rs.getString("title"));
@@ -33,6 +40,8 @@ public class MyPageDAO {
                 myOrderList.add(order);
             }
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);

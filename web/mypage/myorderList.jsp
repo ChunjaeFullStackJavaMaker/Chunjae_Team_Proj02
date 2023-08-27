@@ -22,6 +22,17 @@
             font-weight: bold;
         }
     </style>
+
+    <c:if test="${msg eq 'success'}">
+        <script>
+            alert("취소/반품이 처리되었습니다.");
+        </script>
+    </c:if>
+    <c:if test="${msg eq 'fail'}">
+        <script>
+            alert("취소/반품 처리에 실패하였습니다.");
+        </script>
+    </c:if>
 </head>
 
 <body>
@@ -48,54 +59,74 @@
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
                     <a href="" class="d-block"> 개인정보 변경 </a>
-                    <a href="" class="d-block mt-2" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
-                    <a href="" class="d-block mt-2"> 취소/반품/교환 조회 </a>
+                    <a href="${path}/MyOrderList.do" class="d-block mt-2" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
+                    <a href="" class="d-block mt-2"> 취소/반품 조회 </a>
                     <a href="" class="d-block mt-2"> 리뷰 관리</a>
                 </div>
             </div>
             <div class="col col-lg-9 mt-3">
-                <c:forEach var="order" items="${order}">
-                    <c:set var="resdate" value="${order.resdate}"></c:set>
-                    <h4> ${order.resdate} </h4>
-                    <hr>
+                <c:set var="resdate" value=""/>
+                <c:forEach var="order" items="${orderList}">
                     <c:if test="${resdate eq order.resdate}">
                         <div class="row">
                             <div class="col col-lg-2 d-flex align-items-center">
                                 <img src="${path}/img/product/${order.thumb}" alt="${order.description}" width="90px" height="auto">
                             </div>
                             <div class="col col-lg-6">
-                                <h4> 책 제목 </h4>
-                                <p> 총 1권 / 50,000원 </p>
+                                <h4> ${order.title} </h4>
+                                <p> 총 ${order.amount}권 / ${order.pay_price}원 </p>
                             </div>
                             <div class="col col-lg-2 d-flex align-items-center">
-                                배송중
+                                    ${order.del_state}
                             </div>
                             <div class="col col-lg-2 d-flex align-items-center">
-                                <button type="button" class="btn btn-outline-secondary"> 환불 </button>
+                                <c:if test="${order.del_state eq '입고 중'}">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?pay_no=${order.pay_no}'"> 취소 </button>
+                                </c:if>
+                                <c:if test="${order.del_state eq '배송 도착'}">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?pay_no=${order.pay_no}'"> 환불 </button>
+                                </c:if>
+                            </div>
+                        </div>
+                        <hr class="mb-5">
+                    </c:if>
+                    <c:if test="${resdate ne order.resdate}">
+                        <c:set var="resdate" value="${order.resdate}"></c:set>
+                        <div class="row">
+                            <div class="col col-lg-10 d-flex align-items-center">
+                                <h4> ${order.resdate} </h4>
+                            </div>
+                            <c:if test="${order.del_state eq '입고 중'}">
+                                <button type="button" class="btn btn-secondary" onclick="javascript:location.href='${path}/ReturnPayments.do?resdate=${order.resdate}'"> 전체 취소 </button>
+                            </c:if>
+                            <c:if test="${order.del_state eq '배송 도착'}">
+                                <button type="button" class="btn btn-secondary" onclick="javascript:location.href='${path}/ReturnPayments.do?resdate=${order.resdate}'"> 전체 환불 </button>
+                            </c:if>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col col-lg-2 d-flex align-items-center">
+                                <img src="${path}/img/product/${order.thumb}" alt="${order.description}" width="90px" height="auto">
+                            </div>
+                            <div class="col col-lg-6">
+                                <h4> ${order.title} </h4>
+                                <p> 총 ${order.amount}권 / ${order.pay_price}원 </p>
+                            </div>
+                            <div class="col col-lg-2 d-flex align-items-center">
+                                    ${order.del_state}
+                            </div>
+                            <div class="col col-lg-2 d-flex align-items-center">
+                                <c:if test="${order.del_state eq '입고 중'}">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?pay_no=${order.pay_no}'"> 취소 </button>
+                                </c:if>
+                                <c:if test="${order.del_state eq '배송 도착'}">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?pay_no=${order.pay_no}'"> 환불 </button>
+                                </c:if>
                             </div>
                         </div>
                         <hr class="mb-5">
                     </c:if>
                 </c:forEach>
-
-                <h4> 주문일자 </h4>
-                <hr>
-                <div class="row">
-                    <div class="col col-lg-2 d-flex align-items-center">
-                        <img src="${path}/img/product/bookthumb.jpg" alt="" width="90px" height="auto">
-                    </div>
-                    <div class="col col-lg-6">
-                        <h4> 책 제목 </h4>
-                        <p> 총 1권 / 50,000원 </p>
-                    </div>
-                    <div class="col col-lg-2 d-flex align-items-center">
-                        배송중
-                    </div>
-                    <div class="col col-lg-2 d-flex align-items-center">
-                        <button type="button" class="btn btn-outline-secondary"> 환불 </button>
-                    </div>
-                </div>
-                <hr class="mb-5">
             </div>
         </div>
     </div>

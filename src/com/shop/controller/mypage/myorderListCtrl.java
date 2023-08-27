@@ -13,6 +13,8 @@ import java.util.List;
 public class myorderListCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String msg = request.getParameter("msg");
+
         HttpSession session = request.getSession();
 //        String sid = (String) session.getAttribute("sid");
         String sid = "shin";
@@ -20,6 +22,7 @@ public class myorderListCtrl extends HttpServlet {
         MyPageDAO dao = new MyPageDAO();
         List<MyOrderVO> orderList = dao.getMyOrderList(sid);
 
+        request.setAttribute("msg", msg);
         request.setAttribute("orderList", orderList);
 
         RequestDispatcher view = request.getRequestDispatcher("/mypage/myorderList.jsp");
