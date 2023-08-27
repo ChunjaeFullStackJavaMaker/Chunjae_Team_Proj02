@@ -4,7 +4,6 @@ public class Board {
     private int bno;
     private String title;
     private String content;
-    private String author;
     private String resdate;
     private int cnt;
 
@@ -32,14 +31,6 @@ public class Board {
         this.content = content;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public String getResdate() {
         return resdate;
     }
@@ -62,7 +53,6 @@ public class Board {
                 "bno=" + bno +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", author='" + author + '\'' +
                 ", resdate='" + resdate + '\'' +
                 ", cnt=" + cnt +
                 '}';

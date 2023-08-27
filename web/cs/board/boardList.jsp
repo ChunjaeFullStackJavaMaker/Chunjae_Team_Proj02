@@ -9,6 +9,13 @@
     <title>공지사항 목록</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="/common.jsp"%>
+    <link rel="stylesheet" href="<%=path5%>/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=path5%>/css/elegant-icons.css">
+    <link rel="stylesheet" href="<%=path5%>/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="<%=path5%>/css/nice-select.css">
+    <link rel="stylesheet" href="<%=path5%>/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<%=path5%>/css/slicknav.min.css">
+    <link rel="stylesheet" href="<%=path5%>/css/style.css">
     <style>
     #tb1 { width:960px; margin:40px auto; }
     #tb1 th { background-color: #111; color:#fff; }
@@ -17,38 +24,36 @@
     .item3 { width:10%; }
     .item4 { width:10%; }
     #page-nation1 { width: 960px; margin:20px auto; }
+
+    .contents { clear:both; min-height:100vh;
+        /*background-image: url("../images/bg_visual_overview.jpg");*/
+        background-repeat: no-repeat; background-position:center -250px; }
+    .contents::after { content:""; clear:both; display:block; width:100%; }
+
+    .page { clear:both; width: 100vw; height: 100vh; position:relative; }
+    .page::after { content:""; display:block; width: 100%; clear:both; }
+
+    .page_wrap { clear:both; width: 1200px; height: auto; margin:0 auto; }
+    .page_tit { font-size:48px; text-align: center; padding-top:1em; color:#fff;
+        padding-bottom: 2.4rem; }
+
+    .content_tit {
+        font-weight: bold;
+        font-size: 25px;
+        margin: 80px 30px 30px 10px;
+    }
+
     </style>
 </head>
 <body>
 <div class="container-fluid">
     <%@ include file="/layout/header.jsp" %>
     <div class="contents" style="min-height:100vh">
-        <div id="carouselExample" class="carousel slide" style="max-height:300px;overflow:hidden;">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="${path }/images/sub_vs01.jpg" class="d-block w-100" alt="천재교과서">
-                </div>
-                <div class="carousel-item">
-                    <img src="${path }/images/sub_vs02.jpg" class="d-block w-100" alt="천재문제집">
-                </div>
-                <div class="carousel-item">
-                    <img src="${path }/images/sub_vs03.jpg" class="d-block w-100" alt="천재참고서">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
         <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
             <div class="container">
                 <ol class="breadcrumb justify-content-end">
                     <li class="breadcrumb-item"><a href="${path }">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Notice</a></li>
+                    <li class="breadcrumb-item"><a href="#">Board</a></li>
                     <li class="breadcrumb-item active" aria-current="page">List</li>
                 </ol>
             </div>
@@ -58,7 +63,7 @@
         <div class="container">
             <div class="box_wrap">
                 <div class="form-wrap">
-                    <form action="${path }/KwdNoticeList.do" method="post">
+                    <form action="${path }/KwdBoardList.do" method="post">
                         <fieldset class="input-group">
                             <select name="searchType" id="searchType" class="form-select" style="max-width:200px;">
                                 <option value="title">제목</option>
@@ -80,14 +85,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="noti" items="${notiList }" varStatus="status">
+                    <c:forEach var="boa" items="${boaList }" varStatus="status">
                     <tr>
-                        <td class="item1">${noti.no }</td>
+                        <td class="item1">${boa.no }</td>
                         <td class="item2">
-                            <a href="${path }/Notice.do?no=${noti.no }">${noti.title }</a>
+                            <a href="${path }/Board.do?no=${boa.no }">${boa.title }</a>
                         </td>
                         <td class="item3">
-                            <fmt:parseDate value="${noti.resdate }}" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                            <fmt:parseDate value="${boa.resdate }}" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
                             <fmt:formatDate value="${resdate}" pattern="yyyy-MM-dd" />
                         </td>
                     </tr>
@@ -98,7 +103,7 @@
                     <c:if test="${empty kwd }">
                     <ul class="pagination">
                         <c:if test="${ curPageNum > 5 }">
-                            <li lass="page-item"><a href="${path }/NoticeList.do?page=${ blockStartNum - 1 }" class="page-link">◀</a></li>
+                            <li lass="page-item"><a href="${path }/BoardList.do?page=${ blockStartNum - 1 }" class="page-link">◀</a></li>
                         </c:if>
                         <c:forEach var="i" begin="${ blockStartNum }" end="${ blockLastNum }">
                             <c:choose>
@@ -106,19 +111,19 @@
                                     <li class="page-item" style="width:35px;height:38px;line-height:38px;text-align:center;"><strong>${ i }</strong></li>
                                 </c:when>
                                 <c:otherwise>
-                                    <li class="page-item"><a href="${path }/NoticeList.do?page=${ i }" class="page-link">${ i }</a></li>
+                                    <li class="page-item"><a href="${path }/BoardList.do?page=${ i }" class="page-link">${ i }</a></li>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
                         <c:if test="${ blockLastNum < totalPageCount }">
-                            <li class="page-item"><a href="${path }/NoticeList.do?page=${ blockLastNum + 1 }" class="page-link">▶</a></li>
+                            <li class="page-item"><a href="${path }/BoardList.do?page=${ blockLastNum + 1 }" class="page-link">▶</a></li>
                         </c:if>
                     </ul>
                     </c:if>
                     <c:if test="${!empty kwd }">
                         <ul class="pagination">
                             <c:if test="${ curPageNum > 5 }">
-                                <li lass="page-item"><a href="${path }/KwdNoticeList.do?page=${ blockStartNum - 1 }&{kwd }&searchType=${searchType}" class="page-link">◀</a></li>
+                                <li lass="page-item"><a href="${path }/KwdBoardList.do?page=${ blockStartNum - 1 }&{kwd }&searchType=${searchType}" class="page-link">◀</a></li>
                             </c:if>
                             <c:forEach var="i" begin="${ blockStartNum }" end="${ blockLastNum }">
                                 <c:choose>
@@ -126,12 +131,12 @@
                                         <li class="page-item" style="width:35px;height:38px;line-height:38px;text-align:center;"><strong>${ i }</strong></li>
                                     </c:when>
                                     <c:otherwise>
-                                        <li class="page-item"><a href="${path }/KwdNoticeList.do?page=${ i }&kwd=${kwd }&searchType=${searchType}" class="page-link">${ i }</a></li>
+                                        <li class="page-item"><a href="${path }/KwdBoardList.do?page=${ i }&kwd=${kwd }&searchType=${searchType}" class="page-link">${ i }</a></li>
                                     </c:otherwise>
                                 </c:choose>
                             </c:forEach>
                             <c:if test="${ blockLastNum < totalPageCount }">
-                                <li class="page-item"><a href="${path }/KwdNoticeList.do?page=${ blockLastNum + 1 }&kwd=${kwd }&searchType=${searchType}" class="page-link">▶</a></li>
+                                <li class="page-item"><a href="${path }/KwdBoardList.do?page=${ blockLastNum + 1 }&kwd=${kwd }&searchType=${searchType}" class="page-link">▶</a></li>
                             </c:if>
                         </ul>
                     </c:if>
@@ -139,7 +144,7 @@
                 <hr>
                 <c:if test="${sid.equals('admin')}">
                 <div class="container">
-                    <a href="${path }/AddNotice.do" class="btn btn-primary">공지사항 등록</a>
+                    <a href="${path }/AddBoard.do" class="btn btn-primary">공지사항 등록</a>
                 </div>
                 </c:if>
             </div>

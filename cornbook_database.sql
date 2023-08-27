@@ -154,7 +154,7 @@ CREATE TABLE qna(
 	title VARCHAR(100) NOT NULL,   					-- 제목
 	content VARCHAR(1000) NOT NULL,   				-- 내용
 	author VARCHAR(16),   							-- 작성자
-	resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- 등록일
+	resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,    -- 등록일
 	cnt INT DEFAULT 0,   							-- 조회수
 	lev INT DEFAULT 0, 								-- 질문(0), 답변(1)
 	par INT,										-- 질문(자신 레코드의 qno), 답변(질문의 글번호)

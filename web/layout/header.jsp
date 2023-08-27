@@ -9,17 +9,18 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="header__top__right">
                         <div class="header__top__right__auth">
-                            <c:if test="${sid eq null}">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
+                            <c:if test="${sid eq 'admin' }">
+                                <li class="nav-item"><a href="${path1 }/Admin.do" class="nav-link">Admin</a></li>
                             </c:if>
-                            <c:if test="${sid ne null and sid ne 'admin'}">
-                                <a href="#"><i class="fa fa-user"></i> Logout </a>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> MyPage </a>
+                            <c:if test="${!empty sid }">
+                                <li class="nav-item"><a href="${path1 }/Mypage.do" class="nav-link">Mypage</a></li>
+                                <li class="nav-item"><a href="${path1 }/PaymentList.do" class="nav-link">PayList</a></li>
+                                <li class="nav-item"><a href="${path1 }/CartList.do" class="nav-link">Cart Info</a></li>
+                                <li class="nav-item"><a href="${path1 }/Logout.do" class="nav-link">Logout</a></li>
                             </c:if>
-                            <c:if test="${sid eq 'admin'}">
-                                <a href="#"><i class="fa fa-user"></i> Logout </a>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Admin Page </a>
+                            <c:if test="${empty sid }">
+                                <li class="nav-item"><a href="${path1 }/login/login.jsp" class="nav-link">Login</a></li>
+                                <li class="nav-item"><a href="${path1 }/login/term.jsp" class="nav-link">Join</a></li>
                             </c:if>
                         </div>
                     </div>

@@ -38,13 +38,13 @@ public class BoardDAO {
         return boaList;
     }
 
-    public List<Board> getBoardList(int no){
+    public List<Board> getBoardList(int bno){
         List<Board> boaList = new ArrayList<>();
         DBConnect con = new PostgreCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.BOARD_SELECT_RANGE);
-            pstmt.setInt(1, no);
+            pstmt.setInt(1, bno);
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Board boa = new Board();
@@ -63,7 +63,7 @@ public class BoardDAO {
         return boaList;
     }
 
-    public Board getBoard(int no){
+    public Board getBoard(int bno){
         Board boa = new Board();
         DBConnect con = new PostgreCon();
         conn = con.connect();
@@ -73,7 +73,7 @@ public class BoardDAO {
 
         try {
             pstmt = conn.prepareStatement(DBConnect.BOARD_SELECT_ONE);
-            pstmt.setInt(1, no);
+            pstmt.setInt(1, bno);
             rs = pstmt.executeQuery();
 
             if(rs.next()){
@@ -116,7 +116,7 @@ public class BoardDAO {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "update board set title=?, content=? where no=?";
+        String sql = "update board set title=?, content=? where bno=?";
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, "수정 DAO테스트1");
@@ -131,7 +131,7 @@ public class BoardDAO {
         return cnt;
     }
 
-    public int deleteBoard(int no){
+    public int deleteBoard(int bno){
         int cnt = 0;
         DBConnect con = new PostgreCon();
         conn = con.connect();
@@ -139,7 +139,7 @@ public class BoardDAO {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "delete from board where no=?";
+        String sql = "delete from board where bno=?";
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, 5);
@@ -206,7 +206,7 @@ public class BoardDAO {
         return cnt;
     }
 
-    public List<Board> getBoardList(String searchType, String kwd, int no) {
+    public List<Board> getBoardList(String searchType, String kwd, int bno) {
         List<Board> boaList = new ArrayList<>();
         DBConnect con = new PostgreCon();
         try {
@@ -214,16 +214,16 @@ public class BoardDAO {
             if(searchType.equals("title")) {
                 pstmt = conn.prepareStatement(DBConnect.BOARD_SELECT_TITLE_RANGE);
                 pstmt.setString(1, "%"+kwd+"%");
-                pstmt.setInt(2, no);
+                pstmt.setInt(2, bno);
             } else if(searchType.equals("content")){
                 pstmt = conn.prepareStatement(DBConnect.BOARD_SELECT_CONTENT_RANGE);
                 pstmt.setString(1, "%"+kwd+"%");
-                pstmt.setInt(2, no);
+                pstmt.setInt(2, bno);
             } else {
                 pstmt = conn.prepareStatement(DBConnect.BOARD_SELECT_ALL_RANGE);
                 pstmt.setString(1, "%"+kwd+"%");
                 pstmt.setString(2, "%"+kwd+"%");
-                pstmt.setInt(3, no);
+                pstmt.setInt(3, bno);
             }
             rs = pstmt.executeQuery();
             while(rs.next()){
