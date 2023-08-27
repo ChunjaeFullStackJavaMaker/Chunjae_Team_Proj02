@@ -114,9 +114,9 @@
                             <div class="checkout__order__products">Products <span>Total</span></div>
                             <ul>
                                 <c:forEach var="cartVO" items="${cartList}">
-                                <li>${cartVO.title } <span>${cartVO.price*cartVO.amount}</span>
+                                <li>${cartVO.title } <span class="total">${cartVO.price*cartVO.amount}</span>
                                     <input type="hidden" name="title" id="proName" value="${cartVO.title }">
-                                    <input type="hidden" name="sprice" id="sprice" value="${cartVO.price*cartVO.amount}">
+
                                 </li>
                                 </c:forEach>
                             </ul>
@@ -186,15 +186,16 @@
                         var addr = $("#addr").val();
                         var postcode = $("#postcode").val();
                         proName = $("#proName").val();
-                        $("#sprice").each(function(){
-                            totalPay += Number($(this).val());
+                        $(".total").each(function(){
+                            totalPay = totalPay + parseInt($(this).text());
                         });
 
                         //합계를 출력
-                        $("#totalprice").text(totalPay);
                         $("#subprice").text(totalPay);
+                        $("#totalprice").text(totalPay);
 
                         alert("결제할 금액 : "+totalPay);
+
                         //상품명_현재시간
                         var d = new Date();
                         var date = d.getFullYear()+''+(d.getMonth()+1)+''+d.getDate()+''+d.getHours()+''+d.getMinutes()+''+d.getSeconds();
