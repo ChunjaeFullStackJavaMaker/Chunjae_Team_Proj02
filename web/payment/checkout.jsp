@@ -198,9 +198,10 @@
                         //상품명_현재시간
                         var d = new Date();
                         var date = d.getFullYear()+''+(d.getMonth()+1)+''+d.getDate()+''+d.getHours()+''+d.getMinutes()+''+d.getSeconds();
-                        IMP.init('imp31083748'); // 결제 API를 사용하기 위한 코드 입력!
-                        IMP.request_pay({		//결제 요청
-                            merchant_uid : '상품명_' + date, //상점 거래 ID
+                        IMP.init('imp11164187'); // 결제 API를 사용하기 위한 코드 입력!
+                        IMP.request_pay({	      //결제 요청
+                            pg :T5102001,         //상점 거래 ID
+                            merchant_uid : '상품명_' + date, //
                             name : proName,				// 결제 명
                             amount : totalPay,					// 결제금액
                             buyer_email : email, // 구매자 email
