@@ -9,8 +9,8 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/ProList.do")
-public class ProductListCtrl extends HttpServlet {
+@WebServlet("/CateProList.do")
+public class CateProListCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("msg", "상품 리스트를 출력합니다.");
@@ -20,10 +20,10 @@ public class ProductListCtrl extends HttpServlet {
         ProductDAO dao = new ProductDAO();
         List<Product> proList;
 
-        if(request.getParameter("cate_id")==""){
+        if(request.getParameter("cate_name")==""){
             proList = dao.getProductList();
         } else {
-            cate = request.getParameter("cate_id");
+            cate = request.getParameter("cate_name");
             proList = dao.getCateProductList(cate);
         }
 
