@@ -1,4 +1,4 @@
-package test;
+package com.shop.test;
 
 import com.shop.model.DBConnect;
 import com.shop.model.*;

@@ -22,17 +22,6 @@
             font-weight: bold;
         }
     </style>
-
-    <c:if test="${msg eq 'success'}">
-        <script>
-            alert("취소/반품이 처리되었습니다.");
-        </script>
-    </c:if>
-    <c:if test="${msg eq 'fail'}">
-        <script>
-            alert("취소/반품 처리에 실패하였습니다.");
-        </script>
-    </c:if>
 </head>
 
 <body>
@@ -95,8 +84,8 @@
                             <td class="align-middle">${pro.title}</td>
                             <td class="align-middle">${pro.price}원 </td>
                             <td class="align-middle">
-                                <button class="btn btn-outline-primary"> 수정 </button>
-                                <button class="btn btn-outline-primary"> 삭제 </button>
+                                <button class="btn btn-outline-primary" onclick="javascript: location.href='${path}/UpdateProduct.do?pro_no=${pro.pro_no}'"> 수정 </button>
+                                <button class="btn btn-outline-primary" onclick="javascript: location.href='${path}/DelProduct.do?pro_no=${pro.pro_no}'"> 삭제 </button>
                             </td>
                         </tr>
                     </c:forEach>

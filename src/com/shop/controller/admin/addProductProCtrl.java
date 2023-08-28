@@ -38,33 +38,34 @@ public class addProductProCtrl extends HttpServlet {
             add.setDescription(mr.getParameter("description"));
             add.setPro_content(mr.getParameter("pro_content"));
 
-            String fileName = mr.getFilesystemName("thumb");
-            String fileName2 = mr.getFilesystemName("img_src");
-            if (fileName != null && fileName2 != null ){
-                String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
-                String ext = fileName.substring(fileName.lastIndexOf("."));
-                String ext2 = fileName2.substring(fileName.lastIndexOf("."));
-                String newFileName = now + ext;
-                String newFileName2 = now + ext2;
-                add.setThumb(newFileName);
-                add.setImg_src(newFileName2);
-            }
-
+            File upfile = null;
             Enumeration files = mr.getFileNames();
-            while (files.hasMoreElements()) {
-                String item = (String) files.nextElement();
 
-
-                File upfile = mr.getFile(item); //실제 업로드
-                if (upfile.exists()) {
-                    msg = "파일 업로드 성공";
-                } else {
-                    msg = "파일 업로드 실패";
+            int idx = 1;
+            String item;
+            String oriFile = "";
+            String fileName = "";
+            while(files.hasMoreElements()) {
+                item = (String) files.nextElement();
+                oriFile = mr.getOriginalFileName(item);         // 실제 첨부된 파일 경로와 이름
+                fileName = mr.getFilesystemName(item);          // 파일 이름만 추출
+                if(fileName != null) {
+                    upfile = mr.getFile(item);
+                    if(upfile.exists()) {
+                        long filesize = upfile.length();
+                        if(idx == 1) {
+                            add.setImg_src(upfile.getName());
+                        } else if(idx == 2) {
+                            add.setThumb(upfile.getName());
+                        }
+                        msg = "파일 업로드 성공";
+                    } else {
+                        msg = "파일 업로드 실패";
+                    }
                 }
-
-                add.setThumb(upfile.getName());
-                add.setImg_src(upfile.getName());
+                idx++;
             }
+
             ProductDAO dao = new ProductDAO();
             int cnt = dao.addProduct(add);
 
