@@ -60,7 +60,6 @@
                 <div class="p-4 border">
                     <a href="" class="d-block"> 개인정보 변경 </a>
                     <a href="${path}/MyOrderList.do" class="d-block mt-2" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
-                    <a href="" class="d-block mt-2"> 취소/반품 조회 </a>
                     <a href="" class="d-block mt-2"> 리뷰 관리</a>
                 </div>
             </div>
