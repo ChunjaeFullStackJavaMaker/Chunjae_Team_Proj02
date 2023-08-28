@@ -10,7 +10,7 @@
                     <div class="header__top__right">
                         <div class="header__top__right__auth">
                             <c:if test="${sid eq null}">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                                <a href="/Login.do"><i class="fa fa-user"></i> Login</a>
                                 <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
                             </c:if>
                             <c:if test="${sid ne null and sid ne 'admin'}">
@@ -83,7 +83,7 @@
                 <div class="header__cart">
                     <ul>
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="${path}/cartList.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                     </ul>
                     <div class="header__cart__price">item: <span>$150.00</span></div>
                 </div>
