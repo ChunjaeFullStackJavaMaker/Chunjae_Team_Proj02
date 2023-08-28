@@ -15,16 +15,17 @@ public class ProductListCtrl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("msg", "상품 리스트를 출력합니다.");
 
-        String cate = "";
+        String cate = request.getParameter("cate");
 
         ProductDAO dao = new ProductDAO();
         List<Product> proList;
 
-        if(request.getParameter("cate_id")==""){
-            proList = dao.getProductList();
-        } else {
+        if(cate==""){
             cate = request.getParameter("cate_id");
             proList = dao.getCateProductList(cate);
+        } else {
+
+            proList = dao.getProductList();
         }
 
         request.setAttribute("proList", proList);

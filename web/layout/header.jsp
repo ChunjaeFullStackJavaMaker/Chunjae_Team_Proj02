@@ -39,33 +39,33 @@
                     <ul>
                         <li><a href="${path}/ProList.do?cate=child"> 유아 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/ProList.do?cate=childContents">유아 콘텐츠</a></li>
-                                <li><a href="${path}/ProList.do?cate=childPlay">유아 놀이</a></li>
-                                <li><a href="${path}/ProList.do?cate=childOthers">유아 기타</a></li>
+                                <li><a href="${path}/ProList.do?cate=Q">유아 콘텐츠</a></li>
+                                <li><a href="${path}/ProList.do?cate=R">유아 놀이</a></li>
+                                <li><a href="${path}/ProList.do?cate=S">유아 기타</a></li>
                             </ul>
                         </li>
                         <li><a href="${path}/ProList.do?cate=elementary"> 초등 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/ProList.do?cate=eleTextbook">초등 교과서</a></li>
-                                <li><a href="${path}/ProList.do?cate=eleRefer">초등 참고서</a></li>
-                                <li><a href="${path}/ProList.do?cate=eleWorkbook">초등 문제집</a></li>
-                                <li><a href="${path}/ProList.do?cate=eleOthers">초등 기타</a></li>
+                                <li><a href="${path}/ProList.do?cate=A">초등 교과서</a></li>
+                                <li><a href="${path}/ProList.do?cate=B">초등 참고서</a></li>
+                                <li><a href="${path}/ProList.do?cate=C">초등 문제집</a></li>
+                                <li><a href="${path}/ProList.do?cate=D">초등 기타</a></li>
                             </ul>
                         </li>
                         <li><a href="${path}/ProList.do?cate=middle"> 중등 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/ProList.do?cate=midTextbook">중등 교과서</a></li>
-                                <li><a href="${path}/ProList.do?cate=midRefer">중등 참고서</a></li>
-                                <li><a href="${path}/ProList.do?cate=midWorkbook">중등 문제집</a></li>
-                                <li><a href="${path}/ProList.do?cate=midOthers">중등 기타</a></li>
+                                <li><a href="${path}/ProList.do?cate=E">중등 교과서</a></li>
+                                <li><a href="${path}/ProList.do?cate=F">중등 참고서</a></li>
+                                <li><a href="${path}/ProList.do?cate=G">중등 문제집</a></li>
+                                <li><a href="${path}/ProList.do?cate=H">중등 기타</a></li>
                             </ul>
                         </li>
                         <li><a href="${path}/ProList.do?cate=high"> 고등 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/ProList.do?cate=highTextbook">고등 교과서</a></li>
-                                <li><a href="${path}/ProList.do?cate=highRefer">고등 참고서</a></li>
-                                <li><a href="${path}/ProList.do?cate=highWorkbook">고등 문제집</a></li>
-                                <li><a href="${path}/ProList.do?cate=highOthers">고등 기타</a></li>
+                                <li><a href="${path}/ProList.do?cate=I">고등 교과서</a></li>
+                                <li><a href="${path}/ProList.do?cate=J">고등 참고서</a></li>
+                                <li><a href="${path}/ProList.do?cate=K">고등 문제집</a></li>
+                                <li><a href="${path}/ProList.do?cate=L">고등 기타</a></li>
                             </ul>
                         </li>
                         <li><a href="#"> 고객지원 </a>
