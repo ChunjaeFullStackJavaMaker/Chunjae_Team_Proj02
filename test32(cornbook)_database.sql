@@ -45,32 +45,31 @@ create table notice(
 	nno int primary KEY AUTO_INCREMENT, 
 	title varchar(200) not NULL, 
 	content varchar(1000),
-	author varchar(50),
 	resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	visit int DEFAULT 0
 );
 
 -- 매장 전용 공지사항 더미글 추가 10건
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항1', '여기는 공지사항1입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항1', '여기는 공지사항1입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항2', '여기는 공지사항2입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항2', '여기는 공지사항2입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항3', '여기는 공지사항3입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항3', '여기는 공지사항3입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항4', '여기는 공지사항4입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항4', '여기는 공지사항4입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항5', '여기는 공지사항5입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항5', '여기는 공지사항5입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항6', '여기는 공지사항6입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항6', '여기는 공지사항6입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항7', '여기는 공지사항7입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항7', '여기는 공지사항7입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
 
 commit;
 
@@ -159,7 +158,7 @@ CREATE TABLE qna(
 	title VARCHAR(100) NOT NULL,   					-- 제목
 	content VARCHAR(1000) NOT NULL,   				-- 내용
 	author VARCHAR(16),   							-- 작성자
-	resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- 등록일
+	resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,    -- 등록일
 	visit INT DEFAULT 0,   							-- 조회수
 	lev INT DEFAULT 0, 								-- 질문(0), 답변(1)
 	par INT,										-- 질문(자신 레코드의 qno), 답변(질문의 글번호)
@@ -235,11 +234,11 @@ COMMIT;
 select * from qna;
 
 -- QnA 리스트
-SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.cnt AS cnt, a.lev AS lev,
+SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit AS visit, a.lev AS lev,
 a.par AS par, b.name AS name FROM qna a, member b WHERE a.author=b.id ORDER BY a.par DESC, a.lev ASC, a.qno ASC;
 
 -- qna JOIN & VIEW 생성 ( 내가 쓴 글에 이용)
-CREATE VIEW qnalist2 AS (SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.cnt AS cnt, a.lev AS lev,
+CREATE VIEW qnalist2 AS (SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit AS visit, a.lev AS lev,
 a.par AS par, b.id AS id FROM qna a, member b WHERE a.author=b.id ORDER BY a.par DESC, a.lev ASC, a.qno ASC);
 
 SELECT * FROM qnalist2;
