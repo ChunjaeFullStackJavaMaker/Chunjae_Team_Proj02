@@ -7,20 +7,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
+                <div class="col-lg-12 col-md-12">
                     <div class="header__top__right">
                         <div class="header__top__right__auth">
-                            <c:if test="${sid eq 'com.shop.controller.admin' }">
-                                <li class="nav-item"><a href="${path1 }/Admin.do" class="nav-link">Admin</a></li>
+                            <c:if test="${sid eq null}">
+                                <a href="/Login.do"><i class="fa fa-user"></i> Login</a>
+                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
                             </c:if>
-                            <c:if test="${!empty sid }">
-                                <li class="nav-item"><a href="${path1 }/Mypage.do" class="nav-link">Mypage</a></li>
-                                <li class="nav-item"><a href="${path1 }/PaymentList.do" class="nav-link">PayList</a></li>
-                                <li class="nav-item"><a href="${path1 }/CartList.do" class="nav-link">Cart Info</a></li>
-                                <li class="nav-item"><a href="${path1 }/Logout.do" class="nav-link">Logout</a></li>
+                            <c:if test="${sid ne null and sid ne 'admin'}">
+                                <a href="#"><i class="fa fa-user"></i> Logout </a>
+                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> MyPage </a>
                             </c:if>
-                            <c:if test="${empty sid }">
-                                <li class="nav-item"><a href="${path1 }/login/login.jsp" class="nav-link">Login</a></li>
-                                <li class="nav-item"><a href="${path1 }/login/term.jsp" class="nav-link">Join</a></li>
+                            <c:if test="${sid eq 'admin'}">
+                                <a href="#"><i class="fa fa-user"></i> Logout </a>
+                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Admin Page </a>
                             </c:if>
                         </div>
                     </div>
@@ -38,42 +38,42 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li><a href="#"> 영유아 </a>
+                        <li><a href="${path}/ProList.do?cate=Q&R&S"> 유아 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="">유아콘텐츠</a></li>
-                                <li><a href="">유아놀이</a></li>
-                                <li><a href="">유아기타</a></li>
+                                <li><a href="${path}/ProList.do?cate=Q">유아 콘텐츠</a></li>
+                                <li><a href="${path}/ProList.do?cate=R">유아 놀이</a></li>
+                                <li><a href="${path}/ProList.do?cate=S">유아 기타</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"> 초등 </a>
+                        <li><a href="${path}/ProList.do?cate=A&B&C&D"> 초등 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/product/getProduct.jsp"> 교과서 </a></li>
-                                <li><a href=""> 참고서 </a></li>
-                                <li><a href=""> 문제집 </a></li>
-                                <li><a href=""> 기타 </a></li>
+                                <li><a href="${path}/ProList.do?cate=A">초등 교과서</a></li>
+                                <li><a href="${path}/ProList.do?cate=B">초등 참고서</a></li>
+                                <li><a href="${path}/ProList.do?cate=C">초등 문제집</a></li>
+                                <li><a href="${path}/ProList.do?cate=D">초등 기타</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"> 중등 </a>
+                        <li><a href="${path}/ProList.do?cate=E&F&G&H"> 중등 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/product/getProduct.jsp"> 교과서 </a></li>
-                                <li><a href=""> 참고서 </a></li>
-                                <li><a href=""> 문제집 </a></li>
-                                <li><a href=""> 기타 </a></li>
+                                <li><a href="${path}/ProList.do?cate=E">중등 교과서</a></li>
+                                <li><a href="${path}/ProList.do?cate=F">중등 참고서</a></li>
+                                <li><a href="${path}/ProList.do?cate=G">중등 문제집</a></li>
+                                <li><a href="${path}/ProList.do?cate=H">중등 기타</a></li>
                             </ul>
                         </li>
-                        <li><a href="#"> 고등 </a>
+                        <li><a href="${path}/ProList.do?cate=I&J&K&L"> 고등 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/product/getProduct.jsp"> 교과서 </a></li>
-                                <li><a href=""> 참고서 </a></li>
-                                <li><a href=""> 문제집 </a></li>
-                                <li><a href=""> 기타 </a></li>
+                                <li><a href="${path}/ProList.do?cate=I">고등 교과서</a></li>
+                                <li><a href="${path}/ProList.do?cate=J">고등 참고서</a></li>
+                                <li><a href="${path}/ProList.do?cate=K">고등 문제집</a></li>
+                                <li><a href="${path}/ProList.do?cate=L">고등 기타</a></li>
                             </ul>
                         </li>
                         <li><a href="#"> 고객지원 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/NoticeList.do"> 공지사항 </a></li>
-                                <li><a href="${path}/cs/faq/faqList.jsp"> FAQ </a></li>
-                                <li><a href="${path}/cs/qna/qnaList.jsp"> QnA </a></li>
+                                <li><a href="${path}/product/getProduct.jsp"> 공지사항 </a></li>
+                                <li><a href=""> QnA </a></li>
+                                <li><a href=""> FAQ </a></li>
                                 <li><a href=""> 1:1 상담 </a></li>
                             </ul>
                         </li>
@@ -84,7 +84,7 @@
                 <div class="header__cart">
                     <ul>
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        <li><a href="${path}/cartList.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                     </ul>
                     <div class="header__cart__price">item: <span>$150.00</span></div>
                 </div>
