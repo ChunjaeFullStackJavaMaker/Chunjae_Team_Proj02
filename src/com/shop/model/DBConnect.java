@@ -71,6 +71,7 @@ public interface DBConnect {
 
     //회원 관리 sql문
     final static String Member_SELECT_ONE = "select * from member where id=?";
+    final static String Member_UPDATE = "update member set pw=?, address=?,tel=?, email=?, birth=? where id=?";
 
     //상품 관리 sql문
     final static String PRODUCT_SELECT_ALL = "select * from product order by pro_no";
