@@ -53,9 +53,9 @@ public class checkoutProCtrl extends HttpServlet {
             serv.setSe_price(se_price);
             servList.add(serv);
         }
-
+        int cnt1 =0;
         for (int i = 0; i < cartList.size(); i++) {
-            int cnt1 = payDAO.addServe(servList.get(i));
+            cnt1 += payDAO.addServe(servList.get(i));
         }
 
         //배송 처리
@@ -69,9 +69,10 @@ public class checkoutProCtrl extends HttpServlet {
             delList.add(del);
         }
 
+        int cnt2=0;
         DeliveryDAO deliDAO = new DeliveryDAO();
         for (int i = 0; i < cartList.size(); i++) {
-            int cnt2 = deliDAO.addDelivery(delList.get(i));
+            cnt2 += deliDAO.addDelivery(delList.get(i));
         }
 
         //카트 삭제
