@@ -2,10 +2,7 @@ package com.shop.model;
 
 import com.shop.dto.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,6 +89,58 @@ public class PaymentDAO {
             pstmt.setInt(3, amount);
             cnt = cnt + pstmt.executeUpdate();
 
+            conn.commit();
+            conn.setAutoCommit(true);
+        } catch (SQLException e) {
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+            throw new RuntimeException(e);
+        } finally {
+            con.close(pstmt, conn);
+        }
+        return cnt;
+    }
+
+    // 전체 취소/환불 처리
+    public int returnPayments(String resdate, String cus_id, List<Payment> payList) {
+        int cnt = 0;
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            conn.setAutoCommit(false);
+
+            // 1. 반품 시 배송 정보 제거
+            pstmt = conn.prepareStatement(DBConnect.RETURN_DELIVERIES);
+            pstmt.setTimestamp(1, Timestamp.valueOf(resdate.concat(".000000")));
+            pstmt.setTimestamp(2, Timestamp.valueOf(resdate.concat(".999999")));
+            pstmt.setString(3, cus_id);
+            cnt = cnt + pstmt.executeUpdate();
+
+            // 2. 반품 시 출고 제거
+            pstmt = conn.prepareStatement(DBConnect.RETURN_SERVES);
+            pstmt.setTimestamp(1, Timestamp.valueOf(resdate.concat(".000000")));
+            pstmt.setTimestamp(2, Timestamp.valueOf(resdate.concat(".999999")));
+            pstmt.setString(3, cus_id);
+            cnt = cnt + pstmt.executeUpdate();
+
+            // 3. 반품 시 결제 내용 제거
+            pstmt = conn.prepareStatement(DBConnect.RETURN_PAYMENTS);
+            pstmt.setString(1, cus_id);
+            pstmt.setTimestamp(2, Timestamp.valueOf(resdate.concat(".000000")));
+            pstmt.setTimestamp(3, Timestamp.valueOf(resdate.concat(".999999")));
+            cnt = cnt + pstmt.executeUpdate();
+
+            // 4. 반품 시 장바구니에 다시 담기
+            for(Payment pay:payList) {
+                pstmt = conn.prepareStatement(DBConnect.RETURN_CART);
+                pstmt.setString(1, cus_id);
+                pstmt.setInt(2, pay.getPro_no());
+                pstmt.setInt(3, pay.getAmount());
+                cnt = cnt + pstmt.executeUpdate();
+            }
             conn.commit();
             conn.setAutoCommit(true);
         } catch (SQLException e) {

@@ -95,7 +95,7 @@ public class ProductDAO {
                 pro.setPro_content(rs.getString("pro_content"));
                 pro.setThumb(rs.getString("thumb"));
                 pro.setImg_src(rs.getString("img_src"));
-                pro.setResdate(rs.getString("resdate"));
+                pro.setRegdate(rs.getString("resdate"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
