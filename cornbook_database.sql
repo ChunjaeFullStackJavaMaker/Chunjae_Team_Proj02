@@ -345,8 +345,16 @@ create table product(
 	thumb VARCHAR(256), 										-- 상품 썸네일
 	img_src VARCHAR(5000) DEFAULT 'no_img.jpg', 				-- 상품 이미지 리스트
 	regdate timestamp default CURRENT_TIMESTAMP 				-- 상품 게시 날짜
-);			 
-
+);			  
+insert into product values (default, 'A','A-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
+insert into product values (default, 'B','B-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
+insert into product values (default, 'C','C-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
+insert into product values (default, 'D','D-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
+insert into product values (default, 'E','E-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
+insert into product values (default, 'F','F-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
+insert into product values (default, 'G','G-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
+insert into product values (default, 'H','H-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
+select * from product;
 -- 상품 부가정보 테이블 생성
 create table addinfo(
 	add_no int primary KEY AUTO_INCREMENT,
@@ -508,7 +516,7 @@ select * from product where pcode in (select pno from payment group by pno order
 -- 상품 등록
 insert into product values(default, ?, '', ?, ?, ?, ?, ?, ?, ?, default);
 
-update product set prono = concat(cate, pno) where pno=?;
+update product set pro_no = concat(cate_id, pro_no) where pro_no=1;
 
 -------------------------------------------------------------------------------------------
 

@@ -1,7 +1,7 @@
 package com.shop.controller.mypage;
 
 import com.shop.model.MyPageDAO;
-import com.shop.vo.MyOrderVO;
+import com.shop.dto.MyOrderVO;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;

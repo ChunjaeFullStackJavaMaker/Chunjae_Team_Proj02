@@ -1,16 +1,16 @@
 package com.shop.dto;
 
 public class Product {
-    private int pro_no;
-    private String cate_id;
-    private String pro_cate_no;
-    private int price;
-    private String title;
-    private String description;
-    private String pro_content;
-    private String thumb;
-    private String img_src;
-    private String resdate;
+    private int pro_no; //상품 번호
+    private String cate_id; //품목 명
+    private String pro_cate_no; //상품 번호+Category
+    private int price; //가격
+    private String title; //상품명
+    private String description; //상품 요약 설명
+    private String pro_content; //상품 상세 설명
+    private String thumb; //상품 썸네일
+    private String img_src; //상품 이미지
+    private String regdate; //상품 게시 날짜
 
     public int getPro_no() {
         return pro_no;
@@ -84,12 +84,12 @@ public class Product {
         this.img_src = img_src;
     }
 
-    public String getResdate() {
-        return resdate;
+    public String getRegdate() {
+        return regdate;
     }
 
-    public void setResdate(String resdate) {
-        this.resdate = resdate;
+    public void setRegdate(String regdate) {
+        this.regdate = regdate;
     }
 
     @Override
@@ -104,7 +104,7 @@ public class Product {
                 ", pro_content='" + pro_content + '\'' +
                 ", thumb='" + thumb + '\'' +
                 ", img_src='" + img_src + '\'' +
-                ", resdate='" + resdate + '\'' +
+                ", regdate='" + regdate + '\'' +
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package com.shop.vo;
+package com.shop.dto;
 
 import java.util.Arrays;
 
