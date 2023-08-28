@@ -85,6 +85,8 @@ public interface DBConnect {
     final static String CART_DELETE = "delete from cart where cart_no=?";
     final static String CART_SELECT_CID = "select * from cart where cid=?";
 
+    //리뷰 관리 sql문
+    final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
 
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);
