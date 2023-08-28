@@ -14,10 +14,10 @@
     <%@ include file="/setting/head.jsp"%>
 
     <style>
-        a {
+        .menu_item {
             color: #333;
         }
-        a:hover {
+        .menu_item:hover {
             color: #333;
             font-weight: bold;
         }
@@ -58,9 +58,9 @@
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
-                    <a href="" class="d-block"> 개인정보 변경 </a>
-                    <a href="${path}/MyOrderList.do" class="d-block mt-2" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
-                    <a href="" class="d-block mt-2"> 리뷰 관리</a>
+                    <a href="" class="d-block menu_item"> 개인정보 변경 </a>
+                    <a href="${path}/MyOrderList.do" class="d-block mt-2 menu_item" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
+                    <a href="" class="d-block mt-2 menu_item"> 리뷰 관리</a>
                 </div>
             </div>
             <div class="col col-lg-9 mt-3">
