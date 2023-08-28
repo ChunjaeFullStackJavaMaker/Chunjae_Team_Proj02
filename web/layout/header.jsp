@@ -71,7 +71,7 @@
                         </li>
                         <li><a href="#"> 고객지원 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/notice/noticeList.jsp"> 공지사항 </a></li>
+                                <li><a href="${path}/NoticeList.do"> 공지사항 </a></li>
                                 <li><a href="${path}/cs/faq/faqList.jsp"> FAQ </a></li>
                                 <li><a href="${path}/cs/qna/qnaList.jsp"> QnA </a></li>
                                 <li><a href=""> 1:1 상담 </a></li>

@@ -23,7 +23,7 @@ public class NoticeDAO {
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Notice noti = new Notice();
-                noti.setNo(rs.getInt("no"));
+                noti.setNo(rs.getInt("nno"));
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
                 noti.setResdate(rs.getString("resdate"));
@@ -48,7 +48,7 @@ public class NoticeDAO {
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Notice noti = new Notice();
-                noti.setNo(rs.getInt("no"));
+                noti.setNo(rs.getInt("nno"));
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
                 noti.setResdate(rs.getString("resdate"));
@@ -77,7 +77,7 @@ public class NoticeDAO {
             rs = pstmt.executeQuery();
 
             if(rs.next()){
-                noti.setNo(rs.getInt("no"));
+                noti.setNo(rs.getInt("nno"));
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
                 noti.setResdate(rs.getString("resdate"));
@@ -228,7 +228,7 @@ public class NoticeDAO {
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Notice noti = new Notice();
-                noti.setNo(rs.getInt("no"));
+                noti.setNo(rs.getInt("nno"));
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
                 noti.setResdate(rs.getString("resdate"));
