@@ -48,15 +48,11 @@ public interface DBConnect {
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);
     public void close(ResultSet rs, PreparedStatement pstmt, Connection conn);
-    
-    //상품 목록
-    final static String PRODUCT_SELECT_ALL = "select * from product order by pro_no";
+
 
     //카테고리별 목록
     final static String PRODUCT_SELECT_CATE = "select * from product where cate_id=? order by pro_no";
 
-    //제품 상세보기
-    final static String PRODUCT_SELECT_ONE = "select * from product where pro_no=?";
 
     //신상품
     final static String PRODUCT_SELECT_NEW = "select * from product order by pro_no desc limit 5";
@@ -83,8 +79,8 @@ public interface DBConnect {
     final static String PRODUCT_DELETE = "delete from product where pro_no=?";
 
     //재고 조회
-    final static String INVENTORY_SELECT_ALL = "select * from inventory order by pro_no desc";
-    final static String INVENTORY_SELECT_ONE = "select * from inventory where pro_no=?";
+    final static String INVENTORY_SELECT_ALL = "select * from inventory order by re_no desc";
+    final static String INVENTORY_SELECT_ONE = "select * from inventory where re_no=?";
 
 
 

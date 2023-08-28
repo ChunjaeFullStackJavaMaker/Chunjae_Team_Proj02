@@ -95,7 +95,7 @@ public class ProductDAO {
                 pro.setPro_content(rs.getString("pro_content"));
                 pro.setThumb(rs.getString("thumb"));
                 pro.setImg_src(rs.getString("img_src"));
-                pro.setResdate(rs.getString("resdate"));
+                pro.setRegdate(rs.getString("regdate"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -213,13 +213,13 @@ public class ProductDAO {
     }
 
     //재고
-    public int getAmount(int pro_no){
+    public int getAmount(int re_no){
         int amount = 0;
         DBConnect con = new PostgreCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.INVENTORY_SELECT_ONE);
-            pstmt.setInt(1, pro_no);
+            pstmt.setInt(1, re_no);
             rs = pstmt.executeQuery();
             if(rs.next()){
                 amount = rs.getInt("amount");
