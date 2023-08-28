@@ -1,4 +1,4 @@
-package com.shop.controller.product;
+package com.shop.controller.admin;
 
 import com.shop.dto.Category;
 import com.shop.dto.Product;
@@ -22,7 +22,7 @@ public class addProductCtrl extends HttpServlet {
         List<Category> cateList = dao.getCategoryList();
 
         request.setAttribute("cateList", cateList);
-        RequestDispatcher view = request.getRequestDispatcher("/product/addProduct.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/addProduct.jsp");
         view.forward(request, response);
     }
 }

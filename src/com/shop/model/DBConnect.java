@@ -20,7 +20,7 @@ public interface DBConnect {
     final static String CATEGORY_LOAD = "select * from category";
 
     //상품번호+상품카테고리 pro_cate_no
-    final static String PRODUCT_INSERT_UPDATE = "update product set pro_cate_no = concat(cate_id,'-',pro_no) where pro_no in (select pro_no from product order by regdate desc limit 1)";
+    final static String PRODUCT_INSERT_UPDATE = "UPDATE product SET pro_cate_no = CONCAT(cate_id,'-',pro_no) where pro_no IN (select pro_no FROM (select pro_no from product order by regdate desc LIMIT 1) AS tmp)";
 
     //상품 추가 정보
     final static String PRODUCT_INFO = "insert into addinfo values(default, ?, ?, ?, default)";
@@ -46,7 +46,7 @@ public interface DBConnect {
     final static String SERVE_INSERT = "insert into serve values(default, ?, ?, ?, default)";
 
     // 반품 처리 sql문
-    final static String SELECT_MY_ORDER_LIST = "select pay.pay_no, resdate, thumb, description, title, amount, pay_price, del_state from payment pay, delivery del, product pro where pay.pay_no = del.pay_no and pro.pro_no=pay.pro_no and cus_id=? order by resdate desc";
+    final static String SELECT_MY_ORDER_LIST = "select pay.pay_no, pay_resdate, thumb, description, title, amount, pay_price, del_state from payment pay, delivery del, product pro where pay.pay_no = del.pay_no and pro.pro_no=pay.pro_no and cus_id=? order by pay_resdate desc";
     final static String RETURN_PAYMENT = "delete from payment where pay_no=?";
     final static String RETURN_PAYMENTS = "delete from payment where cus_id=? and resdate between ? and ?";
     final static String RETURN_RECEIVE = "insert into receive values (default, ?, ?, ?, default)";

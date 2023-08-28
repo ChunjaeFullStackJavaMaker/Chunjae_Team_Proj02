@@ -1,4 +1,4 @@
-package com.shop.controller.product;
+package com.shop.controller.admin;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -69,7 +69,7 @@ public class addProductProCtrl extends HttpServlet {
             int cnt = dao.addProduct(add);
 
             if(cnt>0){
-                response.sendRedirect(request.getContextPath()+"/ProList.do");
+                response.sendRedirect(request.getContextPath()+"/AdminProductList.do");
             } else {
                 response.sendRedirect(request.getContextPath()+"/AddProduct.do");
             }

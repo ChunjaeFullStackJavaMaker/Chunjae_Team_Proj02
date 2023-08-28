@@ -1,14 +1,14 @@
 package com.shop.dto;
 
 public class Category {
-    private int cate_no;
+    private String cate_no;
     private String cate_name;
 
-    public int getCate_no() {
+    public String getCate_no() {
         return cate_no;
     }
 
-    public void setCate_no(int cate_no) {
+    public void setCate_no(String cate_no) {
         this.cate_no = cate_no;
     }
 
