@@ -3,12 +3,16 @@ package com.shop.model;
 import com.shop.dto.AddInfo;
 import com.shop.dto.Category;
 import com.shop.dto.Product;
+import com.shop.dto.Review;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ProductDAO {
@@ -106,22 +110,27 @@ public class ProductDAO {
     }
 
     //상품 추가정보
-    public int addInfo(AddInfo info){
-        int cnt =0;
+    public AddInfo getAddInfo(int pro_no){
+        AddInfo info = new AddInfo();
         DBConnect con = new PostgreCon();
-        conn = con.connect();
         try {
-            pstmt = conn.prepareStatement(DBConnect.PRODUCT_INFO);
-            pstmt.setInt(1, info.getPro_no());
-            pstmt.setString(2, info.getTitle());
-            pstmt.setString(3, info.getMovie());
-            cnt = pstmt.executeUpdate();
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.PRODUCT_VIDEO);
+            pstmt.setInt(1, pro_no);
+            rs = pstmt.executeQuery();
+            if (rs.next()){
+                info.setAdd_no(rs.getInt("add_no"));
+                info.setPro_no(rs.getInt("pro_no"));
+                info.setTitle(rs.getString("title"));
+                info.setMovie(rs.getString("movie"));
+                info.setResdate(rs.getString("resdate"));
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            con.close(pstmt, conn);
+            con.close(rs, pstmt, conn);
         }
-        return cnt;
+        return info;
     }
 
     //상품 등록
@@ -231,4 +240,42 @@ public class ProductDAO {
         }
         return amount;
     }
+
+    //상품 리뷰 불러오기
+    public List<Review> getReview(int pro_no){
+        List<Review> reviewList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.REVIEW_SELECT);
+            pstmt.setInt(1, pro_no);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                Review rev = new Review();
+                rev.setRev_no(rs.getInt("rev_no"));
+                rev.setMem_id(rs.getString("mem_id"));
+                rev.setPay_no(rs.getInt("pay_no"));
+                rev.setPro(rs.getString("pro"));
+                rev.setStar(rs.getInt("star"));
+                rev.setContent(rs.getString("content"));
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Date d = sdf.parse(rs.getString("regdate"));
+                rev.setRegdate(sdf.format(d));
+
+                rev.setPro_no(rs.getInt("pro_no"));
+                reviewList.add(rev);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs,pstmt,conn);
+        } return reviewList;
+    }
+
+    //상품 리뷰 등록하기
 }

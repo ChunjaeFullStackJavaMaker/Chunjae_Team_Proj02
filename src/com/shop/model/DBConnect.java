@@ -71,6 +71,8 @@ public interface DBConnect {
     //상품 추가 정보
     final static String PRODUCT_INFO = "insert into addinfo values(default, ?, ?, ?, default)";
 
+    //상세페이지 비디오
+    final static String PRODUCT_VIDEO = "select * from product full outer join addinfo on product.pro_no = addinfo.pro_no where product.pro_no=?";
 
     //상품 수정
     final static String PRODUCT_UPDATE = "update product set price=?, title=?, description=?, pro_content=?, thumb=?, img_src=? where pro_no=?";
@@ -82,7 +84,9 @@ public interface DBConnect {
     final static String INVENTORY_SELECT_ALL = "select * from inventory order by re_no desc";
     final static String INVENTORY_SELECT_ONE = "select * from inventory where re_no=?";
 
-
+    //리뷰
+    final static String REVIEW_SELECT = "select * from review where pro_no=?";
+    final static String REVIEW_INSERT = "insert into review values (default, ?, ?, ?, default, ?, default, ?)";
 
 
 }

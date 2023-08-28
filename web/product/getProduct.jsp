@@ -65,7 +65,7 @@
 <!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="${path}/img/breadcrumb.jpg">
+<section class="breadcrumb-section set-bg" style="background-image: url('${path}/img/breadcrumb.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -91,7 +91,7 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                             src="${path }/storage/${pro.img_src }" alt="">
+                             src="" alt="">
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                         <div class="quantity">
                             <div class="pro-qty">
                                 <c:if test="${amount<=0}">
-                                <input type="text" value="품절">
+                                    <input type="text" value="품절">
                                 </c:if>
                                 <c:if test="${amount>0}">
                                     <input type="text" value="${amount}"}>
@@ -128,7 +128,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                               aria-selected="false">Reviews <span>(리뷰의 갯수가 들어갈 자리입니다.)</span></a>
+                               aria-selected="false">Reviews</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -141,13 +141,45 @@
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>예시동영상</h6>
-                                <p>${pro.video}</p>
+                                <video src="${path}/storage/${info.movie}"></video>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>후기</h6>
-                                <p>리뷰와 리뷰 작성란이 들어갈 자리입니다.</p>
+                                <div class="review">
+                                    <c:forEach var="review" items="${reviewList}">
+                                    <div class="name">회원 ID: ${review.mem_id}&nbsp;&nbsp;작성일시: ${review.regdate}</div>
+                                    <div class="star">별점:
+                                        <c:if test="${review.star eq 5}">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </c:if>
+                                        <c:if test="${review.star eq 4}">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </c:if>
+                                        <c:if test="${review.star eq 3}">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </c:if>
+                                        <c:if test="${review.star eq 2}">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </c:if>
+                                        <c:if test="${review.star eq 1}">
+                                            <i class="fa fa-star"></i>
+                                        </c:if>
+                                    </div>
+                                    <div class="content">${review.content}</div>
+                                    </c:forEach>
+                                </div>
                             </div>
                         </div>
                     </div>
