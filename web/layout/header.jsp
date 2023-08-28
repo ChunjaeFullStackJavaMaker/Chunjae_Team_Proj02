@@ -7,20 +7,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
+                <div class="col-lg-12 col-md-12">
                     <div class="header__top__right">
                         <div class="header__top__right__auth">
-                            <c:if test="${sid eq null}">
-                                <a href="#"><i class="fa fa-user"></i> Login</a>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
-                            </c:if>
-                            <c:if test="${sid ne null and sid ne 'admin'}">
-                                <a href="#"><i class="fa fa-user"></i> Logout </a>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> MyPage </a>
-                            </c:if>
-                            <c:if test="${sid eq 'admin'}">
-                                <a href="#"><i class="fa fa-user"></i> Logout </a>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Admin Page </a>
-                            </c:if>
+                            <a href="#"><i class="fa fa-user"></i> Login</a>
                         </div>
                     </div>
                 </div>

@@ -5,11 +5,11 @@
          version="4.0">
     <display-name>pro02</display-name>
     <servlet>
-        <servlet-name>chunjae</servlet-name>
+        <servlet-name>cornBooks</servlet-name>
         <servlet-class>com.shop.controller.Main</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>chunjae</servlet-name>
+        <servlet-name>cornBooks</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <filter>
