@@ -22,7 +22,7 @@ public class NoticeListCtrl extends HttpServlet {
         List<Notice> notiList = dao.getNoticeList();
         request.setAttribute("notiList", notiList);
 
-        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/com.shop.controller.admin/noticeList.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/noticeList.jsp");
         view.forward(request, response);
     }
 }

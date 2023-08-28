@@ -15,7 +15,7 @@ public class AddNoticeCtrl extends HttpServlet {
         String msg = "관리자의 공지사항 글 등록폼이 로딩되었습니다.";
 
         request.setAttribute("msg", msg);
-        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/com.shop.controller.admin/addNotice.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/addNotice.jsp");
         view.forward(request, response);
     }
 }
