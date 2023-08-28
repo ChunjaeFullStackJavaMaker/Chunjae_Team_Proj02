@@ -49,8 +49,7 @@ public class checkoutProCtrl extends HttpServlet {
             Serve serv = new Serve();
             serv.setPro_no(cartList.get(i).getPro_no());
             serv.setAmount(cartList.get(i).getAmount());
-            int se_price = (int) Double.parseDouble(request.getParameter("se_price"));
-            serv.setSe_price(se_price);
+            serv.setSe_price(cartList.get(i).getPrice());
             servList.add(serv);
         }
         int cnt1 =0;
