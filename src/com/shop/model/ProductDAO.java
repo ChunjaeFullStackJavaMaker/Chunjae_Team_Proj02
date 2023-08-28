@@ -78,31 +78,31 @@ public class ProductDAO {
     }
 
     public Product getProduct(int pro_no){
+        Product pro = new Product();
         DBConnect con = new PostgreCon();
-        Product pro = null;
         try {
-            pro = new Product();
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.PRODUCT_SELECT_ONE);
             pstmt.setInt(1, pro_no);
             rs = pstmt.executeQuery();
-            if (rs.next()) {
+            if(rs.next()){
                 pro.setPro_no(rs.getInt("pro_no"));
-                pro.setCate_id(rs.getString("cate_id"));
                 pro.setPro_cate_no(rs.getString("pro_cate_no"));
+                pro.setCate_id(rs.getString("cate_id"));
                 pro.setPrice(rs.getInt("price"));
                 pro.setTitle(rs.getString("title"));
                 pro.setDescription(rs.getString("description"));
                 pro.setPro_content(rs.getString("pro_content"));
                 pro.setThumb(rs.getString("thumb"));
                 pro.setImg_src(rs.getString("img_src"));
-                pro.setRegdate(rs.getString("regdate"));
+                pro.setResdate(rs.getString("resdate"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);
-        } return pro;
+        }
+        return pro;
     }
 
     //상품 추가정보
