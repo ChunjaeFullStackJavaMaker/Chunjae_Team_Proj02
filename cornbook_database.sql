@@ -15,7 +15,7 @@ CREATE TABLE member(
 );
 
 -- 관리자 페이지에서 사용자가 특정 인원 판매자 지정 필요
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('admin','1234', '관리자', 'admin@shop.com', '010-1004-1004', '1998-01-01', 0);
+INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('com.shop.controller.admin','1234', '관리자', 'com.shop.controller.admin@shop.com', '010-1004-1004', '1998-01-01', 0);
 INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('kimhk','9876', '김현경', 'kimhk@shop.com', '010-1234-5678', '2000-01-01', 1);
 INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('kimbk','1111', '김보경', 'kimbk@shop.com', '010-8765-4321', '2000-01-01', 1);
 INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('park','2222', '박진권', 'park@shop.com', '010-1111-2222', '2000-01-01', 1);
@@ -26,7 +26,7 @@ COMMIT;
 
 SELECT * FROM member;
 
-UPDATE member SET pw='03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4' WHERE id='admin';
+UPDATE member SET pw='03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4' WHERE id='com.shop.controller.admin';
 UPDATE member SET pw='0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c' WHERE id='kimbk';
 UPDATE member SET pw='dbff5341acad5e2a58db4efd5e72e2d9a0a843a28e02b1183c68162d0a3a3de6' WHERE id='kimhk';
 UPDATE member SET pw='fe2592b42a727e977f055947385b709cc82b16b9a87f88c6abf3900d65d0cdc3' WHERE id='oh';
@@ -47,25 +47,25 @@ create table notice(
 
 -- 매장 전용 공지사항 더미글 추가 10건
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항1', '여기는 공지사항1입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항1', '여기는 공지사항1입니다', 'com.shop.controller.admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항2', '여기는 공지사항2입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항2', '여기는 공지사항2입니다', 'com.shop.controller.admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항3', '여기는 공지사항3입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항3', '여기는 공지사항3입니다', 'com.shop.controller.admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항4', '여기는 공지사항4입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항4', '여기는 공지사항4입니다', 'com.shop.controller.admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항5', '여기는 공지사항5입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항5', '여기는 공지사항5입니다', 'com.shop.controller.admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항6', '여기는 공지사항6입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항6', '여기는 공지사항6입니다', 'com.shop.controller.admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항7', '여기는 공지사항7입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항7', '여기는 공지사항7입니다', 'com.shop.controller.admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'com.shop.controller.admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항9', '여기는 공지사항9입니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항9', '여기는 공지사항9입니다', 'com.shop.controller.admin');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항10', '여기는 공지사항10니다', 'admin');
+INSERT INTO notice(title, content, author) VALUES ('공지사항10', '여기는 공지사항10니다', 'com.shop.controller.admin');
 
 commit;
 
@@ -207,23 +207,23 @@ UPDATE qna SET par=qno WHERE lev=0 AND qno=10;
 
 INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문1에 대한 답변', '답변입니다. 1', 'park', 1, 1, false);
 
-INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문2에 대한 답변', '답변입니다. 2.', 'admin', 1, 2, true);
+INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문2에 대한 답변', '답변입니다. 2.', 'com.shop.controller.admin', 1, 2, true);
 
-INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문3에 대한 답변', '답변입니다. 3', 'admin', 1, 3, false);
+INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문3에 대한 답변', '답변입니다. 3', 'com.shop.controller.admin', 1, 3, false);
 
-INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문4에 대한 답변', '답변입니다. 4', 'admin', 1, 4, false);
+INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문4에 대한 답변', '답변입니다. 4', 'com.shop.controller.admin', 1, 4, false);
 
-INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문5에 대한 답변', '답변입니다. 5', 'admin', 1, 5, false);
+INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문5에 대한 답변', '답변입니다. 5', 'com.shop.controller.admin', 1, 5, false);
 
-INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문6에 대한 답변', '답변입니다. 6', 'admin', 1, 6, false);
+INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문6에 대한 답변', '답변입니다. 6', 'com.shop.controller.admin', 1, 6, false);
 
-INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문7에 대한 답변', '답변입니다. 7', 'admin', 1, 7, false);
+INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문7에 대한 답변', '답변입니다. 7', 'com.shop.controller.admin', 1, 7, false);
 
-INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문8에 대한 답변', '답변입니다. 8', 'admin', 1, 8, false);
+INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문8에 대한 답변', '답변입니다. 8', 'com.shop.controller.admin', 1, 8, false);
 
-INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문9에 대한 답변', '답변입니다. 9', 'admin', 1, 9, false);
+INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문9에 대한 답변', '답변입니다. 9', 'com.shop.controller.admin', 1, 9, false);
 
-INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문10에 대한 답변', '답변입니다. 10', 'admin', 1, 10, false);
+INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문10에 대한 답변', '답변입니다. 10', 'com.shop.controller.admin', 1, 10, false);
 
 COMMIT;
 
@@ -289,8 +289,8 @@ create table askComment(
 );
 
 -- 더미 데이터 추가
-INSERT INTO askComment(bno, author, content) VALUES(1, 'admin', '댓글 기능 더미데이터1');
-INSERT INTO askComment(bno, author, content) VALUES(2, 'admin', '댓글 기능 더미데이터2');
+INSERT INTO askComment(bno, author, content) VALUES(1, 'com.shop.controller.admin', '댓글 기능 더미데이터1');
+INSERT INTO askComment(bno, author, content) VALUES(2, 'com.shop.controller.admin', '댓글 기능 더미데이터2');
 INSERT INTO askComment(bno, author, content) VALUES(3, 'shin', '댓글 기능 더미데이터3');
 INSERT INTO askComment(bno, author, content) VALUES(4, 'park', '댓글 기능 더미데이터4');
 INSERT INTO askComment(bno, author, content) VALUES(5, 'oh', '댓글 기능 더미데이터5');

@@ -1,6 +1,6 @@
 package com.shop.util;
 
-import com.shop.model.BoardDAO;
+import com.shop.model.NoticeDAO;
 
 public class Page {
     private final static int pageCount = 5;
@@ -85,7 +85,7 @@ public class Page {
         this.postStart = (curPage - 1) * this.postCount + 1;
         this.pageBlockNum = (int)Math.floor(curPage / pageCount);
 
-        BoardDAO dao = new BoardDAO();
+        NoticeDAO dao = new NoticeDAO();
         int total = dao.getCount();
         int comp = pageCount * postCount;
         if( total % comp == 0 ) {
@@ -104,7 +104,7 @@ public class Page {
         this.postStart = (curPage - 1) * this.postCount + 1;
         this.pageBlockNum = (int)Math.floor(curPage / pageCount);
 
-        BoardDAO dao = new BoardDAO();
+        NoticeDAO dao = new NoticeDAO();
         int total = dao.getCount(searchType, kwd);
         int comp = pageCount * postCount;
         if( total % comp == 0 ) {
@@ -127,7 +127,7 @@ public class Page {
         blockNum = (int)Math.floor((curPage-1)/ pageCount);
         blockStartNum = (pageCount * blockNum) + 1;
 
-        BoardDAO dao = new BoardDAO();
+        NoticeDAO dao = new NoticeDAO();
         int total = dao.getCount();
         int comp = 0;
         if(total % postCount == 0){
@@ -147,7 +147,7 @@ public class Page {
         blockNum = (int)Math.floor((curPage-1)/ pageCount);
         blockStartNum = (pageCount * blockNum) + 1;
 
-        BoardDAO dao = new BoardDAO();
+        NoticeDAO dao = new NoticeDAO();
         int total = dao.getCount(searchType, kwd);
         int comp = 0;
         if(total % postCount == 0){
@@ -163,7 +163,7 @@ public class Page {
 
     // 총 페이지의 마지막 번호
     public void makeLastPageNum() {
-        BoardDAO dao = new BoardDAO();
+        NoticeDAO dao = new NoticeDAO();
         int total = dao.getCount();
 
         if( total % pageCount == 0 ) {
@@ -176,7 +176,7 @@ public class Page {
 
     // 검색을 했을 때 총 페이지의 마지막 번호
     public void makeLastPageNum(String searchType, String kwd) {
-        BoardDAO dao = new BoardDAO();
+        NoticeDAO dao = new NoticeDAO();
         int total = dao.getCount(searchType, kwd);
 
         if( total % pageCount == 0 ) {

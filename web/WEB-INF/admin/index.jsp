@@ -9,7 +9,6 @@
     <title>상품 정보수정</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="../../common.jsp"%>
-    <%@ include file="/setting/head.jsp" %>
 </head>
 <body>
 <div class="container-fluid">

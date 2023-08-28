@@ -9,7 +9,7 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="header__top__right">
                         <div class="header__top__right__auth">
-                            <c:if test="${sid eq 'admin' }">
+                            <c:if test="${sid eq 'com.shop.controller.admin' }">
                                 <li class="nav-item"><a href="${path1 }/Admin.do" class="nav-link">Admin</a></li>
                             </c:if>
                             <c:if test="${!empty sid }">
@@ -71,7 +71,7 @@
                         </li>
                         <li><a href="#"> 고객지원 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/cs/board/boardList.jsp"> 공지사항 </a></li>
+                                <li><a href="${path}/notice/noticeList.jsp"> 공지사항 </a></li>
                                 <li><a href="${path}/cs/faq/faqList.jsp"> FAQ </a></li>
                                 <li><a href="${path}/cs/qna/qnaList.jsp"> QnA </a></li>
                                 <li><a href=""> 1:1 상담 </a></li>

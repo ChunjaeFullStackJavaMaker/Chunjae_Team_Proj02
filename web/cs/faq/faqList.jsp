@@ -3,7 +3,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.*" %>
-<%@ page import="com.shop.dto.Board" %>
+<%@ page import="com.shop.dto.Notice" %>
 <%@ page import="com.shop.util.*" %>
 <%@ page import="com.shop.model.*" %>
 <%@ page import="com.shop.dto.*" %>
@@ -119,7 +119,7 @@
             height: 20px;
             line-height: 20px;
             text-align: center;
-            background-color: #ff6b6b;
+            background-color: #7fad39;
             color: #fff;
             border-radius: 50%;
             margin-right: 10px;
@@ -132,7 +132,7 @@
             height: 20px;
             line-height: 20px;
             text-align: center;
-            background-color: #36c2f0;
+            background-color: #ffd500;
             color: #fff;
             border-radius: 50%;
             margin-right: 10px;
