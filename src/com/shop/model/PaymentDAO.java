@@ -15,6 +15,98 @@ public class PaymentDAO {
     static ResultSet rs = null;
     String sql = "";
 
+    public Payment getPayment(int pay_no) {
+        Payment pay = new Payment();
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.PAYMENT_SELECT_ONE);
+            pstmt.setInt(1, pay_no);
+            rs = pstmt.executeQuery();
+            if(rs.next()) {
+                pay.setPay_no(rs.getInt("pay_no"));
+                pay.setCus_id(rs.getString("cus_id"));
+                pay.setPro_no(rs.getInt("pro_no"));
+                pay.setAmount(rs.getInt("amount"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return pay;
+    }
+
+    public List<Payment> getMyPaymentList(String resdate, String cus_id) {
+        List<Payment> payList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            System.out.println(resdate.concat(".000000"));
+            System.out.println(resdate.concat(".999999"));
+            pstmt = conn.prepareStatement(DBConnect.PAYMENT_SELECT_LIST);
+            pstmt.setString(1, cus_id);
+            pstmt.setTimestamp(2, Timestamp.valueOf(resdate.concat(".000000")));
+            pstmt.setTimestamp(3, Timestamp.valueOf(resdate.concat(".999999")));
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                Payment pay = new Payment();
+                pay.setPay_no(rs.getInt("pay_no"));
+                pay.setCus_id(rs.getString("cus_id"));
+                pay.setPro_no(rs.getInt("pro_no"));
+                pay.setAmount(rs.getInt("amount"));
+                payList.add(pay);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return payList;
+    }
+
+    public int returnPaymentOne(int pay_no, int pro_no, int amount, String cus_id) {
+        int cnt = 0;
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            conn.setAutoCommit(false);
+
+            // 1. 반품 시 결제 내용 제거
+            pstmt = conn.prepareStatement(DBConnect.RETURN_PAYMENT);
+            pstmt.setInt(1, pay_no);
+            cnt = cnt + pstmt.executeUpdate();
+
+            // 2. 반품 시 배송 정보 제거
+            pstmt = conn.prepareStatement(DBConnect.RETURN_DELIVERY);
+            pstmt.setInt(1, pay_no);
+            cnt = cnt + pstmt.executeUpdate();
+
+            // 3. 반품 시 출고 제거
+            pstmt = conn.prepareStatement(DBConnect.RETURN_SERVE);
+            pstmt.setInt(1, pay_no);
+            cnt = cnt + pstmt.executeUpdate();
+
+            // 4. 반품 시 장바구니에 다시 담기
+            pstmt = conn.prepareStatement(DBConnect.RETURN_CART);
+            pstmt.setString(1, cus_id);
+            pstmt.setInt(2, pro_no);
+            pstmt.setInt(3, amount);
+            cnt = cnt + pstmt.executeUpdate();
+
+            conn.commit();
+            conn.setAutoCommit(true);
+        } catch (SQLException e) {
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+            throw new RuntimeException(e);
+        } finally {
+            con.close(pstmt, conn);
+        }
+        return cnt;
+    }
+
     //결제 처리(PaymentDAO.addPayment(pay))
     public int addPayment(Payment pay){
         int cnt = 0;
@@ -56,29 +148,6 @@ public class PaymentDAO {
         }
         return cnt;
     }
-
-    public Payment getPayment(int pay_no){
-        Payment pay = new Payment();
-        DBConnect con = new PostgreCon();
-        conn = con.connect();
-        try {
-            pstmt = conn.prepareStatement(DBConnect.PAYMENT_SELECT_ONE);
-            pstmt.setInt(1, pay_no);
-            rs = pstmt.executeQuery();
-            if(rs.next()){
-                pay.setPay_no(rs.getInt("pay_no"));
-                pay.setCus_id(rs.getString("cid"));
-                pay.setPro_no(rs.getInt("pro_no"));
-                pay.setAmount(rs.getInt("amount"));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            con.close(rs, pstmt, conn);
-        }
-        return pay;
-    }
-
     public int getPay_no(){
         int Pay_no = 0;
         DBConnect con = new PostgreCon();
@@ -87,7 +156,7 @@ public class PaymentDAO {
             pstmt = conn.prepareStatement(DBConnect.GET_PAY_NO);
             rs = pstmt.executeQuery();
             if(rs.next()){
-                Pay_no = rs.getInt("sno");
+                Pay_no = rs.getInt("pay_no");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
