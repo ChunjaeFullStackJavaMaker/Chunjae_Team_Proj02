@@ -38,10 +38,10 @@
                         <span>All departments</span>
                     </div>
                     <ul>
-                        <li><a href="#">교과서</a></li>
-                        <li><a href="#">참고서</a></li>
-                        <li><a href="#">문제집</a></li>
-                        <li><a href="#">기타</a></li>
+                        <li><a href="${path}/ProList.do?cate=child">유아</a></li>
+                        <li><a href="${path}/ProList.do?cate=elementary">초등</a></li>
+                        <li><a href="${path}/ProList.do?cate=middle">중등</a></li>
+                        <li><a href="${path}/ProList.do?cate=high">고등</a></li>
                     </ul>
                 </div>
             </div>
@@ -70,11 +70,11 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>상품 이름</h2>
+                    <h2>${pro.title}</h2>
                     <div class="breadcrumb__option">
-                        <a href="${path}/">대분류</a>
-                        <a href="${path}/">중분류</a>
-                        <span>상품 이름</span>
+                        <a href="${path}/">Home</a>
+                        <a href="${path}/">${pro.title}</a>
+                        <span>${pro.title}</span>
                     </div>
                 </div>
             </div>
@@ -91,34 +91,28 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                             src="${path}/img/product/details/product-details-1.jpg" alt="">
-                    </div>
-                    <div class="product__details__pic__slider owl-carousel">
-                        <img data-imgbigurl="${path}/img/product/details/product-details-2.jpg"
-                             src="${path}/img/product/details/thumb-1.jpg" alt="">
-                        <img data-imgbigurl="${path}/img/product/details/product-details-3.jpg"
-                             src="${path}/img/product/details/thumb-2.jpg" alt="">
-                        <img data-imgbigurl="${path}/img/product/details/product-details-5.jpg"
-                             src="${path}/img/product/details/thumb-3.jpg" alt="">
-                        <img data-imgbigurl="${path}/img/product/details/product-details-4.jpg"
-                             src="${path}/img/product/details/thumb-4.jpg" alt="">
+                             src="${path }/storage/${pro.img_src }" alt="">
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
-                    <h3>상품 이름</h3>
-                    <div class="product__details__price">가격</div>
-                    <p>상품 요약 설명이 들어갈 자리입니다</p>
+                    <h3>${pro.title}</h3>
+                    <div class="product__details__price">${pro.price}</div>
+                    <p>${pro.description}</p>
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
-                                <input type="text" value="상품 수량이 들어갈 자리입니다.">
+                                <c:if test="${amount<=0}">
+                                <input type="text" value="품절">
+                                </c:if>
+                                <c:if test="${amount>0}">
+                                    <input type="text" value="${amount}"}>
+                                </c:if>
                             </div>
                         </div>
                     </div>
                     <a href="#" class="primary-btn">장바구니 추가</a>
-                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -141,13 +135,13 @@
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>상품 정보</h6>
-                                <p>상품의 상세정보가 들어갈 자리입니다.</p>
+                                <p>${pro.pro_content}</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>예시동영상</h6>
-                                <p>상품의 예시 동영상이 들어갈 자리입니다.</p>
+                                <p>${pro.video}</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
