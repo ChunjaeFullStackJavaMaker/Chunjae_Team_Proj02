@@ -3,6 +3,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <c:set var="path1" value="<%=request.getContextPath()%>"/>
+<!--meta-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Corn Books">
+<meta name="keywords" content="cornedu, cornbooks, 참고서, 수험서, 교재, 영유아, 초등, 중등, 고등">
+
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 <script src="./js/jquery-1.10.0.js"></script>

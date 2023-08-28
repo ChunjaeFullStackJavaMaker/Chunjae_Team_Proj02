@@ -1,6 +1,6 @@
-package test;
+package com.shop.test;
 
-import util.AES256;
+import com.shop.util.AES256;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
