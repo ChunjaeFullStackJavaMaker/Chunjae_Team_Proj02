@@ -94,24 +94,24 @@
                     <div class="sidebar__item">
                         <h4>Department</h4>
                         <ul>
-                            <c:if test="${param.cate eq 'child' || param.cate eq 'Q' || param.cate eq 'R' || param.cate eq 'S'}">
+                            <c:if test="${param.cate eq 'Q&R&S' || param.cate eq 'Q' || param.cate eq 'R' || param.cate eq 'S'}">
                                 <li><a href="${path}/ProList.do?cate=Q">유아 콘텐츠</a></li>
                                 <li><a href="${path}/ProList.do?cate=R">유아 놀이</a></li>
                                 <li><a href="${path}/ProList.do?cate=S">유아 기타</a></li>
                             </c:if>
-                            <c:if test="${param.cate eq 'elementary' || param.cate eq 'A' || param.cate eq 'B' || param.cate eq 'C' || param.cate eq 'D'}">
+                            <c:if test="${param.cate eq 'A&B&C&D' || param.cate eq 'A' || param.cate eq 'B' || param.cate eq 'C' || param.cate eq 'D'}">
                                 <li><a href="${path}/ProList.do?cate=A">초등 교과서</a></li>
                                 <li><a href="${path}/ProList.do?cate=B">초등 참고서</a></li>
                                 <li><a href="${path}/ProList.do?cate=C">초등 문제집</a></li>
                                 <li><a href="${path}/ProList.do?cate=D">초등 기타</a></li>
                             </c:if>
-                            <c:if test="${param.cate eq 'middle' || param.cate eq 'E' || param.cate eq 'F' || param.cate eq 'G' || param.cate eq 'H'}">
+                            <c:if test="${param.cate eq 'E&F&G&H' || param.cate eq 'E' || param.cate eq 'F' || param.cate eq 'G' || param.cate eq 'H'}">
                                 <li><a href="${path}/ProList.do?cate=E">중등 교과서</a></li>
                                 <li><a href="${path}/ProList.do?cate=F">중등 참고서</a></li>
                                 <li><a href="${path}/ProList.do?cate=G">중등 문제집</a></li>
                                 <li><a href="${path}/ProList.do?cate=H">중등 기타</a></li>
                             </c:if>
-                            <c:if test="${param.cate eq 'high' || param.cate eq 'I' || param.cate eq 'J' || param.cate eq 'K' || param.cate eq 'L'}">
+                            <c:if test="${param.cate eq 'I&J&K&L' || param.cate eq 'I' || param.cate eq 'J' || param.cate eq 'K' || param.cate eq 'L'}">
                                 <li><a href="${path}/ProList.do?cate=I">고등 교과서</a></li>
                                 <li><a href="${path}/ProList.do?cate=J">고등 참고서</a></li>
                                 <li><a href="${path}/ProList.do?cate=K">고등 문제집</a></li>
@@ -122,22 +122,9 @@
                 </div>
             </div>
             <div class="col-lg-9 col-md-7">
-                <div class="filter__item">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-5">
-                            <div class="filter__sort">
-                                <span>Sort By</span>
-                                <select>
-                                    <option value="0">최신순</option>
-                                    <option value="0">인기순</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="row">
                     <!--유아 전체 상품 출력-->
-                    <c:if test="${param.cate eq 'child'}">
+                    <c:if test="${param.cate eq 'Q&R&S'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('Q') and pro.cate_id.contains('R') and pro.cate_id.contains('S')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -158,7 +145,7 @@
                     </c:if>
 
                     <!--유아 콘텐츠 상품 출력-->
-                    <c:if test="${param.cate eq 'childContents'}">
+                    <c:if test="${param.cate eq 'Q'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('Q')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -179,7 +166,7 @@
                     </c:if>
 
                     <!--유아 놀이 상품 출력-->
-                    <c:if test="${param.cate eq 'childPlay'}">
+                    <c:if test="${param.cate eq 'R'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('R')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -200,7 +187,7 @@
                     </c:if>
 
                     <!--유아 기타 상품 출력-->
-                    <c:if test="${param.cate eq 'childOthers'}">
+                    <c:if test="${param.cate eq 'S'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('S')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -221,7 +208,7 @@
                     </c:if>
 
                     <!--초등 전체 상품-->
-                    <c:if test="${param.cate eq 'elementary'}">
+                    <c:if test="${param.cate eq 'A&B&C&D'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('A') and pro.cate_id.contains('B') and pro.cate_id.contains('C') and pro.cate_id.contains('D')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -242,7 +229,7 @@
                     </c:if>
 
                     <!--초등 교과서 상품-->
-                    <c:if test="${param.cate eq 'eleTextbook'}">
+                    <c:if test="${param.cate eq 'A'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('A')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -263,7 +250,7 @@
                     </c:if>
 
                     <!--초등 참고서 상품-->
-                    <c:if test="${param.cate eq 'eleRefer'}">
+                    <c:if test="${param.cate eq 'B'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('B')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -284,7 +271,7 @@
                     </c:if>
 
                     <!--초등 문제집 상품-->
-                    <c:if test="${param.cate eq 'eleWorkbook'}">
+                    <c:if test="${param.cate eq 'C'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('C')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -305,7 +292,7 @@
                     </c:if>
 
                     <!--초등 기타 상품-->
-                    <c:if test="${param.cate eq 'eleOthers'}">
+                    <c:if test="${param.cate eq 'D'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('D')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -326,7 +313,7 @@
                     </c:if>
 
                     <!--중등 전체 상품 출력-->
-                    <c:if test="${param.cate eq 'middle'}">
+                    <c:if test="${param.cate eq 'E&F&G&H'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('E') and pro.cate_id.contains('F') and pro.cate_id.contains('G') and pro.cate_id.contains('H')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -347,7 +334,7 @@
                     </c:if>
 
                     <!--중등 교과서 상품 출력-->
-                    <c:if test="${param.cate eq 'midTextbook'}">
+                    <c:if test="${param.cate eq 'E'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('E')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -368,7 +355,7 @@
                     </c:if>
 
                     <!--중등 참고서 상품 출력-->
-                    <c:if test="${param.cate eq 'midRefer'}">
+                    <c:if test="${param.cate eq 'F'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('F')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -389,7 +376,7 @@
                     </c:if>
 
                     <!--중등 문제집 상품 출력-->
-                    <c:if test="${param.cate eq 'midWorkbook'}">
+                    <c:if test="${param.cate eq 'G'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('G')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -410,7 +397,7 @@
                     </c:if>
 
                     <!--중등 기타 상품 출력-->
-                    <c:if test="${param.cate eq 'midOthers'}">
+                    <c:if test="${param.cate eq 'H'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('H')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -431,7 +418,7 @@
                     </c:if>
 
                     <!--고등 전체 상품 출력-->
-                    <c:if test="${param.cate eq 'high'}">
+                    <c:if test="${param.cate eq 'I&J&K&L'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('I') and pro.cate_id.contains('J') and pro.cate_id.contains('K') and pro.cate_id.contains('L')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -452,7 +439,7 @@
                     </c:if>
 
                     <!--고등 교과서 상품 출력-->
-                    <c:if test="${param.cate eq 'highTextbook'}">
+                    <c:if test="${param.cate eq 'I'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('I')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -473,7 +460,7 @@
                     </c:if>
 
                     <!--고등 참고서 상품 출력-->
-                    <c:if test="${param.cate eq 'highRefer'}">
+                    <c:if test="${param.cate eq 'J'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('J')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -494,7 +481,7 @@
                     </c:if>
 
                     <!--고등 문제집 상품 출력-->
-                    <c:if test="${param.cate eq 'highWorkbook'}">
+                    <c:if test="${param.cate eq 'K'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('K')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
@@ -515,7 +502,7 @@
                     </c:if>
 
                     <!--고등 기타 상품 출력-->
-                    <c:if test="${param.cate eq 'highOthers'}">
+                    <c:if test="${param.cate eq 'L'}">
                         <c:forEach var="pro" items="${proList}">
                             <c:if test="${pro.cate_id ne null and pro.cate_id.contains('L')}">
                                 <div class="col-lg-4 col-md-6 col-sm-6">

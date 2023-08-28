@@ -37,14 +37,14 @@
             <div class="col-lg-6">
                 <nav class="header__menu">
                     <ul>
-                        <li><a href="${path}/ProList.do?cate=child"> 유아 </a>
+                        <li><a href="${path}/ProList.do?cate=Q&R&S"> 유아 </a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="${path}/ProList.do?cate=Q">유아 콘텐츠</a></li>
                                 <li><a href="${path}/ProList.do?cate=R">유아 놀이</a></li>
                                 <li><a href="${path}/ProList.do?cate=S">유아 기타</a></li>
                             </ul>
                         </li>
-                        <li><a href="${path}/ProList.do?cate=elementary"> 초등 </a>
+                        <li><a href="${path}/ProList.do?cate=A&B&C&D"> 초등 </a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="${path}/ProList.do?cate=A">초등 교과서</a></li>
                                 <li><a href="${path}/ProList.do?cate=B">초등 참고서</a></li>
@@ -52,7 +52,7 @@
                                 <li><a href="${path}/ProList.do?cate=D">초등 기타</a></li>
                             </ul>
                         </li>
-                        <li><a href="${path}/ProList.do?cate=middle"> 중등 </a>
+                        <li><a href="${path}/ProList.do?cate=E&F&G&H"> 중등 </a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="${path}/ProList.do?cate=E">중등 교과서</a></li>
                                 <li><a href="${path}/ProList.do?cate=F">중등 참고서</a></li>
@@ -60,7 +60,7 @@
                                 <li><a href="${path}/ProList.do?cate=H">중등 기타</a></li>
                             </ul>
                         </li>
-                        <li><a href="${path}/ProList.do?cate=high"> 고등 </a>
+                        <li><a href="${path}/ProList.do?cate=I&J&K&L"> 고등 </a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="${path}/ProList.do?cate=I">고등 교과서</a></li>
                                 <li><a href="${path}/ProList.do?cate=J">고등 참고서</a></li>
