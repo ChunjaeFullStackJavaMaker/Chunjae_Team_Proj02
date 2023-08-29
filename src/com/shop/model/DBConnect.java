@@ -55,7 +55,7 @@ public interface DBConnect {
     final static String PAYMENT_SELECT_CID ="select * from payment where custom_id=?";
     
     //출고 관리 sql문
-    final static String SERVE_PAYMENT =  "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?, '')";
+    final static String SERVE_PAYMENT =  "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?,?,?, default)";
     final static String SERVE_INSERT = "insert into serve values(default, ?, ?, ?, default)";
 
     // 반품 처리 sql문

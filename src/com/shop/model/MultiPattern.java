@@ -19,8 +19,9 @@ public class MultiPattern {
     public MultiPattern(){
 
     }
-    public int pay(Payment payment, Serve serve, Delivery delivery, Cart cart){
+    public int pay(Delivery delivery, Payment payment, Serve serve, Cart cart){
         int pay_no=0;
+        int del_no=0;
         conn = con.connect();
         String sql = "";
 
@@ -28,16 +29,36 @@ public class MultiPattern {
             conn.setAutoCommit(false);
             int cnt =0;
 
+            //배송 처리
+            sql ="insert into delivery values (default, ?, ?, ?, ?, '','',default,default,'','')";
+            pstmt=conn.prepareStatement(sql);
+            pstmt.setInt(1, delivery.getPay_no());
+            pstmt.setString(2, delivery.getCustom_id());
+            pstmt.setString(3, delivery.getDel_addr());
+            pstmt.setString(4, delivery.getCus_tel());
+            cnt += pstmt.executeUpdate();
+
+            //배송 번호(del_no) 불러오기
+            sql ="select del_no from delivery order by del_no desc limit 1";
+            pstmt=conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            if(rs.next()){
+                del_no = rs.getInt("del_no");
+            }
+
             //결제 처리
-            sql = "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?, '')";
+            sql = "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?,?,?, default)";
             pstmt=conn.prepareStatement(sql);
             pstmt.setString(1, payment.getCus_id());
-            pstmt.setInt(2, payment.getPro_no());
-            pstmt.setInt(3, payment.getAmount());
-            pstmt.setString(4, payment.getPay_method());
-            pstmt.setString(5, payment.getPay_com());
-            pstmt.setString(6, payment.getCus_num());
+            pstmt.setString(2, payment.getCus_num());
+            pstmt.setInt(3, payment.getPro_no());
+            pstmt.setInt(4, payment.getAmount());
+            pstmt.setString(5, payment.getPay_method());
+            pstmt.setString(6, payment.getPay_com());
             pstmt.setInt(7, payment.getPay_price());
+            pstmt.setString(6, payment.getPay_account());
+            pstmt.setInt(8, delivery.getDel_no());
             cnt += pstmt.executeUpdate();
 
             //출고 처리
@@ -57,15 +78,6 @@ public class MultiPattern {
             if(rs.next()){
                 pay_no = rs.getInt("pay_no");
             }
-
-            //배송 처리
-            sql ="insert into delivery values (default, ?, ?, ?, ?, '','',default,default,'','')";
-            pstmt=conn.prepareStatement(sql);
-            pstmt.setInt(1, delivery.getPay_no());
-            pstmt.setString(2, delivery.getCustom_id());
-            pstmt.setString(3, delivery.getDel_addr());
-            pstmt.setString(4, delivery.getCus_tel());
-            cnt += pstmt.executeUpdate();
 
             //카트 삭제 처리
             sql = "delete from cart where cart_no=?";

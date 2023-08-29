@@ -24,6 +24,18 @@ public class checkoutProCtrl extends HttpServlet {
         CartDAO dao = new CartDAO();
         List<CartVO> cartList = dao.getByIdCartList(cid);
 
+        //배송 처리 리스트
+        PaymentDAO payDAO = new PaymentDAO();
+        List<Delivery> delList = new ArrayList<>();
+        for (int i = 0; i < cartList.size(); i++) {
+            Delivery del = new Delivery();
+            del.setPay_no(payDAO.getPay_no());
+            del.setCustom_id(cid);
+            del.setDel_addr(request.getParameter("address1") + "<br>" + request.getParameter("address2") + "<br>" + request.getParameter("postcode"));
+            del.setCus_tel(request.getParameter("custel"));
+            delList.add(del);
+        }
+
         //결제 처리 리스트
         List<Payment> payList = new ArrayList<>();
         for (int i = 0; i < cartList.size(); i++) {
@@ -49,17 +61,6 @@ public class checkoutProCtrl extends HttpServlet {
             servList.add(serv);
         }
 
-        //배송 처리 리스트
-        PaymentDAO payDAO = new PaymentDAO();
-        List<Delivery> delList = new ArrayList<>();
-        for (int i = 0; i < cartList.size(); i++) {
-            Delivery del = new Delivery();
-            del.setPay_no(payDAO.getPay_no());
-            del.setCustom_id(cid);
-            del.setDel_addr(request.getParameter("address1") + "<br>" + request.getParameter("address2") + "<br>" + request.getParameter("postcode"));
-            del.setCus_tel(request.getParameter("custel"));
-            delList.add(del);
-        }
 
         //카트 삭제 리스트
         List<Cart> cartlist = new ArrayList<>();
@@ -72,7 +73,7 @@ public class checkoutProCtrl extends HttpServlet {
         //한번에 처리
         MultiPattern multiDAO = new MultiPattern();
         for(int i =0; i<cartList.size();i++){
-            int pno = multiDAO.pay(payList.get(i), servList.get(i), delList.get(i), cartlist.get(i));
+            int pno = multiDAO.pay(delList.get(i), payList.get(i), servList.get(i), cartlist.get(i));
         }
 
         String path = request.getContextPath();
