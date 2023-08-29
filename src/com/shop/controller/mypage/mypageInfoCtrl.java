@@ -12,19 +12,25 @@ import java.io.IOException;
 public class mypageInfoCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            String id = (String) request.getParameter("id");
+
+        HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("sid");
+        System.out.println(id);
 
             MemberDAO dao = new MemberDAO();
-            Member mem = new Member();
+            Member mem = dao.getMember(id);
 
             String key = "%02x";
+            String pw2 ="" ;
             try {
-                String pw = AES256.decryptAES256("pw", key);
+                pw2 = AES256.decryptAES256("pw", key);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
+        System.out.println(mem.toString());
 
-            request.setAttribute("mem",mem);
+            request.setAttribute("mem", mem);
+            request.setAttribute("pw",pw2);
             RequestDispatcher view = request.getRequestDispatcher("/mypage/mypageInfo.jsp");
             view.forward(request, response);
     }

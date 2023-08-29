@@ -73,9 +73,11 @@ public interface DBConnect {
     final static String Member_SELECT_ONE = "select * from member where id=?";
     final static String Member_UPDATE = "update member set pw=?, address=?,tel=?, email=?, birth=? where id=?";
 
+    final static String Member_INSERT = "insert into member values (?,?,?,default,default,?,?,?,default,?)";
     //상품 관리 sql문
     final static String PRODUCT_SELECT_ALL = "select * from product order by pro_no";
     final static String PRODUCT_SELECT_ONE = "select * from product where pro_no=?";
+    final static String MEMBER_SELECT_LOG = "select * from member where id=?";
 
     //배송 관리 sql문
     final static String DELIVERY_INSERT = "insert into delivery values (default, ?, ?, ?, ?, '','',default,default,'','')";
@@ -83,7 +85,8 @@ public interface DBConnect {
 
     //장바구니 관리 sql문
     final static String CART_DELETE = "delete from cart where cart_no=?";
-    final static String CART_SELECT_CID = "select * from cart where cid=?";
+    final static String CART_SELECT_CID = "select * from cart where cus_id=?";
+    final static String CART_INSERT = "insert into cart values (default,?,?,?)";
 
     //리뷰 관리 sql문
     final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";

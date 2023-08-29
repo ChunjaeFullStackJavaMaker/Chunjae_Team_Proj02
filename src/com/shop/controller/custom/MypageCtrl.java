@@ -1,6 +1,6 @@
 package com.shop.controller.custom;
 
-import com.shop.dto.member;
+import com.shop.dto.Member;
 import com.shop.model.MemberDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -18,13 +18,14 @@ public class MypageCtrl extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String id = (String) session.getAttribute("sid");
+        //
 
         MemberDAO dao = new MemberDAO();
-        member cus = dao.getCustom(id);
+        Member mem = dao.getMember(id);
 
-        System.out.println(cus.toString());
+        System.out.println(mem.toString());
 
-        request.setAttribute("cus", cus);
+        request.setAttribute("mem", mem);
         RequestDispatcher view = request.getRequestDispatcher("/custom/mypage.jsp");
         view.forward(request, response);
     }

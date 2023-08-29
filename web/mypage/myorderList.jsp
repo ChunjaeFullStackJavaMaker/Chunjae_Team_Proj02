@@ -21,6 +21,7 @@
             color: #333;
             font-weight: bold;
         }
+        .breadcrumb-section {background-image: url("${path }/img/breadcrumb.jpg");}
     </style>
 
     <c:if test="${msg eq 'success'}">
