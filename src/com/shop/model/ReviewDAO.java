@@ -16,6 +16,7 @@ public class ReviewDAO {
     static ResultSet rs = null;
     String sql = "";
 
+    //리뷰 리스트
     public List<Review>  getByIdReview(String id){
         List<Review> reviewList = new ArrayList<>();
         DBConnect con = new PostgreCon();
@@ -44,4 +45,20 @@ public class ReviewDAO {
         return reviewList;
     }
 
+    //리뷰 삭제
+    public int delReview(int rev_no){
+        int cnt =0;
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.REVIEW_DELETE);
+            pstmt.setInt(1, rev_no);
+            cnt = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(pstmt, conn);
+        }
+        return cnt;
+    }
 }

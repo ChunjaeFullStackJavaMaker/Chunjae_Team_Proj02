@@ -72,19 +72,22 @@
             </div>
             <div class="col col-lg-9 mt-3">
                 <c:forEach var="re" items="${reviewList }">
-                <div class="row">
-                    <div class="col col-lg-6">
-                        <h4> ${cid } </h4>
+                    <div class="product__details__text">
+                        <div class="row">
+                            <div class="col col-lg-6">
+                                <h4> ${re.pro }</h4>
+                            </div>
+                            <div class="col col-lg-2 d-flex align-items-center">
+                                <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/DeleteReview.do?rev_no=${re.rev_no }'"> 삭제 </button>
+                            </div>
+                        </div>
+                        <p>${re.content }</p>
                     </div>
-                    <div class="col col-lg-2 d-flex align-items-center">
-                            ${re.content }
-                    </div>
-                </div>
-                <hr class="mb-5">
-                </div>
+                    <hr class="mb-5">
                 </c:forEach>
             </div>
         </div>
+    </div>
 
 
     <!-- Footer Section Begin -->

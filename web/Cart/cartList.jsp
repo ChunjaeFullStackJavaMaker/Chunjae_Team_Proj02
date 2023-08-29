@@ -136,7 +136,7 @@
                                 ${cartVO.price*cartVO.amount }
                             </td>
                             <td class="shoping__cart__item__close">
-                                <input class="icon_close" type="submit" onclick="deleteButton()">
+                                <span class="icon_close" type="submit" onclick="deleteButton()"></span>
                             </td>
                             <script>
                                 function deleteButton(){
@@ -153,11 +153,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns">
-                    <a href="${path }/product/getProduct.do" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
-                    <a href="" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                        Upadate Cart</a>
+                    <a href="${path }/ProList.do" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
                 </div>
-            </div>
             </div>
             <div class="col-lg-6">
                 <div class="shoping__checkout">

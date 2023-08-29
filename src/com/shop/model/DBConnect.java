@@ -87,6 +87,7 @@ public interface DBConnect {
 
     //리뷰 관리 sql문
     final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
+    final static String REVIEW_DELETE = "delete from review where rev_no=?";
 
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);
