@@ -40,9 +40,13 @@ public class LoginProCtrl extends HttpServlet {
             session.setAttribute("sid", id);
             request.setAttribute("msg", msg);
             response.sendRedirect(request.getContextPath());
+            //response.sendRedirect("/pro02");
+            //view = request.getRequestDispatcher("/pro02");
+            //view.forward(request, response);
         } else {
             msg = "로그인 실패";
             response.sendRedirect(request.getContextPath()+"/Login.do");
+            //out.println("<script>history.go(-1);</script>");
         }
     }
 }

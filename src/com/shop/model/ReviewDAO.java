@@ -33,7 +33,7 @@ public class ReviewDAO {
                 re.setPro(rs.getString("pro"));
                 re.setStar(rs.getInt("star"));
                 re.setContent(rs.getString("content"));
-                re.setRegdate(rs.getString("resdate"));
+                re.setRegdate(rs.getString("regdate"));
                 re.setPro_no(rs.getInt("pro_no"));
                 reviewList.add(re);
             }

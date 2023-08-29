@@ -25,5 +25,13 @@ public class IdCheckCtrl extends HttpServlet {
         json.put("result", pass);
         PrintWriter out = response.getWriter();
         out.println(json.toString());
+        /*
+        Custom cus = dao.getCustom(id);
+        if(cus!=null){
+            pass = false;
+        } else {
+            pass = true;
+        }
+        */
     }
 }
