@@ -69,7 +69,7 @@
                     <c:if test="${resdate eq order.resdate}">
                         <div class="row">
                             <div class="col col-lg-2 d-flex align-items-center">
-                                <img src="${path}/img/product/${order.thumb}" alt="${order.description}" width="90px" height="auto">
+                                <img src="${path}/storage/${order.thumb}" alt="상품 이미지" width="90px" height="auto">
                             </div>
                             <div class="col col-lg-6">
                                 <h4> ${order.title} </h4>
@@ -105,7 +105,7 @@
                         <hr>
                         <div class="row">
                             <div class="col col-lg-2 d-flex align-items-center">
-                                <img src="${path}/img/product/${order.thumb}" alt="${order.description}" width="90px" height="auto">
+                                <img src="${path}/storage/${order.thumb}" alt="상품이미지" width="90px" height="auto">
                             </div>
                             <div class="col col-lg-6">
                                 <h4> ${order.title} </h4>

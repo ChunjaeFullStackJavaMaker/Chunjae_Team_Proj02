@@ -17,7 +17,7 @@ public class myorderListCtrl extends HttpServlet {
 
         HttpSession session = request.getSession();
 //        String sid = (String) session.getAttribute("sid");
-        String sid = "shin";
+        String sid = "admin";
 
         MyPageDAO dao = new MyPageDAO();
         List<MyOrderVO> orderList = dao.getMyOrderList(sid);

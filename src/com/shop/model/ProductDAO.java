@@ -17,8 +17,7 @@ public class ProductDAO {
     static ResultSet rs = null;
     String sql = "";
 
-    //상품 목록
-    public List<Product> getProductList(){
+    public List<Product> getProductList() {
         List<Product> proList = new ArrayList<>();
         DBConnect con = new MariaDBCon();
         try {
@@ -46,6 +45,56 @@ public class ProductDAO {
         }
         return proList;
     }
+
+    //상품 목록
+    public List<Product> getProductList(int no){
+        List<Product> proList = new ArrayList<>();
+        DBConnect con = new MariaDBCon();
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.PRODUCT_SELECT_RANGE);
+            pstmt.setInt(1, no);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                Product pro = new Product();
+                pro.setPro_no(rs.getInt("pro_no"));
+                pro.setCate_id(rs.getString("cate_id"));
+                pro.setPro_cate_no(rs.getString("pro_cate_no"));
+                pro.setPrice(rs.getInt("price"));
+                pro.setTitle(rs.getString("title"));
+                pro.setDescription(rs.getString("description"));
+                pro.setPro_content(rs.getString("pro_content"));
+                pro.setThumb(rs.getString("thumb"));
+                pro.setImg_src(rs.getString("img_src"));
+                pro.setRegdate(rs.getString("regdate"));
+                proList.add(pro);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return proList;
+    }
+
+    public int getCount() {
+        DBConnect con = new MariaDBCon();
+        int cnt = 0;
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.PRODUCT_COUNT_ALL);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                cnt = rs.getInt("cnt");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return cnt;
+    }
+
     //카테고리
     public List<Product> getCateProductList(String cate){
         List<Product> proList = new ArrayList<>();

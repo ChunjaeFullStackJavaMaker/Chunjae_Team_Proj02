@@ -27,6 +27,9 @@ public interface DBConnect {
 
     //베스트 상품
     final static String PRODUCT_SELECT_BEST = "select * from product where pro_no in (select pro_no from payment group by pro_no order by sum(amount) desc limit 5)";
+    // 상품 리스트 페이징
+    final static String PRODUCT_SELECT_RANGE = "select * from product order by title limit 10 offset ?";
+    final static String PRODUCT_COUNT_ALL = "select count(*) as cnt from product";
 
     //상품 입고
     final static String PRODUCT_INSERT = "insert into product values(default, ?, '', ?, ?, ?, ?, ?, ?, default)";

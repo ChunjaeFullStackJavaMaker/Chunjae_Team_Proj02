@@ -74,8 +74,8 @@
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
                     <a href="${path}/AdminProductList.do" class="d-block menu_item"> 상품 관리 </a>
-                    <a href="" class="d-block menu_item mt-2" style="color:#7FAD39; font-weight:bold"> 배송 정보 관리 </a>
-                    <a href="${path}/" class="d-block menu_item mt-2"> 입출고 목록 </a>
+                    <a href="${path}/DeliveryList.do" class="d-block menu_item mt-2" style="color:#7FAD39; font-weight:bold"> 배송 정보 관리 </a>
+                    <a href="${path}/" class="d-block menu_item mt-2"> 입출고 관리 </a>
                     <a href="" class="d-block menu_item mt-2"> 회원 관리 </a>
                     <a href="" class="d-block menu_item mt-2"> 고객지원 관리 </a>
                 </div>
@@ -98,6 +98,11 @@
                                 <td class="align-middle">${del.current_state} </td>
                             </tr>
                         </c:forEach>
+                        <c:if test="${fn:length(delList) eq 0}">
+                            <tr class="text-center">
+                                <td colspan="5" class="align-middle"> 결제완료 주문건이 없습니다. </td>
+                            </tr>
+                        </c:if>
                         </tbody>
                     </table>
                 </div>
@@ -117,6 +122,11 @@
                                 <td class="align-middle">${del.current_state} </td>
                             </tr>
                         </c:forEach>
+                        <c:if test="${fn:length(delCodeList) eq 0}">
+                            <tr class="text-center">
+                                <td colspan="5" class="align-middle"> 배송상태 변경건이 없습니다. </td>
+                            </tr>
+                        </c:if>
                         </tbody>
                     </table>
                 </div>
