@@ -14,10 +14,10 @@
     <%@ include file="/setting/head.jsp"%>
 
     <style>
-        a {
+        .menu_item {
             color: #333;
         }
-        a:hover {
+        .menu_item:hover {
             color: #333;
             font-weight: bold;
         }

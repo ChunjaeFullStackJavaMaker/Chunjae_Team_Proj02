@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 @WebServlet("/mypageInfo.do")
-public class mypageInfoCtrl extends HttpServlet {
+public class MypageInfoCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -21,16 +21,16 @@ public class mypageInfoCtrl extends HttpServlet {
             Member mem = dao.getMember(id);
 
             String key = "%02x";
-            String pw2 ="" ;
+            String pw ="" ;
             try {
-                pw2 = AES256.decryptAES256("pw", key);
+                pw = AES256.decryptAES256(mem.getPw(), key);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         System.out.println(mem.toString());
 
             request.setAttribute("mem", mem);
-            request.setAttribute("pw",pw2);
+            request.setAttribute("pw",pw);
             RequestDispatcher view = request.getRequestDispatcher("/mypage/mypageInfo.jsp");
             view.forward(request, response);
     }

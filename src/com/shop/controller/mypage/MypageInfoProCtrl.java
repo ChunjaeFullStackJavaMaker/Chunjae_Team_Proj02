@@ -17,7 +17,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.InvalidParameterSpecException;
 
 @WebServlet("/mypageInfoPro.do")
-public class mypageInfoProCtrl extends HttpServlet {
+public class MypageInfoProCtrl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");

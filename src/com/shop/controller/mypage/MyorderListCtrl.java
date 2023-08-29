@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/MyOrderList.do")
-public class myorderListCtrl extends HttpServlet {
+public class MyorderListCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String msg = request.getParameter("msg");

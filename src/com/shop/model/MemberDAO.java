@@ -16,7 +16,7 @@ public class MemberDAO {
 
     public Member getMember(String id){
         Member mem = new Member();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.Member_SELECT_ONE);
@@ -29,7 +29,7 @@ public class MemberDAO {
                 mem.setEmail(rs.getString("email"));
                 mem.setTel(rs.getString("tel"));
                 mem.setBirth(rs.getString("birth"));
-                mem.setAddress(rs.getString("addresss"));
+                mem.setAddress(rs.getString("address"));
                 mem.setResdate(rs.getString("resdate"));
                 mem.setPOINT(rs.getInt("POINT"));
                 mem.setGrade(rs.getString("grade"));
