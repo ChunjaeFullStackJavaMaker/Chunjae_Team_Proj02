@@ -57,6 +57,15 @@ public interface DBConnect {
     final static String GET_PAY_NO = "select pay_no from payment order by pay_no desc limit 1";
     final static String PAYMENT_SELECT_CID ="select * from payment where custom_id=?";
     
+    // 관리자 메인 페이지
+    // 매출액 가져오기
+    final static String GET_SALES_LIST = "SELECT date_format(pay_resdate, '%Y-%m') AS 'pay_resdate', SUM(pay_price) AS 'sum' FROM payment " +
+            "WHERE pay_resdate > DATE(SUBDATE(NOW(), INTERVAL 12 MONTH)) " +
+            "GROUP BY month(pay_resdate), YEAR(pay_resdate) ORDER BY pay_resdate";
+    final static String GET_PROFIT_LIST = "SELECT a.profit_month, avg_se-avg_re AS gross_profit " +
+            "FROM (SELECT date_format(resdate, '%Y-%m') AS 'profit_month', AVG(se_price) AS 'avg_se' FROM serve GROUP BY month(resdate), YEAR(resdate)) a, (SELECT date_format(resdate, '%Y-%m') AS 'profit_month', AVG(re_price) AS 'avg_re' FROM receive GROUP BY month(resdate), YEAR(resdate)) b " +
+            "WHERE a.profit_month=b.profit_month ORDER BY profit_month";
+    
     //출고 관리 sql문
     final static String SERVE_PAYMENT =  "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?, '')";
     final static String SERVE_INSERT = "insert into serve values(default, ?, ?, ?, default)";

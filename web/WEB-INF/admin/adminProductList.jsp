@@ -52,7 +52,7 @@
                         <h2> 상품 관리 </h2>
                         <div class="breadcrumb__option">
                             <a href="${path}/">Home</a>
-                            <span> 관리자 페이지 </span>
+                            <span> 상품 관리 </span>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,8 @@
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
-                    <a href="${path}/AdminProductList.do" class="d-block menu_item" style="color:#7FAD39; font-weight:bold"> 상품 관리 </a>
+                    <a href="${path}/AdminDashboard.do" class="d-block menu_item"> 관리자 메인 </a>
+                    <a href="${path}/AdminProductList.do" class="d-block menu_item mt-2" style="color:#7FAD39; font-weight:bold"> 상품 관리 </a>
                     <a href="${path}/DeliveryList.do" class="d-block menu_item mt-2"> 배송 정보 관리 </a>
                     <a href="${path}/" class="d-block menu_item mt-2"> 입출고 관리 </a>
                     <a href="" class="d-block menu_item mt-2"> 회원 관리 </a>
@@ -115,7 +116,6 @@
             </div>
         </div>
     </div>
-
     <!-- Footer Section Begin -->
     <%@include file="/layout/footer.jsp"%>
     <!-- Footer Section End -->
