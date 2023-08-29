@@ -1,7 +1,7 @@
 package test;
 
 import com.shop.model.DBConnect;
-import com.shop.model.PostgreCon;
+import com.shop.model.MariaDBCon;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +16,7 @@ public class DBInsertTest {
         int cnt = 0;
         String sql;
 
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         for(int i=0; i<10; i++) {
             sql = "insert into test1 values(default, ?, default)";

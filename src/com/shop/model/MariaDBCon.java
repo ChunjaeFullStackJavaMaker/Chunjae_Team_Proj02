@@ -1,17 +1,12 @@
 package com.shop.model;
 
-<<<<<<< HEAD
-=======
-import com.shop.model.DBConnect;
-
->>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
 import java.sql.*;
 
-public class PostgreCon implements DBConnect {
-    final String DRIVER = "org.postgresql.Driver";
-    final String URL = "jdbc:postgresql://localhost:5432/cornbook";
-    final String USER = "postgres";
-    final String PASS = "1234";
+public class MariaDBCon implements DBConnect {
+    final String DRIVER = "org.mariadb.jdbc.Driver";
+    final String URL = "jdbc:mariadb://10.41.1.198:3306/team32";
+    final String USER = "team3";
+    final String PASS ="chunjae33";
     Connection conn = null;
 
     @Override
@@ -71,8 +66,4 @@ public class PostgreCon implements DBConnect {
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
