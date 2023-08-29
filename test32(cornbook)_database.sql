@@ -419,7 +419,7 @@ create table payment(
                         pay_com varchar(100),				-- 결제 회사
                         pay_price int default 1000,		-- 결제 금액
                         pay_account varchar(100) NOT NULL,	-- 결제 카드 번호
-                        del_no varchar(100),				-- 배송 번호(랜덤번호 추출)
+                        del_no INT NOT NULL,				-- 배송 번호(랜덤번호 추출)
                         pay_resdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP -- 결제 일시 지정
 );
 
