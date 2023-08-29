@@ -20,7 +20,7 @@ public class DeliveryListCtrl extends HttpServlet {
         request.setAttribute("delList", delList);
 
         List<DeliveryVO> delCodeList = dao.getDelCodeList();
-
+        request.setAttribute("delCodeList", delCodeList);
 
         RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/deliveryList.jsp");
         view.forward(request, response);

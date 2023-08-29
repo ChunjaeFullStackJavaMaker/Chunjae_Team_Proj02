@@ -11,6 +11,7 @@ public class DeliveryVO {
     private String del_com;
     private String del_tel;
     private int del_state;
+    private String current_state;
     private String del_date;
     private String res_date;
     private String del_code;
@@ -103,6 +104,16 @@ public class DeliveryVO {
 
     public void setDel_state(int del_state) {
         this.del_state = del_state;
+        String[] state_list = {"입고 중", "출하 중", "상차", "하차", "캠프 도착", "배송 중", "배송 도착"};
+        this.current_state = state_list[del_state];
+    }
+
+    public String getCurrent_state() {
+        return current_state;
+    }
+
+    public void setCurrent_state(String current_state) {
+        this.current_state = current_state;
     }
 
     public String getDel_date() {

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +21,13 @@
         .menu_item:hover {
             color: #333;
             font-weight: bold;
+        }
+        .title {
+            color: #333;
+            cursor: pointer;
+        }
+        .title:hover {
+            color: #333;
         }
     </style>
 </head>
@@ -66,48 +74,47 @@
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
                     <a href="${path}/AdminProductList.do" class="d-block menu_item"> 상품 관리 </a>
-                    <a href="" class="d-block menu_item" style="color:#7FAD39; font-weight:bold"> 상품 관리 </a>
+                    <a href="" class="d-block menu_item mt-2" style="color:#7FAD39; font-weight:bold"> 배송 정보 관리 </a>
                     <a href="${path}/" class="d-block menu_item mt-2"> 입출고 목록 </a>
                     <a href="" class="d-block menu_item mt-2"> 회원 관리 </a>
                     <a href="" class="d-block menu_item mt-2"> 고객지원 관리 </a>
                 </div>
             </div>
-            <div class="col col-lg-9 mt-3">
+            <div class="col col-lg-9 mt-3 mb-5">
                 <div class="container">
-                    <h4 class="mb-3"> 결제완료 주문건 </h4>
+                    <h4 class="mb-2"> 결제완료 주문건 </h4>
+                    <p class="mb-1"> ❗️송장번호를 추가하고 싶은 경우 상품명을 클릭해주세요 :) </p>
                     <table class="table table-striped">
                         <thead>
-                        <tr class="text-center"><th>연번</th><th> 상품명 </th><th> 주문자 ID </th><th> 전화번호 </th><th> 결제일 </th><th> 배송상태 </th></tr>
+                        <tr class="text-center"><th> # </th><th> 상품명 </th><th> 주문자 ID </th><th> 결제일 </th><th> 배송상태 </th></tr>
                         </thead>
                         <tbody>
                         <c:forEach var="del" items="${delList}">
                             <tr class="text-center">
                                 <td class="align-middle">${del.del_no} </td>
-                                <td class="align-middle">${del.title}</td>
-                                <td class="align-middle">${del.cus_id}</td>
-                                <td class="align-middle">${del.cus_tel} </td>
+                                <td class="align-middle"><a href="${path}/UpdateDelivery.do?del_no=${del.del_no}&type=1" class="title">${del.title}</a></td>
+                                <td class="align-middle">${del.custom_id}</td>
                                 <td class="align-middle">${del.pay_resdate} </td>
-                                <td class="align-middle">${del.del_state} </td>
+                                <td class="align-middle">${del.current_state} </td>
                             </tr>
                         </c:forEach>
                         </tbody>
                     </table>
                 </div>
-                <div class="container mt-3">
+                <div class="container mt-5">
                     <h4 class="mb-3"> 배송상태 변경 </h4>
                     <table class="table table-striped">
                         <thead>
-                        <tr class="text-center"><th> 송장번호 </th><th> 상품명 </th><th> 주문자 ID </th><th> 결제일 </th><th> 배송 시작일 </th><th> 배송 예정일 </th><th> 배송상태 </th></tr>
+                        <tr class="text-center"><th> 송장번호 </th><th> 상품명 </th><th> 배송 시작일 </th><th> 배송 예정일 </th><th> 배송상태 </th></tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="del" items="${delList}">
+                        <c:forEach var="del" items="${delCodeList}">
                             <tr class="text-center">
-                                <td class="align-middle">${del.del_no} </td>
-                                <td class="align-middle">${del.title}</td>
-                                <td class="align-middle">${del.cus_id}</td>
-                                <td class="align-middle">${del.cus_tel} </td>
-                                <td class="align-middle">${del.pay_resdate} </td>
-                                <td class="align-middle">${del.del_state} </td>
+                                <td class="align-middle">${del.del_code} </td>
+                                <td class="align-middle"><a href="${path}/UpdateDelivery.do?del_no=${del.del_no}&type=2" class="title">${del.title}</a></td>
+                                <td class="align-middle">${fn:substring(del.del_date, 0, 10)} </td>
+                                <td class="align-middle">${del.res_date} </td>
+                                <td class="align-middle">${del.current_state} </td>
                             </tr>
                         </c:forEach>
                         </tbody>
