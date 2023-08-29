@@ -16,7 +16,7 @@ public class MyPageDAO {
 
     public List<MyOrderVO> getMyOrderList(String cus_id) {
         List<MyOrderVO> myOrderList = new ArrayList<>();
-        DBConnect con = new MariaDBCon();
+        DBConnect con = new PostgreCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.SELECT_MY_ORDER_LIST);

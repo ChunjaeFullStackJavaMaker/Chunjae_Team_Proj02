@@ -22,6 +22,7 @@
             font-weight: bold;
         }
         .breadcrumb-section {background-image: url("${path }/img/breadcrumb.jpg");}
+        #post_btn {margin-top : 22px;}
     </style>
 
 

@@ -9,8 +9,8 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/cartList.do")
-public class cartListCtrl extends HttpServlet {
+@WebServlet("/CartList.do")
+public class CartListCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

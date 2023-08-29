@@ -2,7 +2,6 @@ package com.shop.controller.payment;
 
 import com.shop.dto.CartVO;
 import com.shop.dto.Member;
-import com.shop.dto.Product;
 import com.shop.model.CartDAO;
 import com.shop.model.MemberDAO;
 
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/checkout.do")
-public class checkoutCtrl extends HttpServlet {
+public class CheckoutCtrl extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

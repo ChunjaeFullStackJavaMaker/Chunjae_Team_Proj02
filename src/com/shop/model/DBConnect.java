@@ -48,6 +48,9 @@ public interface DBConnect {
     final static String INVENTORY_SELECT_ALL = "select * from inventory order by pro_no desc";
     final static String INVENTORY_SELECT_ONE = "select * from inventory where re_no=?";
 
+    //입고 관련 sql문
+    final static String RECEIVE_INSERT = "insert into receive values (default, ?, ?, ?, default)";
+
     // 결제 테이블 sql문
     final static String PAYMENT_SELECT_ONE = "select * from payment where pay_no=?";
     final static String PAYMENT_SELECT_LIST = "select * from payment where cus_id=? and resdate between ? and ?";

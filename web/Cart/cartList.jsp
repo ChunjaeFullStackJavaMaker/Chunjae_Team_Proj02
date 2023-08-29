@@ -10,8 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>장바구니</title>
-    
+    <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="/setting/head.jsp"%>
+    <style>
+        .breadcrumb-section {background-image: url("${path }/img/breadcrumb.jpg");}
+    </style>
 </head>
 
 <body>
@@ -89,7 +92,7 @@
                 <div class="breadcrumb__text">
                     <h2>Shopping Cart</h2>
                     <div class="breadcrumb__option">
-                        <a href="${path }">Home</a>
+                        <a href="${path }/">Home</a>
                         <span>Shopping Cart</span>
                     </div>
                 </div>
@@ -116,31 +119,31 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var="cartVO" items="${cartVOList}" >
+                        <c:forEach var="cart" items="${cartList}" >
                         <tr>
                             <td class="shoping__cart__item">
                                 <img src="../img/cart/cart-1.jpg" alt="">
-                                <h5>${cartVO.title }</h5>
+                                <h5>${cart.title }</h5>
                             </td>
                             <td class="shoping__cart__price">
-                                ${cartVO.price }
+                                ${cart.price }
                             </td>
                             <td class="shoping__cart__quantity">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" value="${cartVO.amount}">
+                                        <input type="text" value="${cart.amount}">
                                     </div>
                                 </div>
                             </td>
                             <td class="shoping__cart__total">
-                                ${cartVO.price*cartVO.amount }
+                                ${cart.price*cart.amount }
                             </td>
                             <td class="shoping__cart__item__close">
                                 <span class="icon_close" type="submit" onclick="deleteButton()"></span>
                             </td>
                             <script>
                                 function deleteButton(){
-                                    $("form").attr("action", "/Cartdelete.do");
+                                    $("form").attr("action", "${path }/DelCart.do");
                                 }
                             </script>
                         </tr>

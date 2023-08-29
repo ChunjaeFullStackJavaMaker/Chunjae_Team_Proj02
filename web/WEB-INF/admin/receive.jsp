@@ -1,17 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="path" value="<%=request.getContextPath() %>" />
-<%@include file="../setting/head.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>제품 상세보기</title>
+    <title>입고 처리</title>
+    <c:set var="path" value="<%=request.getContextPath() %>" />
+    <%@include file="../../setting/head.jsp"%>
+    <style>
+        .breadcrumb-section {background-image: url("${path }/img/breadcrumb.jpg");}
+    </style>
 </head>
-
 <body>
 <!-- Page Preloder -->
 <div id="preloder">
@@ -19,12 +20,17 @@
 </div>
 
 <!-- Humberger Begin -->
-<%@include file="../layout/header_top.jsp"%>
+<%@include file="../../layout/header_top.jsp"%>
 <!-- Humberger End -->
 
 <!-- Header Section Begin -->
-<%@include file="../layout/header.jsp"%>
+<%@include file="../../layout/header.jsp"%>
 <!-- Header Section End -->
+
+<!-- Hero Section Begin -->
+<%@ include file="../../layout/rollup_sideMenu.jsp"%>
+<!-- Hero Section End -->
+
 
 <!-- Hero Section Begin -->
 <section class="hero hero-normal">
@@ -69,7 +75,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>${pro.title}</h2>
+                    <h2>${pro.title }</h2>
                     <div class="breadcrumb__option">
                         <a href="${path}/">Home</a>
                         <a href="${path}/">${pro.title}</a>
@@ -82,7 +88,7 @@
 </section>
 <!-- Breadcrumb Section End -->
 
-<!-- Product Details Section Begin -->
+<!-- 제품 상세 보기 및 입고 처리 -->
 <section class="product-details spad">
     <div class="container">
         <div class="row">
@@ -100,58 +106,18 @@
                     <div class="product__details__price">${pro.price}</div>
                     <p>${pro.description}</p>
                     <div class="product__details__quantity">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <c:if test="${amount<=0}">
-                                <input type="text" value="품절">
-                                </c:if>
-                                <c:if test="${amount>0}">
-                                    <input type="text" value="${amount}"}>
-                                </c:if>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>입고 수량<span>*</span></p>
+                                    <input type="number" name="receive" id="receive" min="0" max="100" value="1" >
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <c:if test="${sid eq 'admin'}">
-                    <a href="${path }/Receive.do?pro_no=${pro.pro_no }" class="primary-btn">입고</a>
-                    </c:if>
-                    <c:if test="${sid ne null and sid ne 'admin'}">
-                    <a href="${path }/AddCart.do?pro_no=${pro.pro_no }" class="primary-btn">장바구니 추가</a>
-                    </c:if>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="product__details__tab">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                               aria-selected="true">Description</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                               aria-selected="false">Video</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                               aria-selected="false">Reviews <span>(리뷰의 갯수가 들어갈 자리입니다.)</span></a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6>상품 정보</h6>
-                                <p>${pro.pro_content}</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-2" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6>예시동영상</h6>
-                                <p>${pro.video}</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tabs-3" role="tabpanel">
-                            <div class="product__details__tab__desc">
-                                <h6>후기</h6>
-                                <p>리뷰와 리뷰 작성란이 들어갈 자리입니다.</p>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p><span></span></p>
+                                    <button type="button" id="receive_btn" class="site-btn" onclick="javascript:location.href='${path}/ReceivePro.do?pro_no=${pro.pro_no}'">RECEIVE</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -160,12 +126,7 @@
         </div>
     </div>
 </section>
-<!-- Product Details Section End -->
-
-<!-- Footer Section Begin -->
-<%@ include file="../layout/footer.jsp"%>
-<!-- Footer Section End -->
+<!-- 제품 상세 보기 및 입고 처리  -->
 
 </body>
-
 </html>

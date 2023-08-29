@@ -2,7 +2,6 @@ package com.shop.controller.payment;
 
 import com.shop.dto.*;
 import com.shop.model.CartDAO;
-import com.shop.model.DeliveryDAO;
 import com.shop.model.MultiPattern;
 import com.shop.model.PaymentDAO;
 
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/checkoutPro.do")
-public class checkoutProCtrl extends HttpServlet {
+public class CheckoutProCtrl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //세션 생성

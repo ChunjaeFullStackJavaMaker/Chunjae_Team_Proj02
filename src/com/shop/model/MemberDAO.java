@@ -16,7 +16,7 @@ public class MemberDAO {
 
     public Member getMember(String id){
         Member mem = new Member();
-        DBConnect con = new MariaDBCon();
+        DBConnect con = new PostgreCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.Member_SELECT_ONE);

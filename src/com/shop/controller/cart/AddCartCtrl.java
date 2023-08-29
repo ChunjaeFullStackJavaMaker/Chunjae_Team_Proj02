@@ -13,12 +13,13 @@ import java.io.PrintWriter;
 public class AddCartCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int pno = Integer.parseInt(request.getParameter("pno"));
+        int pro_no = Integer.parseInt(request.getParameter("pro_no"));
+
         HttpSession session = request.getSession();
         String cid = (String) session.getAttribute("sid");
 
         Cart cart = new Cart();
-        cart.setPro_no(pno);
+        cart.setPro_no(pro_no);
         cart.setCus_id(cid);
         cart.setAmount(1);
 
