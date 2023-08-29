@@ -133,6 +133,26 @@
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>상품 동영상</h6>
+                                <div class="player">
+                                    <div class="vdo_fr">
+                                        <video id="video" autoplay>
+                                            <source src="${path}/storage/${info.movie}" type="video/mp4"/>
+                                        </video>
+                                    </div>
+                                    <div id="progress">
+                                        <div id="progressBar"></div>
+                                    </div>
+                                    <div id="buttonbar">
+                                        <button id="play" class="player_btn"> <i class="fas fa-play"></i> </button>
+                                        <button id="pause" class="player_btn"> <i class="fas fa-pause"></i> </button>
+                                        <button id="stop" class="player_btn"> <i class="fas fa-stop"></i> </button>
+                                        <input id="vol" type="range" value="500" min="0" max="1000">
+                                        <button id="volTxt">50%</button>
+                                        <button id="full" class="player_btn"> <i class="fas fa-expand-arrows-alt"></i> </button>
+                                        <button id="original" class="player_btn"> <i class="fas fa-compress-arrows-alt"></i> </button>
+                                    </div>
+                                    <script src="${path}/js/vdo.js"></script>
+                                </div>
                                 <video src="${path}/storage/${info.movie}" style="width: 800px; margin-left: 152px;"></video>
                             </div>
                         </div>
