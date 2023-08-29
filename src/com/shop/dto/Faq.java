@@ -37,4 +37,14 @@ public class Faq {
     public void setCnt(int cnt) {
         this.cnt = cnt;
     }
+
+    @Override
+    public String toString() {
+        return "Faq{" +
+                "fno=" + fno +
+                ", question='" + question + '\'' +
+                ", answer='" + answer + '\'' +
+                ", cnt=" + cnt +
+                '}';
+    }
 }

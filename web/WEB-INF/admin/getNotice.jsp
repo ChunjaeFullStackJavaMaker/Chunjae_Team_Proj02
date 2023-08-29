@@ -9,6 +9,7 @@
     <title>공지사항 상세보기</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="../../common.jsp"%>
+    <%@ include file="/setting/head.jsp" %>
     <style>
     #tb1 { width:960px; margin:40px auto; }
     #tb1 th { background-color: #111; color:#fff; }

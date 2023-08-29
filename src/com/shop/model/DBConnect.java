@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public interface DBConnect {
+    //공지사항
     final static String NOTICE_SELECT_ALL = "select * from notice order by nno desc";
     final static String NOTICE_SELECT_ONE = "select * from notice where nno=?";
     final static String NOTICE_INSERT = "insert into notice values (title, content);";
@@ -18,7 +19,13 @@ public interface DBConnect {
     final static String NOTICE_SELECT_TITLE_RANGE = "select * from notice where title like ? order by resdate desc limit 5 offset ?";
     final static String NOTICE_SELECT_CONTENT_RANGE = "select * from notice where content like ? order by resdate desc limit 5 offset ?";
     final static String NOTICE_SELECT_ALL_RANGE = "select * from notice where title like ? or content like ? order by resdate desc limit 5 offset ?";
-    
+
+    //FAQ
+    final static String FAQ_SELECT_ALL = "select * from faq order by fno asc";
+
+    //QnA
+    final static String QNA_SELECT_ALL = "select a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit as visit, a.lev AS lev, a.par AS par, b.name AS NAME FROM qna a, member b WHERE a.author=b.id order BY a.par DESC, a.lev ASC, a.qno ASC";
+
     //카테고리별 목록
     final static String PRODUCT_SELECT_CATE = "select * from product where cate_id=? order by pro_no";
 
