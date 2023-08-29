@@ -1,6 +1,6 @@
 package com.shop.controller.custom;
 
-import com.shop.dto.member;
+import com.shop.dto.Member;
 import com.shop.model.MemberDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -20,7 +20,7 @@ public class MypageCtrl extends HttpServlet {
         String id = (String) session.getAttribute("sid");
 
         MemberDAO dao = new MemberDAO();
-        member cus = dao.getCustom(id);
+        Member cus = dao.getMember(id);
 
         System.out.println(cus.toString());
 

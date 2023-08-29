@@ -1,6 +1,6 @@
 package com.shop.controller.custom;
 
-import com.shop.dto.member;
+import com.shop.dto.Member;
 import com.shop.model.MemberDAO;
 import com.shop.util.AES256;
 
@@ -34,13 +34,13 @@ public class MyInfoUpdateProCtrl extends HttpServlet {
         }
 
         MemberDAO dao = new MemberDAO();
-        member user = new member();
+        Member user = new Member();
 
         user.setId(id);
         user.setPw(encrypted);
         user.setTel(tel);
         user.setEmail(email);
-        suc = dao.updateCustom(user);
+        suc = dao.updateMember(user);
 
         if(suc>0){
             response.sendRedirect(request.getContextPath()+"Mypage.do?id="+id);

@@ -19,6 +19,13 @@ public interface DBConnect {
     final static String NOTICE_SELECT_CONTENT_RANGE = "select * from notice where content like ? order by resdate desc limit 5 offset ?";
     final static String NOTICE_SELECT_ALL_RANGE = "select * from notice where title like ? or content like ? order by resdate desc limit 5 offset ?";
     
+    //FAQ
+    final static String FAQ_SELECT_ALL = "select * from faq order by fno asc";
+
+    //QnA
+    final static String QNA_SELECT_ALL = "select a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit as visit, a.lev AS lev, a.par AS par, b.name AS NAME FROM qna a, member b WHERE a.author=b.id order BY a.par DESC, a.lev ASC, a.qno ASC";
+
+
     //카테고리별 목록
     final static String PRODUCT_SELECT_CATE = "select * from product where cate_id=? order by pro_no";
 
@@ -90,9 +97,6 @@ public interface DBConnect {
     final static String CART_DELETE = "delete from cart where cart_no=?";
     final static String CART_SELECT_CID = "select * from cart where cid=?";
 
-    //리뷰 관리 sql문
-    final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
-    final static String REVIEW_DELETE = "delete from review where rev_no=?";
     //리뷰 관리 sql문
     final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
     final static String REVIEW_DELETE = "delete from review where rev_no=?";

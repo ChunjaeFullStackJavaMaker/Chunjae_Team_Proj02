@@ -27,11 +27,11 @@ public class AddReviewProCtrl extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         ProductDAO dao = new ProductDAO();
-        int a = dao.addReview(review);
-        if (a > 0) {
-            response.sendRedirect(request.getContextPath()+"/getProduct.do");
-        } else {
-            out.println("<script>history.go(-1);</script>");
-        }
+//        int a = dao.add(review);
+//        if (a > 0) {
+//            response.sendRedirect(request.getContextPath()+"/getProduct.do");
+//        } else {
+//            out.println("<script>history.go(-1);</script>");
+//        }
     }
 }
