@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+<%--
+  Created by IntelliJ IDEA.
+  User: jk347
+  Date: 2023-08-27
+  Time: 오후 5:10
+  To change this template use File | Settings | File Templates.
+--%>
+=======
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,4 +21,8 @@
     알 수 없는 오류 또는 현재 서버가 실행할 수 없는 상태
 </div>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d

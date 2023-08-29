@@ -3,6 +3,7 @@ package com.shop.controller.payment;
 import com.shop.dto.*;
 import com.shop.model.CartDAO;
 import com.shop.model.DeliveryDAO;
+import com.shop.model.MultiPattern;
 import com.shop.model.PaymentDAO;
 
 import javax.servlet.*;
@@ -23,7 +24,7 @@ public class checkoutProCtrl extends HttpServlet {
         CartDAO dao = new CartDAO();
         List<CartVO> cartList = dao.getByIdCartList(cid);
 
-        //결제 처리
+        //결제 처리 리스트
         List<Payment> payList = new ArrayList<>();
         for (int i = 0; i < cartList.size(); i++) {
             Payment pay = new Payment();
@@ -36,29 +37,20 @@ public class checkoutProCtrl extends HttpServlet {
             pay.setPay_price(cartList.get(i).getPrice());
             payList.add(pay);
         }
-        PaymentDAO payDAO = new PaymentDAO();
 
-        for (int i = 0; i < cartList.size(); i++) {
-            int cnt = payDAO.addPayment(payList.get(i));
-        }
-
-        //출고처리
+        //출고 처리 리스트
 
         List<Serve> servList = new ArrayList<>();
         for (int i = 0; i < cartList.size(); i++) {
             Serve serv = new Serve();
             serv.setPro_no(cartList.get(i).getPro_no());
             serv.setAmount(cartList.get(i).getAmount());
-            int se_price = (int) Double.parseDouble(request.getParameter("se_price"));
-            serv.setSe_price(se_price);
+            serv.setSe_price(cartList.get(i).getPrice());
             servList.add(serv);
         }
-        int cnt1 =0;
-        for (int i = 0; i < cartList.size(); i++) {
-            cnt1 += payDAO.addServe(servList.get(i));
-        }
 
-        //배송 처리
+        //배송 처리 리스트
+        PaymentDAO payDAO = new PaymentDAO();
         List<Delivery> delList = new ArrayList<>();
         for (int i = 0; i < cartList.size(); i++) {
             Delivery del = new Delivery();
@@ -69,21 +61,18 @@ public class checkoutProCtrl extends HttpServlet {
             delList.add(del);
         }
 
-        int cnt2=0;
-        DeliveryDAO deliDAO = new DeliveryDAO();
+        //카트 삭제 리스트
+        List<Cart> cartlist = new ArrayList<>();
         for (int i = 0; i < cartList.size(); i++) {
-            cnt2 += deliDAO.addDelivery(delList.get(i));
+            Cart cart = new Cart();
+            cart.setCart_no(cartList.get(i).getCart_no());
+            cartlist.add(cart);
         }
 
-        //카트 삭제
-        CartDAO CartDAO = new CartDAO();
-        Cart cart = new Cart();
-        int cart_no = 0;
-        int cnt3 = 0;
-
-        for (int i = 0; i < cartList.size(); i++) {
-            cart.setCart_no(cartList.get(i).getCart_no());
-            cnt3 += CartDAO.delCart(cart.getCart_no());
+        //한번에 처리
+        MultiPattern multiDAO = new MultiPattern();
+        for(int i =0; i<cartList.size();i++){
+            int pno = multiDAO.pay(payList.get(i), servList.get(i), delList.get(i), cartlist.get(i));
         }
 
         String path = request.getContextPath();

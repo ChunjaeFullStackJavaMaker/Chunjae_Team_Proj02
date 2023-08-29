@@ -104,9 +104,10 @@ public class PaymentDAO {
         return cnt;
     }
 
+    // 전체 취소/환불 처리
     public int returnPayments(String resdate, String cus_id, List<Payment> payList) {
         int cnt = 0;
-        DBConnect con = new MariaDBCon();
+        DBConnect con = new PostgreCon();
         conn = con.connect();
         try {
             conn.setAutoCommit(false);

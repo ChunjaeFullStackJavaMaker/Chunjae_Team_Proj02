@@ -38,10 +38,10 @@
                         <span>All departments</span>
                     </div>
                     <ul>
-                        <li><a href="${path}/ProList.do?cate=child">유아</a></li>
-                        <li><a href="${path}/ProList.do?cate=elementary">초등</a></li>
-                        <li><a href="${path}/ProList.do?cate=middle">중등</a></li>
-                        <li><a href="${path}/ProList.do?cate=high">고등</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=Q&cate_id=R&cate_id=S">유아</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=A&cate_id=B&cate_id=C&cate_id=D">초등</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=E&cate_id=F&cate_id=G&cate_id=H">중등</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=I&cate_id=J&cate_id=K&cate_id=L">고등</a></li>
                     </ul>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                             src="${path}/storage/${pro.thumb}" alt="썸네일 이미지">
+                        src="${path}/storage/${pro.thumb}" alt="썸네일 이미지">
                     </div>
                 </div>
             </div>
@@ -109,10 +109,18 @@
                                 <c:if test="${amount>0}">
                                     <input type="text" value="${amount}"}>
                                 </c:if>
+                    <h3>${pro.title}</h3>
+                    <div class="product__details__price">가격</div>
+                    <p>${pro.description}</p>
+                    <div class="product__details__quantity">
+                        <div class="quantity">
+                            <div class="pro-qty">
+                                <input type="text" value="${amount}">
                             </div>
                         </div>
                     </div>
                     <a href="#" class="primary-btn">장바구니 추가</a>
+                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -135,14 +143,13 @@
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>상품 정보</h6>
-                                <img src="${path}/storage/${pro.img_src}" alt="상품 상세 이미지">
                                 <p>${pro.pro_content}</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>예시동영상</h6>
-                                <video src="${path}/storage/${info.movie}"style="width: 700px; margin-left: 202px;" ></video>
+                                <p>${pro.video}</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">

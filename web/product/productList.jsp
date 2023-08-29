@@ -10,8 +10,8 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>상품 목록</title>
 
+    <title>상품 목록</title>
 
     <%@ include file="/setting/head.jsp"%>
 </head>
@@ -41,10 +41,10 @@
                         <span>All departments</span>
                     </div>
                     <ul>
-                        <li><a href="${path}/CateProList.do?cate_id=child">유아</a></li>
-                        <li><a href="${path}/CateProList.do?cate_id=elementary">초등</a></li>
-                        <li><a href="${path}/CateProList.do?cate_id=middle">중등</a></li>
-                        <li><a href="${path}/CateProList.do?cate_id=high">고등</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=Q&cate_id=R&cate_id=S">유아</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=A&cate_id=B&cate_id=C&cate_id=D">초등</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=E&cate_id=F&cate_id=G&cate_id=H">중등</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=I&cate_id=J&cate_id=K&cate_id=L">고등</a></li>
                     </ul>
                 </div>
             </div>

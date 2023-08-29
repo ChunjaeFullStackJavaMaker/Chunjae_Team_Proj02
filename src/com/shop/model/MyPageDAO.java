@@ -1,6 +1,6 @@
 package com.shop.model;
 
-import com.shop.vo.*;
+import com.shop.dto.MyOrderVO;
 
 import java.sql.*;
 import java.text.ParseException;

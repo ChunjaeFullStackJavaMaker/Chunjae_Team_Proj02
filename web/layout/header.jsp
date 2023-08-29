@@ -7,16 +7,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
+<<<<<<< HEAD
                 <div class="col-lg-12 col-md-12">
                     <div class="header__top__right">
                         <div class="header__top__right__auth">
                             <c:if test="${sid eq null}">
                                 <a href="/Login.do"><i class="fa fa-user"></i> Login</a>
+=======
+                    <div class="header__top__right">
+                        <div class="header__top__right__auth">
+                            <c:if test="${sid eq null}">
+                                <a href="#"><i class="fa fa-user"></i> Login</a>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                                 <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
                             </c:if>
                             <c:if test="${sid ne null and sid ne 'admin'}">
                                 <a href="#"><i class="fa fa-user"></i> Logout </a>
+<<<<<<< HEAD
+                                <a href="${path}/mypageInfo.do"><i class="fa fa-sign-in" aria-hidden="true"></i> MyPage </a>
+=======
                                 <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> MyPage </a>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                             </c:if>
                             <c:if test="${sid eq 'admin'}">
                                 <a href="#"><i class="fa fa-user"></i> Logout </a>
@@ -36,6 +47,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
+<<<<<<< HEAD
                 <nav class="header__menu">
                     <ul>
                         <li><a href="${path}/CateProList.do?cate_id=Q&cate_id=R&cate_id=S"> 유아 </a>
@@ -47,7 +59,7 @@
                         </li>
                         <li><a href="${path}/CateProList.do?cate_id=A&cate_id=B&cate_id=C&cate_id=D"> 초등 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/CateCateProList.do?cate_id=A">초등 교과서</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=A">초등 교과서</a></li>
                                 <li><a href="${path}/CateProList.do?cate_id=B">초등 참고서</a></li>
                                 <li><a href="${path}/CateProList.do?cate_id=C">초등 문제집</a></li>
                                 <li><a href="${path}/CateProList.do?cate_id=D">초등 기타</a></li>
@@ -63,15 +75,15 @@
                         </li>
                         <li><a href="${path}/CateProList.do?cate_id=I&cate_id=J&cate_id=K&cate_id=L"> 고등 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/CateProList.do?cate_id=I">고등 교과서</a></li>
-                                <li><a href="${path}/CateProList.do?cate_id=J">고등 참고서</a></li>
-                                <li><a href="${path}/CateProList.do?cate_id=K">고등 문제집</a></li>
-                                <li><a href="${path}/CateProList.do?cate_id=L">고등 기타</a></li>
+                                <li><a href="${path}/ProList.do?cate=I">고등 교과서</a></li>
+                                <li><a href="${path}/ProList.do?cate=J">고등 참고서</a></li>
+                                <li><a href="${path}/ProList.do?cate=K">고등 문제집</a></li>
+                                <li><a href="${path}/ProList.do?cate=L">고등 기타</a></li>
                             </ul>
                         </li>
                         <li><a href="#"> 고객지원 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href=""> 공지사항 </a></li>
+                                <li><a href="${path}/product/getProduct.jsp"> 공지사항 </a></li>
                                 <li><a href=""> QnA </a></li>
                                 <li><a href=""> FAQ </a></li>
                                 <li><a href=""> 1:1 상담 </a></li>
@@ -84,9 +96,14 @@
                 <div class="header__cart">
                     <ul>
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+<<<<<<< HEAD
                         <li><a href="${path}/cartList.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                     </ul>
                     <div class="header__cart__price">item: <span>$150.00</span></div>
+=======
+                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                    </ul>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                 </div>
             </div>
         </div>
