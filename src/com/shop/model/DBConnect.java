@@ -71,6 +71,7 @@ public interface DBConnect {
 
     //회원 관리 sql문
     final static String Member_SELECT_ONE = "select * from member where id=?";
+    final static String Member_UPDATE = "update member set pw=?, address=?,tel=?, email=?, birth=? where id=?";
 
     //상품 관리 sql문
     final static String PRODUCT_SELECT_ALL = "select * from product order by pro_no";
@@ -84,6 +85,9 @@ public interface DBConnect {
     final static String CART_DELETE = "delete from cart where cart_no=?";
     final static String CART_SELECT_CID = "select * from cart where cid=?";
 
+    //리뷰 관리 sql문
+    final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
+    final static String REVIEW_DELETE = "delete from review where rev_no=?";
 
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);

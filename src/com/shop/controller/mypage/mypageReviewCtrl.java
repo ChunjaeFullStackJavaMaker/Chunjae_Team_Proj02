@@ -1,7 +1,7 @@
-package com.shop.controller.cart;
+package com.shop.controller.mypage;
 
-import com.shop.dto.CartVO;
-import com.shop.model.CartDAO;
+import com.shop.dto.Review;
+import com.shop.model.ReviewDAO;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -9,20 +9,23 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/cartList.do")
-public class cartListCtrl extends HttpServlet {
+@WebServlet("/mypageReview.do")
+public class mypageReviewCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
         String cid = (String) session.getAttribute("sid");
 
-        CartDAO dao = new CartDAO();
-        List<CartVO> cartList = dao.getByIdCartList(cid);
+        ReviewDAO dao = new ReviewDAO();
+        List<Review> reviewList = dao.getByIdReview(cid);
 
-        request.setAttribute("cartList", cartList);
-        RequestDispatcher view = request.getRequestDispatcher("/Cart/cartList.jsp");
+        request.setAttribute("reviewList", reviewList);
+
+        RequestDispatcher view = request.getRequestDispatcher("/mypage/mypageReview.jsp");
         view.forward(request, response);
+
+
     }
 
 }
