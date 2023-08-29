@@ -1,5 +1,6 @@
 package com.shop.model;
 
+import com.shop.dto.Cart;
 import com.shop.dto.CartVO;
 import com.shop.dto.Member;
 import com.shop.dto.Product;
@@ -17,9 +18,27 @@ public class CartDAO {
     static ResultSet rs = null;
     String sql = "";
 
+    public int addCart(Cart cart) {
+        int cnt = 0;
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try{
+            pstmt = conn.prepareStatement(DBConnect.CART_INSERT);
+            pstmt.setString(1, cart.getCus_id());
+            pstmt.setInt(2, cart.getPro_no());
+            pstmt.setInt(3, 1);
+            cnt = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(pstmt, conn);
+        }
+        return cnt;
+    }
+
     public int delCart(int cart_no){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_DELETE);
@@ -77,5 +96,10 @@ public class CartDAO {
         ProductDAO dao = new ProductDAO();
         Product pro = dao.getProduct(pro_no);
         return pro.getPrice();
+    }
+    public String getCusName(String id){
+        MemberDAO dao = new MemberDAO();
+        Member cus = dao.getMember(id);
+        return cus.getNAME();
     }
 }

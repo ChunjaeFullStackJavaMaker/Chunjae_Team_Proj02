@@ -1,6 +1,6 @@
 package com.shop.controller.custom;
 
-import com.shop.dto.member;
+import com.shop.dto.Member;
 import com.shop.model.MemberDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -18,7 +18,7 @@ public class MyInfoUpdateCtrl extends HttpServlet {
         String id = (String) request.getParameter("id");
 
         MemberDAO dao = new MemberDAO();
-        member cus = dao.getCustom(id);
+        Member cus = dao.getMember(id);
 
         request.setAttribute("cus", cus);
         RequestDispatcher view = request.getRequestDispatcher("/custom/myinfoUpdate.jsp");

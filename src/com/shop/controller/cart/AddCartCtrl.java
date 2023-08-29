@@ -14,12 +14,14 @@ public class AddCartCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pno = Integer.parseInt(request.getParameter("pno"));
+        int cno = Integer.parseInt(request.getParameter("cno"));
         HttpSession session = request.getSession();
         String cid = (String) session.getAttribute("sid");
 
         Cart cart = new Cart();
-        cart.setPno(pno);
-        cart.setCid(cid);
+        cart.setCart_no(cno);
+        cart.setCus_id(cid);
+        cart.setPro_no(pno);
         cart.setAmount(1);
 
         CartDAO dao = new CartDAO();
