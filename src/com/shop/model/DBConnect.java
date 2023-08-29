@@ -46,7 +46,7 @@ public interface DBConnect {
 
     //재고 조회
     final static String INVENTORY_SELECT_ALL = "select * from inventory order by pro_no desc";
-    final static String INVENTORY_SELECT_ONE = "select * from inventory where pro_no=?";
+    final static String INVENTORY_SELECT_ONE = "select * from inventory where re_no=?";
 
     // 결제 테이블 sql문
     final static String PAYMENT_SELECT_ONE = "select * from payment where pay_no=?";
@@ -93,9 +93,17 @@ public interface DBConnect {
     //리뷰 관리 sql문
     final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
     final static String REVIEW_DELETE = "delete from review where rev_no=?";
-    //리뷰 관리 sql문
-    final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
-    final static String REVIEW_DELETE = "delete from review where rev_no=?";
+    //리뷰
+    final static String REVIEW_SELECT = "select * from review where pro_no=?";
+    final static String REVIEW_INSERT = "insert into review values (default, ?, ?, ?, ?, ?, default, ?)";
+    //FAQ
+    final static String FAQ_SELECT_ALL = "select * from faq";
+    //Qna
+    final static String QNA_SELECT_ALL = "select * from qna";
+
+    //상세페이지 비디오
+    final static String PRODUCT_VIDEO = "select * from product left join addinfo on product.pro_no = addinfo.pro_no where product.pro_no=?";
+
 
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);
