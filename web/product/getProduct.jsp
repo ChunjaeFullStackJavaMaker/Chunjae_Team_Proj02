@@ -38,10 +38,17 @@
                         <span>All departments</span>
                     </div>
                     <ul>
+<<<<<<< HEAD
                         <li><a href="${path}/ProList.do?cate=child">유아</a></li>
                         <li><a href="${path}/ProList.do?cate=elementary">초등</a></li>
                         <li><a href="${path}/ProList.do?cate=middle">중등</a></li>
                         <li><a href="${path}/ProList.do?cate=high">고등</a></li>
+=======
+                        <li><a href="#">교과서</a></li>
+                        <li><a href="#">참고서</a></li>
+                        <li><a href="#">문제집</a></li>
+                        <li><a href="#">기타</a></li>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                     </ul>
                 </div>
             </div>
@@ -70,11 +77,19 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
+<<<<<<< HEAD
                     <h2>${pro.title}</h2>
                     <div class="breadcrumb__option">
                         <a href="${path}/">Home</a>
                         <a href="${path}/">${pro.title}</a>
                         <span>${pro.title}</span>
+=======
+                    <h2>상품 이름</h2>
+                    <div class="breadcrumb__option">
+                        <a href="${path}/">대분류</a>
+                        <a href="${path}/">중분류</a>
+                        <span>상품 이름</span>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                     </div>
                 </div>
             </div>
@@ -91,12 +106,27 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
+<<<<<<< HEAD
                              src="${path }/storage/${pro.img_src }" alt="">
+=======
+                             src="${path}/img/product/details/product-details-1.jpg" alt="">
+                    </div>
+                    <div class="product__details__pic__slider owl-carousel">
+                        <img data-imgbigurl="${path}/img/product/details/product-details-2.jpg"
+                             src="${path}/img/product/details/thumb-1.jpg" alt="">
+                        <img data-imgbigurl="${path}/img/product/details/product-details-3.jpg"
+                             src="${path}/img/product/details/thumb-2.jpg" alt="">
+                        <img data-imgbigurl="${path}/img/product/details/product-details-5.jpg"
+                             src="${path}/img/product/details/thumb-3.jpg" alt="">
+                        <img data-imgbigurl="${path}/img/product/details/product-details-4.jpg"
+                             src="${path}/img/product/details/thumb-4.jpg" alt="">
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
+<<<<<<< HEAD
                     <h3>${pro.title}</h3>
                     <div class="product__details__price">${pro.price}</div>
                     <p>${pro.description}</p>
@@ -109,10 +139,23 @@
                                 <c:if test="${amount>0}">
                                     <input type="text" value="${amount}"}>
                                 </c:if>
+=======
+                    <h3>상품 이름</h3>
+                    <div class="product__details__price">가격</div>
+                    <p>상품 요약 설명이 들어갈 자리입니다</p>
+                    <div class="product__details__quantity">
+                        <div class="quantity">
+                            <div class="pro-qty">
+                                <input type="text" value="상품 수량이 들어갈 자리입니다.">
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                             </div>
                         </div>
                     </div>
                     <a href="#" class="primary-btn">장바구니 추가</a>
+<<<<<<< HEAD
+=======
+                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                 </div>
             </div>
             <div class="col-lg-12">
@@ -135,13 +178,21 @@
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>상품 정보</h6>
+<<<<<<< HEAD
                                 <p>${pro.pro_content}</p>
+=======
+                                <p>상품의 상세정보가 들어갈 자리입니다.</p>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>예시동영상</h6>
+<<<<<<< HEAD
                                 <p>${pro.video}</p>
+=======
+                                <p>상품의 예시 동영상이 들어갈 자리입니다.</p>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">

@@ -35,7 +35,11 @@
             <li><a href="#">Pages</a>
                 <ul class="header__menu__dropdown">
                     <li><a href="${path}/shop-details.html">Shop Details</a></li>
+<<<<<<< HEAD
                     <li><a href="${path}/chartList.do">Shoping Cart</a></li>
+=======
+                    <li><a href="${path}/shoping-cart.html">Shoping Cart</a></li>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                     <li><a href="${path}/checkout.html">Check Out</a></li>
                     <li><a href="<${path}/Blog_details/blog-details.html">Blog Details</a></li>
                 </ul>
