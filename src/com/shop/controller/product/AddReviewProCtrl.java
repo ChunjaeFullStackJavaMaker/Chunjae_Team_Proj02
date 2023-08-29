@@ -2,7 +2,6 @@ package com.shop.controller.product;
 
 import com.shop.dto.Review;
 import com.shop.model.ProductDAO;
-import com.shop.model.ReviewDAO;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +26,7 @@ public class AddReviewProCtrl extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-        ReviewDAO dao = new ReviewDAO();
+        ProductDAO dao = new ProductDAO();
         int a = dao.addReview(review);
         if (a > 0) {
             response.sendRedirect(request.getContextPath()+"/getProduct.do");
