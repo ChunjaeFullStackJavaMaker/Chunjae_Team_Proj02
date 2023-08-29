@@ -11,7 +11,7 @@ CREATE TABLE member(
                        email VARCHAR(100) NOT NULL,   							-- 이메일
                        tel VARCHAR(13),   										-- 전화번호
                        birth DATE, 											-- 생년월일
-                       addresss VARCHAR(300), 									-- 주소
+                       address VARCHAR(300), 									-- 주소
                        resdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- 가입일
                        POINT INT DEFAULT 0,   									-- 포인트
                        grade VARCHAR(4) DEFAULT 'F', 							-- 멤버쉽 등급
