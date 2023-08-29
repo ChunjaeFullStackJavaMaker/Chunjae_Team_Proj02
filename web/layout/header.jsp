@@ -7,16 +7,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
+<<<<<<< HEAD
                 <div class="col-lg-12 col-md-12">
                     <div class="header__top__right">
                         <div class="header__top__right__auth">
                             <c:if test="${sid eq null}">
                                 <a href="/Login.do"><i class="fa fa-user"></i> Login</a>
+=======
+                    <div class="header__top__right">
+                        <div class="header__top__right__auth">
+                            <c:if test="${sid eq null}">
+                                <a href="#"><i class="fa fa-user"></i> Login</a>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                                 <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
                             </c:if>
                             <c:if test="${sid ne null and sid ne 'admin'}">
                                 <a href="#"><i class="fa fa-user"></i> Logout </a>
+<<<<<<< HEAD
                                 <a href="${path}/mypageInfo.do"><i class="fa fa-sign-in" aria-hidden="true"></i> MyPage </a>
+=======
+                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> MyPage </a>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                             </c:if>
                             <c:if test="${sid eq 'admin'}">
                                 <a href="#"><i class="fa fa-user"></i> Logout </a>
@@ -36,6 +47,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
+<<<<<<< HEAD
                 <nav class="header__menu">
                     <ul>
                         <li><a href="${path}/ProList.do?cate=Q&R&S"> 유아 </a>
@@ -67,6 +79,39 @@
                                 <li><a href="${path}/ProList.do?cate=J">고등 참고서</a></li>
                                 <li><a href="${path}/ProList.do?cate=K">고등 문제집</a></li>
                                 <li><a href="${path}/ProList.do?cate=L">고등 기타</a></li>
+=======
+                <nav class="header__menu" style="padding-left: 70px;">
+                    <ul>
+                        <li><a href="#"> 영유아 </a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="">유아콘텐츠</a></li>
+                                <li><a href="">유아놀이</a></li>
+                                <li><a href="">유아기타</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"> 초등 </a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="${path}/product/getProduct.jsp"> 교과서 </a></li>
+                                <li><a href=""> 참고서 </a></li>
+                                <li><a href=""> 문제집 </a></li>
+                                <li><a href=""> 기타 </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"> 중등 </a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="${path}/product/getProduct.jsp"> 교과서 </a></li>
+                                <li><a href=""> 참고서 </a></li>
+                                <li><a href=""> 문제집 </a></li>
+                                <li><a href=""> 기타 </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"> 고등 </a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="${path}/product/getProduct.jsp"> 교과서 </a></li>
+                                <li><a href=""> 참고서 </a></li>
+                                <li><a href=""> 문제집 </a></li>
+                                <li><a href=""> 기타 </a></li>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                             </ul>
                         </li>
                         <li><a href="#"> 고객지원 </a>
@@ -84,9 +129,14 @@
                 <div class="header__cart">
                     <ul>
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+<<<<<<< HEAD
                         <li><a href="${path}/cartList.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                     </ul>
                     <div class="header__cart__price">item: <span>$150.00</span></div>
+=======
+                        <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                    </ul>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                 </div>
             </div>
         </div>

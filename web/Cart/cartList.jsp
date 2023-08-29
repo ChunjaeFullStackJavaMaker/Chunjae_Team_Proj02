@@ -1,6 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<<<<<<< HEAD
+=======
+<c:set var="path" value="<%=request.getContextPath() %>" />
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,13 +33,18 @@
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
+<<<<<<< HEAD
 <section class="hero hero-normal">
+=======
+<section class="hero">
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
                 <div class="hero__categories">
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
+<<<<<<< HEAD
                         <span>All departments</span>
                     </div>
                     <ul>
@@ -50,6 +59,25 @@
                         <li><a href="#">Papayaya & Crisps</a></li>
                         <li><a href="#">Oatmeal</a></li>
                         <li><a href="#">Fresh Bananas</a></li>
+=======
+                        <span>All Products</span>
+                    </div>
+                    <ul>
+                        <li><a href="#">초등교과서</a></li>
+                        <li><a href="#">초등참고서</a></li>
+                        <li><a href="#">초등문제집</a></li>
+                        <li><a href="#">초등기타</a></li>
+                        <li><a href="#">중등교과서</a></li>
+                        <li><a href="#">중등참고서</a></li>
+                        <li><a href="#">중등문제집</a></li>
+                        <li><a href="#">중등기타</a></li>
+                        <li><a href="#">고등교과서</a></li>
+                        <li><a href="#">고등참고서</a></li>
+                        <li><a href="#">고등기타</a></li>
+                        <li><a href="#">유아콘텐츠</a></li>
+                        <li><a href="#">유아놀이</a></li>
+                        <li><a href="#">유아기타</a></li>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                     </ul>
                 </div>
             </div>
@@ -61,7 +89,11 @@
                                 All Categories
                                 <span class="arrow_carrot-down"></span>
                             </div>
+<<<<<<< HEAD
                             <input type="text" placeholder="What do yo u need?">
+=======
+                            <input type="text" placeholder="찾으시는 책을 검색해주세요.">
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                             <button type="submit" class="site-btn">SEARCH</button>
                         </form>
                     </div>
@@ -75,6 +107,7 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
             </div>
         </div>
     </div>
@@ -91,12 +124,61 @@
                     <div class="breadcrumb__option">
                         <a href="${path }">Home</a>
                         <span>Shopping Cart</span>
+=======
+                <div class="container-fluid">
+                    <div class="contents" style="min-height:100vh">
+                        <h2 class="title" style="padding-left: 15px;">장바구니 목록</h2>
+                        <p class="msg">${msg }</p>
+                        <div class="container">
+                            <div class="box_wrap">
+                                <form action="${path }/DelCart.do" method="post">
+                                    <table class="table table-secondary" id="tb1">
+                                        <thead>
+                                        <tr>
+                                            <th class="item1">연번</th>
+                                            <th class="item2">상품명</th>
+                                            <th class="item3">수량</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <c:forEach var="cart" items="${cartList }" varStatus="status">
+                                            <tr>
+                                                <td class="item1">
+                                                    <input type="checkbox" name="cartno" id="cartno+${status.count}" value="${cart.cartno }">
+                                                        ${status.count }
+                                                </td>
+                                                <td class="item2">
+                                                    <span title="${cart.pno}">${cart.pname }</span>
+                                                </td>
+                                                <td class="item3">
+                                                        ${cart.amount }
+                                                    <a href="${path }/AddPayment.do?pno=${cart.pno }&from=cart"></a>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
+                                        <c:if test="${empty cartList}">
+                                            <tr>
+                                                <td colspan="3">장바구니 목록이 존재하지 않습니다.</td>
+                                            </tr>
+                                        </c:if>
+                                        </tbody>
+                                    </table>
+                                    <c:if test="${!empty cartList}">
+                                        <div class="container">
+                                            <input type="submit" value="선택삭제" class="btn btn-primary">
+                                        </div>
+                                    </c:if>
+                                </form>
+                            </div>
+                        </div>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<<<<<<< HEAD
 <!-- Breadcrumb Section End -->
 
 <!-- Shoping Cart Section Begin -->
@@ -182,6 +264,61 @@
         </div>
     </div>
 </section>
+=======
+<!-- Hero Section End -->
+
+<!-- Shoping Cart Section Begin -->
+<%--<section class="shoping-cart spad">--%>
+<%--    <div class="container-fluid">--%>
+<%--        <div class="contents" style="min-height:100vh">--%>
+<%--            <h2 class="title" style="padding-left: 130px;">장바구니 목록</h2>--%>
+<%--            <p class="msg">${msg }</p>--%>
+<%--            <div class="container">--%>
+<%--                <div class="box_wrap">--%>
+<%--                    <form action="${path }/DelCart.do" method="post">--%>
+<%--                        <table class="table table-secondary" id="tb1">--%>
+<%--                            <thead>--%>
+<%--                            <tr>--%>
+<%--                                <th class="item1">연번</th>--%>
+<%--                                <th class="item2">상품명</th>--%>
+<%--                                <th class="item3">수량</th>--%>
+<%--                            </tr>--%>
+<%--                            </thead>--%>
+<%--                            <tbody>--%>
+<%--                            <c:forEach var="cart" items="${cartList }" varStatus="status">--%>
+<%--                                <tr>--%>
+<%--                                    <td class="item1">--%>
+<%--                                        <input type="checkbox" name="cartno" id="cartno+${status.count}" value="${cart.cartno }">--%>
+<%--                                            ${status.count }--%>
+<%--                                    </td>--%>
+<%--                                    <td class="item2">--%>
+<%--                                        <span title="${cart.pno}">${cart.pname }</span>--%>
+<%--                                    </td>--%>
+<%--                                    <td class="item3">--%>
+<%--                                            ${cart.amount }--%>
+<%--                                        <a href="${path }/AddPayment.do?pno=${cart.pno }&from=cart"></a>--%>
+<%--                                    </td>--%>
+<%--                                </tr>--%>
+<%--                            </c:forEach>--%>
+<%--                            <c:if test="${empty cartList}">--%>
+<%--                                <tr>--%>
+<%--                                    <td colspan="3">장바구니 목록이 존재하지 않습니다.</td>--%>
+<%--                                </tr>--%>
+<%--                            </c:if>--%>
+<%--                            </tbody>--%>
+<%--                        </table>--%>
+<%--                        <c:if test="${!empty cartList}">--%>
+<%--                            <div class="container">--%>
+<%--                                <input type="submit" value="선택삭제" class="btn btn-primary">--%>
+<%--                            </div>--%>
+<%--                        </c:if>--%>
+<%--                    </form>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
 <!-- Shoping Cart Section End -->
 
 <!-- Footer Section Begin -->
@@ -189,4 +326,8 @@
 <!-- Footer Section End -->
 
 </body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
 </html>

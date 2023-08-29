@@ -1,5 +1,10 @@
 package com.shop.model;
 
+<<<<<<< HEAD
+=======
+import com.shop.model.DBConnect;
+
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
 import java.sql.*;
 
 public class PostgreCon implements DBConnect {
@@ -66,4 +71,8 @@ public class PostgreCon implements DBConnect {
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
