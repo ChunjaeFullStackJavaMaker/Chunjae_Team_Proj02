@@ -1,7 +1,5 @@
 package com.shop.model;
 
-import com.shop.model.DBConnect;
-
 import java.sql.*;
 
 public class PostgreCon implements DBConnect {

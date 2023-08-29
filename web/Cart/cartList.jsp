@@ -163,8 +163,8 @@
                 <div class="shoping__checkout">
                     <h5>Cart Total</h5>
                     <ul>
-                        <li>Subtotal <span id="subprice"></span></li>
-                        <li>Total <span id="totalprice"></span></li>
+                        <li id="subprice"></li>
+                        <li id="totalprice"></li>
                     </ul>
                     <a href="${path}/checkout.do" class="primary-btn">PROCEED TO CHECKOUT</a>
                 </div>
@@ -174,11 +174,12 @@
                     var totalPay=0;
                     $(".shoping__cart__total").each(function(){
                         totalPay = totalPay + parseInt($(this).text());
+                        console.log(totalPay);
                     });
 
                     //합계를 출력
-                    $("#subprice").text(totalPay);
-                    $("#totalprice").text(totalPay);
+                    $("#subprice").html("<span> SubTotal : "+totalPay+"</span>");
+                    $("#totalprice").html("<span> Total : "+totalPay+"</span>");
                 });
             </script>
         </div>

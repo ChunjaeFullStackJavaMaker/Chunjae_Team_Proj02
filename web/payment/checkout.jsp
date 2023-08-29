@@ -116,7 +116,6 @@
                                 <c:forEach var="cartVO" items="${cartList}">
                                 <li>${cartVO.title } <span class="total">${cartVO.price*cartVO.amount}</span>
                                     <input type="hidden" name="title" id="proName" value="${cartVO.title }">
-
                                 </li>
                                 </c:forEach>
                             </ul>
@@ -179,6 +178,15 @@
                 $(document).ready(function(){
                     var totalPay=0;
                     var proName;
+
+                    $(".total").each(function(){
+                        totalPay = totalPay + parseInt($(this).text());
+                    });
+
+                    //합계를 출력
+                    $("#subprice").html("<span>"+totalPay+"</span>");
+                    $("#totalprice").html("<span>"+totalPay+"</span>");
+
                     $("#pay").click(function(){
                         var cname = $("#name").val();
                         var email = $("#email").val();
@@ -186,13 +194,7 @@
                         var addr = $("#addr").val();
                         var postcode = $("#postcode").val();
                         proName = $("#proName").val();
-                        $(".total").each(function(){
-                            totalPay = totalPay + parseInt($(this).text());
-                        });
 
-                        //합계를 출력
-                        $("#subprice").text(totalPay);
-                        $("#totalprice").text(totalPay);
 
                         alert("결제할 금액 : "+totalPay);
 

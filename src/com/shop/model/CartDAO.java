@@ -55,7 +55,7 @@ public class CartDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            con.close(rs, pstmt, conn);
+            con.close(pstmt, conn);
         }
         return cartList;
     }

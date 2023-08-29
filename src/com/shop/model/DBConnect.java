@@ -5,7 +5,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public interface DBConnect {
-
+    final static String NOTICE_SELECT_ALL = "select * from notice order by nno desc";
+    final static String NOTICE_SELECT_ONE = "select * from notice where nno=?";
+    final static String NOTICE_INSERT = "insert into notice values (title, content);";
+    final static String NOTICE_SELECT_RANGE = "select * from notice order by nno desc limit 5 offset ?";
+    final static String NOTICE_UPDATE = "update notice set title=?, content=? where nno=?";
+    final static String NOTICE_DELETE = "delete from notice where nno=?";
+    final static String NOTICE_COUNT = "select count(*) as cnt from notice";
+    final static String NOTICE_COUNT_TITLE = "select count(*) as cnt from notice where title like ?";
+    final static String NOTICE_COUNT_CONTENT = "select count(*) as cnt from notice where content like ?";
+    final static String NOTICE_COUNT_ALL = "select count(*) as cnt from notice where title like ? or content like ?";
+    final static String NOTICE_SELECT_TITLE_RANGE = "select * from notice where title like ? order by resdate desc limit 5 offset ?";
+    final static String NOTICE_SELECT_CONTENT_RANGE = "select * from notice where content like ? order by resdate desc limit 5 offset ?";
+    final static String NOTICE_SELECT_ALL_RANGE = "select * from notice where title like ? or content like ? order by resdate desc limit 5 offset ?";
+    
     //카테고리별 목록
     final static String PRODUCT_SELECT_CATE = "select * from product where cate_id=? order by pro_no";
 

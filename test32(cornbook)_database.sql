@@ -1,3 +1,8 @@
+CREATE DATABASE team32;
+
+USE team32;
+
+SHOW TABLES;
 -- 회원 가입 테이블
 CREATE TABLE member(
 	id VARCHAR(16) NOT NULL,   								-- 아이디
@@ -37,35 +42,34 @@ UPDATE member SET pw='318aee3fed8c9d040d35a7fc1fa776fb31303833aa2de885354ddf3d44
 
 -- 매장 전용 공지사항(notice) 테이블 생성
 create table notice(
-	nno serial primary KEY, 
+	nno int primary KEY AUTO_INCREMENT, 
 	title varchar(200) not NULL, 
 	content varchar(1000),
-	author varchar(50),
 	resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	visit INTEGER DEFAULT 0
+	visit int DEFAULT 0
 );
 
 -- 매장 전용 공지사항 더미글 추가 10건
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항1', '여기는 공지사항1입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항1', '여기는 공지사항1입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항2', '여기는 공지사항2입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항2', '여기는 공지사항2입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항3', '여기는 공지사항3입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항3', '여기는 공지사항3입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항4', '여기는 공지사항4입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항4', '여기는 공지사항4입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항5', '여기는 공지사항5입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항5', '여기는 공지사항5입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항6', '여기는 공지사항6입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항6', '여기는 공지사항6입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항7', '여기는 공지사항7입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항7', '여기는 공지사항7입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
 
-INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
+INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
 
 commit;
 
@@ -75,7 +79,7 @@ select * from notice;
 
 -- 고객 전용 공지사항(board) 테이블 생성
 CREATE TABLE board(
-	bno serial PRIMARY KEY,
+	bno int PRIMARY KEY AUTO_INCREMENT,
 	title VARCHAR(200) NOT NULL,
 	content VARCHAR(1000),
 	author VARCHAR(16),
@@ -112,7 +116,7 @@ SELECT * FROM board;
 
 -- 고객 전용 문의 테이블 생성 -- 고객만 사용 가능
 CREATE TABLE askboard(
-	bno serial PRIMARY KEY,
+	bno int PRIMARY KEY AUTO_INCREMENT ,
 	title VARCHAR(200) NOT NULL,
 	content VARCHAR(1000),
 	author VARCHAR(16),
@@ -150,11 +154,11 @@ SELECT * FROM askboard;
 
 -- 질문 및 답변 테이블 생성
 CREATE TABLE qna(
-	qno serial PRIMARY KEY ,   			            -- 번호
+	qno int PRIMARY KEY AUTO_INCREMENT,   			            -- 번호
 	title VARCHAR(100) NOT NULL,   					-- 제목
 	content VARCHAR(1000) NOT NULL,   				-- 내용
 	author VARCHAR(16),   							-- 작성자
-	resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- 등록일
+	resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,    -- 등록일
 	visit INT DEFAULT 0,   							-- 조회수
 	lev INT DEFAULT 0, 								-- 질문(0), 답변(1)
 	par INT,										-- 질문(자신 레코드의 qno), 답변(질문의 글번호)
@@ -230,11 +234,11 @@ COMMIT;
 select * from qna;
 
 -- QnA 리스트
-SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.cnt AS cnt, a.lev AS lev,
+SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit AS visit, a.lev AS lev,
 a.par AS par, b.name AS name FROM qna a, member b WHERE a.author=b.id ORDER BY a.par DESC, a.lev ASC, a.qno ASC;
 
 -- qna JOIN & VIEW 생성 ( 내가 쓴 글에 이용)
-CREATE VIEW qnalist2 AS (SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.cnt AS cnt, a.lev AS lev,
+CREATE VIEW qnalist2 AS (SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit AS visit, a.lev AS lev,
 a.par AS par, b.id AS id FROM qna a, member b WHERE a.author=b.id ORDER BY a.par DESC, a.lev ASC, a.qno ASC);
 
 SELECT * FROM qnalist2;
@@ -245,7 +249,7 @@ SELECT * FROM qnalist2;
 -- 자주 묻는 질문 (FAQ) 테이블 생성
 
 CREATE TABLE faq (
-	fno serial PRIMARY KEY,
+	fno int PRIMARY KEY AUTO_INCREMENT,
 	question VARCHAR(1000) NOT NULL,
 	answer VARCHAR(1000) NOT NULL,
 	cnt INT DEFAULT 0 NOT NULL
@@ -280,7 +284,7 @@ select * from faq;
 -- 고객 문의 게시판 댓글 테이블 생성
 
 create table askComment(
-	cno serial PRIMARY KEY,
+	cno INT PRIMARY KEY AUTO_INCREMENT,
 	bno INT,
 	author VARCHAR(16),
 	resdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -330,7 +334,7 @@ select * from filetest2;
 
 -- 상품 테이블 생성
 create table product(
-	pro_no serial PRIMARY KEY,
+	pro_no INT PRIMARY KEY AUTO_INCREMENT,
 	cate_id VARCHAR(4) NOT NULL,								-- 품목 명
 	pro_cate_no VARCHAR(100) NOT NULL, 							-- 상품번호+Category : 1-10 이런 형식
 	price INT DEFAULT 0, 										-- 상품 가격					
@@ -352,7 +356,7 @@ insert into product values (default, 'H','H-1',1000,'수학2','목차2입니다'
 select * from product;
 -- 상품 부가정보 테이블 생성
 create table addinfo(
-	add_no serial primary key,
+	add_no int primary KEY AUTO_INCREMENT,
 	pro_no integer not null, 
 	title varchar(200) not null,
 	movie varchar(256) default 'sample1.mp4',
@@ -363,10 +367,10 @@ create table addinfo(
 
 -- 입고 테이블 생성
 create table receive(
-	re_no serial primary key,								-- 입고 번호
-	pro_no integer not null,                                -- 상품 번호
-	amount integer default 1,	         					-- 입고 수량
-	re_price integer default 1000,			    			-- 입고 가격
+	re_no INT primary KEY AUTO_INCREMENT,								-- 입고 번호
+	pro_no int not null,                                -- 상품 번호
+	amount int default 1,	         					-- 입고 수량
+	re_price int default 1000,			    			-- 입고 가격
 	resdate timestamp default current_timestamp		    	-- 입고 일시
 );
 
@@ -374,25 +378,27 @@ create table receive(
 
 -- 출고 테이블 생성
 create table serve(
-	se_no serial primary key,								-- 출고 번호
-	pro_no integer not null, 		                        -- 상품 번호
-	se_price integer default 1000,					    	-- 출고 가격
-	amount integer default 1,				         		-- 출고 수량
+	se_no int primary KEY AUTO_INCREMENT,								-- 출고 번호
+	pro_no int not null, 		                        -- 상품 번호
+	se_price int default 1000,					    	-- 출고 가격
+	amount int default 1,				         		-- 출고 수량
 	resdate timestamp default current_timestamp		    	-- 출고 일시
 );
+
+SELECT * FROM serve;
 
 ---------------------------------------------------------------------------------------------------
 
 -- 배송 테이블 생성
 create table delivery(
-	del_no serial primary key,						-- 배송 번호
-	pay_no integer not null, 						-- 결제 번호
+	del_no int primary KEY AUTO_INCREMENT,						-- 배송 번호
+	pay_no int not null, 						-- 결제 번호
 	custom_id varchar(20) not null,					-- 고객 아이디
 	del_addr varchar(300) not null, 				-- 배송지
 	cus_tel varchar(13) not null,					-- 고객 연락처
 	del_com varchar(100),							-- 배송 회사
 	del_tel varchar(13),							-- 배송 기사님 전화번호
-	del_state integer default 0,					-- 배송 상태 -> (0 : 입고 중, 1 : 출하 중, 2 : 상차, 3 : 하차, 4 : 캠프 도착, 5 : 배송 중, 6 : 배송 도착)
+	del_state int default 0,					-- 배송 상태 -> (0 : 입고 중, 1 : 출하 중, 2 : 상차, 3 : 하차, 4 : 캠프 도착, 5 : 배송 중, 6 : 배송 도착)
 	del_date timestamp default current_timestamp,	-- 배송 출발일
 	res_date varchar(13),							-- 배송 도착일
 	del_code varchar(30)							-- 송장 코드
@@ -402,14 +408,14 @@ create table delivery(
 
 -- 결제 테이블 생성
 create table payment(
-	pay_no serial primary key,			-- 결제 번호
+	pay_no INT primary KEY AUTO_INCREMENT,			-- 결제 번호
 	cus_id varchar(20) not null,		-- 고객 아이디
 	cus_num varchar(100),				-- 고객 번호
-	pro_no integer not null,			-- 상품 번호
-	amount integer default 1,			-- 결제 수량
+	pro_no int not null,			-- 상품 번호
+	amount int default 1,			-- 결제 수량
 	pay_method varchar(100),			-- 결제 수단
 	pay_com varchar(100),				-- 결제 회사
-	pay_price integer default 1000,		-- 결제 금액
+	pay_price int default 1000,		-- 결제 금액
 	pay_account varchar(100) NOT NULL,	-- 결제 카드 번호
 	del_no varchar(100),				-- 배송 번호(랜덤번호 추출)
 	pay_resdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP -- 결제 일시 지정
@@ -460,7 +466,7 @@ create table cart(
 
 -- 후기 테이블 생성
 CREATE TABLE review(
-	rev_no serial PRIMARY KEY, 			            			-- 리뷰 번호
+	rev_no int PRIMARY KEY AUTO_INCREMENT, 			            			-- 리뷰 번호
 	mem_id VARCHAR(16) NOT NULL, 								-- 회원 아이디
 	pay_no INT NOT NULL, 										-- 결제 번호
 	pro varchar(200) NOT NULL, 									-- 상품명
@@ -469,12 +475,6 @@ CREATE TABLE review(
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,		-- 리뷰 작성 일자
 	pro_no INT NOT NULL  										-- 상품 번호
 );
-
--------------------------------------------------------------------------------------------
--- dto에 들어 갈거나 기타 등등
-
--- 내가 만든 테이블 목록 보기
-select * from pg_tables where schemaname='public';
 
 -------------------------------------------------------------------------------------------
 
