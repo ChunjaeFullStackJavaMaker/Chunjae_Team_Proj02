@@ -15,9 +15,17 @@ public class ProductListCtrl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("msg", "상품 리스트를 출력합니다.");
 
+        String cate = request.getParameter("cate");
+        String cate_no = null;
 
         ProductDAO dao = new ProductDAO();
-        List<Product> proList = dao.getProductList();
+        List<Product> proList;
+
+        if(cate==""){
+            proList = dao.getCateProductList(cate);
+        } else {
+            proList = dao.getCateProductList(cate);
+        }
 
         request.setAttribute("proList", proList);
         RequestDispatcher view = request.getRequestDispatcher("/product/productList.jsp");
