@@ -11,6 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>제품 상세보기</title>
+    <script src="https://kit.fontawesome.com/67fc414e58.js" crossorigin="anonymous"></script>
+    <style>
+        button.player_btn {
+            border: none;
+            background-color: #ffffff;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -133,27 +141,24 @@
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>상품 동영상</h6>
-                                <div class="player">
+                                <div class="player" style="width: 800px; margin: 0 auto;">
                                     <div class="vdo_fr">
-                                        <video id="video" autoplay>
+                                        <video id="video" autoplay style="width: 100%">
                                             <source src="${path}/storage/${info.movie}" type="video/mp4"/>
                                         </video>
                                     </div>
-                                    <div id="progress">
-                                        <div id="progressBar"></div>
-                                    </div>
-                                    <div id="buttonbar">
+                                    <div id="buttonbar" style="width: 100%">
                                         <button id="play" class="player_btn"> <i class="fas fa-play"></i> </button>
                                         <button id="pause" class="player_btn"> <i class="fas fa-pause"></i> </button>
                                         <button id="stop" class="player_btn"> <i class="fas fa-stop"></i> </button>
+                                        <div class="btn float-right">
                                         <input id="vol" type="range" value="500" min="0" max="1000">
-                                        <button id="volTxt">50%</button>
+                                        <button id="volTxt" class="player_btn">50%</button>
                                         <button id="full" class="player_btn"> <i class="fas fa-expand-arrows-alt"></i> </button>
-                                        <button id="original" class="player_btn"> <i class="fas fa-compress-arrows-alt"></i> </button>
+                                        </div>
                                     </div>
                                     <script src="${path}/js/vdo.js"></script>
                                 </div>
-                                <video src="${path}/storage/${info.movie}" style="width: 800px; margin-left: 152px;"></video>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
