@@ -77,6 +77,7 @@
                     </div>
 
                     <div class="form-outline mb-4 col col-8">
+                        <input type="hidden" id="pro_no" name="pro_no" value="${product.pro_no}"/>
                         <input type="text" id="title" name="title" class="form-control form-control-lg" maxlength="90" value="${product.title}" required />
                         <label class="form-label" for="title"> 상품명 </label>
                     </div>

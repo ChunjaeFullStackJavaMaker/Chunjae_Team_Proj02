@@ -66,6 +66,7 @@ public interface DBConnect {
     //배송 관리 sql문
     final static String DELIVERY_INSERT = "insert into delivery values (default, ?, ?, ?, ?, '','',default,default,'','')";
     final static String DELIVERY_SELECT_PAYNO = "select * from delivery where pay_no=?";
+    final static String DELIVERY_PRODUCT_SELECT_ALL = "SELECT custom_id, title, pay_price, del_state FROM delivery a, payment b, product c WHERE a.pay_no=b.pay_no AND b.pro_no=c.pro_no";
 
     //장바구니 관리 sql문
     final static String CART_DELETE = "delete from cart where cart_no=?";
