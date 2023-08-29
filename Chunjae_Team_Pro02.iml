@@ -9,10 +9,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
-<<<<<<< HEAD
         <sourceRoots />
-=======
->>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
       </configuration>
     </facet>
   </component>
@@ -24,10 +21,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="commons-collections-3.2.2" level="project" />
-<<<<<<< HEAD
-=======
-    <orderEntry type="library" name="javax.servlet.api" level="project" />
->>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
     <orderEntry type="library" name="cos" level="project" />
   </component>
 </module>

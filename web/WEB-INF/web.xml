@@ -5,19 +5,11 @@
          version="4.0">
     <display-name>pro02</display-name>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>cornBooks</servlet-name>
         <servlet-class>com.shop.controller.Main</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>cornBooks</servlet-name>
-=======
-        <servlet-name>shop</servlet-name>
-        <servlet-class>com.shop.controller.Main</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>shop</servlet-name>
->>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <filter>

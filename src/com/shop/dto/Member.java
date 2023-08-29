@@ -1,15 +1,15 @@
 package com.shop.dto;
 
-public class member {
-      private String id;
+public class Member {
+    private String id;
     private String pw;
-    private String name;
+    private String NAME;
     private String email;
     private String tel;
     private String birth;
     private String address;
     private String resdate;
-    private int point;
+    private int POINT;
     private String grade;
     private int per;
 
@@ -29,12 +29,12 @@ public class member {
         this.pw = pw;
     }
 
-    public String getName() {
-        return name;
+    public String getNAME() {
+        return NAME;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNAME(String NAME) {
+        this.NAME = NAME;
     }
 
     public String getEmail() {
@@ -65,8 +65,8 @@ public class member {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String addresss) {
+        this.address = addresss;
     }
 
     public String getResdate() {
@@ -77,12 +77,12 @@ public class member {
         this.resdate = resdate;
     }
 
-    public int getPoint() {
-        return point;
+    public int getPOINT() {
+        return POINT;
     }
 
-    public void setPoint(int point) {
-        this.point = point;
+    public void setPOINT(int POINT) {
+        this.POINT = POINT;
     }
 
     public String getGrade() {
@@ -103,19 +103,18 @@ public class member {
 
     @Override
     public String toString() {
-        return "Custom{" +
+        return "Member{" +
                 "id='" + id + '\'' +
                 ", pw='" + pw + '\'' +
-                ", name='" + name + '\'' +
+                ", NAME='" + NAME + '\'' +
                 ", email='" + email + '\'' +
                 ", tel='" + tel + '\'' +
-                ", birth=" + birth +
+                ", birth='" + birth + '\'' +
                 ", address='" + address + '\'' +
                 ", resdate='" + resdate + '\'' +
-                ", point=" + point +
+                ", POINT=" + POINT +
                 ", grade='" + grade + '\'' +
                 ", per=" + per +
                 '}';
     }
 }
-

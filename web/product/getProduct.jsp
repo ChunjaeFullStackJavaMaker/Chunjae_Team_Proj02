@@ -38,10 +38,10 @@
                         <span>All departments</span>
                     </div>
                     <ul>
-                        <li><a href="${path}/CateProList.do?cate_id=Q&cate_id=R&cate_id=S">유아</a></li>
-                        <li><a href="${path}/CateProList.do?cate_id=A&cate_id=B&cate_id=C&cate_id=D">초등</a></li>
-                        <li><a href="${path}/CateProList.do?cate_id=E&cate_id=F&cate_id=G&cate_id=H">중등</a></li>
-                        <li><a href="${path}/CateProList.do?cate_id=I&cate_id=J&cate_id=K&cate_id=L">고등</a></li>
+                        <li><a href="${path}/ProList.do?cate=child">유아</a></li>
+                        <li><a href="${path}/ProList.do?cate=elementary">초등</a></li>
+                        <li><a href="${path}/ProList.do?cate=middle">중등</a></li>
+                        <li><a href="${path}/ProList.do?cate=high">고등</a></li>
                     </ul>
                 </div>
             </div>
@@ -65,7 +65,7 @@
 <!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" style="background-image: url('${path}/img/breadcrumb.jpg')">
+<section class="breadcrumb-section set-bg" data-setbg="${path}/img/breadcrumb.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -91,7 +91,7 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                        src="${path}/storage/${pro.thumb}" alt="썸네일 이미지">
+                             src="${path }/storage/${pro.img_src }" alt="">
                     </div>
                 </div>
             </div>
@@ -104,23 +104,15 @@
                         <div class="quantity">
                             <div class="pro-qty">
                                 <c:if test="${amount<=0}">
-                                    <input type="text" value="품절">
+                                <input type="text" value="품절">
                                 </c:if>
                                 <c:if test="${amount>0}">
                                     <input type="text" value="${amount}"}>
                                 </c:if>
-                    <h3>${pro.title}</h3>
-                    <div class="product__details__price">가격</div>
-                    <p>${pro.description}</p>
-                    <div class="product__details__quantity">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="${amount}">
                             </div>
                         </div>
                     </div>
                     <a href="#" class="primary-btn">장바구니 추가</a>
-                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                 </div>
             </div>
             <div class="col-lg-12">
@@ -136,7 +128,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                               aria-selected="false">Reviews</a>
+                               aria-selected="false">Reviews <span>(리뷰의 갯수가 들어갈 자리입니다.)</span></a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -154,41 +146,8 @@
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h5 style="margin-bottom: 20px"><strong>후기</strong></h5>
-                                <div>
-                                    <c:forEach var="review" items="${reviewList}">
-                                    <div class="name"><strong>회원 ID: </strong>${review.mem_id}&nbsp;&nbsp;&nbsp;&nbsp;<strong>작성일시: </strong>${review.regdate}</div>
-                                    <div class="star"><strong>별점: </strong>
-                                        <c:if test="${review.star eq 5}">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </c:if>
-                                        <c:if test="${review.star eq 4}">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </c:if>
-                                        <c:if test="${review.star eq 3}">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </c:if>
-                                        <c:if test="${review.star eq 2}">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </c:if>
-                                        <c:if test="${review.star eq 1}">
-                                            <i class="fa fa-star"></i>
-                                        </c:if>
-                                    </div>
-                                    <div class="content">${review.content}</div>
-                                        <hr>
-                                    </c:forEach>
-                                </div>
+                                <h6>후기</h6>
+                                <p>리뷰와 리뷰 작성란이 들어갈 자리입니다.</p>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,6 @@
 package com.shop.dto;
 
 public class Product {
-<<<<<<< HEAD
     private int pro_no; //상품 번호
     private String cate_id; //품목 명
     private String pro_cate_no; //상품 번호+Category
@@ -108,6 +107,4 @@ public class Product {
                 ", regdate='" + regdate + '\'' +
                 '}';
     }
-=======
->>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
 }

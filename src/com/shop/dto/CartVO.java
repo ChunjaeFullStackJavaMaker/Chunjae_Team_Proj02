@@ -1,7 +1,6 @@
 package com.shop.dto;
 
 public class CartVO {
-<<<<<<< HEAD
     private int cart_no;
     private String cus_id;
     private String NAME;
@@ -56,53 +55,6 @@ public class CartVO {
 
     public void setPrice(int price) {
         this.price = price;
-=======
-    private int cartno;     //카트번호
-    private String cid;     //고객아이디
-    private String name;     //고객명
-    private int pno;        //제품번호
-    private String pro_name;   //제품번호
-    private int amount;     //제품수량
-
-    public int getCartno() {
-        return cartno;
-    }
-
-    public void setCartno(int cartno) {
-        this.cartno = cartno;
-    }
-
-    public String getCid() {
-        return cid;
-    }
-
-    public void setCid(String cid) {
-        this.cid = cid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPno() {
-        return pno;
-    }
-
-    public void setPno(int pno) {
-        this.pno = pno;
-    }
-
-    public String getPro_name(String pro_name) {
-        return this.pro_name;
-    }
-
-    public void setPro_name(String pro_name) {
-        this.pro_name = pro_name;
->>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
     }
 
     public int getAmount() {
@@ -116,20 +68,12 @@ public class CartVO {
     @Override
     public String toString() {
         return "CartVO{" +
-<<<<<<< HEAD
                 "cart_no=" + cart_no +
                 ", cus_id='" + cus_id + '\'' +
                 ", NAME='" + NAME + '\'' +
                 ", pro_no=" + pro_no +
                 ", title='" + title + '\'' +
                 ", price=" + price +
-=======
-                "cartno=" + cartno +
-                ", cid='" + cid + '\'' +
-                ", name='" + name + '\'' +
-                ", pno=" + pno +
-                ", pname='" + pro_name + '\'' +
->>>>>>> 6f8e8e48ba835bfa9d8ce7e392e7dbe058d0599d
                 ", amount=" + amount +
                 '}';
     }

@@ -15,7 +15,7 @@ public class DeliveryDAO {
 
     public int addDelivery(Delivery del){
         int cnt = 0;
-        DBConnect con = new MariaDBCon();
+        DBConnect con = new PostgreCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.DELIVERY_INSERT);
@@ -34,7 +34,7 @@ public class DeliveryDAO {
 
     public Delivery getByPaynoDelivery(int pay_no){
         Delivery del = new Delivery();
-        DBConnect con = new MariaDBCon();
+        DBConnect con = new PostgreCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.DELIVERY_SELECT_PAYNO);
