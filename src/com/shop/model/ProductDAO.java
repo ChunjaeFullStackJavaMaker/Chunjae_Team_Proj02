@@ -193,9 +193,7 @@ public class ProductDAO {
             pstmt.setString(2, pro.getTitle());
             pstmt.setString(3, pro.getDescription());
             pstmt.setString(4, pro.getPro_content());
-            pstmt.setString(5, pro.getThumb());
-            pstmt.setString(6, pro.getImg_src());
-            pstmt.setInt(7, pro.getPro_no());
+            pstmt.setInt(5, pro.getPro_no());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

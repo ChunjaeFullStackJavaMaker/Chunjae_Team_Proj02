@@ -39,7 +39,7 @@ public interface DBConnect {
     final static String PRODUCT_INFO = "insert into addinfo values(default, ?, ?, ?, default)";
 
     //상품 수정
-    final static String PRODUCT_UPDATE = "update product set price=?, title=?, description=?, pro_content=?, thumb=?, img_src=? where pro_no=?";
+    final static String PRODUCT_UPDATE = "update product set price=?, title=?, description=?, pro_content=? where pro_no=?";
 
     //상품 삭제
     final static String PRODUCT_DELETE = "delete from product where pro_no=?";
@@ -79,10 +79,12 @@ public interface DBConnect {
     //배송 관리 sql문
     final static String DELIVERY_INSERT = "insert into delivery values (default, ?, ?, ?, ?, '','',default,default,'','')";
     final static String DELIVERY_SELECT_PAYNO = "select * from delivery where pay_no=?";
-    final static String DELIVERY_PRODUCT_SELECT_ALL = "SELECT custom_id, title, pay_price, del_state FROM delivery a, payment b, product c WHERE a.pay_no=b.pay_no AND b.pro_no=c.pro_no";
+    final static String DELIVERY_PRODUCT_SELECT_ALL = "SELECT b.del_no AS del_no, custom_id, cus_tel, title, del_state, pay_resdate FROM delivery a, payment b, product c WHERE a.pay_no=b.pay_no AND b.pro_no=c.pro_no order by pay_resdate asc";
+    final static String DELCODE_GROUP_LIST = "";
 
     //장바구니 관리 sql문
     final static String CART_DELETE = "delete from cart where cart_no=?";
+    final static String CART_DELETE_PRO_NO = "delete from cart where pro_no=?";
     final static String CART_SELECT_CID = "select * from cart where cid=?";
 
 

@@ -57,8 +57,8 @@
             <form name="frm1" id="frm1" action="${path}/UpdateProductPro.do" method="post">
                 <div class="form-outline mb-4 p-3">
                     <div class="row">
-                        <div class="col col-6" style="height: 400px; background-image: url('${path}/storage/${product.thumb}'); background-position: center; background-size: cover"></div>
-                        <div class="col col-6" style="height: 400px; background-image: url('${path}/storage/${product.img_src}'); background-position: center; background-size: cover"></div>
+                        <div class="col col-6" style="height: 300px; background-image: url('${path}/storage/${product.thumb}'); background-position: center; background-size: cover"></div>
+                        <div class="col col-6" style="height: 300px; background-image: url('${path}/storage/${product.img_src}'); background-position: center; background-size: cover"></div>
                     </div>
                 </div>
                 <div class="row">

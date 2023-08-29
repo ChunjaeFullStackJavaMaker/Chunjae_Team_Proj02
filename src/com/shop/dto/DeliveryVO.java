@@ -5,6 +5,7 @@ public class DeliveryVO {
     private int del_no;
     private String title;
     private String custom_id;
+    private String pay_resdate;
     private String del_addr;
     private String cus_tel;
     private String del_com;
@@ -20,6 +21,7 @@ public class DeliveryVO {
                 "del_no=" + del_no +
                 ", title='" + title + '\'' +
                 ", custom_id='" + custom_id + '\'' +
+                ", pay_resdate='" + pay_resdate + '\'' +
                 ", del_addr='" + del_addr + '\'' +
                 ", cus_tel='" + cus_tel + '\'' +
                 ", del_com='" + del_com + '\'' +
@@ -53,6 +55,14 @@ public class DeliveryVO {
 
     public void setCustom_id(String custom_id) {
         this.custom_id = custom_id;
+    }
+
+    public String getPay_resdate() {
+        return pay_resdate;
+    }
+
+    public void setPay_resdate(String pay_resdate) {
+        this.pay_resdate = pay_resdate;
     }
 
     public String getDel_addr() {

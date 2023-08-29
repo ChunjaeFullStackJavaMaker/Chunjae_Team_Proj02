@@ -1,5 +1,6 @@
 package com.shop.controller.admin;
 
+import com.shop.model.CartDAO;
 import com.shop.model.ProductDAO;
 
 import javax.servlet.*;
@@ -18,8 +19,11 @@ public class DelProductCtrl extends HttpServlet {
         ServletContext application = request.getServletContext();
         String home = application.getContextPath();
 
-        ProductDAO dao = new ProductDAO();
-        int cnt = dao.delProduct(pro_no);
+        ProductDAO proDAO = new ProductDAO();
+        int cnt = proDAO.delProduct(pro_no);           // 상품 삭제
+
+        CartDAO cartDAO = new CartDAO();
+        cnt += cartDAO.delCartWithProNo(pro_no);
 
         response.sendRedirect(home + "/AdminProductList.do");
     }

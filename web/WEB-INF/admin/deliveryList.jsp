@@ -73,24 +73,46 @@
                 </div>
             </div>
             <div class="col col-lg-9 mt-3">
-                <table class="table table-striped">
-                    <thead>
-                    <tr class="text-center"><th> 송장번호 </th><th> 상품명 </th><th> 주문자 ID </th><th> 결제일 </th><th> 배송 시작일 </th><th> 배송 예정일 </th><th> 배송상태 </th></tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="pro" items="${proList}">
-                        <tr class="text-center">
-                            <td class="align-middle">${pro.pro_cate_no}</td>
-                            <td class="align-middle">${pro.title}</td>
-                            <td class="align-middle">${pro.price}원 </td>
-                            <td class="align-middle">
-                                <button class="btn btn-outline-primary" onclick="javascript: location.href='${path}/UpdateProduct.do?pro_no=${pro.pro_no}'"> 수정 </button>
-                                <button class="btn btn-outline-primary" onclick="javascript: location.href='${path}/DelProduct.do?pro_no=${pro.pro_no}'"> 삭제 </button>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+                <div class="container">
+                    <h4 class="mb-3"> 결제완료 주문건 </h4>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr class="text-center"><th>연번</th><th> 상품명 </th><th> 주문자 ID </th><th> 전화번호 </th><th> 결제일 </th><th> 배송상태 </th></tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="del" items="${delList}">
+                            <tr class="text-center">
+                                <td class="align-middle">${del.del_no} </td>
+                                <td class="align-middle">${del.title}</td>
+                                <td class="align-middle">${del.cus_id}</td>
+                                <td class="align-middle">${del.cus_tel} </td>
+                                <td class="align-middle">${del.pay_resdate} </td>
+                                <td class="align-middle">${del.del_state} </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container mt-3">
+                    <h4 class="mb-3"> 배송상태 변경 </h4>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr class="text-center"><th> 송장번호 </th><th> 상품명 </th><th> 주문자 ID </th><th> 결제일 </th><th> 배송 시작일 </th><th> 배송 예정일 </th><th> 배송상태 </th></tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="del" items="${delList}">
+                            <tr class="text-center">
+                                <td class="align-middle">${del.del_no} </td>
+                                <td class="align-middle">${del.title}</td>
+                                <td class="align-middle">${del.cus_id}</td>
+                                <td class="align-middle">${del.cus_tel} </td>
+                                <td class="align-middle">${del.pay_resdate} </td>
+                                <td class="align-middle">${del.del_state} </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
