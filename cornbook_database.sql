@@ -1,8 +1,3 @@
-CREATE DATABASE team32;
-
-USE team32;
-
-SHOW TABLES;
 -- 회원 가입 테이블
 CREATE TABLE member(
                        id VARCHAR(16) NOT NULL,   								-- 아이디
@@ -11,7 +6,7 @@ CREATE TABLE member(
                        email VARCHAR(100) NOT NULL,   							-- 이메일
                        tel VARCHAR(13),   										-- 전화번호
                        birth DATE, 											-- 생년월일
-                       address VARCHAR(300), 									-- 주소
+                       addresss VARCHAR(300), 									-- 주소
                        resdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- 가입일
                        POINT INT DEFAULT 0,   									-- 포인트
                        grade VARCHAR(4) DEFAULT 'F', 							-- 멤버쉽 등급
@@ -19,57 +14,54 @@ CREATE TABLE member(
                        PRIMARY KEY (id)
 );
 
--- 관리자 페이지에서 사용자가 특정 인원 판매자 지정 필요
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('admin','1234', '관리자', 'admin@shop.com', '010-1004-1004', '1998-01-01', 0);
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('kimhk','1234', '김현경', 'kimhk@shop.com', '010-1234-5678', '2000-01-01', 1);
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('kimbk','qwer1234!', '김보경', 'kimbk@shop.com', '010-8765-4321', '2000-01-01', 1);
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('parkjk','2318358', '박진권', 'park@shop.com', '010-1111-2222', '2000-01-01', 1);
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('sirious920','xogns1234!', '오태훈', 'dhxogns920@shop.com', '010-7329-7484', '1998-09-20', 1);
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('shin','asdf1234!', '신예은', 'shin@shop.com', '010-9999-8888', '2000-01-01', 1);
+INSERT INTO custom(id, pw, NAME, email, tel, birth, per) VALUES('admin','1234', '관리자', 'admin@shop.com', '010-1004-1004', '1998-01-01', 0);
+INSERT INTO custom(id, pw, NAME, email, tel, birth, per) VALUES('kimhk','1234', '김현경', 'kimhk@shop.com', '010-1234-5678', '2000-01-01', 1);
+INSERT INTO custom(id, pw, NAME, email, tel, birth, per) VALUES('kimbk','qwer1234!', '김보경', 'kimbk@shop.com', '010-8765-4321', '2000-01-01', 1);
+INSERT INTO custom(id, pw, NAME, email, tel, birth, per) VALUES('parkjk','1234', '박진권', 'park@shop.com', '010-1111-2222', '2000-01-01', 1);
+INSERT INTO custom(id, pw, NAME, email, tel, birth, per) VALUES('sirious920','xogns1234!', '오태훈', 'dhxogns920@shop.com', '010-7329-7484', '1998-09-20', 1);
+INSERT INTO custom(id, pw, NAME, email, tel, birth, per) VALUES('shin','asdf1234!', '신예은', 'shin@shop.com', '010-9999-8888', '2000-01-01', 1);
 
 COMMIT;
 
-SELECT * FROM member;
-
-UPDATE member SET pw='6lRVDcHqc9ceHafDPXmPbz2r4KRXzN1Bi/k0wAQZFua0seXPMFKXMHY6Ut5PW6anSpaKsA==' WHERE id='admin';
-UPDATE member SET pw='6lRVDcHqc9ceHafDPXmPbz2r4KRXzN1Bi/k0wAQZFua0seXPMFKXMHY6Ut5PW6anSpaKsA==' WHERE id='kimhk';
-UPDATE member SET pw='qK2aVyBfeZfFcZAYbnfIaMVr/yppCwrnlKSMGhy2wRBdm2MFX9KtVTF7WoGPr5PP2EooyQ==' WHERE id='kimbk';
-UPDATE member SET pw='ayDlB61VvnK8CHscf/moQNTbqywdHHf1hT/G8SgChm40NB2Se86VKKg2fibN8MYuIN5XHg==' WHERE id='parkjk';
-UPDATE member SET pw='y77ZcnJueDxVMDDVzGMQTBq3ti0m0w3jEBRA9Ib901OMXn+gqj5W/XEzTfJJqEFVWn7PKw==' WHERE id='sirious920';
-UPDATE member SET pw='hmQ6nKUBYdXpLQGoN05drYLHeg3XF+wdBGad1DFuDI64MMRM/8bYIP/lzjgcjqL3vRRtDA==' WHERE id='shin';
-
+UPDATE custom SET pw='5/WIXGDnP4kR6lBSOlppBlzj9Dh5wJDBz4qUqz/hEWatg/r5IpuWB/NKx7hp1jVq/qQI2Q==' WHERE id='admin';
+UPDATE custom SET pw='oc6d/JVbQD/DF/n20Cc0boHATW/HJ/u0tiOSQPtMmq/Wck7hCSbp0ZIla7QKyWY1dyrYEQ==' WHERE id='kimbk';
+UPDATE custom SET pw='5/WIXGDnP4kR6lBSOlppBlzj9Dh5wJDBz4qUqz/hEWatg/r5IpuWB/NKx7hp1jVq/qQI2Q==' WHERE id='kimhk';
+UPDATE custom SET pw='SNUDLHC98Nr0jiVRtk16oLuRIbQA6a3U/bnyLC7h4FmxBZvL2Zy9bQiOTTAzwDUlhSC+Bw==' WHERE id='sirious920';
+UPDATE custom SET pw='5/WIXGDnP4kR6lBSOlppBlzj9Dh5wJDBz4qUqz/hEWatg/r5IpuWB/NKx7hp1jVq/qQI2Q==' WHERE id='parkjk';
+UPDATE custom SET pw='BxlPkArgCvRg65RMqzQqfu3Aj2TdbSkFNFvLTHzBP8nhJUNhJIRH9M76ula/sRFJ1tAeDw==' WHERE id='shin';
 --------------------------------------------------------------
 
 -- 매장 전용 공지사항(notice) 테이블 생성
 create table notice(
-                       nno int primary KEY AUTO_INCREMENT,
+                       nno serial primary KEY,
                        title varchar(200) not NULL,
                        content varchar(1000),
+                       author varchar(50),
                        resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                       visit int DEFAULT 0
+                       visit INTEGER DEFAULT 0
 );
 
 -- 매장 전용 공지사항 더미글 추가 10건
 
-INSERT INTO notice(title, content) VALUES ('공지사항1', '여기는 공지사항1입니다');
+INSERT INTO notice(title, content, author) VALUES ('공지사항1', '여기는 공지사항1입니다', 'admin');
 
-INSERT INTO notice(title, content) VALUES ('공지사항2', '여기는 공지사항2입니다');
+INSERT INTO notice(title, content, author) VALUES ('공지사항2', '여기는 공지사항2입니다', 'admin');
 
-INSERT INTO notice(title, content) VALUES ('공지사항3', '여기는 공지사항3입니다');
+INSERT INTO notice(title, content, author) VALUES ('공지사항3', '여기는 공지사항3입니다', 'admin');
 
-INSERT INTO notice(title, content) VALUES ('공지사항4', '여기는 공지사항4입니다');
+INSERT INTO notice(title, content, author) VALUES ('공지사항4', '여기는 공지사항4입니다', 'admin');
 
-INSERT INTO notice(title, content) VALUES ('공지사항5', '여기는 공지사항5입니다');
+INSERT INTO notice(title, content, author) VALUES ('공지사항5', '여기는 공지사항5입니다', 'admin');
 
-INSERT INTO notice(title, content) VALUES ('공지사항6', '여기는 공지사항6입니다');
+INSERT INTO notice(title, content, author) VALUES ('공지사항6', '여기는 공지사항6입니다', 'admin');
 
-INSERT INTO notice(title, content) VALUES ('공지사항7', '여기는 공지사항7입니다');
+INSERT INTO notice(title, content, author) VALUES ('공지사항7', '여기는 공지사항7입니다', 'admin');
 
-INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
+INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
 
-INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
+INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
 
-INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
+INSERT INTO notice(title, content, author) VALUES ('공지사항8', '여기는 공지사항8입니다', 'admin');
 
 commit;
 
@@ -79,7 +71,7 @@ select * from notice;
 
 -- 고객 전용 공지사항(board) 테이블 생성
 CREATE TABLE board(
-                      bno int PRIMARY KEY AUTO_INCREMENT,
+                      bno serial PRIMARY KEY,
                       title VARCHAR(200) NOT NULL,
                       content VARCHAR(1000),
                       author VARCHAR(16),
@@ -116,7 +108,7 @@ SELECT * FROM board;
 
 -- 고객 전용 문의 테이블 생성 -- 고객만 사용 가능
 CREATE TABLE askboard(
-                         bno int PRIMARY KEY AUTO_INCREMENT ,
+                         bno serial PRIMARY KEY,
                          title VARCHAR(200) NOT NULL,
                          content VARCHAR(1000),
                          author VARCHAR(16),
@@ -125,24 +117,22 @@ CREATE TABLE askboard(
                          FOREIGN KEY(author) REFERENCES member(id) ON DELETE CASCADE
 );
 
-SELECT * FROM askboard;
-
 -- 고객 전용 문의 테이블 더미글 추가 10건
-INSERT INTO askboard(title, content, author) VALUES ('문의1', '문의1 입니다', 'sirious920');
+INSERT INTO askboard(title, content, author) VALUES ('문의1', '문의1 입니다', 'oh');
 
 INSERT INTO askboard(title, content, author) VALUES ('문의2', '문의2 입니다', 'shin');
 
-INSERT INTO askboard(title, content, author) VALUES ('문의3', '문의3 입니다', 'parkjk');
+INSERT INTO askboard(title, content, author) VALUES ('문의3', '문의3 입니다', 'park');
 
 INSERT INTO askboard(title, content, author) VALUES ('문의4', '문의4 입니다', 'kimhk');
 
 INSERT INTO askboard(title, content, author) VALUES ('문의5', '문의5 입니다', 'kimbk');
 
-INSERT INTO askboard(title, content, author) VALUES ('문의6', '문의6 입니다', 'sirious920');
+INSERT INTO askboard(title, content, author) VALUES ('문의6', '문의6 입니다', 'oh');
 
 INSERT INTO askboard(title, content, author) VALUES ('문의7', '문의7 입니다', 'shin');
 
-INSERT INTO askboard(title, content, author) VALUES ('문의8', '문의8 입니다', 'parkjk');
+INSERT INTO askboard(title, content, author) VALUES ('문의8', '문의8 입니다', 'park');
 
 INSERT INTO askboard(title, content, author) VALUES ('문의9', '문의9 입니다', 'kimhk');
 
@@ -156,11 +146,11 @@ SELECT * FROM askboard;
 
 -- 질문 및 답변 테이블 생성
 CREATE TABLE qna(
-                    qno int PRIMARY KEY AUTO_INCREMENT,   			            -- 번호
+                    qno serial PRIMARY KEY ,   			            -- 번호
                     title VARCHAR(100) NOT NULL,   					-- 제목
                     content VARCHAR(1000) NOT NULL,   				-- 내용
                     author VARCHAR(16),   							-- 작성자
-                    resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,    -- 등록일
+                    resdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- 등록일
                     visit INT DEFAULT 0,   							-- 조회수
                     lev INT DEFAULT 0, 								-- 질문(0), 답변(1)
                     par INT,										-- 질문(자신 레코드의 qno), 답변(질문의 글번호)
@@ -173,7 +163,7 @@ INSERT INTO qna(title, content, author, lev, secret) VALUES('질문1', '질문�
 
 UPDATE qna SET par=qno WHERE lev=0 AND qno=1;
 
-INSERT INTO qna(title, content, author, lev, secret) VALUES('질문2', '질문입니다. 2', 'parkjk', 0, true);
+INSERT INTO qna(title, content, author, lev, secret) VALUES('질문2', '질문입니다. 2', 'park', 0, true);
 
 UPDATE qna SET par=qno WHERE lev=0 AND qno=2;
 
@@ -181,7 +171,7 @@ INSERT INTO qna(title, content, author, lev, secret) VALUES('질문3', '질문�
 
 UPDATE qna SET par=qno WHERE lev=0 AND qno=3;
 
-INSERT INTO qna(title, content, author, lev, secret) VALUES('질문4', '질문입니다. 4', 'parkjk', 0, false);
+INSERT INTO qna(title, content, author, lev, secret) VALUES('질문4', '질문입니다. 4', 'park', 0, false);
 
 UPDATE qna SET par=qno WHERE lev=0 AND qno=4;
 
@@ -189,7 +179,7 @@ INSERT INTO qna(title, content, author, lev, secret) VALUES('질문5', '질문�
 
 UPDATE qna SET par=qno WHERE lev=0 AND qno=5;
 
-INSERT INTO qna(title, content, author, lev, secret) VALUES('질문6', '질문입니다. 6', 'sirious920', 0, false);
+INSERT INTO qna(title, content, author, lev, secret) VALUES('질문6', '질문입니다. 6', 'oh', 0, false);
 
 UPDATE qna SET par=qno WHERE lev=0 AND qno=6;
 
@@ -201,7 +191,7 @@ INSERT INTO qna(title, content, author, lev, secret) VALUES('질문8', '질문�
 
 UPDATE qna SET par=qno WHERE lev=0 AND qno=8;
 
-INSERT INTO qna(title, content, author, lev, secret) VALUES('질문9', '질문입니다. 9', 'parkjk', 0, false);
+INSERT INTO qna(title, content, author, lev, secret) VALUES('질문9', '질문입니다. 9', 'park', 0, false);
 
 UPDATE qna SET par=qno WHERE lev=0 AND qno=9;
 
@@ -211,7 +201,7 @@ UPDATE qna SET par=qno WHERE lev=0 AND qno=10;
 
 -- 답변
 
-INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문1에 대한 답변', '답변입니다. 1', 'admin', 1, 1, false);
+INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문1에 대한 답변', '답변입니다. 1', 'park', 1, 1, false);
 
 INSERT INTO qna(title, content, author, lev, par, secret) VALUES ('질문2에 대한 답변', '답변입니다. 2.', 'admin', 1, 2, true);
 
@@ -236,11 +226,11 @@ COMMIT;
 select * from qna;
 
 -- QnA 리스트
-SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit AS visit, a.lev AS lev,
+SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.cnt AS cnt, a.lev AS lev,
        a.par AS par, b.name AS name FROM qna a, member b WHERE a.author=b.id ORDER BY a.par DESC, a.lev ASC, a.qno ASC;
 
 -- qna JOIN & VIEW 생성 ( 내가 쓴 글에 이용)
-CREATE VIEW qnalist2 AS (SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit AS visit, a.lev AS lev,
+CREATE VIEW qnalist2 AS (SELECT a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.cnt AS cnt, a.lev AS lev,
                                 a.par AS par, b.id AS id FROM qna a, member b WHERE a.author=b.id ORDER BY a.par DESC, a.lev ASC, a.qno ASC);
 
 SELECT * FROM qnalist2;
@@ -251,7 +241,7 @@ SELECT * FROM qnalist2;
 -- 자주 묻는 질문 (FAQ) 테이블 생성
 
 CREATE TABLE faq (
-                     fno int PRIMARY KEY AUTO_INCREMENT,
+                     fno serial PRIMARY KEY,
                      question VARCHAR(1000) NOT NULL,
                      answer VARCHAR(1000) NOT NULL,
                      cnt INT DEFAULT 0 NOT NULL
@@ -286,7 +276,7 @@ select * from faq;
 -- 고객 문의 게시판 댓글 테이블 생성
 
 create table askComment(
-                           cno INT PRIMARY KEY AUTO_INCREMENT,
+                           cno serial PRIMARY KEY,
                            bno INT,
                            author VARCHAR(16),
                            resdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -336,7 +326,7 @@ select * from filetest2;
 
 -- 상품 테이블 생성
 create table product(
-                        pro_no INT PRIMARY KEY AUTO_INCREMENT,
+                        pro_no serial PRIMARY KEY,
                         cate_id VARCHAR(4) NOT NULL,								-- 품목 명
                         pro_cate_no VARCHAR(100) NOT NULL, 							-- 상품번호+Category : 1-10 이런 형식
                         price INT DEFAULT 0, 										-- 상품 가격
@@ -347,18 +337,10 @@ create table product(
                         img_src VARCHAR(5000) DEFAULT 'no_img.jpg', 				-- 상품 이미지 리스트
                         regdate timestamp default CURRENT_TIMESTAMP 				-- 상품 게시 날짜
 );
-insert into product values (default, 'A','A-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
-insert into product values (default, 'B','B-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
-insert into product values (default, 'C','C-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
-insert into product values (default, 'D','D-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
-insert into product values (default, 'E','E-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
-insert into product values (default, 'F','F-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
-insert into product values (default, 'G','G-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
-insert into product values (default, 'H','H-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
-select * from product;
+
 -- 상품 부가정보 테이블 생성
 create table addinfo(
-                        add_no int primary KEY AUTO_INCREMENT,
+                        add_no serial primary key,
                         pro_no integer not null,
                         title varchar(200) not null,
                         movie varchar(256) default 'sample1.mp4',
@@ -369,10 +351,10 @@ create table addinfo(
 
 -- 입고 테이블 생성
 create table receive(
-                        re_no INT primary KEY AUTO_INCREMENT,								-- 입고 번호
-                        pro_no int not null,                                -- 상품 번호
-                        amount int default 1,	         					-- 입고 수량
-                        re_price int default 1000,			    			-- 입고 가격
+                        re_no serial primary key,								-- 입고 번호
+                        pro_no integer not null,                                -- 상품 번호
+                        amount integer default 1,	         					-- 입고 수량
+                        re_price integer default 1000,			    			-- 입고 가격
                         resdate timestamp default current_timestamp		    	-- 입고 일시
 );
 
@@ -380,27 +362,25 @@ create table receive(
 
 -- 출고 테이블 생성
 create table serve(
-                      se_no int primary KEY AUTO_INCREMENT,								-- 출고 번호
-                      pro_no int not null, 		                        -- 상품 번호
-                      se_price int default 1000,					    	-- 출고 가격
-                      amount int default 1,				         		-- 출고 수량
+                      se_no serial primary key,								-- 출고 번호
+                      pro_no integer not null, 		                        -- 상품 번호
+                      se_price integer default 1000,					    	-- 출고 가격
+                      amount integer default 1,				         		-- 출고 수량
                       resdate timestamp default current_timestamp		    	-- 출고 일시
 );
-
-SELECT * FROM serve;
 
 ---------------------------------------------------------------------------------------------------
 
 -- 배송 테이블 생성
 create table delivery(
-                         del_no int primary KEY AUTO_INCREMENT,						-- 배송 번호
-                         pay_no int not null, 						-- 결제 번호
+                         del_no serial primary key,						-- 배송 번호
+                         pay_no integer not null, 						-- 결제 번호
                          custom_id varchar(20) not null,					-- 고객 아이디
                          del_addr varchar(300) not null, 				-- 배송지
                          cus_tel varchar(13) not null,					-- 고객 연락처
                          del_com varchar(100),							-- 배송 회사
                          del_tel varchar(13),							-- 배송 기사님 전화번호
-                         del_state int default 0,					-- 배송 상태 -> (0 : 입고 중, 1 : 출하 중, 2 : 상차, 3 : 하차, 4 : 캠프 도착, 5 : 배송 중, 6 : 배송 도착)
+                         del_state integer default 0,					-- 배송 상태 -> (0 : 입고 중, 1 : 출하 중, 2 : 상차, 3 : 하차, 4 : 캠프 도착, 5 : 배송 중, 6 : 배송 도착)
                          del_date timestamp default current_timestamp,	-- 배송 출발일
                          res_date varchar(13),							-- 배송 도착일
                          del_code varchar(30)							-- 송장 코드
@@ -410,16 +390,16 @@ create table delivery(
 
 -- 결제 테이블 생성
 create table payment(
-                        pay_no INT primary KEY AUTO_INCREMENT,			-- 결제 번호
+                        pay_no serial primary key,			-- 결제 번호
                         cus_id varchar(20) not null,		-- 고객 아이디
                         cus_num varchar(100),				-- 고객 번호
-                        pro_no int not null,			-- 상품 번호
-                        amount int default 1,			-- 결제 수량
+                        pro_no integer not null,			-- 상품 번호
+                        amount integer default 1,			-- 결제 수량
                         pay_method varchar(100),			-- 결제 수단
                         pay_com varchar(100),				-- 결제 회사
-                        pay_price int default 1000,		-- 결제 금액
+                        pay_price integer default 1000,		-- 결제 금액
                         pay_account varchar(100) NOT NULL,	-- 결제 카드 번호
-                        del_no INT NOT NULL,				-- 배송 번호(랜덤번호 추출)
+                        del_no varchar(100),				-- 배송 번호(랜덤번호 추출)
                         pay_resdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP -- 결제 일시 지정
 );
 
@@ -458,17 +438,17 @@ insert into category values('U', '해외콘텐츠');
 
 -- 카트 테이블 생성
 create table cart(
-                     cart_no serial primary key,				-- 카트 번호
-                     cus_id varchar(20) not null,			-- 고객 아이디
-                     pro_no integer not null,				-- 상품 번호
-                     amount integer not null                 -- 상품 수량
+                     cartno serial primary key,
+                     cid varchar(20) not null,
+                     pno integer not null,
+                     amount integer not null
 );
 
 -------------------------------------------------------------------------------------------
 
 -- 후기 테이블 생성
 CREATE TABLE review(
-                       rev_no int PRIMARY KEY AUTO_INCREMENT, 			            			-- 리뷰 번호
+                       rev_no serial PRIMARY KEY, 			            			-- 리뷰 번호
                        mem_id VARCHAR(16) NOT NULL, 								-- 회원 아이디
                        pay_no INT NOT NULL, 										-- 결제 번호
                        pro varchar(200) NOT NULL, 									-- 상품명
@@ -479,6 +459,12 @@ CREATE TABLE review(
 );
 
 -------------------------------------------------------------------------------------------
+-- dto에 들어 갈거나 기타 등등
+
+-- 내가 만든 테이블 목록 보기
+select * from pg_tables where schemaname='public';
+
+-------------------------------------------------------------------------------------------
 
 -- 재고 뷰 생성
 create view inventory as (select re_no, amount from receive EXCEPT select se_no, amount from serve);
@@ -486,6 +472,8 @@ create view inventory as (select re_no, amount from receive EXCEPT select se_no,
 select * from product;
 
 select * from payment;
+
+select * from cart;
 
 -------------------------------------------------------------------------------------------
 
@@ -517,7 +505,7 @@ select * from product where pcode in (select pno from payment group by pno order
 -- 상품 등록
 insert into product values(default, ?, '', ?, ?, ?, ?, ?, ?, ?, default);
 
-update product set pro_no = concat(cate_id, pro_no) where pro_no=1;
+update product set prono = concat(cate, pno) where pno=?;
 
 -------------------------------------------------------------------------------------------
 

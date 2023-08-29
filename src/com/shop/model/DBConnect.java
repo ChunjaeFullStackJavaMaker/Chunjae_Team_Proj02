@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public interface DBConnect {
-    //공지사항
     final static String NOTICE_SELECT_ALL = "select * from notice order by nno desc";
     final static String NOTICE_SELECT_ONE = "select * from notice where nno=?";
     final static String NOTICE_INSERT = "insert into notice values (title, content);";
@@ -19,13 +18,7 @@ public interface DBConnect {
     final static String NOTICE_SELECT_TITLE_RANGE = "select * from notice where title like ? order by resdate desc limit 5 offset ?";
     final static String NOTICE_SELECT_CONTENT_RANGE = "select * from notice where content like ? order by resdate desc limit 5 offset ?";
     final static String NOTICE_SELECT_ALL_RANGE = "select * from notice where title like ? or content like ? order by resdate desc limit 5 offset ?";
-
-    //FAQ
-    final static String FAQ_SELECT_ALL = "select * from faq order by fno asc";
-
-    //QnA
-    final static String QNA_SELECT_ALL = "select a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit as visit, a.lev AS lev, a.par AS par, b.name AS NAME FROM qna a, member b WHERE a.author=b.id order BY a.par DESC, a.lev ASC, a.qno ASC";
-
+    
     //카테고리별 목록
     final static String PRODUCT_SELECT_CATE = "select * from product where cate_id=? order by pro_no";
 
@@ -77,7 +70,12 @@ public interface DBConnect {
     final static String RETURN_DELIVERIES = "delete from delivery where pay_no in (select pay_no from payment where resdate between ? and ? and cus_id=?)";
 
     //회원 관리 sql문
-    final static String Member_SELECT_ONE = "select * from member where id=?";
+    final static String MEMBER_SELECT_ALL = "select * from member order by resdate desc";
+    final static String MEMBER_SELECT_ONE = "select * from member where id=?";
+    final static String MEMBER_SELECT_LOG = "select * from member where id=?";
+    final static String MEMBER_INSERT = "insert into member(id, pw, name, tel, email, birth, address) values (?,?,?,?,?,?::date,?)";
+    final static String MEMBER_UPDATE = "update member set pw=?, address=?,tel=?, email=?, birth=? where id=?";
+    final static String MEMBER_DELETE = "delete from member where id = ?";
 
     //상품 관리 sql문
     final static String PRODUCT_SELECT_ALL = "select * from product order by pro_no";
@@ -88,9 +86,13 @@ public interface DBConnect {
     final static String DELIVERY_SELECT_PAYNO = "select * from delivery where pay_no=?";
 
     //장바구니 관리 sql문
+    final static String CART_INSERT = "insert into cart values (default,?,?,?)";
     final static String CART_DELETE = "delete from cart where cart_no=?";
     final static String CART_SELECT_CID = "select * from cart where cid=?";
 
+    //리뷰 관리 sql문
+    final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
+    final static String REVIEW_DELETE = "delete from review where rev_no=?";
 
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);

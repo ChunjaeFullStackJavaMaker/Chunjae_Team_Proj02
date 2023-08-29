@@ -11,12 +11,12 @@
                     <div class="header__top__right">
                         <div class="header__top__right__auth">
                             <c:if test="${sid eq null}">
-                                <a href="/Login.do"><i class="fa fa-user"></i> Login</a>
+                                <a href="${path}/Login.do"><i class="fa fa-user"></i> Login</a>
                                 <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
                             </c:if>
                             <c:if test="${sid ne null and sid ne 'admin'}">
                                 <a href="#"><i class="fa fa-user"></i> Logout </a>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> MyPage </a>
+                                <a href="${path}/mypageInfo.do"><i class="fa fa-sign-in" aria-hidden="true"></i> MyPage </a>
                             </c:if>
                             <c:if test="${sid eq 'admin'}">
                                 <a href="#"><i class="fa fa-user"></i> Logout </a>
@@ -71,9 +71,10 @@
                         </li>
                         <li><a href="#"> 고객지원 </a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="${path}/NoticeList.do"> 공지사항 </a></li>
-                                <li><a href="${path}/FaqList.do"> FAQ </a></li>
-                                <li><a href="${path}/QnaList.do"> QnA </a></li>
+                                <li><a href="${path}/product/getProduct.jsp"> 공지사항 </a></li>
+                                <li><a href=""> QnA </a></li>
+                                <li><a href=""> FAQ </a></li>
+                                <li><a href=""> 1:1 상담 </a></li>
                             </ul>
                         </li>
                     </ul>
