@@ -23,7 +23,7 @@ public class CateProListCtrl extends HttpServlet {
         if (cateIds == null || cateIds.length == 0) {
             proList = dao.getProductList();
         } else {
-            proList = new ArrayList<>(); // Create an empty list for the filtered products
+            proList = new ArrayList<>();
 
             for (String cate : cateIds) {
                 List<Product> productsForCategory = dao.getCateProductList(cate);

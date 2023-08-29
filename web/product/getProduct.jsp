@@ -91,7 +91,7 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                             src="" alt="">
+                             src="${path}/storage/${pro.thumb}" alt="썸네일 이미지">
                     </div>
                 </div>
             </div>
@@ -135,22 +135,23 @@
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>상품 정보</h6>
+                                <img src="${path}/storage/${pro.img_src}" alt="상품 상세 이미지">
                                 <p>${pro.pro_content}</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
                                 <h6>예시동영상</h6>
-                                <video src="${path}/storage/${info.movie}"></video>
+                                <video src="${path}/storage/${info.movie}"style="width: 700px; margin-left: 202px;" ></video>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>후기</h6>
-                                <div class="review">
+                                <h5 style="margin-bottom: 20px"><strong>후기</strong></h5>
+                                <div>
                                     <c:forEach var="review" items="${reviewList}">
-                                    <div class="name">회원 ID: ${review.mem_id}&nbsp;&nbsp;작성일시: ${review.regdate}</div>
-                                    <div class="star">별점:
+                                    <div class="name"><strong>회원 ID: </strong>${review.mem_id}&nbsp;&nbsp;&nbsp;&nbsp;<strong>작성일시: </strong>${review.regdate}</div>
+                                    <div class="star"><strong>별점: </strong>
                                         <c:if test="${review.star eq 5}">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -178,6 +179,7 @@
                                         </c:if>
                                     </div>
                                     <div class="content">${review.content}</div>
+                                        <hr>
                                     </c:forEach>
                                 </div>
                             </div>

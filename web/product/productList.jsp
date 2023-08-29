@@ -68,7 +68,7 @@
 <!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" style="background-image: url("${path}/img/breadcrumb.jpg")>
+<section class="breadcrumb-section set-bg" style="background-image: url('${path}/img/breadcrumb.jpg')">
 <div class="container">
     <div class="row">
         <div class="col-lg-12 text-center">
@@ -141,10 +141,10 @@
 
                 </div>
                 <div class="product__pagination">
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                    <a href="${path}/CateProList.do?cate_id=${pro.cate_id}&page=1">1</a>
+                    <a href="${path}/CateProList.do?cate_id=${pro.cate_id}&page=2">2</a>
+                    <a href="${path}/CateProList.do?cate_id=${pro.cate_id}&page=3">3</a>
+                    <a href=""><i class="fa fa-long-arrow-right"></i></a>
                 </div>
             </div>
         </div>
