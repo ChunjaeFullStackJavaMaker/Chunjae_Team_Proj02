@@ -1,6 +1,6 @@
 package com.shop.controller.custom;
 
-import com.shop.dto.member;
+import com.shop.dto.*;
 import com.shop.model.MemberDAO;
 import com.shop.util.AES256;
 
