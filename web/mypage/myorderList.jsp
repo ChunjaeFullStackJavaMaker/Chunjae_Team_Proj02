@@ -14,10 +14,10 @@
     <%@ include file="/setting/head.jsp"%>
 
     <style>
-        a {
+        .menu_item {
             color: #333;
         }
-        a:hover {
+        .menu_item:hover {
             color: #333;
             font-weight: bold;
         }
@@ -76,9 +76,15 @@
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
+<<<<<<< HEAD
+                    <a href="" class="d-block menu_item"> 개인정보 변경 </a>
+                    <a href="${path}/MyOrderList.do" class="d-block mt-2 menu_item" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
+                    <a href="" class="d-block mt-2 menu_item"> 리뷰 관리</a>
+=======
                     <a href="${path}/mypageInfo.do" class="d-block"> 개인정보 변경 </a>
                     <a href="${path}/MyOrderList.do" class="d-block mt-2" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
                     <a href="${path}/mypageReview.do" class="d-block mt-2"> 리뷰 관리</a>
+>>>>>>> a1acae8530b51a04ff30da003c50bf6d71a3955d
                 </div>
             </div>
             <div class="col col-lg-9 mt-3">
@@ -87,7 +93,7 @@
                     <c:if test="${resdate eq order.resdate}">
                         <div class="row">
                             <div class="col col-lg-2 d-flex align-items-center">
-                                <img src="${path}/img/product/${order.thumb}" alt="${order.description}" width="90px" height="auto">
+                                <img src="${path}/storage/${order.thumb}" alt="상품 이미지" width="90px" height="auto">
                             </div>
                             <div class="col col-lg-6">
                                 <h4> ${order.title} </h4>
@@ -123,7 +129,7 @@
                         <hr>
                         <div class="row">
                             <div class="col col-lg-2 d-flex align-items-center">
-                                <img src="${path}/img/product/${order.thumb}" alt="${order.description}" width="90px" height="auto">
+                                <img src="${path}/storage/${order.thumb}" alt="상품이미지" width="90px" height="auto">
                             </div>
                             <div class="col col-lg-6">
                                 <h4> ${order.title} </h4>

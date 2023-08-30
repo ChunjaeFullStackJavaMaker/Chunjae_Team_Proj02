@@ -16,7 +16,7 @@ public class FaqDAO {
 
     public List<Faq> getFaqList(){
         List<Faq> faqList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.FAQ_SELECT_ALL);

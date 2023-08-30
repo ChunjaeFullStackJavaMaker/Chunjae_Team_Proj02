@@ -1,6 +1,7 @@
 package com.shop.model;
 
 import com.shop.dto.AddInfo;
+import com.shop.dto.AdminHotProVO;
 import com.shop.dto.Category;
 import com.shop.dto.Product;
 import com.shop.dto.Review;
@@ -21,8 +22,7 @@ public class ProductDAO {
     static ResultSet rs = null;
     String sql = "";
 
-    //상품 목록
-    public List<Product> getProductList(){
+    public List<Product> getProductList() {
         List<Product> proList = new ArrayList<>();
         DBConnect con = new MariaDBCon();
         try {
@@ -50,6 +50,56 @@ public class ProductDAO {
         }
         return proList;
     }
+
+    //상품 목록
+    public List<Product> getProductList(int no){
+        List<Product> proList = new ArrayList<>();
+        DBConnect con = new MariaDBCon();
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.PRODUCT_SELECT_RANGE);
+            pstmt.setInt(1, no);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                Product pro = new Product();
+                pro.setPro_no(rs.getInt("pro_no"));
+                pro.setCate_id(rs.getString("cate_id"));
+                pro.setPro_cate_no(rs.getString("pro_cate_no"));
+                pro.setPrice(rs.getInt("price"));
+                pro.setTitle(rs.getString("title"));
+                pro.setDescription(rs.getString("description"));
+                pro.setPro_content(rs.getString("pro_content"));
+                pro.setThumb(rs.getString("thumb"));
+                pro.setImg_src(rs.getString("img_src"));
+                pro.setRegdate(rs.getString("regdate"));
+                proList.add(pro);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return proList;
+    }
+
+    public int getCount() {
+        DBConnect con = new MariaDBCon();
+        int cnt = 0;
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.PRODUCT_COUNT_ALL);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                cnt = rs.getInt("cnt");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return cnt;
+    }
+
     //카테고리
     public List<Product> getCateProductList(String cate){
         List<Product> proList = new ArrayList<>();
@@ -109,7 +159,6 @@ public class ProductDAO {
         return pro;
     }
 
-    //상품 추가정보
     public AddInfo getAddInfo(int pro_no){
         AddInfo info = new AddInfo();
         DBConnect con = new MariaDBCon();
@@ -137,7 +186,6 @@ public class ProductDAO {
     public int addProduct(Product add){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
-
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.PRODUCT_INSERT);
@@ -168,7 +216,7 @@ public class ProductDAO {
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Category cate = new Category();
-                cate.setCate_no(rs.getInt("cate_no"));
+                cate.setCate_no(rs.getString("cate_no"));
                 cate.setCate_name(rs.getString("cate_name"));
                 cateList.add(cate);
             }
@@ -192,9 +240,7 @@ public class ProductDAO {
             pstmt.setString(2, pro.getTitle());
             pstmt.setString(3, pro.getDescription());
             pstmt.setString(4, pro.getPro_content());
-            pstmt.setString(5, pro.getThumb());
-            pstmt.setString(6, pro.getImg_src());
-            pstmt.setInt(7, pro.getPro_no());
+            pstmt.setInt(5, pro.getPro_no());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -239,6 +285,26 @@ public class ProductDAO {
             con.close(rs, pstmt, conn);
         }
         return amount;
+    }
+
+    public List<AdminHotProVO> getAdminHotProduct() {
+        List<AdminHotProVO> hotList = new ArrayList<>();
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.ADMIN_HOT_PRODUCT_LIST);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                AdminHotProVO adminHotProduct = new AdminHotProVO();
+                adminHotProduct.setTitle(rs.getString("title"));
+                adminHotProduct.setSum_amount(rs.getInt("sum_amount"));
+                adminHotProduct.setSum_price(rs.getInt("sum_price"));
+                hotList.add(adminHotProduct);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return hotList;
     }
 
     //상품 리뷰 불러오기

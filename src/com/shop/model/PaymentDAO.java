@@ -14,7 +14,7 @@ public class PaymentDAO {
 
     public Payment getPayment(int pay_no) {
         Payment pay = new Payment();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.PAYMENT_SELECT_ONE);
@@ -36,7 +36,7 @@ public class PaymentDAO {
 
     public List<Payment> getMyPaymentList(String resdate, String cus_id) {
         List<Payment> payList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             System.out.println(resdate.concat(".000000"));
@@ -62,7 +62,7 @@ public class PaymentDAO {
 
     public int returnPaymentOne(int pay_no, int pro_no, int amount, String cus_id) {
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             conn.setAutoCommit(false);
@@ -107,7 +107,7 @@ public class PaymentDAO {
     // 전체 취소/환불 처리
     public int returnPayments(String resdate, String cus_id, List<Payment> payList) {
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             conn.setAutoCommit(false);
@@ -159,7 +159,7 @@ public class PaymentDAO {
     //결제 처리(PaymentDAO.addPayment(pay))
     public int addPayment(Payment pay){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.SERVE_PAYMENT);
@@ -182,7 +182,7 @@ public class PaymentDAO {
     //출고 처리(PaymentDAO.addServe(serv))
     public int addServe(Serve serv){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.SERVE_INSERT);
@@ -199,7 +199,7 @@ public class PaymentDAO {
     }
     public int getPay_no(){
         int Pay_no = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.GET_PAY_NO);
@@ -217,7 +217,7 @@ public class PaymentDAO {
 
     public List<PaymentVO> getCidPaymentList(String cid){
         List<PaymentVO> payList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.PAYMENT_SELECT_CID);
@@ -255,6 +255,38 @@ public class PaymentDAO {
         DeliveryDAO dao = new DeliveryDAO();
         Delivery del  = dao.getByPaynoDelivery(pay_no);
         return del.getDel_state();
+    }
+
+    // 지난 1년 간의 매출액 불러오기
+    public List<ProfitVO> getSaleList() {
+        List<ProfitVO> voList = new ArrayList<>();
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.GET_SALES_LIST);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                ProfitVO vo = new ProfitVO();
+                vo.setDate(rs.getString("pay_resdate"));
+                vo.setSales(rs.getInt("sum"));
+                voList.add(vo);
+            }
+            rs.close();
+            pstmt.close();
+
+            pstmt = conn.prepareStatement(DBConnect.GET_PROFIT_LIST);
+            rs = pstmt.executeQuery();
+            int idx = 0;
+            while(rs.next()) {
+                voList.get(idx).setProfit(rs.getInt("gross_profit"));
+                idx++;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return voList;
     }
 
 }

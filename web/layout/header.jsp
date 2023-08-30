@@ -20,7 +20,7 @@
                                 </c:if>
                                 <c:if test="${sid eq 'admin'}">
                                     <a href="${path}/Logout.do"><i class="fa fa-user"></i> Logout </a>
-                                    <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Admin Page </a>
+                                    <a href="${path}/AdminDashboard.do"><i class="fa fa-sign-in" aria-hidden="true"></i> Admin Page </a>
                                 </c:if>
                             </div>
                         </div>
@@ -93,4 +93,6 @@
             </div>
         </div>
     </div>
+</div>
 </header>
+

@@ -10,7 +10,7 @@
 <%@ page import="com.shop.model.*" %>
 <%@ page import="com.shop.dto.*" %>
 <%@ page import="java.util.Date" %>
-<%@ page import="com.shop.model.PostgreCon" %>
+<%@ page import="com.shop.model.MariaDBCon" %>
 <%@ page import="com.shop.model.DBConnect" %>
 
 <%

@@ -16,7 +16,7 @@ public class MyPageDAO {
 
     public List<MyOrderVO> getMyOrderList(String cus_id) {
         List<MyOrderVO> myOrderList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.SELECT_MY_ORDER_LIST);
@@ -27,7 +27,7 @@ public class MyPageDAO {
                 order.setPay_no(rs.getInt("pay_no"));
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Date d = sdf.parse(rs.getString("resdate"));
+                Date d = sdf.parse(rs.getString("pay_resdate"));
                 order.setResdate(sdf.format(d));
 
                 order.setThumb(rs.getString("thumb"));

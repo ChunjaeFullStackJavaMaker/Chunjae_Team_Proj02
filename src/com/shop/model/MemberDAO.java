@@ -1,6 +1,7 @@
 package com.shop.model;
 
 import com.shop.dto.Member;
+import com.shop.dto.Product;
 import com.shop.util.AES256;
 
 import java.sql.Connection;
@@ -18,10 +19,46 @@ public class MemberDAO {
     static ResultSet rs = null;
     String key = "%02x";
 
-    public List<Member> getMemberList() {
-        List<Member> memberList = new ArrayList<>();
+    public int getCount() {
+        DBConnect con = new MariaDBCon();
+        int cnt = 0;
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_COUNT_ALL);
+            rs = pstmt.executeQuery();
+            if(rs.next()) {
+                cnt = rs.getInt("cnt");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return cnt;
+    }
 
-        return memberList;
+    public List<Member> getMemberList(int no) {
+        List<Member> memList = new ArrayList<>();
+        DBConnect con = new MariaDBCon();
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_ALL);
+            pstmt.setInt(1, no);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                Member member = new Member();
+                member.setId(rs.getString("id"));
+                member.setNAME(rs.getString("name"));
+                member.setEmail(rs.getString("email"));
+                member.setBirth(rs.getString("birth"));
+                memList.add(member);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return memList;
     }
 
     public Member getMember(String id) {
