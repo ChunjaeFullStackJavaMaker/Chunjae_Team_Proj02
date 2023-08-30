@@ -190,6 +190,7 @@
                         <% for(Qna qna: qnaList) { %>
                         <div>
                             <div class="qno"> <%=qna.getQno()%> </div>
+                            <c:if test="${empty sid}">
                             <% if(sid!=null) {
                                 if(qna.getLev()==0){%>
                             <div class="qTitle" style="text-align : left;"> <a href="/cs/qna/getQna.jsp?qno=<%=qna.getQno() %>"><%=qna.getTitle() %></a> </div>
