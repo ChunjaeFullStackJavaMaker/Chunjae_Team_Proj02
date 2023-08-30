@@ -54,13 +54,37 @@
     <%@ include file="/layout/rollup_sideMenu.jsp"%>
     <!-- Hero Section End -->
 
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>MY PAGE</h2>
+                        <div class="breadcrumb__option">
+                            <a href="${path }">Home</a>
+                            <span>주문/배송 조회</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
     <div class="container">
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
+<<<<<<< HEAD
                     <a href="" class="d-block menu_item"> 개인정보 변경 </a>
                     <a href="${path}/MyOrderList.do" class="d-block mt-2 menu_item" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
                     <a href="" class="d-block mt-2 menu_item"> 리뷰 관리</a>
+=======
+                    <a href="${path}/mypageInfo.do" class="d-block"> 개인정보 변경 </a>
+                    <a href="${path}/MyOrderList.do" class="d-block mt-2" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
+                    <a href="${path}/mypageReview.do" class="d-block mt-2"> 리뷰 관리</a>
+>>>>>>> a1acae8530b51a04ff30da003c50bf6d71a3955d
                 </div>
             </div>
             <div class="col col-lg-9 mt-3">

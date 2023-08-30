@@ -9,12 +9,10 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/cartList.do")
+@WebServlet("/CartList.do")
 public class cartListCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        request.setAttribute("msg", "장바구니 목록을 출력합니다.");
 
         HttpSession session = request.getSession();
         String cid = (String) session.getAttribute("sid");

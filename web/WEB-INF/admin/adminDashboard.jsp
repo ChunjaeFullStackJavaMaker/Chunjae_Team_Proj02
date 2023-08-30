@@ -74,8 +74,8 @@
                     <a href="${path}/AdminProductList.do" class="d-block menu_item mt-2"> 상품 관리 </a>
                     <a href="${path}/DeliveryList.do" class="d-block menu_item mt-2"> 배송 정보 관리 </a>
                     <a href="${path}/" class="d-block menu_item mt-2"> 입출고 관리 </a>
-                    <a href="" class="d-block menu_item mt-2"> 회원 관리 </a>
-                    <a href="" class="d-block menu_item mt-2"> 고객지원 관리 </a>
+                    <a href="${path}/" class="d-block menu_item mt-2"> 회원 관리 </a>
+                    <a href="${path}/" class="d-block menu_item mt-2"> 고객지원 관리 </a>
                 </div>
             </div>
             <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4">
@@ -87,7 +87,7 @@
                 <h4 class="mb-3"> ${sysYear-1}년 ~ ${sysYear}년 상품 판매량 (상위 30개) </h4>
                 <div class="table-responsive middle mb-5 pb-5">
                     <table class="table table-striped table-md">
-                        <thead>
+                        <thead class="text-center">
                         <tr>
                             <th scope="col"> # </th>
                             <th scope="col"> 상품명 </th>
@@ -98,10 +98,10 @@
                         <tbody>
                         <c:forEach var="pro" items="${hotProducts}" varStatus="idx">
                             <tr>
-                                <td> ${idx.index + 1} </td>
+                                <td class="text-center"> ${idx.index + 1} </td>
                                 <td> ${pro.title} </td>
-                                <td> ${pro.sum_amount} </td>
-                                <td> ${pro.sum_price} </td>
+                                <td class="text-center"> ${pro.sum_amount} </td>
+                                <td class="text-right"> ${pro.sum_price} </td>
                             </tr>
                         </c:forEach>
                         </tbody>

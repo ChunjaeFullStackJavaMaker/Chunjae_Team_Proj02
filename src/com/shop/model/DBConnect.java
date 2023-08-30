@@ -5,12 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public interface DBConnect {
-    final static String NOTICE_SELECT_ALL = "select * from notice order by nno desc";
-    final static String NOTICE_SELECT_ONE = "select * from notice where nno=?";
-    final static String NOTICE_INSERT = "insert into notice values (title, content);";
-    final static String NOTICE_SELECT_RANGE = "select * from notice order by nno desc limit 5 offset ?";
-    final static String NOTICE_UPDATE = "update notice set title=?, content=? where nno=?";
-    final static String NOTICE_DELETE = "delete from notice where nno=?";
+    final static String NOTICE_SELECT_ALL = "select * from notice order by no desc";
+    final static String NOTICE_SELECT_ONE = "select * from notice where no=?";
+    final static String NOTICE_INSERT = "insert into notice(title, content) values (?, ?);";
+    final static String NOTICE_SELECT_RANGE = "select * from notice order by no desc limit 5 offset ?";
+    final static String NOTICE_UPDATE = "update notice set title=?, content=? where no=?";
+    final static String NOTICE_DELETE = "delete from notice where no=?";
     final static String NOTICE_COUNT = "select count(*) as cnt from notice";
     final static String NOTICE_COUNT_TITLE = "select count(*) as cnt from notice where title like ?";
     final static String NOTICE_COUNT_CONTENT = "select count(*) as cnt from notice where content like ?";
@@ -19,6 +19,13 @@ public interface DBConnect {
     final static String NOTICE_SELECT_CONTENT_RANGE = "select * from notice where content like ? order by resdate desc limit 5 offset ?";
     final static String NOTICE_SELECT_ALL_RANGE = "select * from notice where title like ? or content like ? order by resdate desc limit 5 offset ?";
     
+    //FAQ
+    final static String FAQ_SELECT_ALL = "select * from faq order by fno asc";
+
+    //QnA
+    final static String QNA_SELECT_ALL = "select a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit as visit, a.lev AS lev, a.par AS par, b.name AS NAME FROM qna a, member b WHERE a.author=b.id order BY a.par DESC, a.lev ASC, a.qno ASC";
+
+
     //카테고리별 목록
     final static String PRODUCT_SELECT_CATE = "select * from product where cate_id=? order by pro_no";
 
@@ -49,7 +56,7 @@ public interface DBConnect {
 
     //재고 조회
     final static String INVENTORY_SELECT_ALL = "select * from inventory order by pro_no desc";
-    final static String INVENTORY_SELECT_ONE = "select * from inventory where pro_no=?";
+    final static String INVENTORY_SELECT_ONE = "select * from inventory where re_no=?";
 
     // 결제 테이블 sql문
     final static String PAYMENT_SELECT_ONE = "select * from payment where pay_no=?";
@@ -81,7 +88,12 @@ public interface DBConnect {
     final static String RETURN_DELIVERIES = "delete from delivery where pay_no in (select pay_no from payment where resdate between ? and ? and cus_id=?)";
 
     //회원 관리 sql문
-    final static String Member_SELECT_ONE = "select * from member where id=?";
+    final static String MEMBER_SELECT_ALL = "select * from member order by resdate desc";
+    final static String MEMBER_SELECT_ONE = "select * from member where id=?";
+    final static String MEMBER_SELECT_LOG = "select * from member where id=?";
+    final static String MEMBER_INSERT = "insert into member(id, pw, name, tel, email, birth, address) values (?,?,?,?,?,?::date,?)";
+    final static String MEMBER_UPDATE = "update member set pw=?, address=?,tel=?, email=?, birth=? where id=?";
+    final static String MEMBER_DELETE = "delete from member where id = ?";
 
     //상품 관리 sql문
     final static String PRODUCT_SELECT_ALL = "select * from product order by pro_no";
@@ -97,9 +109,20 @@ public interface DBConnect {
     final static String DELCODE_GROUP_LIST = "SELECT a.del_no, CONCAT(title, ' 외 ', COUNT(*)-1, '건') AS title, custom_id, pay_resdate, del_addr, cus_tel, del_com, del_tel, del_state, del_date, res_date, del_code FROM delivery a, payment b, product c WHERE a.pay_no=b.pay_no AND b.pro_no=c.pro_no AND del_code != '' AND del_state < 6 GROUP BY del_code";
 
     //장바구니 관리 sql문
+    final static String CART_INSERT = "insert into cart values (default,?,?,?)";
     final static String CART_DELETE = "delete from cart where cart_no=?";
     final static String CART_DELETE_PRO_NO = "delete from cart where pro_no=?";
     final static String CART_SELECT_CID = "select * from cart where cus_id=?";
+
+    //리뷰 관리 sql문
+    final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
+    final static String REVIEW_DELETE = "delete from review where rev_no=?";
+    //리뷰
+    final static String REVIEW_SELECT = "select * from review where pro_no=?";
+    final static String REVIEW_INSERT = "insert into review values (default, ?, ?, ?, ?, ?, default, ?)";
+
+    //상세페이지 비디오
+    final static String PRODUCT_VIDEO = "select * from product left join addinfo on product.pro_no = addinfo.pro_no where product.pro_no=?";
 
 
     public Connection connect();
