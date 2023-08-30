@@ -12,7 +12,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="com.shop.dto.Qna" %>
 <%@ page import="com.shop.model.DBConnect" %>
-<%@ page import="com.shop.model.PostgreCon" %>
+<%@ page import="com.shop.model.MariaDBCon" %>
 <%@ include file="/setting/encoding.jsp"%>
 <%
     response.setHeader("Cache-Control", "no-cache");
@@ -106,7 +106,7 @@
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
 
         // 페이징 처리 - 전체 페이지 수 구하기

@@ -88,9 +88,10 @@ public interface DBConnect {
     final static String RETURN_DELIVERIES = "delete from delivery where pay_no in (select pay_no from payment where resdate between ? and ? and cus_id=?)";
 
     //회원 관리 sql문
-    final static String MEMBER_SELECT_ALL = "select * from member order by resdate desc";
+    final static String MEMBER_SELECT_ALL = "select * from member order by resdate limit 5 offset ?";
     final static String MEMBER_SELECT_ONE = "select * from member where id=?";
     final static String MEMBER_SELECT_LOG = "select * from member where id=?";
+    final static String MEMBER_COUNT_ALL = "select count(*) as cnt from member";
     final static String MEMBER_INSERT = "insert into member(id, pw, name, tel, email, birth, address) values (?,?,?,?,?,?::date,?)";
     final static String MEMBER_UPDATE = "update member set pw=?, address=?,tel=?, email=?, birth=? where id=?";
     final static String MEMBER_DELETE = "delete from member where id = ?";

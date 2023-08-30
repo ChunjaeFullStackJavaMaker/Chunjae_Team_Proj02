@@ -78,7 +78,6 @@
                     <a href="${path}/DeliveryList.do" class="d-block menu_item mt-2" style="color:#7FAD39; font-weight:bold"> 배송 정보 관리 </a>
                     <a href="${path}/" class="d-block menu_item mt-2"> 입출고 관리 </a>
                     <a href="" class="d-block menu_item mt-2"> 회원 관리 </a>
-                    <a href="" class="d-block menu_item mt-2"> 고객지원 관리 </a>
                 </div>
             </div>
             <div class="col col-lg-9 mt-3 mb-5">
