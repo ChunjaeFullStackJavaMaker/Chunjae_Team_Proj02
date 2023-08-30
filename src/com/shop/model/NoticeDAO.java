@@ -23,7 +23,7 @@ public class NoticeDAO {
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Notice noti = new Notice();
-                noti.setNo(rs.getInt("nno"));
+                noti.setNo(rs.getInt("no"));
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
                 noti.setResdate(rs.getString("resdate"));
@@ -48,7 +48,7 @@ public class NoticeDAO {
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Notice noti = new Notice();
-                noti.setNo(rs.getInt("nno"));
+                noti.setNo(rs.getInt("no"));
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
                 noti.setResdate(rs.getString("resdate"));
@@ -77,7 +77,7 @@ public class NoticeDAO {
             rs = pstmt.executeQuery();
 
             if(rs.next()){
-                noti.setNo(rs.getInt("nno"));
+                noti.setNo(rs.getInt("no"));
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
                 noti.setResdate(rs.getString("resdate"));
@@ -119,9 +119,9 @@ public class NoticeDAO {
         String sql = "update notice set title=?, content=? where no=?";
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, "수정 DAO테스트1");
-            pstmt.setString(2, "수정 DAO테스트내용입니다.1");
-            pstmt.setInt(3, 3);
+            pstmt.setString(1, noti.getTitle());
+            pstmt.setString(2, noti.getContent());
+            pstmt.setInt(3, noti.getNo());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -142,7 +142,7 @@ public class NoticeDAO {
         String sql = "delete from notice where no=?";
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, 5);
+            pstmt.setInt(1, no);
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -228,7 +228,7 @@ public class NoticeDAO {
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Notice noti = new Notice();
-                noti.setNo(rs.getInt("nno"));
+                noti.setNo(rs.getInt("no"));
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
                 noti.setResdate(rs.getString("resdate"));

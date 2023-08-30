@@ -5,12 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public interface DBConnect {
-    final static String NOTICE_SELECT_ALL = "select * from notice order by nno desc";
-    final static String NOTICE_SELECT_ONE = "select * from notice where nno=?";
-    final static String NOTICE_INSERT = "insert into notice values (title, content);";
-    final static String NOTICE_SELECT_RANGE = "select * from notice order by nno desc limit 5 offset ?";
-    final static String NOTICE_UPDATE = "update notice set title=?, content=? where nno=?";
-    final static String NOTICE_DELETE = "delete from notice where nno=?";
+    final static String NOTICE_SELECT_ALL = "select * from notice order by no desc";
+    final static String NOTICE_SELECT_ONE = "select * from notice where no=?";
+    final static String NOTICE_INSERT = "insert into notice(title, content) values (?, ?);";
+    final static String NOTICE_SELECT_RANGE = "select * from notice order by no desc limit 5 offset ?";
+    final static String NOTICE_UPDATE = "update notice set title=?, content=? where no=?";
+    final static String NOTICE_DELETE = "delete from notice where no=?";
     final static String NOTICE_COUNT = "select count(*) as cnt from notice";
     final static String NOTICE_COUNT_TITLE = "select count(*) as cnt from notice where title like ?";
     final static String NOTICE_COUNT_CONTENT = "select count(*) as cnt from notice where content like ?";
@@ -103,10 +103,6 @@ public interface DBConnect {
     //리뷰
     final static String REVIEW_SELECT = "select * from review where pro_no=?";
     final static String REVIEW_INSERT = "insert into review values (default, ?, ?, ?, ?, ?, default, ?)";
-    //FAQ
-    final static String FAQ_SELECT_ALL = "select * from faq";
-    //Qna
-    final static String QNA_SELECT_ALL = "select * from qna";
 
     //상세페이지 비디오
     final static String PRODUCT_VIDEO = "select * from product left join addinfo on product.pro_no = addinfo.pro_no where product.pro_no=?";

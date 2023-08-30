@@ -186,6 +186,7 @@
 
 
 
+                        ${sid }
                         <% for(Qna qna: qnaList) { %>
                         <div>
                             <div class="qno"> <%=qna.getQno()%> </div>
