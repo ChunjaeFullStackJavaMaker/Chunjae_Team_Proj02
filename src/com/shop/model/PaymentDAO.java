@@ -279,6 +279,7 @@ public class PaymentDAO {
             int idx = 0;
             while(rs.next()) {
                 voList.get(idx).setProfit(rs.getInt("gross_profit"));
+                idx++;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

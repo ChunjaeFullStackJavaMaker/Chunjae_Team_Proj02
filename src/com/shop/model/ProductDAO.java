@@ -1,6 +1,7 @@
 package com.shop.model;
 
 import com.shop.dto.AddInfo;
+import com.shop.dto.AdminHotProVO;
 import com.shop.dto.Category;
 import com.shop.dto.Product;
 
@@ -287,5 +288,25 @@ public class ProductDAO {
             con.close(rs, pstmt, conn);
         }
         return amount;
+    }
+
+    public List<AdminHotProVO> getAdminHotProduct() {
+        List<AdminHotProVO> hotList = new ArrayList<>();
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.ADMIN_HOT_PRODUCT_LIST);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                AdminHotProVO adminHotProduct = new AdminHotProVO();
+                adminHotProduct.setTitle(rs.getString("title"));
+                adminHotProduct.setSum_amount(rs.getInt("sum_amount"));
+                adminHotProduct.setSum_price(rs.getInt("sum_price"));
+                hotList.add(adminHotProduct);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return hotList;
     }
 }

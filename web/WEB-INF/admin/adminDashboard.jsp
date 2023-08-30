@@ -9,8 +9,10 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> 상품 관리 </title>
+    <title> ADMIN DASHBOARD </title>
     <c:set var="path" value="<%=request.getContextPath()%>"/>
+    <c:set var="now" value="<%=new java.util.Date()%>"/>
+    <c:set var="sysYear"><fmt:formatDate value="${now}" pattern="yyyy"/></c:set>
     <%@ include file="/setting/head.jsp"%>
 
     <style>
@@ -68,7 +70,7 @@
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
-                    <a href="${path}/AdminDashboard.do" class="d-block menu_item" style="color:#7FAD39; font-weight:bold"> 관리자 메인 </a>
+                    <a href="${path}/AdminDashboard.do" class="d-block menu_item" style="color:#7FAD39; font-weight:bold"> ADMIN MAIN </a>
                     <a href="${path}/AdminProductList.do" class="d-block menu_item mt-2"> 상품 관리 </a>
                     <a href="${path}/DeliveryList.do" class="d-block menu_item mt-2"> 배송 정보 관리 </a>
                     <a href="${path}/" class="d-block menu_item mt-2"> 입출고 관리 </a>
@@ -78,135 +80,30 @@
             </div>
             <main class="col-md-9 ms-sm-auto col-lg-9 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h4> DASHBOARD </h4>
+                    <h4> ADMIN DASHBOARD </h4>
                 </div>
                 <canvas class="my-4 w-100" id="myChart" width="1326" height="559" style="display: block; box-sizing: border-box; height: 373px; width: 884px;"></canvas>
 
-                <h2>Section title</h2>
-                <div class="table-responsive small mb-5">
-                    <table class="table table-striped table-sm">
+                <h4 class="mb-3"> ${sysYear-1}년 ~ ${sysYear}년 상품 판매량 (상위 30개) </h4>
+                <div class="table-responsive middle mb-5 pb-5">
+                    <table class="table table-striped table-md">
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Header</th>
-                            <th scope="col">Header</th>
-                            <th scope="col">Header</th>
-                            <th scope="col">Header</th>
+                            <th scope="col"> # </th>
+                            <th scope="col"> 상품명 </th>
+                            <th scope="col"> 판매량 </th>
+                            <th scope="col"> 판매액 </th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1,001</td>
-                            <td>random</td>
-                            <td>data</td>
-                            <td>placeholder</td>
-                            <td>text</td>
-                        </tr>
-                        <tr>
-                            <td>1,002</td>
-                            <td>placeholder</td>
-                            <td>irrelevant</td>
-                            <td>visual</td>
-                            <td>layout</td>
-                        </tr>
-                        <tr>
-                            <td>1,003</td>
-                            <td>data</td>
-                            <td>rich</td>
-                            <td>dashboard</td>
-                            <td>tabular</td>
-                        </tr>
-                        <tr>
-                            <td>1,003</td>
-                            <td>information</td>
-                            <td>placeholder</td>
-                            <td>illustrative</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>1,004</td>
-                            <td>text</td>
-                            <td>random</td>
-                            <td>layout</td>
-                            <td>dashboard</td>
-                        </tr>
-                        <tr>
-                            <td>1,005</td>
-                            <td>dashboard</td>
-                            <td>irrelevant</td>
-                            <td>text</td>
-                            <td>placeholder</td>
-                        </tr>
-                        <tr>
-                            <td>1,006</td>
-                            <td>dashboard</td>
-                            <td>illustrative</td>
-                            <td>rich</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>1,007</td>
-                            <td>placeholder</td>
-                            <td>tabular</td>
-                            <td>information</td>
-                            <td>irrelevant</td>
-                        </tr>
-                        <tr>
-                            <td>1,008</td>
-                            <td>random</td>
-                            <td>data</td>
-                            <td>placeholder</td>
-                            <td>text</td>
-                        </tr>
-                        <tr>
-                            <td>1,009</td>
-                            <td>placeholder</td>
-                            <td>irrelevant</td>
-                            <td>visual</td>
-                            <td>layout</td>
-                        </tr>
-                        <tr>
-                            <td>1,010</td>
-                            <td>data</td>
-                            <td>rich</td>
-                            <td>dashboard</td>
-                            <td>tabular</td>
-                        </tr>
-                        <tr>
-                            <td>1,011</td>
-                            <td>information</td>
-                            <td>placeholder</td>
-                            <td>illustrative</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>1,012</td>
-                            <td>text</td>
-                            <td>placeholder</td>
-                            <td>layout</td>
-                            <td>dashboard</td>
-                        </tr>
-                        <tr>
-                            <td>1,013</td>
-                            <td>dashboard</td>
-                            <td>irrelevant</td>
-                            <td>text</td>
-                            <td>visual</td>
-                        </tr>
-                        <tr>
-                            <td>1,014</td>
-                            <td>dashboard</td>
-                            <td>illustrative</td>
-                            <td>rich</td>
-                            <td>data</td>
-                        </tr>
-                        <tr>
-                            <td>1,015</td>
-                            <td>random</td>
-                            <td>tabular</td>
-                            <td>information</td>
-                            <td>text</td>
-                        </tr>
+                        <c:forEach var="pro" items="${hotProducts}" varStatus="idx">
+                            <tr>
+                                <td> ${idx.index + 1} </td>
+                                <td> ${pro.title} </td>
+                                <td> ${pro.sum_amount} </td>
+                                <td> ${pro.sum_price} </td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -244,14 +141,14 @@
                             {
                                 label: '총 매출액',
                                 data: sales,
-                                backgroundColor: 'rgba(256, 0, 0, 0.1)'
+                                type: 'line',
+                                backgroundColor: 'transparent',
+                                borderColor: '#282c37'
                             },
                             {
                                 label: '매출총이익',
                                 data: profits,
-                                backgroundColor: 'transparent',
-                                borderColor: 'skyblue',
-                                type: 'line'
+                                backgroundColor: '#9baec8'
                             }
                         ]
                     };
@@ -268,8 +165,6 @@
                 }
             });
         });
-        const mydata = [10, 20, 30, 40, 50, 20, 10, 20, 30, 40, 50, 20];
-        const mydataHalf = [5, 10, 20, 7, 10, 15, 5, 10, 20, 7, 10, 15];
     </script>
 </div>
 </body>

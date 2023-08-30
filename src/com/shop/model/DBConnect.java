@@ -62,9 +62,8 @@ public interface DBConnect {
     final static String GET_SALES_LIST = "SELECT date_format(pay_resdate, '%Y-%m') AS 'pay_resdate', SUM(pay_price) AS 'sum' FROM payment " +
             "WHERE pay_resdate > DATE(SUBDATE(NOW(), INTERVAL 12 MONTH)) " +
             "GROUP BY month(pay_resdate), YEAR(pay_resdate) ORDER BY pay_resdate";
-    final static String GET_PROFIT_LIST = "SELECT a.profit_month, avg_se-avg_re AS gross_profit " +
-            "FROM (SELECT date_format(resdate, '%Y-%m') AS 'profit_month', AVG(se_price) AS 'avg_se' FROM serve GROUP BY month(resdate), YEAR(resdate)) a, (SELECT date_format(resdate, '%Y-%m') AS 'profit_month', AVG(re_price) AS 'avg_re' FROM receive GROUP BY month(resdate), YEAR(resdate)) b " +
-            "WHERE a.profit_month=b.profit_month ORDER BY profit_month";
+    final static String GET_PROFIT_LIST = "SELECT b.profit_month, if(avg_re IS NULL, 0, avg_re) - avg_se AS gross_profit FROM receive_stats a RIGHT OUTER JOIN serve_stats b ON (a.profit_month=b.profit_month) ORDER BY b.profit_month";
+    final static String ADMIN_HOT_PRODUCT_LIST = "SELECT * FROM admin_hot_product";
     
     //출고 관리 sql문
     final static String SERVE_PAYMENT =  "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?, '')";
