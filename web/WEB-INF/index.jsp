@@ -10,6 +10,9 @@
     <title>CornEdu_Book</title>
 
 <%@ include file="/setting/head.jsp"%>
+<%@ include file="/setting/encoding.jsp"%>
+<%@ include file="/layout/Chat.jsp"%>
+<%@ include file="/layout/AllAround_SideMenu.jsp"%>
 
 </head>
 
@@ -28,8 +31,8 @@
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
-<%@ include file="/layout/sideMenu.jsp"%>
-<!-- Hero Section End -->
+<%--<%@ include file="/layout/sideMenu.jsp"%>--%>
+<%--<!-- Hero Section End -->--%>
 
 <!-- Categories Section Begin -->
 <%@ include file="/Main_contents/category.jsp"%>

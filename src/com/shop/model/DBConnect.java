@@ -95,7 +95,7 @@ public interface DBConnect {
     //장바구니 관리 sql문
     final static String CART_INSERT = "insert into cart values (default,?,?,?)";
     final static String CART_DELETE = "delete from cart where cart_no=?";
-    final static String CART_SELECT_CID = "select * from cart where cid=?";
+    final static String CART_SELECT_CID = "select * from cart where cus_id=?";
 
     //리뷰 관리 sql문
     final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
@@ -104,9 +104,9 @@ public interface DBConnect {
     final static String REVIEW_SELECT = "select * from review where pro_no=?";
     final static String REVIEW_INSERT = "insert into review values (default, ?, ?, ?, ?, ?, default, ?)";
     //FAQ
-    final static String FAQ_SELECT_ALL = "select * from faq";
-    //Qna
-    final static String QNA_SELECT_ALL = "select * from qna";
+//    final static String FAQ_SELECT_ALL = "select * from faq";
+//    //Qna
+//    final static String QNA_SELECT_ALL = "select * from qna";
 
     //상세페이지 비디오
     final static String PRODUCT_VIDEO = "select * from product left join addinfo on product.pro_no = addinfo.pro_no where product.pro_no=?";
