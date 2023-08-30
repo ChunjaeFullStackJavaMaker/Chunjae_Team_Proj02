@@ -9,20 +9,23 @@
                 <div class="hero__categories">
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
-                        <span>All departments</span>
+                        <span>All Products</span>
                     </div>
                     <ul>
-                        <li><a href="#">Fresh Meat</a></li>
-                        <li><a href="#">Vegetables</a></li>
-                        <li><a href="#">Fruit & Nut Gifts</a></li>
-                        <li><a href="#">Fresh Berries</a></li>
-                        <li><a href="#">Ocean Foods</a></li>
-                        <li><a href="#">Butter & Eggs</a></li>
-                        <li><a href="#">Fastfood</a></li>
-                        <li><a href="#">Fresh Onion</a></li>
-                        <li><a href="#">Papayaya & Crisps</a></li>
-                        <li><a href="#">Oatmeal</a></li>
-                        <li><a href="#">Fresh Bananas</a></li>
+                        <li><a href="#">초등교과서</a></li>
+                        <li><a href="#">초등참고서</a></li>
+                        <li><a href="#">초등문제집</a></li>
+                        <li><a href="#">초등기타</a></li>
+                        <li><a href="#">중등교과서</a></li>
+                        <li><a href="#">중등참고서</a></li>
+                        <li><a href="#">중등문제집</a></li>
+                        <li><a href="#">중등기타</a></li>
+                        <li><a href="#">고등교과서</a></li>
+                        <li><a href="#">고등참고서</a></li>
+                        <li><a href="#">고등기타</a></li>
+                        <li><a href="#">유아콘텐츠</a></li>
+                        <li><a href="#">유아놀이</a></li>
+                        <li><a href="#">유아기타</a></li>
                     </ul>
                 </div>
             </div>
@@ -34,7 +37,7 @@
                                 All Categories
                                 <span class="arrow_carrot-down"></span>
                             </div>
-                            <input type="text" placeholder="What do yo u need?">
+                            <input type="text" placeholder="찾으시는 책을 검색해주세요.">
                             <button type="submit" class="site-btn">SEARCH</button>
                         </form>
                     </div>
@@ -50,8 +53,8 @@
                 </div>
                 <div class="hero__item set-bg" data-setbg="${path}/img/hero/banner.jpg">
                     <div class="hero__text">
-                        <span>FRUIT FRESH</span>
-                        <h2>Vegetable <br />100% Organic</h2>
+                        <span>First Kids, First Students</span>
+                        <h2>Innovative for <br />Education</h2>
                         <p>Free Pickup and Delivery Available</p>
                         <a href="#" class="primary-btn">SHOP NOW</a>
                     </div>

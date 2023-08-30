@@ -12,7 +12,7 @@
 <head>
     <title>네이버로그인</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
-    <%@ include file="../common.jsp"%>
+    <%@ include file="/setting/head.jsp"%>
     <%@include file="/setting/encoding.jsp"%>
 </head>
 <body>

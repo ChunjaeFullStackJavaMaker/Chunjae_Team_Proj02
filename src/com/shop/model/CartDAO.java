@@ -54,7 +54,7 @@ public class CartDAO {
 
     public List<CartVO> getByIdCartList(String cid){
         List<CartVO> cartList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_SELECT_CID);
@@ -96,10 +96,5 @@ public class CartDAO {
         ProductDAO dao = new ProductDAO();
         Product pro = dao.getProduct(pro_no);
         return pro.getPrice();
-    }
-    public String getCusName(String id){
-        MemberDAO dao = new MemberDAO();
-        Member cus = dao.getMember(id);
-        return cus.getNAME();
     }
 }

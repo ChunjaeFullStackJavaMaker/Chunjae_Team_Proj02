@@ -11,15 +11,15 @@
                         <div class="header__top__right">
                             <div class="header__top__right__auth">
                                 <c:if test="${sid eq null}">
-                                    <a href="/Login.do"><i class="fa fa-user"></i> Login</a>
-                                    <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
+                                    <a href="${path}/Login.do"><i class="fa fa-user"></i> Login</a>
+                                    <a href="${path}/Join.do"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
                                 </c:if>
                                 <c:if test="${sid ne null and sid ne 'admin'}">
-                                    <a href="#"><i class="fa fa-user"></i> Logout </a>
+                                    <a href="${path}/Logout.do"><i class="fa fa-user"></i> Logout </a>
                                     <a href="${path}/mypageInfo.do"><i class="fa fa-sign-in" aria-hidden="true"></i> MyPage </a>
                                 </c:if>
                                 <c:if test="${sid eq 'admin'}">
-                                    <a href="#"><i class="fa fa-user"></i> Logout </a>
+                                    <a href="${path}/Logout.do"><i class="fa fa-user"></i> Logout </a>
                                     <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Admin Page </a>
                                 </c:if>
                             </div>
@@ -82,7 +82,7 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="${path}/cartList.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="${path}/CartList.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                         <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>
