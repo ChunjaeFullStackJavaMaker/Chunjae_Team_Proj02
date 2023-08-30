@@ -103,14 +103,14 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3>${pro.title}</h3>
-                    <div class="product__details__price">${pro.price}</div>
+                    <div class="product__details__price">${pro.price }</div>
                     <p>${pro.description}</p>
                     <div class="product__details__quantity">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>입고 수량<span>*</span></p>
-                                    <input type="number" name="receive" id="receive" min="0" max="100" value="1" >
+                                    <input type="number" name="receive" id="receive" min="1" max="100" value="1" >
                                 </div>
                             </div>
                             <div class="col-lg-6">

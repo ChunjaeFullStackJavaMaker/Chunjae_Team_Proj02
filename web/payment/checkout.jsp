@@ -12,9 +12,15 @@
     <title>장바구니 결제</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@include file="/setting/head.jsp"%>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{SDK-최신버전}.js"></script>
     <style>
         .breadcrumb-section {background-image: url("${path }/img/breadcrumb.jpg");}
         #paycart {width : 1100px; margin : 0 auto;}
+        .checktitle li {overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
     </style>
 </head>
 
@@ -160,9 +166,9 @@
                         <div class="checkout__order">
                             <h4>결제</h4>
                             <div class="checkout__order__products">Products <span>Total</span></div>
-                            <ul>
+                            <ul class="checktitle">
                                 <c:forEach var="cart" items="${cartList}">
-                                <li>${cart.title } <span class="total">${cart.price*cart.amount}</span>
+                                <li>${cart.title } <span class="total">${cart.price*1.35*cart.amount}</span>
                                     <input type="hidden" name="title" id="proName" value="${cart.title }">
                                 </li>
                                 </c:forEach>
@@ -170,7 +176,10 @@
                             <div class="checkout__order__subtotal">Subtotal <span id="subprice"></span></div>
                             <div class="checkout__order__total">Total<span id="totalprice"></span>
                             </div>
-                            <button type="submit" id="pay" class="site-btn">PLACE ORDER</button>
+                            <input type="button" id="pay" value="PLACE ORDER" class="site-btn">
+                            <c:if test="${!empty sid }">
+                                <input type="submit" class="site-btn" value="구매">
+                            </c:if>
                         </div>
                     </div>
                 </div>
@@ -289,6 +298,16 @@
                         });
                     });
                 });
+            </script>
+            <script>
+                function payCheck(f){
+                    var payCk = f.payCk.value;
+                    console.log(payCk);
+                    if(payCk!="yes"){
+                        alert("아직 결제 전 입니다.");
+                        return false;
+                    }
+                }
             </script>
         </div>
     </div>

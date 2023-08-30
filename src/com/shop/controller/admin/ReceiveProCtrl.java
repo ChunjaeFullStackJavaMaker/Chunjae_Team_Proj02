@@ -17,8 +17,6 @@ public class ReceiveProCtrl extends HttpServlet {
         int receive = Integer.parseInt(request.getParameter("receive"));
         int pro_price = Integer.parseInt(request.getParameter("pro_price"));
 
-
-
         int suc=0;
 
         ProductDAO dao = new ProductDAO();
