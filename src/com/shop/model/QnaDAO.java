@@ -16,7 +16,7 @@ public class QnaDAO {
 
     public List<Qna> getQnaList(){
         List<Qna> qnaList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.QNA_SELECT_ALL);

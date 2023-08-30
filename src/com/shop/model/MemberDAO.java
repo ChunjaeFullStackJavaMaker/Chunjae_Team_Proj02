@@ -87,7 +87,7 @@ public class MemberDAO {
 
     public boolean idCheck(String id) {
         Member member = new Member();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         boolean pass = false;
         try {
             conn = con.connect();

@@ -8,7 +8,7 @@
 <%@ page import="com.shop.model.*" %>
 <%@ page import="com.shop.dto.*" %>
 <%@ page import="java.util.Date" %>
-<%@ page import="com.shop.model.PostgreCon" %>
+<%@ page import="com.shop.model.MariaDBCon" %>
 <%@ page import="com.shop.model.DBConnect" %>
 
 <%
@@ -25,7 +25,7 @@
     Connection conn = null;
     PreparedStatement pstmt = null;
     ResultSet rs = null;
-    DBConnect con = new PostgreCon();
+    DBConnect con = new MariaDBCon();
     conn = con.connect();
 
     //3. SQL을 실행하여 결과셋(ResultSet) 받아오기

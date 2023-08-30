@@ -66,7 +66,7 @@ public interface DBConnect {
     final static String SERVE_INSERT = "insert into serve values(default, ?, ?, ?, default)";
 
     // 반품 처리 sql문
-    final static String SELECT_MY_ORDER_LIST = "select pay.pay_no, resdate, thumb, description, title, amount, pay_price, del_state from payment pay, delivery del, product pro where pay.pay_no = del.pay_no and pro.pro_no=pay.pro_no and cus_id=? order by resdate desc";
+    final static String SELECT_MY_ORDER_LIST = "select pay.pay_no, pay_resdate, thumb, description, title, amount, pay_price, del_state from payment pay, delivery del, product pro where pay.pay_no = del.pay_no and pro.pro_no=pay.pro_no and cus_id=? order by pay_resdate desc";
     final static String RETURN_PAYMENT = "delete from payment where pay_no=?";
     final static String RETURN_PAYMENTS = "delete from payment where cus_id=? and resdate between ? and ?";
     final static String RETURN_RECEIVE = "insert into receive values (default, ?, ?, ?, default)";
@@ -103,11 +103,6 @@ public interface DBConnect {
     //리뷰
     final static String REVIEW_SELECT = "select * from review where pro_no=?";
     final static String REVIEW_INSERT = "insert into review values (default, ?, ?, ?, ?, ?, default, ?)";
-    //FAQ
-    final static String FAQ_SELECT_ALL = "select * from faq";
-    //Qna
-    final static String QNA_SELECT_ALL = "select * from qna";
-
     //상세페이지 비디오
     final static String PRODUCT_VIDEO = "select * from product left join addinfo on product.pro_no = addinfo.pro_no where product.pro_no=?";
 

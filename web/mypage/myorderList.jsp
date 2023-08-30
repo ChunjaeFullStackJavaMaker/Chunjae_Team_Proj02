@@ -138,6 +138,7 @@
                                 </c:if>
                                 <c:if test="${order.del_state eq '배송 도착'}">
                                     <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?pay_no=${order.pay_no}'"> 환불 </button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/AddReview.do?pay_no=${order.pay_no}'"> 구매 확정 </button>
                                 </c:if>
                             </div>
                         </div>
