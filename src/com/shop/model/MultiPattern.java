@@ -49,7 +49,7 @@ public class MultiPattern {
 
 
             //결제 처리
-            sql = "insert into payment(cus_id, cus_num,pro_no, amount, pay_method,pay_com, pay_price, pay_account) values ( ?, ?, ?, ?, ?, ?, ?, ?)";
+            sql = "insert into payment(cus_id, cus_num,pro_no, amount, pay_method,pay_com, pay_price, pay_account,del_no) values ( ?, ?, ?, ?, ?, ?, ?, ?,?)";
             pstmt=conn.prepareStatement(sql);
             pstmt.setString(1, payment.getCus_id());
             pstmt.setString(2, payment.getCus_num());
@@ -58,8 +58,8 @@ public class MultiPattern {
             pstmt.setString(5, payment.getPay_method());
             pstmt.setString(6, payment.getPay_com());
             pstmt.setInt(7, payment.getPay_price());
-            pstmt.setString(6, payment.getPay_account());
-            pstmt.setInt(8, del_no);
+            pstmt.setString(8, payment.getPay_account());
+            pstmt.setInt(9, del_no);
             cnt += pstmt.executeUpdate();
 
             //출고 처리

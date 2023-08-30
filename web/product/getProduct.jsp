@@ -97,7 +97,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3>${pro.title}</h3>
-                    <div class="product__details__price">${pro.price*1.35 }</div>
+                    <div class="product__details__price">${pro.price }</div>
                     <p>${pro.description}</p>
                     <div class="product__details__quantity">
                         <div class="quantity">

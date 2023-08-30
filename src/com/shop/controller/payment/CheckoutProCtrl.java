@@ -44,7 +44,7 @@ public class CheckoutProCtrl extends HttpServlet {
             pay.setAmount(cartList.get(i).getAmount());
             pay.setPay_method(request.getParameter("pay_method"));
             pay.setPay_com(request.getParameter("pay_com2"));
-            pay.setCus_num(request.getParameter("cus_num"));
+            pay.setPay_account(request.getParameter("pay_account"));
             pay.setPay_price(cartList.get(i).getPrice());
             payList.add(pay);
         }

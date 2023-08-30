@@ -126,7 +126,7 @@
                                 <h5>${cart.title }</h5>
                             </td>
                             <td class="shoping__cart__price">
-                                ${cart.price*1.35 }
+                                ${cart.price }
                             </td>
                             <td class="shoping__cart__quantity">
                                 <div class="quantity">
@@ -136,7 +136,7 @@
                                 </div>
                             </td>
                             <td class="shoping__cart__total">
-                                ${cart.price*1.35*cart.amount }
+                                ${cart.price*cart.amount }
                             </td>
                             <td class="shoping__cart__item__close">
                                 <span class="icon_close" type="submit" onclick="deleteButton()"></span>

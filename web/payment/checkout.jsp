@@ -157,9 +157,9 @@
                         </div>
                         <div class="checkout__input">
                             <p>결제 번호<span>*</span></p>
-                            <input type="text" name="cus_num" id="cus_num" required>
+                            <input type="text" name="pay_account" id="pay_account" required>
                             <input type="hidden" name="Paymount" id="payAmount">
-                            <input type="hidden" name="payCk" id="payCk" value="no">
+                            <input type="hidden" name="payCk" id="payCk" value="yes">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -168,7 +168,7 @@
                             <div class="checkout__order__products">Products <span>Total</span></div>
                             <ul class="checktitle">
                                 <c:forEach var="cart" items="${cartList}">
-                                <li>${cart.title } <span class="total">${cart.price*1.35*cart.amount}</span>
+                                <li>${cart.title } <span class="total">${cart.price*cart.amount}</span>
                                     <input type="hidden" name="title" id="proName" value="${cart.title }">
                                 </li>
                                 </c:forEach>
