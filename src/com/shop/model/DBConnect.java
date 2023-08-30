@@ -35,7 +35,7 @@ public interface DBConnect {
     //베스트 상품
     final static String PRODUCT_SELECT_BEST = "select * from product where pro_no in (select pro_no from payment group by pro_no order by sum(amount) desc limit 5)";
     // 상품 리스트 페이징
-    final static String PRODUCT_SELECT_RANGE = "select * from product order by title limit 10 offset ?";
+    final static String PRODUCT_SELECT_RANGE = "select * from product order by title limit 5 offset ?";
     final static String PRODUCT_COUNT_ALL = "select count(*) as cnt from product";
 
     //상품 입고
@@ -53,6 +53,11 @@ public interface DBConnect {
 
     //상품 삭제
     final static String PRODUCT_DELETE = "delete from product where pro_no=?";
+
+    // 상품 추가 정보 입력하기
+    final static String INSERT_ADDINFO = "insert into addinfo(pro_no, title, movie) values(?,?,?)";
+    // 최근 추가된 상품의 번호 가져오기
+    final static String LATEST_PRO_NO = "select pro_no from product order by pro_no desc limit 1";
 
     //재고 조회
     final static String INVENTORY_SELECT_ALL = "select * from inventory order by pro_no desc";

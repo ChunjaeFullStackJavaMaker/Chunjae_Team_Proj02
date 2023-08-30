@@ -202,10 +202,52 @@ public class ProductDAO {
         } finally {
             con.close(pstmt, conn);
         }
+
+        con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.PRODUCT_INSERT_UPDATE);
+            cnt = cnt + pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(pstmt, conn);
+        }
         return cnt;
     }
 
+    public int addAddInfo(AddInfo addInfo) {
+        int cnt = 0;
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.INSERT_ADDINFO);
+            pstmt.setInt(1, addInfo.getPro_no());
+            pstmt.setString(2, addInfo.getTitle());
+            pstmt.setString(3, addInfo.getMovie());
+            cnt = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return cnt;
+    }
 
+    public int latestProNo() {
+        int result = 0;
+
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.LATEST_PRO_NO);
+            rs = pstmt.executeQuery();
+            if(rs.next()) {
+                result = rs.getInt("pro_no");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
 
     public List<Category> getCategoryList(){
         List<Category> cateList = new ArrayList<Category>();

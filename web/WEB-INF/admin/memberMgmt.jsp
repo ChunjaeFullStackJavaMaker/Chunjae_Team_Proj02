@@ -65,7 +65,7 @@
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
-                    <a href="${path}/AdminDashboard.do" class="d-block menu_item"> 관리자 메인 </a>
+                    <a href="${path}/AdminDashboard.do" class="d-block menu_item"> ADMIN MAIN </a>
                     <a href="${path}/AdminProductList.do" class="d-block menu_item mt-2"> 상품 관리 </a>
                     <a href="${path}/DeliveryList.do" class="d-block menu_item mt-2"> 배송 정보 관리 </a>
                     <a href="${path}/" class="d-block menu_item mt-2"> 입출고 관리 </a>

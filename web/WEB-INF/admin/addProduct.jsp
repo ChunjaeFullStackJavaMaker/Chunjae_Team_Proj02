@@ -84,12 +84,16 @@
                     <label for="price" class="form-label"> 상품 가격 </label>
                 </div>
                 <div class="row">
-                    <div class="form-outline mb-4 col col-6">
+                    <div class="form-outline mb-4 col col-4">
                         <input class="form-control form-control-lg" type="file" name="thumb" id="thumb" placeholder="상품 메인이미지" required>
                         <label for="thumb" class="form-label"> 상품 이미지(메인) </label>
                     </div>
-                    <div class="form-outline mb-4 col col-6">
+                    <div class="form-outline mb-4 col col-4">
                         <input class="form-control form-control-lg" type="file" name="img_src" id="img_src" placeholder="상품 서브이미지" required>
+                        <label for="img_src" class="form-label"> 상품 이미지(서브) </label>
+                    </div>
+                    <div class="form-outline mb-4 col col-4">
+                        <input class="form-control form-control-lg" type="file" name="movie" id="movie" placeholder="상품 맛보기 동영상" required>
                         <label for="img_src" class="form-label"> 상품 이미지(서브) </label>
                     </div>
                 </div>

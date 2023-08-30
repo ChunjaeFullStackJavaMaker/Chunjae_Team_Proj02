@@ -16,10 +16,10 @@ public class MemberMgmt extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         MemberDAO dao = new MemberDAO();
 
-        List<Member> memList = dao.getMemberList(1);
+        List<Member> memList = dao.getMemberList(0);
         Page pg = new Page();
         int total = dao.getCount();
-        pg.makeBlock(1);
+        pg.makeBlock(1, total);
         pg.makeLastPageNum(total);
         pg.makePostStart(1, total);
 
