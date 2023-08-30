@@ -21,7 +21,7 @@ public class ProductDAO {
     //상품 목록
     public List<Product> getProductList(){
         List<Product> proList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.PRODUCT_SELECT_ALL);
@@ -50,7 +50,7 @@ public class ProductDAO {
     //카테고리
     public List<Product> getCateProductList(String cate){
         List<Product> proList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.PRODUCT_SELECT_CATE);
@@ -80,7 +80,7 @@ public class ProductDAO {
 
     public Product getProduct(int pro_no){
         Product pro = new Product();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.PRODUCT_SELECT_ONE);
@@ -109,7 +109,7 @@ public class ProductDAO {
     //상품 추가정보
     public int addInfo(AddInfo info){
         int cnt =0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.PRODUCT_INFO);
@@ -128,7 +128,7 @@ public class ProductDAO {
     //상품 등록
     public int addProduct(Product add){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.PRODUCT_INSERT);
@@ -163,7 +163,7 @@ public class ProductDAO {
 
     public List<Category> getCategoryList(){
         List<Category> cateList = new ArrayList<Category>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CATEGORY_LOAD);
@@ -185,7 +185,7 @@ public class ProductDAO {
     //상품 정보 수정
     public int updateProduct(Product pro){
         int cnt =0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
 
         try {
@@ -207,7 +207,7 @@ public class ProductDAO {
     //상품 삭제
     public int delProduct(int pro_no){
         int cnt =0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.PRODUCT_DELETE);
@@ -224,7 +224,7 @@ public class ProductDAO {
     //재고
     public int getAmount(int pro_no){
         int amount = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.INVENTORY_SELECT_ONE);
@@ -241,9 +241,9 @@ public class ProductDAO {
         return amount;
     }
 
-    public int addReceive(Receive rec){
+    public int addReceive(Receive rec) {
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.RECEIVE_INSERT);

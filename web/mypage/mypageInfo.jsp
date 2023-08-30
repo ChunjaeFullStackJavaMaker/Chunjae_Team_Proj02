@@ -99,15 +99,15 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p><span></span></p>
-                                        <button type="button" id="post_btn" onclick="findAddr()" class="site-btn" >우편번호검색</button>
+                                        <button type="button" value="${addr3 }" id="post_btn" onclick="findAddr()" class="site-btn" >우편번호검색</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="indata"  required>
+                                <input type="text" name="address1" id="address1" value="${addr1 }" class="indata"  required>
                             </div>
                             <div class="checkout__input">
-                                <input type="text" name="address2" id="address2" placeholder="상세 주소 입력" class="indata"  required>
+                                <input type="text" name="address2" id="address2" value="${addr2 }"  class="indata"  required>
                             </div>
                             <div class="checkout__input">
                                 <p>전화번호<span>*</span></p>

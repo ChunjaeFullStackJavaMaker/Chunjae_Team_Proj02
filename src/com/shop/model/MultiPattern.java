@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MultiPattern {
-    static DBConnect con = new PostgreCon();
+    static DBConnect con = new MariaDBCon();
      Connection conn = null;
      PreparedStatement pstmt = null;
      ResultSet rs = null;

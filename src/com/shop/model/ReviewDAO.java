@@ -19,7 +19,7 @@ public class ReviewDAO {
     //리뷰 리스트
     public List<Review>  getByIdReview(String id){
         List<Review> reviewList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.REVIEW_SELECT_CID);
@@ -48,7 +48,7 @@ public class ReviewDAO {
     //리뷰 삭제
     public int delReview(int rev_no){
         int cnt =0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.REVIEW_DELETE);

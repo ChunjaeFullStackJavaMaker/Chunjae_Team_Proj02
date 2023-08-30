@@ -15,7 +15,8 @@ public class ReceiveProCtrl extends HttpServlet {
 
         int pro_no = Integer.parseInt(request.getParameter("pro_no"));
         int receive = Integer.parseInt(request.getParameter("receive"));
-        int se_price = Integer.parseInt(request.getParameter("price"));
+        int pro_price = Integer.parseInt(request.getParameter("pro_price"));
+
 
 
         int suc=0;
@@ -25,7 +26,7 @@ public class ReceiveProCtrl extends HttpServlet {
 
         rec.setPro_no(pro_no);
         rec.setAmount(receive);
-        rec.setRe_price(se_price);
+        rec.setRe_price(pro_price);
 
         suc = dao.addReceive(rec);
 

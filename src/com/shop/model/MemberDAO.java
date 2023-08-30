@@ -16,7 +16,7 @@ public class MemberDAO {
 
     public Member getMember(String id){
         Member mem = new Member();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.Member_SELECT_ONE);
@@ -45,7 +45,7 @@ public class MemberDAO {
 
     public int updateMember(Member user){
         int cnt =0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try{
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.Member_UPDATE);
@@ -66,7 +66,7 @@ public class MemberDAO {
 
     public boolean idCheck(String id){
         Member mem = new Member();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         boolean pass = false;
         try {
             conn = con.connect();
@@ -88,7 +88,7 @@ public class MemberDAO {
 
     public boolean login(String id, String pw) {
         boolean pass = false;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         String qpw = "";
 
         try {
@@ -121,7 +121,7 @@ public class MemberDAO {
 
     public int addMember(Member user) {
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             System.out.println(user.toString());

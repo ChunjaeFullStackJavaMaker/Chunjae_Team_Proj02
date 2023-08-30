@@ -27,10 +27,19 @@ public class MypageInfoCtrl extends HttpServlet {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-        System.out.println(mem.toString());
+
+            String address = mem.getAddress();
+            String []  addr = address.split("<br>");
+            String addr1 = addr[0];
+            String addr2 = addr[1];
+            String addr3 = addr[2];
+
 
             request.setAttribute("mem", mem);
             request.setAttribute("pw",pw);
+            request.setAttribute("addr1", addr1);
+            request.setAttribute("addr2", addr2);
+            request.setAttribute("addr3",addr3);
             RequestDispatcher view = request.getRequestDispatcher("/mypage/mypageInfo.jsp");
             view.forward(request, response);
     }

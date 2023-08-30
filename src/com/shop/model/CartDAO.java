@@ -20,7 +20,7 @@ public class CartDAO {
 
     public int addCart(Cart cart){
         int cnt = 0;
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_INSERT);
@@ -54,7 +54,7 @@ public class CartDAO {
 
     public List<CartVO> getByIdCartList(String cus_id){
         List<CartVO> cartList = new ArrayList<>();
-        DBConnect con = new PostgreCon();
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_SELECT_CID);
