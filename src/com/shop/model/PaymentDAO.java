@@ -152,6 +152,47 @@ public class PaymentDAO {
         return cnt;
     }
 
+    //결제 처리(PaymentDAO.addPayment(pay))
+    public int addPayment(Payment pay){
+        int cnt = 0;
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.SERVE_PAYMENT);
+            pstmt.setString(1, pay.getCus_id());
+            pstmt.setInt(2, pay.getPro_no());
+            pstmt.setInt(3, pay.getAmount());
+            pstmt.setString(4, pay.getPay_method());
+            pstmt.setString(5, pay.getPay_com());
+            pstmt.setString(6, pay.getCus_num());
+            pstmt.setInt(7, pay.getPay_price());
+            cnt = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(pstmt, conn);
+        }
+        return cnt;
+    }
+
+    //출고 처리(PaymentDAO.addServe(serv))
+    public int addServe(Serve serv){
+        int cnt = 0;
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.SERVE_INSERT);
+            pstmt.setInt(1, serv.getPro_no());
+            pstmt.setInt(2, serv.getAmount());
+            pstmt.setInt(3, serv.getSe_price());
+            cnt = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(pstmt, conn);
+        }
+        return cnt;
+    }
     public int getPay_no(){
         int Pay_no = 0;
         DBConnect con = new MariaDBCon();

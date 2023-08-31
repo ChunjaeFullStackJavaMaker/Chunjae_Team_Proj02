@@ -27,10 +27,6 @@
 <%@include file="../../layout/header.jsp"%>
 <!-- Header Section End -->
 
-<!-- Hero Section Begin -->
-<%@ include file="../../layout/rollup_sideMenu.jsp"%>
-<!-- Hero Section End -->
-
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section" style="background-image: url('${path}/img/breadcrumb.jpg'); background-size: cover; background-position: center">
     <div class="container">

@@ -51,10 +51,6 @@
     <%@include file="/layout/header.jsp"%>
     <!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
-    <%@ include file="/layout/rollup_sideMenu.jsp"%>
-    <!-- Hero Section End -->
-
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section" style="background-image: url('${path}/img/breadcrumb.jpg'); background-position: center; background-size: cover">
         <div class="container">
@@ -90,18 +86,19 @@
                             <div class="col col-lg-2 d-flex align-items-center">
                                 <img src="${path}/storage/${order.thumb}" alt="상품 이미지" width="90px" height="auto">
                             </div>
-                            <div class="col col-lg-6">
+                            <div class="col col-lg-5">
                                 <h4> ${order.title} </h4>
                                 <p> 총 ${order.amount}권 / ${order.pay_price}원 </p>
                             </div>
                             <div class="col col-lg-2 d-flex align-items-center">
                                     ${order.del_state}
                             </div>
-                            <div class="col col-lg-2 d-flex align-items-center">
+                            <div class="col col-lg-3 d-flex align-items-center">
                                 <c:if test="${order.del_state eq '입고 중'}">
                                     <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?pay_no=${order.pay_no}'"> 취소 </button>
                                 </c:if>
                                 <c:if test="${order.del_state eq '배송 도착'}">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/AddReview.do?pay_no=${order.pay_no}'"> 구매 확정 </button>
                                     <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?pay_no=${order.pay_no}'"> 환불 </button>
                                 </c:if>
                             </div>
@@ -126,18 +123,19 @@
                             <div class="col col-lg-2 d-flex align-items-center">
                                 <img src="${path}/storage/${order.thumb}" alt="상품이미지" width="90px" height="auto">
                             </div>
-                            <div class="col col-lg-6">
+                            <div class="col col-lg-5">
                                 <h4> ${order.title} </h4>
                                 <p> 총 ${order.amount}권 / ${order.pay_price}원 </p>
                             </div>
                             <div class="col col-lg-2 d-flex align-items-center">
                                     ${order.del_state}
                             </div>
-                            <div class="col col-lg-2 d-flex align-items-center">
+                            <div class="col col-lg-3 d-flex align-items-center">
                                 <c:if test="${order.del_state eq '입고 중'}">
                                     <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?pay_no=${order.pay_no}'"> 취소 </button>
                                 </c:if>
                                 <c:if test="${order.del_state eq '배송 도착'}">
+                                    <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/AddReview.do?pay_no=${order.pay_no}'"> 구매 확정 </button>
                                     <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?pay_no=${order.pay_no}'"> 환불 </button>
                                 </c:if>
                             </div>
@@ -145,6 +143,11 @@
                         <hr class="mb-5">
                     </c:if>
                 </c:forEach>
+                <c:if test="${empty orderList}">
+                    <div class="text-center">
+                        <h4> 주문 내역이 없습니다 : ) </h4>
+                    </div>
+                </c:if>
             </div>
         </div>
     </div>

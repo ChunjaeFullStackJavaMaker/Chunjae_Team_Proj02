@@ -71,7 +71,7 @@ public interface DBConnect {
     
     // 관리자 메인 페이지
     // 매출액 가져오기
-    final static String GET_SALES_LIST = "SELECT date_format(pay_resdate, '%Y-%m') AS 'pay_resdate', SUM(pay_price) AS 'sum' FROM payment " +
+    final static String GET_SALES_LIST = "SELECT date_format(pay_resdate, '%Y-%m') AS 'pay_resdate', SUM(pay_price*amount) AS 'sum' FROM payment " +
             "WHERE pay_resdate > DATE(SUBDATE(NOW(), INTERVAL 12 MONTH)) " +
             "GROUP BY month(pay_resdate), YEAR(pay_resdate) ORDER BY pay_resdate";
     final static String GET_PROFIT_LIST = "SELECT b.profit_month, if(avg_se IS NULL, 0, avg_se) - avg_re AS gross_profit FROM receive_stats a RIGHT OUTER JOIN serve_stats b ON (a.profit_month=b.profit_month) ORDER BY b.profit_month";

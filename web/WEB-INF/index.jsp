@@ -7,12 +7,10 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CornEdu_Book</title>
+    <title>CORNBOOK</title>
 
 <%@ include file="/setting/head.jsp"%>
-<%@ include file="/setting/encoding.jsp"%>
-<%@ include file="/layout/Chat.jsp"%>
-<%@ include file="/layout/AllAround_SideMenu.jsp"%>
+<%@ include file="/layout/Chat.jsp"%>    
 
 </head>
 
@@ -21,6 +19,8 @@
 <div id="preloder">
     <div class="loader"></div>
 </div>
+<%--항상 따라다니는 사이드 메뉴--%>
+<%@include file="/layout/AllAround_SideMenu.jsp"%>
 
 <!-- Humberger Begin -->
 <%@include file="/layout/header_top.jsp"%>
@@ -31,12 +31,14 @@
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
-<%--<%@ include file="/layout/sideMenu.jsp"%>--%>
-<%--<!-- Hero Section End -->--%>
+<%@include file="/Main_contents/main_banner.jsp"%>
+<!-- Hero Section End -->
 
 <!-- Categories Section Begin -->
 <%@ include file="/Main_contents/category.jsp"%>
 <!-- Categories Section End -->
+
+
 
 <!-- Featured Section Begin -->
 <%@ include file="/Main_contents/feature_Product.jsp"%>
@@ -47,7 +49,7 @@
 <!-- Banner End -->
 
 <!-- Latest Product Section Begin -->
-<%@include file="/Main_contents/LatestProduct.jsp"%>
+<%--<%@include file="/Main_contents/LatestProduct.jsp"%>--%>
 <!-- Latest Product Section End -->
 
 <!-- Blog Section Begin -->

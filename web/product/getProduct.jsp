@@ -10,12 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>제품 상세보기</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="https://kit.fontawesome.com/67fc414e58.js" crossorigin="anonymous"></script>
     <style>
         button.player_btn {
             border: none;
             background-color: #ffffff;
-
         }
     </style>
 </head>
@@ -33,43 +33,6 @@
 <!-- Header Section Begin -->
 <%@include file="../layout/header.jsp"%>
 <!-- Header Section End -->
-
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>All departments</span>
-                    </div>
-                    <ul>
-                        <li><a href="${path}/CateProList.do?cate_id=Q&cate_id=R&cate_id=S">유아</a></li>
-                        <li><a href="${path}/CateProList.do?cate_id=A&cate_id=B&cate_id=C&cate_id=D">초등</a></li>
-                        <li><a href="${path}/CateProList.do?cate_id=E&cate_id=F&cate_id=G&cate_id=H">중등</a></li>
-                        <li><a href="${path}/CateProList.do?cate_id=I&cate_id=J&cate_id=K&cate_id=L">고등</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="어떤 책이 필요하신가요?">
-                            <button type="submit" class="site-btn">검색</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" style="background-image: url('${path}/img/breadcrumb.jpg')">
@@ -107,10 +70,10 @@
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
-                                <c:if test="${amount<=0}">
+                                <c:if test="${amount == 0}">
                                 <input type="text" value="품절" readonly>
                                 </c:if>
-                                <c:if test="${amount>0}">
+                                <c:if test="${amount > 0}">
                                     <input type="number" id="amount" name="amount" value="1" min="1" max="${amount}">
                                 </c:if>
                             </div>
@@ -152,9 +115,12 @@
                                 <h6>상품 동영상</h6>
                                 <div class="player" style="width: 800px; margin: 0 auto;">
                                     <div class="vdo_fr">
-                                        <video id="video" autoplay style="width: 100%">
+                                        <video id="video" style="width: 100%">
                                             <source src="${path}/storage/${info.movie}" type="video/mp4"/>
                                         </video>
+                                    </div>
+                                    <div id="progress">
+                                        <div id="progressBar"></div>
                                     </div>
                                     <div id="buttonbar" style="width: 100%">
                                         <button id="play" class="player_btn"> <i class="fas fa-play"></i> </button>
@@ -228,5 +194,4 @@
 <!-- Footer Section End -->
 
 </body>
-
 </html>

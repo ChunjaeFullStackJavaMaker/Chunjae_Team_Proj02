@@ -9,11 +9,11 @@
 </style>
 <div class="quickmenu">
     <ul>
-        <li><a href="#">하트시그널4</a></li>
-        <li><a href="#">김지영 이뻐</a></li>
-        <li><a href="#">김지민도 이뻐</a></li>
-        <li><a href="#">유이수는 별로</a></li>
-        <li><a href="#">1 대 1 문의</a></li>
+        <li><a href="${path}/CateProList.do?cate_id=Q&cate_id=R&cate_id=S"> 유아 도서 </a></li>
+        <li><a href="${path}/CateProList.do?cate_id=A&cate_id=B&cate_id=C&cate_id=D"> 초등 도서 </a></li>
+        <li><a href="${path}/CateProList.do?cate_id=E&cate_id=F&cate_id=G&cate_id=H"> 중등 도서 </a></li>
+        <li><a href="${path}/CateProList.do?cate_id=I&cate_id=J&cate_id=K&cate_id=L"> 고등 도서 </a></li>
+        <li><a href="https://open.kakao.com/o/ggOwUUCf"> 1 대 1 문의 </a></li>
     </ul>
 </div>
 <script>

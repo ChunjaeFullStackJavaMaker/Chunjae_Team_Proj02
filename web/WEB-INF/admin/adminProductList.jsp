@@ -39,10 +39,6 @@
     <%@include file="/layout/header.jsp"%>
     <!-- Header Section End -->
 
-    <!-- Search Section Begin -->
-    <%@include file="/layout/rollup_sideMenu.jsp"%>
-    <!-- Search Section End -->
-
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section" style="background-image: url('${path}/img/breadcrumb.jpg'); background-position: bottom, center; background-size: cover">
         <div class="container">

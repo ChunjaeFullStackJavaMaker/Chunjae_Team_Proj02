@@ -80,8 +80,8 @@ public class MultiPattern {
             sql = "insert into serve values(default, ?, ?, ?, default)";
             pstmt=conn.prepareStatement(sql);
             pstmt.setInt(1, payment.getPro_no());
-            pstmt.setInt(2, payment.getAmount());
-            pstmt.setInt(3, payment.getPay_price());
+            pstmt.setInt(2, payment.getPay_price());
+            pstmt.setInt(3, payment.getAmount());
             cnt += pstmt.executeUpdate();
 
 

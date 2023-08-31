@@ -40,10 +40,6 @@
     <%@include file="/layout/header.jsp"%>
     <!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
-    <%@ include file="/layout/rollup_sideMenu.jsp"%>
-    <!-- Hero Section End -->
-
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section" style="background-image: url('${path}/img/breadcrumb.jpg'); background-position: center; background-size: cover">
         <div class="container">
@@ -62,7 +58,7 @@
     </section>
     <!-- Breadcrumb Section End -->
 
-    <div class="container">
+    <div class="container blog spad">
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
@@ -75,7 +71,7 @@
                 <c:forEach var="re" items="${reviewList }">
                     <div class="product__details__text">
                         <div class="row">
-                            <div class="col col-lg-6">
+                            <div class="col col-lg-10">
                                 <h4> ${re.pro }</h4>
                             </div>
                             <div class="col col-lg-2 d-flex align-items-center">
