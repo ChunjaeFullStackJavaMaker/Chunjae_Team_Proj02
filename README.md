@@ -71,8 +71,11 @@
 <br><br>
 
 ### 📂DATABASE - 테이블 ERD
-<p align="center"></p>
+<p align="center"><img alt="database_erd" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/41913eeb-fe10-4951-bfda-a0a3bb521c08"></p>
 <br><br>
+
+### 📂DATABASE - 테이블 구현
+
 
 ## 📌 주요 기능 -- 수정 해야합니다. 
 #### 로그인
