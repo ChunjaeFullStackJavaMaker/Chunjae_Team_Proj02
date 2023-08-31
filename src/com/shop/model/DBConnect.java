@@ -110,6 +110,11 @@ public interface DBConnect {
     final static String DELIVERY_PRODUCT_SELECT_ALL = "SELECT a.del_no AS del_no, custom_id, title, pay_price, del_state, pay_resdate FROM delivery a, payment b, product c WHERE a.pay_no=b.pay_no AND b.pro_no=c.pro_no AND del_state=0 order by pay_resdate, del_no";
     final static String DELCODE_GROUP_LIST = "SELECT a.del_no, CONCAT(title, ' 외 ', COUNT(*)-1, '건') AS title, custom_id, pay_resdate, del_addr, cus_tel, del_com, del_tel, del_state, del_date, res_date, del_code FROM delivery a, payment b, product c WHERE a.pay_no=b.pay_no AND b.pro_no=c.pro_no AND del_code != '' AND del_state < 6 GROUP BY del_code";
 
+    // 상품 추가 정보 입력하기
+    final static String INSERT_ADDINFO = "insert into addinfo(pro_no, title, movie) values(?,?,?)";
+    // 최근 추가된 상품의 번호 가져오기
+    final static String LATEST_PRO_NO = "select pro_no from product order by pro_no desc limit 1";
+
     //장바구니 관리 sql문
     final static String CART_INSERT = "insert into cart values (default,?,?,?)";
     final static String CART_DELETE = "delete from cart where cart_no=?";
