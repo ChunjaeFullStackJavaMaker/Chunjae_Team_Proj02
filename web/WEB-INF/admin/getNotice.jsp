@@ -9,12 +9,13 @@
     <title>공지사항 상세보기</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="../../common.jsp"%>
+    <%@ include file="/setting/head.jsp" %>
     <style>
     #tb1 { width:960px; margin:40px auto; }
     #tb1 th { background-color: #111; color:#fff; }
     .item1 { width:10%; }
     .item2 { width:70%; }
-    .item3 { width:10%; }
+    .item3 { width:11%; }
     .item4 { width:10%; }
     #page-nation1 { width: 960px; margin:20px auto; }
     </style>
@@ -35,7 +36,7 @@
         <h2 class="title">공지사항 상세보기</h2>
         <div class="container">
             <div class="box_wrap">
-                <table class="table table-secondary" id="tb1">
+                <table class="table" id="tb1">
                     <tbody>
                     <tr>
                         <th>글 번호</th>

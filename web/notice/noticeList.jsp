@@ -11,49 +11,38 @@
     <%@ include file="../common.jsp"%>
     <%@ include file="/setting/head.jsp" %>
     <style>
-    #tb1 { width:960px; margin:40px auto; }
-    #tb1 th { background-color: #111; color:#fff; }
-    .item1 { width:10%; }
+    #tb1 { width:1140px; margin:40px auto; }
+    #tb1 th { background-color: #7fad39; color:#fff; }
+    .table {background-color: #F5F5F5; border-radius:10px; overflow:hidden;}
+    .item1 { width:10%;}
     .item2 { width:70%; }
-    .item3 { width:10%; }
+    .item3 { width:11%; }
     .item4 { width:10%; }
-    #page-nation1 { width: 960px; margin:20px auto; }
+    #page-nation1 { width: 1140px; margin:20px auto; }
     </style>
 </head>
 <body>
 <div class="container-fluid">
+    <%@include file="/layout/header_top.jsp"%>
     <%@ include file="/layout/header.jsp" %>
     <div class="contents" style="min-height:100vh">
-        <div id="carouselExample" class="carousel slide" style="max-height:300px;overflow:hidden;">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="${path }/images/sub_vs01.jpg" class="d-block w-100" alt="천재교과서">
-                </div>
-                <div class="carousel-item">
-                    <img src="${path }/images/sub_vs02.jpg" class="d-block w-100" alt="천재문제집">
-                </div>
-                <div class="carousel-item">
-                    <img src="${path }/images/sub_vs03.jpg" class="d-block w-100" alt="천재참고서">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
+        <!-- Breadcrumb Section Begin -->
+        <section class="breadcrumb-section set-bg" style="background-image: url('${path}/img/breadcrumb.jpg')">
             <div class="container">
-                <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item"><a href="${path }">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Notice</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">List</li>
-                </ol>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="breadcrumb__text">
+                            <h2>공지사항</h2>
+                            <div class="breadcrumb__option">
+                                <a href="${path}">Home</a>
+                                <span>고객지원</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </nav>
+        </section>
+        <!-- Breadcrumb Section End -->
         <h2 class="title">공지사항 목록</h2>
         <p class="msg">${msg }</p>
         <div class="container">
@@ -72,9 +61,9 @@
                         </fieldset>
                     </form>
                 </div>
-                <table class="table table-secondary" id="tb1">
+                <table class="table" id="tb1">
                     <thead>
-                    <tr>
+                    <tr class="item">
                         <th class="item1">연번</th>
                         <th class="item2">제목</th>
                         <th class="item3">작성일</th>
