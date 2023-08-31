@@ -1,4 +1,4 @@
-package com.shop.controller.product;
+package com.shop.controller.review;
 
 import com.shop.model.ReviewDAO;
 

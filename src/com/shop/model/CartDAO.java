@@ -57,8 +57,6 @@ public class CartDAO {
     public List<CartVO> getByIdCartList(String cus_id){
         List<CartVO> cartList = new ArrayList<>();
         DBConnect con = new MariaDBCon();
-
-
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_SELECT_CID);

@@ -381,11 +381,6 @@ public class ProductDAO {
         } return reviewList;
     }
 
-    //상품 리뷰 등록하기
-    public int addReview(Review rev) {
-        int cnt = 0;
-        DBConnect con = new MariaDBCon();
-        conn = con.connect();
 
         try {
             pstmt = conn.prepareStatement(DBConnect.REVIEW_INSERT);
