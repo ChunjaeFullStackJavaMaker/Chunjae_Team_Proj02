@@ -381,24 +381,6 @@ public class ProductDAO {
         } return reviewList;
     }
 
-
-        try {
-            pstmt = conn.prepareStatement(DBConnect.REVIEW_INSERT);
-            pstmt.setString(1, rev.getMem_id());
-            pstmt.setInt(2,rev.getPay_no());
-            pstmt.setString(3, rev.getPro());
-            pstmt.setInt(4,rev.getStar());
-            pstmt.setString(5, rev.getContent());
-            pstmt.setInt(6, rev.getPro_no());
-            cnt = pstmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            con.close(pstmt, conn);
-        }
-        return cnt;
-    }
-
     //출고 관리
     public int addReceive(Receive rec){
         int cnt =0;
