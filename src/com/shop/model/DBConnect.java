@@ -118,7 +118,7 @@ public interface DBConnect {
     //장바구니 관리 sql문
     final static String CART_INSERT = "insert into cart values (default,?,?,?)";
     final static String CART_DELETE = "delete from cart where cart_no=?";
-    final static String CART_DELETE_PRO_NO = "delete from cart where pro_no=?";
+    final static String CART_DELETE_CART_NO = "delete from cart where cart_no=?";
     final static String CART_SELECT_CID = "select * from cart where cus_id=?";
 
     //리뷰 관리 sql문

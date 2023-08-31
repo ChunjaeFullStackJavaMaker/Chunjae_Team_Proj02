@@ -13,20 +13,15 @@ import java.io.PrintWriter;
 public class DelCartCtrl extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String[] cartno = request.getParameterValues("cart_no");
+        int cart_no = Integer.parseInt(request.getParameter("cart_no"));
 
         CartDAO dao = new CartDAO();
-        int cnt = 0;
-
-        for(String cn:cartno) {
-            int cno = Integer.parseInt(cn);
-            cnt = cnt + dao.delCart(cno);
-        }
+        int cnt = dao.delCart(cart_no);
 
         PrintWriter out = response.getWriter();
 
         if(cnt>0){
-            response.sendRedirect(request.getContextPath()+"/cartList.do");
+            response.sendRedirect(request.getContextPath()+"/CartList.do");
         } else {
             out.println("<script>history.go(-1);</script>");
         }

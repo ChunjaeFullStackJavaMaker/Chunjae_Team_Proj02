@@ -32,10 +32,6 @@
 <%@include file="/layout/header.jsp"%>
 <!-- Header Section End -->
 
-<!-- Hero Section Begin -->
-<%@ include file="/layout/sideMenu.jsp"%>
-<!-- Hero Section End -->
-
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
     <div class="container">
@@ -58,8 +54,8 @@
 <section class="shoping-cart spad">
     <div class="container">
         <div class="row">
-            <form class="col-lg-12">
-                <div class="shoping__cart__table">
+            <form action="${path }/DelCart.do" method="post" class="col-lg-12">
+                <div class="shoping__cart__table" >
                     <table>
                         <thead>
                         <tr>
@@ -72,33 +68,29 @@
                         </thead>
                         <tbody>
                         <c:forEach var="cart" items="${cartList}" >
-                        <tr>
-                            <td class="shoping__cart__item">
-                                <img src="../img/cart/cart-1.jpg" alt="">
-                                <h5>${cart.title }</h5>
-                            </td>
-                            <td class="shoping__cart__price">
-                                ${cart.price }
-                            </td>
-                            <td class="shoping__cart__quantity">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="${cart.amount}">
+                            <tr>
+                                <td class="shoping__cart__item">
+                                    <img src="${path }/img/cart/cart-1.jpg" alt="">
+                                    <h5>${cart.title }</h5>
+                                    <input type="hidden" id="cart_no" name="cart_no" value="${cart.cart_no }">
+                                </td>
+                                <td class="shoping__cart__price">
+                                        ${cart.price }
+                                </td>
+                                <td class="shoping__cart__quantity">
+                                    <div class="quantity">
+                                        <div class="pro-qty">
+                                            <input type="text" value="${cart.amount}">
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td class="shoping__cart__total">
-                                ${cart.price*cart.amount }
-                            </td>
-                            <td class="shoping__cart__item__close">
-                                <span class="icon_close" type="submit" onclick="deleteButton()"></span>
-                            </td>
-                            <script>
-                                function deleteButton(){
-                                    $("form").attr("action", "${path }/DelCart.do");
-                                }
-                            </script>
-                        </tr>
+                                </td>
+                                <td class="shoping__cart__total">
+                                        ${cart.price*cart.amount }
+                                </td>
+                                <td class="shoping__cart__item__close">
+                                    <a href="${path }/DelCart.do?cart_no=${cart.cart_no }" style="text-decoration-line:none; font-weight:bolder; color: gray; ">X</a>
+                                </td>
+                            </tr>
                         </c:forEach>
                         </tbody>
                     </table>

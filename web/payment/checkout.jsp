@@ -192,14 +192,17 @@
                     $("#pay_method").change(function(){
                         var th = $(this).val();
                         if(th==="신용카드"){
+                            $("#pay_com").children("option:not(:first)").remove();
                             for(var i=0;i<cardArr1.length;i++) {
                                 $("#pay_com").append("<option value='" + cardArr1[i] + "'>" + cardArr1[i] + "</option>");
                             }
                         } else if(th==="체크카드"){
+                            $("#pay_com").children("option:not(:first)").remove();
                             for(var i=0;i<cardArr2.length;i++) {
                                 $("#pay_com").append("<option value='"+cardArr2[i]+"'>"+cardArr2[i]+"</option>");
                             }
                         } else {
+                            $("#pay_com").children("option:not(:first)").remove();
                             for(var i=0;i<bankArr.length;i++) {
                                 $("#pay_com").append("<option value='"+bankArr[i]+"'>"+bankArr[i]+"</option>");
                             }
