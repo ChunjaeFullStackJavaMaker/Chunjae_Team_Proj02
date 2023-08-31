@@ -20,15 +20,24 @@
 <br><br>
 
 ### 🧑‍🤝‍🧑 맴버구성
+
 **팀장 : 박진권**
 * 로고 제작
 * usecaseDiagram 작성
+
+<br><br>
 **팀원 : 김보경**
 * 요구사항정의서 작성
+
+<br><br>
 **팀원 : 김현경**
 * WBS 작성
+
+<br><br>
 **팀원 : 신예은**
 * 화면설계서 작성
+
+<br><br>
 **팀원 : 오태훈**
 * 데이터베이스 설계
 
@@ -59,6 +68,10 @@
 <p align="center"><img alt="usecasediagram11" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/738dfb57-fedf-42e4-88cd-558ad01eac16">
 </p>
 
+<br><br>
+
+### 📂DATABASE - 테이블 ERD
+<p align="center"></p>
 <br><br>
 
 ## 📌 주요 기능 -- 수정 해야합니다. 
