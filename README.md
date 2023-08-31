@@ -91,6 +91,9 @@
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/56682f89-faf3-473f-824b-8561596f3b02)
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/5a593e54-e3c6-4a7c-acca-f31b98679bfd)
 
+### 📂CLASS DIAGRAM
+![classdiagram]()
+<br><br>
 
 ## 📌 주요 기능 -- 수정 해야합니다. 
 #### 로그인
