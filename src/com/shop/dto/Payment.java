@@ -10,7 +10,7 @@ public class Payment {
     private String pay_com;
     private int pay_price;
     private String pay_account;
-    private String del_no;
+    private int del_no;
     private String pay_resdate;
 
     public int getPay_no() {
@@ -85,11 +85,11 @@ public class Payment {
         this.pay_account = pay_account;
     }
 
-    public String getDel_no() {
+    public int getDel_no() {
         return del_no;
     }
 
-    public void setDel_no(String del_no) {
+    public void setDel_no(int del_no) {
         this.del_no = del_no;
     }
 
@@ -113,7 +113,7 @@ public class Payment {
                 ", pay_com='" + pay_com + '\'' +
                 ", pay_price=" + pay_price +
                 ", pay_account='" + pay_account + '\'' +
-                ", del_no='" + del_no + '\'' +
+                ", del_no=" + del_no +
                 ", pay_resdate='" + pay_resdate + '\'' +
                 '}';
     }

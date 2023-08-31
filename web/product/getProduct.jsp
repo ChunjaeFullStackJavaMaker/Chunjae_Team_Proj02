@@ -5,7 +5,6 @@
 <%@include file="../setting/head.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,15 +103,26 @@
                 <div class="product__details__text">
                     <h3>${pro.title}</h3>
                     <div class="product__details__price">${pro.price}</div>
-                    <p></p>
+                    <p>${pro.description}</p>
                     <div class="product__details__quantity">
                         <div class="quantity">
                             <div class="pro-qty">
-                                <input type="text" value="1">
+                                <c:if test="${amount<=0}">
+                                <input type="text" value="품절">
+                                </c:if>
+                                <c:if test="${amount>0}">
+                                    <input type="text" value="${amount}"}>
+                                </c:if>
                             </div>
                         </div>
                     </div>
                     <a href="#" class="primary-btn">ADD TO CARD</a>
+                    <c:if test="${sid eq 'admin'}">
+                    <a href="${path }/Receive.do?pro_no=${pro.pro_no }" class="primary-btn">입고</a>
+                    </c:if>
+                    <c:if test="${sid ne null and sid ne 'admin'}">
+                    <a href="${path }/AddCart.do?pro_no=${pro.pro_no }" class="primary-btn">장바구니 추가</a>
+                    </c:if>
                 </div>
             </div>
             <div class="col-lg-12">

@@ -2,16 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="path1" value="<%=request.getContextPath() %>" />
-<%
-    String path5 = request.getContextPath();
-%>
 <!-- 메타포, 오픈그래프, 파비콘, 폰트 등 각 종 자원 로딩 -->
 <style>
 * { margin: 0;  padding: 0; }
 body, html { width: 100%; }
 </style>
 <script src="./js/jquery-1.10.0.js"></script>
-<link rel="stylesheet" href="<%=path5%>/css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script src="./js/nav.js"></script>
 <link rel="stylesheet" href="./css/nav.css">

@@ -21,6 +21,8 @@
             color: #333;
             font-weight: bold;
         }
+        .breadcrumb-section {background-image: url("${path }/img/breadcrumb.jpg");}
+        #post_btn {margin-top : 22px;}
     </style>
 
 
@@ -47,7 +49,7 @@
 
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+<section class="breadcrumb-section set-bg">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -81,43 +83,43 @@
                         <div class="col-lg-8 col-md-6">
                             <div class="checkout__input">
                                 <p>아이디<span>*</span></p>
-                                <input type="text" value="${mem.id }" name="id" id="id" readonly required>
+                                <input type="text" value="${mem.id }" name="id" id="id" class="indata" readonly required>
                             </div>
                             <div class="checkout__input">
                                 <p>비밀번호<span>*</span></p>
-                                <input type="text" value="${pw }" name="pw" id="pw" required>
+                                <input type="text" value="${pw }" name="pw" id="pw" class="indata"  required>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>주소<span>*</span></p>
-                                        <input type="text" name="postcode" id="postcode" required>
+                                        <input type="text" name="postcode" id="postcode" class="indata"  required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p><span></span></p>
-                                        <button type="button" id="post_btn" onclick="findAddr()" class="site-btn" >우편번호검색</button>
+                                        <button type="button" value="${addr3 }" id="post_btn" onclick="findAddr()" class="site-btn" >우편번호검색</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <input type="text" name="address1" id="address1" placeholder="기본 주소 입력" required>
+                                <input type="text" name="address1" id="address1" value="${addr1 }" class="indata"  required>
                             </div>
                             <div class="checkout__input">
-                                <input type="text" name="address2" id="address2" placeholder="상세 주소 입력" required>
+                                <input type="text" name="address2" id="address2" value="${addr2 }"  class="indata"  required>
                             </div>
                             <div class="checkout__input">
                                 <p>전화번호<span>*</span></p>
-                                <input type="tel" value="${mem.tel }" name="tel" id="tel" required >
+                                <input type="tel" value="${mem.tel }" name="tel" id="tel" class="indata"  required >
                             </div>
                             <div class="checkout__input">
                                 <p>이메일<span>*</span></p>
-                                <input type="email" value="${mem.email }" name="email" id="email" required >
+                                <input type="email" value="${mem.email }" name="email" id="email"  class="indata"  required >
                             </div>
                             <div class="checkout__input">
                                 <p>생년월일<span>*</span></p>
-                                <input type="birth" value="${mem.birth }" name="birth" id="birth" required>
+                                <input type="birth" value="${mem.birth }" name="birth" id="birth" class="indata"  required>
                             </div>
                             <div>
                                 <button type="submit" class="site-btn" style="float:right;">개인정보수정</button>
