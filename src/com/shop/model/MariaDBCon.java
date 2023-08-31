@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class MariaDBCon implements DBConnect {
     final String DRIVER = "org.mariadb.jdbc.Driver";
-    final String URL = "jdbc:mariadb://10.41.1.198/team32";
+    final String URL = "jdbc:mariadb://10.41.1.198:3306/team32";
     final String USER = "team3";
     final String PASS = "chunjae33";
     Connection conn = null;
