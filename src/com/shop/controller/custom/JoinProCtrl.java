@@ -1,6 +1,6 @@
 package com.shop.controller.custom;
 
-import com.shop.dto.Member;
+import com.shop.dto.*;
 import com.shop.model.MemberDAO;
 import com.shop.util.AES256;
 
@@ -32,6 +32,7 @@ public class JoinProCtrl extends HttpServlet {
         boolean pass = dao.idCheck(id);
 
         Member user = new Member();
+        Member user = new Member();
         String key = "%02x";
         String encrypted = "";
         try {
@@ -44,10 +45,12 @@ public class JoinProCtrl extends HttpServlet {
         user.setId(id);
         user.setPw(encrypted);
         user.setNAME(name);
+        user.setNAME(name);
         user.setAddress(addr1 + "<br>" +addr2);
         user.setTel(tel);
         user.setEmail(email);
         user.setBirth(birth);
+        suc = dao.addMember(user);
         suc = dao.addMember(user);
 
         if(suc>0){

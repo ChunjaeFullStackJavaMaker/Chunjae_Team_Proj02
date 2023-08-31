@@ -104,6 +104,7 @@ public interface DBConnect {
     //상품 관리 sql문
     final static String PRODUCT_SELECT_ALL = "select * from product order by pro_no";
     final static String PRODUCT_SELECT_ONE = "select * from product where pro_no=?";
+    final static String RECEIVE_INSERT ="insert into receive values (default,?,?,?,default)";
 
     //배송 관리 sql문
     final static String DELIVERY_INSERT = "insert into delivery values (default, ?, ?, ?, ?, '','',default,default,'','')";

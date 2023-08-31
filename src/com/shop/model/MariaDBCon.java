@@ -26,14 +26,14 @@ public class MariaDBCon implements DBConnect {
 
     @Override
     public void close(PreparedStatement pstmt, Connection conn) {
-        if(pstmt!=null) {
+        if (pstmt != null) {
             try {
                 pstmt.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        if(conn!=null) {
+        if (conn != null) {
             try {
                 conn.close();
             } catch (SQLException e) {
@@ -44,21 +44,21 @@ public class MariaDBCon implements DBConnect {
 
     @Override
     public void close(ResultSet rs, PreparedStatement pstmt, Connection conn) {
-        if(rs!=null){
+        if (rs != null) {
             try {
                 rs.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        if(pstmt!=null) {
+        if (pstmt != null) {
             try {
                 pstmt.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        if(conn!=null) {
+        if (conn != null) {
             try {
                 conn.close();
             } catch (SQLException e) {

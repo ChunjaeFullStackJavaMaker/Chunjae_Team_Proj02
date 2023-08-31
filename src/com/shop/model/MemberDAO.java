@@ -1,7 +1,10 @@
 package com.shop.model;
 
 import com.shop.dto.Member;
+<<<<<<< HEAD
+=======
 import com.shop.dto.Product;
+>>>>>>> e52bc2940130a17b968b63a4373c17948c8c44de
 import com.shop.util.AES256;
 
 import java.sql.Connection;
@@ -66,7 +69,11 @@ public class MemberDAO {
         DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
+<<<<<<< HEAD
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_LOG);
+=======
             pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_ONE);
+>>>>>>> e52bc2940130a17b968b63a4373c17948c8c44de
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -189,6 +196,80 @@ public class MemberDAO {
         return cnt;
     }
 
+<<<<<<< HEAD
+    public boolean idCheck(String id){
+        Member mem = new Member();
+        DBConnect con = new MariaDBCon();
+
+        boolean pass = false;
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_LOG);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                pass = false;
+            } else {
+                pass = true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return pass;
+    }
+
+    public boolean login(String id, String pw) {
+        boolean pass = false;
+        DBConnect con = new MariaDBCon();
+                
+        String qpw = "";
+
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_LOG);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            if(rs.next()){
+                try {
+                    qpw = AES256.decryptAES256(rs.getString("pw"), key);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                if(pw.equals(qpw)){
+                    pass = true;
+                } else {
+                    pass = false;
+                }
+            } else {
+                pass = false;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return pass;
+    }
+
+
+    public int addMember(Member user) {
+        int cnt = 0;
+        DBConnect con = new MariaDBCon();
+                
+        try {
+            conn = con.connect();
+            System.out.println(user.toString());
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_INSERT);
+            pstmt.setString(1, user.getId());
+            pstmt.setString(2, user.getPw());
+            pstmt.setString(3, user.getNAME());
+            pstmt.setString(4, user.getTel());
+            pstmt.setString(5, user.getEmail());
+            pstmt.setString(6, user.getBirth());
+            pstmt.setString(7, user.getAddress());
+=======
     public int deleteMember(String id) {
         int cnt = 0;
         DBConnect con = new MariaDBCon();
@@ -196,15 +277,22 @@ public class MemberDAO {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.MEMBER_DELETE);
             pstmt.setString(1, id);
+>>>>>>> e52bc2940130a17b968b63a4373c17948c8c44de
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
+<<<<<<< HEAD
+            con.close(pstmt, conn);
+=======
             con.close(rs, pstmt, conn);
+>>>>>>> e52bc2940130a17b968b63a4373c17948c8c44de
         }
         return cnt;
     }
 
+<<<<<<< HEAD
+=======
 
 
 
@@ -232,4 +320,5 @@ public class MemberDAO {
 
 
 
+>>>>>>> e52bc2940130a17b968b63a4373c17948c8c44de
 }

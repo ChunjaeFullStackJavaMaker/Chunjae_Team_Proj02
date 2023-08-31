@@ -12,6 +12,16 @@
     <title>장바구니 결제</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@include file="/setting/head.jsp"%>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{SDK-최신버전}.js"></script>
+    <style>
+        .breadcrumb-section {background-image: url("${path }/img/breadcrumb.jpg");}
+        #paycart {width : 1100px; margin : 0 auto;}
+        .checktitle li {overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    </style>
 </head>
 
 <body>
@@ -29,7 +39,56 @@
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
-<%@include file="/layout/sideMenu.jsp"%>
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>All departments</span>
+                    </div>
+                    <ul>
+                        <li><a href="#">Fresh Meat</a></li>
+                        <li><a href="#">Vegetables</a></li>
+                        <li><a href="#">Fruit & Nut Gifts</a></li>
+                        <li><a href="#">Fresh Berries</a></li>
+                        <li><a href="#">Ocean Foods</a></li>
+                        <li><a href="#">Butter & Eggs</a></li>
+                        <li><a href="#">Fastfood</a></li>
+                        <li><a href="#">Fresh Onion</a></li>
+                        <li><a href="#">Papayaya & Crisps</a></li>
+                        <li><a href="#">Oatmeal</a></li>
+                        <li><a href="#">Fresh Bananas</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                All Categories
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="What do yo u need?">
+                            <button type="submit" class="site-btn">SEARCH</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+65 11.188.888</h5>
+                            <span>support 24/7 time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
@@ -38,10 +97,10 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Checkout</h2>
+                    <h2>Pay Cart</h2>
                     <div class="breadcrumb__option">
-                        <a href="${path }">Home</a>
-                        <span>Checkout</span>
+                        <a href="${path }/">Home</a>
+                        <span>Pay Cart</span>
                     </div>
                 </div>
             </div>
@@ -50,41 +109,36 @@
 </section>
 <!-- Breadcrumb Section End -->
 
-<!-- Checkout Section Begin -->
-<section class="checkout spad">
+<!-- 장바구니 결제 -->
+<section class="shoping-cart spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
-                </h6>
-            </div>
-        </div>
-        <div class="checkout__form">
-            <h4>Billing Details</h4>
-            <form action="${path }/checkoutPro.do" onsubmit="return payCheck(this)">
+            <form id="paycart" action="${path }/checkoutPro.do" method="post" onsubmit="return payCheck(this)">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         <div class="checkout__input">
                             <p>받는 사람 연락처<span>*</span></p>
-                            <input type="hidden" name="cid" id="cid" value="${mem.id }">
-                            <input type="hidden" name="name" id="name" value="${mem.name }">
+                            <input type="hidden" name="id" id="id" value="${mem.id }">
+                            <input type="hidden" name="name" id="name" value="${mem.NAME }">
                             <input type="hidden" name="email" id="email" value="${mem.email }">
                             <input type="hidden" name="tel" id="tel" value="${mem.tel }">
-                            <input type="hidden" name="addr" id="addr" value="${mem.addr }">
+                            <input type="hidden" name="address" id="address" value="${mem.address }">
                             <input type="tel" name="custel" id="custel" required>
                         </div>
                         <div class="checkout__input">
                             <p>배송지 주소<span>*</span></p>
                             <input type="text" name="address1" id="address1" placeholder="기본 주소 입력" class="checkout__input__add" required /><br>
                             <input type="text" name="address2" id="address2" placeholder="상세 주소 입력" required /><br>
+                        </div>
+                        <div class="checkout__input">
                             <input type="text" name="postcode" id="postcode" style="width:160px;float:left;margin-right:20px;" placeholder="우편번호" required>
-                            <button type="button" id="post_btn" onclick="findAddr()" style="margin-bottom:36px;">우편번호 검색</button>
+                            <button type="button" id="post_btn" onclick="findAddr()"  class="site-btn" >우편번호 검색</button>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="checkout__input">
+                                <div class="checkout__input" >
                                     <p>결제수단<span>*</span></p>
-                                    <select name="pay_method" id="pay_method">
+                                    <select name="pay_method" id="pay_method" style="width: 300px;">
                                         <option value="신용카드">신용카드</option>
                                         <option value="체크카드">체크카드</option>
                                         <option value="계좌이체">계좌이체</option>
@@ -92,37 +146,40 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="checkout__input">
+                                <div class="checkout__input" style="width: 300px;">
                                     <p>결제사<span>*</span></p>
-                                    <select name="pay_com" id="pay_com">
+                                    <select name="pay_com" id="pay_com" style="width: 300px;" >
                                         <option value="선택안함">선택안함</option>
                                     </select>
                                     <input type="hidden" name="pay_com2" id="pay_com2" value="">
                                 </div>
                             </div>
-                            <div class="checkout__input">
-                                <p>결제 번호<span>*</span></p>
-                                <input type="text" name="cus_num" id="cus_num" required>
-                                <input type="hidden" name="Paymount" id="payAmount">
-                                <input type="hidden" name="payCk" id="payCk" value="no">
-                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <p>결제 번호<span>*</span></p>
+                            <input type="text" name="pay_account" id="pay_account" required>
+                            <input type="hidden" name="Paymount" id="payAmount">
+                            <input type="hidden" name="payCk" id="payCk" value="yes">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
                             <h4>결제</h4>
                             <div class="checkout__order__products">Products <span>Total</span></div>
-                            <ul>
-                                <c:forEach var="cartVO" items="${cartList}">
-                                <li>${cartVO.title } <span class="total">${cartVO.price*cartVO.amount}</span>
-                                    <input type="hidden" name="title" id="proName" value="${cartVO.title }">
+                            <ul class="checktitle">
+                                <c:forEach var="cart" items="${cartList}">
+                                <li>${cart.title } <span class="total">${cart.price*cart.amount}</span>
+                                    <input type="hidden" name="title" id="proName" value="${cart.title }">
                                 </li>
                                 </c:forEach>
                             </ul>
                             <div class="checkout__order__subtotal">Subtotal <span id="subprice"></span></div>
                             <div class="checkout__order__total">Total<span id="totalprice"></span>
                             </div>
-                            <button type="submit" id="pay" class="site-btn">PLACE ORDER</button>
+                            <input type="button" id="pay" value="PLACE ORDER" class="site-btn">
+                            <c:if test="${!empty sid }">
+                                <input type="submit" class="site-btn" value="구매">
+                            </c:if>
                         </div>
                     </div>
                 </div>
@@ -242,10 +299,20 @@
                     });
                 });
             </script>
+            <script>
+                function payCheck(f){
+                    var payCk = f.payCk.value;
+                    console.log(payCk);
+                    if(payCk!="yes"){
+                        alert("아직 결제 전 입니다.");
+                        return false;
+                    }
+                }
+            </script>
         </div>
     </div>
 </section>
-<!-- Checkout Section End -->
+<!-- 장바구니 결제 끝 -->
 
 <!-- Footer Section Begin -->
 <%@include file="/layout/footer.jsp"%>
