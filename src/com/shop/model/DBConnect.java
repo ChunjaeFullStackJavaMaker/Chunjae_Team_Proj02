@@ -61,7 +61,7 @@ public interface DBConnect {
 
     //재고 조회
     final static String INVENTORY_SELECT_ALL = "select * from inventory order by pro_no desc";
-    final static String INVENTORY_SELECT_ONE = "select * from inventory where re_no=?";
+    final static String INVENTORY_SELECT_ONE = "select * from inventory where pro_no=?";
 
     // 결제 테이블 sql문
     final static String PAYMENT_SELECT_ONE = "select * from payment where pay_no=?";

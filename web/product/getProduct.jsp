@@ -108,15 +108,14 @@
                         <div class="quantity">
                             <div class="pro-qty">
                                 <c:if test="${amount<=0}">
-                                <input type="text" value="품절">
+                                <input type="text" value="품절" readonly>
                                 </c:if>
                                 <c:if test="${amount>0}">
-                                    <input type="text" value="${amount}"}>
+                                    <input type="number" value="1" min="1" max="${amount}">
                                 </c:if>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
                     <c:if test="${sid eq 'admin'}">
                     <a href="${path }/Receive.do?pro_no=${pro.pro_no }" class="primary-btn">입고</a>
                     </c:if>

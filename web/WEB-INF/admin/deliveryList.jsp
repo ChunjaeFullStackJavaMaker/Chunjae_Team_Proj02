@@ -76,7 +76,6 @@
                     <a href="${path}/AdminDashboard.do" class="d-block menu_item"> ADMIN MAIN </a>
                     <a href="${path}/AdminProductList.do" class="d-block menu_item mt-2"> 상품 관리 </a>
                     <a href="${path}/DeliveryList.do" class="d-block menu_item mt-2" style="color:#7FAD39; font-weight:bold"> 배송 정보 관리 </a>
-                    <a href="${path}/" class="d-block menu_item mt-2"> 입출고 관리 </a>
                     <a href="${path}/MemberMgmt.do" class="d-block menu_item mt-2"> 회원 관리 </a>
                 </div>
             </div>

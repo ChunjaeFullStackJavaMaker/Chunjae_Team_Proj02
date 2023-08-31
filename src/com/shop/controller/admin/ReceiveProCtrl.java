@@ -15,21 +15,21 @@ public class ReceiveProCtrl extends HttpServlet {
 
         int pro_no = Integer.parseInt(request.getParameter("pro_no"));
         int receive = Integer.parseInt(request.getParameter("receive"));
-        int pro_price = Integer.parseInt(request.getParameter("pro_price"));
+        int re_amount = Integer.parseInt(request.getParameter("re_amount"));
 
-        int suc=0;
+        int suc = 0;
 
         ProductDAO dao = new ProductDAO();
         Receive rec = new Receive();
 
         rec.setPro_no(pro_no);
-        rec.setAmount(receive);
-        rec.setRe_price(pro_price);
+        rec.setAmount(re_amount);
+        rec.setRe_price(receive);
 
         suc = dao.addReceive(rec);
 
         if(suc>0){
-            response.sendRedirect(request.getContextPath() + "/getProduct.do");
+            response.sendRedirect(request.getContextPath() + "/getProduct.do?pro_no="+pro_no);
         } else {
             response.sendRedirect(request.getContextPath() + "/ProList.do");
         }

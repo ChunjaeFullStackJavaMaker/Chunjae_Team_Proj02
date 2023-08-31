@@ -24,12 +24,13 @@ public class MypageInfoProCtrl extends HttpServlet {
         String pw = request.getParameter("pw");
         String addr1 = request.getParameter("address1");
         String addr2 = request.getParameter("address2");
+        String postcode = request.getParameter("postcode");
         String tel = request.getParameter("tel");
         String email = request.getParameter("email");
         String birth = request.getParameter("birth");
 
         boolean result = false;
-        int suc=0;
+        int suc = 0;
 
         String key = "%02x";
         String encrypted ="";
@@ -43,15 +44,15 @@ public class MypageInfoProCtrl extends HttpServlet {
         Member user = new Member();
 
         user.setId(id);
-        user.setPw(pw);
-        user.setAddress(addr1+"<br>"+addr2);
+        user.setPw(encrypted);
+        user.setAddress(addr1+"<br>"+addr2+"<br>"+postcode);
         user.setTel(tel);
         user.setEmail(email);
         user.setBirth(birth);
         suc=dao.updateMember(user);
 
-        if(suc>0){
-            response.sendRedirect(request.getContextPath()+"mypageInfo.do?id="+id);
+        if(suc > 0){
+            response.sendRedirect(request.getContextPath()+"/mypageInfo.do?id="+id);
         }
 
     }

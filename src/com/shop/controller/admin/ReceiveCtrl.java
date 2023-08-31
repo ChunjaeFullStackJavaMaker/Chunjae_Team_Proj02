@@ -21,6 +21,7 @@ public class ReceiveCtrl extends HttpServlet {
         int amount = dao.getAmount(pro_no);
 
         request.setAttribute("pro_no",pro_no);
+        request.setAttribute("pro", pro);
         request.setAttribute("amount",amount);
 
         RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/receive.jsp");
