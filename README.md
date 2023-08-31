@@ -46,12 +46,20 @@
 # ⚒프로젝트 설계
 
 ### 📂개념적 설계 (USECASE DIAGRAM)
-<p align="center"></p>
-<p align="center"></p>
-<p align="center"></p>
-<p align="center"></p>
-<p align="center"></p>
+<p align="center"><img alt="usecasediagram1" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/64f9a972-2bd5-4028-af7d-3def8bebea04"></p>
+<p align="center"><img alt="usecasediagram2" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/7fb84efe-430b-44b6-9299-dad7cf67f01e"></p>
+<p align="center"><img alt="usecasediagram3" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/54222eeb-de87-444a-b53c-0ace70ee0409"></p>
+<p align="center"><img alt="usecasediagram4" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/f854a92c-b424-404a-aa05-cd930ff67aa1"></p>
+<p align="center"><img alt="usecasediagram5" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/e2e285aa-bf16-43e1-81a4-de9550a59160"></p>
+<p align="center"><img alt="usecasediagram6" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/923a2394-f624-497c-9dcd-a2b9f574f3ab"></p>
+<p align="center"><img alt="usecasediagram7" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/b298d125-8490-4db2-a483-5ba1673973d7"></p>
+<p align="center"><img alt="usecasediagram8" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/7f9ea650-6c6f-4435-8c7d-562a1ec14c8f"></p>
+<p align="center"><img alt="usecasediagram9" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/42844584-2e3d-423c-beb1-8535c1dd87c8"></p>
+<p align="center"><img alt="usecasediagram10" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/a76ff07b-8f51-427b-8e2a-18e3b01f8da8"></p>
+<p align="center"><img alt="usecasediagram11" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/738dfb57-fedf-42e4-88cd-558ad01eac16">
+</p>
 
+<br><br>
 
 ## 📌 주요 기능 -- 수정 해야합니다. 
 #### 로그인
