@@ -99,7 +99,7 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p><span></span></p>
-                                        <button type="button" value="${addr3 }" id="post_btn" onclick="findAddr()" class="site-btn" >우편번호검색</button>
+                                        <button type="button" value="" id="post_btn" onclick="findAddr()" class="site-btn" >우편번호검색</button>
                                     </div>
                                 </div>
                             </div>

@@ -32,7 +32,6 @@ public class JoinProCtrl extends HttpServlet {
         boolean pass = dao.idCheck(id);
 
         Member user = new Member();
-        Member user = new Member();
         String key = "%02x";
         String encrypted = "";
         try {
