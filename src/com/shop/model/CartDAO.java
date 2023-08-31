@@ -21,6 +21,8 @@ public class CartDAO {
     public int addCart(Cart cart){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
+
+
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_INSERT);
@@ -39,6 +41,8 @@ public class CartDAO {
     public int delCart(int cart_no){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
+
+
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_DELETE_PRO_NO);
@@ -55,6 +59,8 @@ public class CartDAO {
     public List<CartVO> getByIdCartList(String cus_id){
         List<CartVO> cartList = new ArrayList<>();
         DBConnect con = new MariaDBCon();
+
+
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_SELECT_CID);
@@ -82,6 +88,7 @@ public class CartDAO {
     public int delCartWithProNo(int pro_no) {
         int cnt = 0;
         DBConnect con = new MariaDBCon();
+
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_DELETE_PRO_NO);

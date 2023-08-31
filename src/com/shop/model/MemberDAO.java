@@ -19,7 +19,7 @@ public class MemberDAO {
         DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.Member_SELECT_ONE);
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_LOG);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
             if(rs.next()){
@@ -48,7 +48,7 @@ public class MemberDAO {
         DBConnect con = new MariaDBCon();
         try{
             conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.Member_UPDATE);
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_UPDATE);
             pstmt.setString(1,user.getId());
             pstmt.setString(2,user.getPw());
             pstmt.setString(3,user.getAddress());
@@ -67,10 +67,11 @@ public class MemberDAO {
     public boolean idCheck(String id){
         Member mem = new Member();
         DBConnect con = new MariaDBCon();
+
         boolean pass = false;
         try {
             conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.Member_SELECT_ONE);
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_LOG);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
             if(rs.next()){
@@ -89,6 +90,7 @@ public class MemberDAO {
     public boolean login(String id, String pw) {
         boolean pass = false;
         DBConnect con = new MariaDBCon();
+                
         String qpw = "";
 
         try {
@@ -122,10 +124,11 @@ public class MemberDAO {
     public int addMember(Member user) {
         int cnt = 0;
         DBConnect con = new MariaDBCon();
+                
         try {
             conn = con.connect();
             System.out.println(user.toString());
-            pstmt = conn.prepareStatement(DBConnect.Member_INSERT);
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_INSERT);
             pstmt.setString(1, user.getId());
             pstmt.setString(2, user.getPw());
             pstmt.setString(3, user.getNAME());

@@ -5,12 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public interface DBConnect {
-    final static String NOTICE_SELECT_ALL = "select * from notice order by nno desc";
-    final static String NOTICE_SELECT_ONE = "select * from notice where nno=?";
-    final static String NOTICE_INSERT = "insert into notice values (title, content);";
-    final static String NOTICE_SELECT_RANGE = "select * from notice order by nno desc limit 5 offset ?";
-    final static String NOTICE_UPDATE = "update notice set title=?, content=? where nno=?";
-    final static String NOTICE_DELETE = "delete from notice where nno=?";
+    final static String NOTICE_SELECT_ALL = "select * from notice order by no desc";
+    final static String NOTICE_SELECT_ONE = "select * from notice where no=?";
+    final static String NOTICE_INSERT = "insert into notice(title, content) values (?, ?);";
+    final static String NOTICE_SELECT_RANGE = "select * from notice order by no desc limit 5 offset ?";
+    final static String NOTICE_UPDATE = "update notice set title=?, content=? where no=?";
+    final static String NOTICE_DELETE = "delete from notice where no=?";
     final static String NOTICE_COUNT = "select count(*) as cnt from notice";
     final static String NOTICE_COUNT_TITLE = "select count(*) as cnt from notice where title like ?";
     final static String NOTICE_COUNT_CONTENT = "select count(*) as cnt from notice where content like ?";
@@ -18,7 +18,14 @@ public interface DBConnect {
     final static String NOTICE_SELECT_TITLE_RANGE = "select * from notice where title like ? order by resdate desc limit 5 offset ?";
     final static String NOTICE_SELECT_CONTENT_RANGE = "select * from notice where content like ? order by resdate desc limit 5 offset ?";
     final static String NOTICE_SELECT_ALL_RANGE = "select * from notice where title like ? or content like ? order by resdate desc limit 5 offset ?";
-    
+
+    //FAQ
+    final static String FAQ_SELECT_ALL = "select * from faq order by fno asc";
+
+    //QnA
+    final static String QNA_SELECT_ALL = "select a.qno AS qno, a.title AS title, a.content AS content, a.author AS author, a.resdate AS resdate, a.visit as visit, a.lev AS lev, a.par AS par, b.name AS NAME FROM qna a, member b WHERE a.author=b.id order BY a.par DESC, a.lev ASC, a.qno ASC";
+
+
     //카테고리별 목록
     final static String PRODUCT_SELECT_CATE = "select * from product where cate_id=? order by pro_no";
 
@@ -27,6 +34,9 @@ public interface DBConnect {
 
     //베스트 상품
     final static String PRODUCT_SELECT_BEST = "select * from product where pro_no in (select pro_no from payment group by pro_no order by sum(amount) desc limit 5)";
+    // 상품 리스트 페이징
+    final static String PRODUCT_SELECT_RANGE = "select * from product order by title limit 10 offset ?";
+    final static String PRODUCT_COUNT_ALL = "select count(*) as cnt from product";
 
     //상품 입고
     final static String PRODUCT_INSERT = "insert into product values(default, ?, '', ?, ?, ?, ?, ?, ?, default)";
@@ -48,17 +58,22 @@ public interface DBConnect {
     final static String INVENTORY_SELECT_ALL = "select * from inventory order by pro_no desc";
     final static String INVENTORY_SELECT_ONE = "select * from inventory where re_no=?";
 
-    //입고 관련 sql문
-    final static String RECEIVE_INSERT = "insert into receive values (default, ?, ?, ?, default)";
-
     // 결제 테이블 sql문
     final static String PAYMENT_SELECT_ONE = "select * from payment where pay_no=?";
     final static String PAYMENT_SELECT_LIST = "select * from payment where cus_id=? and resdate between ? and ?";
     final static String GET_PAY_NO = "select pay_no from payment order by pay_no desc limit 1";
     final static String PAYMENT_SELECT_CID ="select * from payment where custom_id=?";
-    
+
+    // 관리자 메인 페이지
+    // 매출액 가져오기
+    final static String GET_SALES_LIST = "SELECT date_format(pay_resdate, '%Y-%m') AS 'pay_resdate', SUM(pay_price) AS 'sum' FROM payment " +
+            "WHERE pay_resdate > DATE(SUBDATE(NOW(), INTERVAL 12 MONTH)) " +
+            "GROUP BY month(pay_resdate), YEAR(pay_resdate) ORDER BY pay_resdate";
+    final static String GET_PROFIT_LIST = "SELECT b.profit_month, if(avg_re IS NULL, 0, avg_re) - avg_se AS gross_profit FROM receive_stats a RIGHT OUTER JOIN serve_stats b ON (a.profit_month=b.profit_month) ORDER BY b.profit_month";
+    final static String ADMIN_HOT_PRODUCT_LIST = "SELECT * FROM admin_hot_product";
+
     //출고 관리 sql문
-    final static String SERVE_PAYMENT =  "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?,?,?, default)";
+    final static String SERVE_PAYMENT =  "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?, '')";
     final static String SERVE_INSERT = "insert into serve values(default, ?, ?, ?, default)";
 
     // 반품 처리 sql문
@@ -73,14 +88,17 @@ public interface DBConnect {
     final static String RETURN_DELIVERIES = "delete from delivery where pay_no in (select pay_no from payment where resdate between ? and ? and cus_id=?)";
 
     //회원 관리 sql문
-    final static String Member_SELECT_ONE = "select * from member where id=?";
-    final static String Member_UPDATE = "update member set pw=?, address=?,tel=?, email=?, birth=? where id=?";
+    final static String MEMBER_SELECT_ALL = "select * from member order by resdate limit 5 offset ?";
+    final static String MEMBER_SELECT_LOG = "select * from member where id=?";
+    final static String MEMBER_COUNT_ALL = "select count(*) as cnt from member";
+    final static String MEMBER_INSERT = "insert into member(id, pw, name, tel, email, birth, address) values (?,?,?,?,?,?::date,?)";
+    final static String MEMBER_UPDATE = "update member set pw=?, address=?,tel=?, email=?, birth=? where id=?";
+    final static String MEMBER_DELETE = "delete from member where id = ?";
 
-    final static String Member_INSERT = "insert into member values (?,?,?,default,default,?,?,?,default,?)";
     //상품 관리 sql문
     final static String PRODUCT_SELECT_ALL = "select * from product order by pro_no";
     final static String PRODUCT_SELECT_ONE = "select * from product where pro_no=?";
-    final static String MEMBER_SELECT_LOG = "select * from member where id=?";
+    final static String RECEIVE_INSERT ="insert into receive values (default,?,?,?,default)";
 
     //배송 관리 sql문
     final static String DELIVERY_INSERT = "insert into delivery values (default, ?, ?, ?, ?, '','',default,default,'','')";
@@ -93,13 +111,20 @@ public interface DBConnect {
 
     //장바구니 관리 sql문
     final static String CART_INSERT = "insert into cart values (default,?,?,?)";
+    final static String CART_DELETE = "delete from cart where cart_no=?";
     final static String CART_DELETE_PRO_NO = "delete from cart where pro_no=?";
     final static String CART_SELECT_CID = "select * from cart where cus_id=?";
-
 
     //리뷰 관리 sql문
     final static String REVIEW_SELECT_CID ="select * from review where mem_id=?";
     final static String REVIEW_DELETE = "delete from review where rev_no=?";
+    //리뷰
+    final static String REVIEW_SELECT = "select * from review where pro_no=?";
+    final static String REVIEW_INSERT = "insert into review values (default, ?, ?, ?, ?, ?, default, ?)";
+
+    //상세페이지 비디오
+    final static String PRODUCT_VIDEO = "select * from product left join addinfo on product.pro_no = addinfo.pro_no where product.pro_no=?";
+
 
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);
