@@ -45,6 +45,7 @@ public class LoginProCtrl extends HttpServlet {
             //view.forward(request, response);
         } else {
             msg = "로그인 실패";
+            System.out.println(msg);
             response.sendRedirect(request.getContextPath()+"/Login.do");
             //out.println("<script>history.go(-1);</script>");
         }

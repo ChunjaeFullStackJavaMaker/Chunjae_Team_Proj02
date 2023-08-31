@@ -40,7 +40,6 @@ public class CartDAO {
         int cnt = 0;
         DBConnect con = new MariaDBCon();
 
-
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_DELETE_PRO_NO);

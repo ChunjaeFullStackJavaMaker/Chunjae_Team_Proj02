@@ -1,7 +1,6 @@
 package com.shop.model;
 
 import com.shop.dto.Member;
-import com.shop.dto.Product;
 import com.shop.util.AES256;
 
 import java.sql.Connection;
@@ -19,46 +18,10 @@ public class MemberDAO {
     static ResultSet rs = null;
     String key = "%02x";
 
-    public int getCount() {
-        DBConnect con = new MariaDBCon();
-        int cnt = 0;
-        try {
-            conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.MEMBER_COUNT_ALL);
-            rs = pstmt.executeQuery();
-            if(rs.next()) {
-                cnt = rs.getInt("cnt");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            con.close(rs, pstmt, conn);
-        }
-        return cnt;
-    }
+    public List<Member> getMemberList(int i) {
+        List<Member> memberList = new ArrayList<>();
 
-    public List<Member> getMemberList(int no) {
-        List<Member> memList = new ArrayList<>();
-        DBConnect con = new MariaDBCon();
-        try {
-            conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_ALL);
-            pstmt.setInt(1, no);
-            rs = pstmt.executeQuery();
-            while(rs.next()){
-                Member member = new Member();
-                member.setId(rs.getString("id"));
-                member.setNAME(rs.getString("name"));
-                member.setEmail(rs.getString("email"));
-                member.setBirth(rs.getString("birth"));
-                memList.add(member);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            con.close(rs, pstmt, conn);
-        }
-        return memList;
+        return memberList;
     }
 
     public Member getMember(String id) {
@@ -66,8 +29,7 @@ public class MemberDAO {
         DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
-
-            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_LOG);
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_ONE);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -169,30 +131,26 @@ public class MemberDAO {
     }
 
 
-    public int updateMember(Member user){
-        int cnt =0;
+    public int updateMember(Member user) {
+        int cnt = 0;
         DBConnect con = new MariaDBCon();
-        try{
+        try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.MEMBER_UPDATE);
-            pstmt.setString(1,user.getId());
-            pstmt.setString(2,user.getPw());
-            pstmt.setString(3,user.getAddress());
-            pstmt.setString(4,user.getTel());
-            pstmt.setString(5,user.getEmail());
-            pstmt.setString(6,user.getBirth());
+            pstmt.setString(1, user.getId());
+            pstmt.setString(2, user.getPw());
+            pstmt.setString(3, user.getAddress());
+            pstmt.setString(4, user.getTel());
+            pstmt.setString(5, user.getEmail());
+            pstmt.setString(6, user.getBirth());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } finally{
-            con.close(pstmt,conn);
+        } finally {
+            con.close(pstmt, conn);
         }
         return cnt;
     }
-
-
-
-
 
     public int deleteMember(String id) {
         int cnt = 0;
@@ -205,8 +163,23 @@ public class MemberDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            con.close(pstmt, conn);
             con.close(rs, pstmt, conn);
+        }
+        return cnt;
+    }
+
+    public int getCount() {
+        DBConnect con = new MariaDBCon();
+        int cnt = 0;
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_COUNT_ALL);
+            rs = pstmt.executeQuery();
+            if(rs.next()) {
+                cnt = rs.getInt("cnt");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return cnt;
     }

@@ -116,7 +116,6 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
                     <c:if test="${sid eq 'admin'}">
                     <a href="${path }/Receive.do?pro_no=${pro.pro_no }" class="primary-btn">입고</a>
                     </c:if>

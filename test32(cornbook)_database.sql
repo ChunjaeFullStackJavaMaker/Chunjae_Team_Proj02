@@ -31,12 +31,7 @@ COMMIT;
 
 SELECT * FROM member;
 
-UPDATE member SET pw='6lRVDcHqc9ceHafDPXmPbz2r4KRXzN1Bi/k0wAQZFua0seXPMFKXMHY6Ut5PW6anSpaKsA==' WHERE id='admin';
-UPDATE member SET pw='6lRVDcHqc9ceHafDPXmPbz2r4KRXzN1Bi/k0wAQZFua0seXPMFKXMHY6Ut5PW6anSpaKsA==' WHERE id='kimhk';
-UPDATE member SET pw='qK2aVyBfeZfFcZAYbnfIaMVr/yppCwrnlKSMGhy2wRBdm2MFX9KtVTF7WoGPr5PP2EooyQ==' WHERE id='kimbk';
-UPDATE member SET pw='ayDlB61VvnK8CHscf/moQNTbqywdHHf1hT/G8SgChm40NB2Se86VKKg2fibN8MYuIN5XHg==' WHERE id='parkjk';
-UPDATE member SET pw='y77ZcnJueDxVMDDVzGMQTBq3ti0m0w3jEBRA9Ib901OMXn+gqj5W/XEzTfJJqEFVWn7PKw==' WHERE id='sirious920';
-UPDATE member SET pw='hmQ6nKUBYdXpLQGoN05drYLHeg3XF+wdBGad1DFuDI64MMRM/8bYIP/lzjgcjqL3vRRtDA==' WHERE id='shin';
+0
 
 --------------------------------------------------------------
 
