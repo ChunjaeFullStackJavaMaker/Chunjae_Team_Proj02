@@ -9,7 +9,6 @@ import com.shop.model.ReviewDAO;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import java.awt.image.renderable.RenderableImage;
 import java.io.IOException;
 import java.util.List;
 

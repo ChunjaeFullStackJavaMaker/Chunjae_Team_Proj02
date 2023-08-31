@@ -1,10 +1,6 @@
 package com.shop.model;
 
-import com.shop.dto.AddInfo;
-import com.shop.dto.AdminHotProVO;
-import com.shop.dto.Category;
-import com.shop.dto.Product;
-import com.shop.dto.Review;
+import com.shop.dto.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -202,10 +198,52 @@ public class ProductDAO {
         } finally {
             con.close(pstmt, conn);
         }
+
+        con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.PRODUCT_INSERT_UPDATE);
+            cnt = cnt + pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(pstmt, conn);
+        }
         return cnt;
     }
 
+    public int addAddInfo(AddInfo addInfo) {
+        int cnt = 0;
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.INSERT_ADDINFO);
+            pstmt.setInt(1, addInfo.getPro_no());
+            pstmt.setString(2, addInfo.getTitle());
+            pstmt.setString(3, addInfo.getMovie());
+            cnt = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return cnt;
+    }
 
+    public int latestProNo() {
+        int result = 0;
+
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.LATEST_PRO_NO);
+            rs = pstmt.executeQuery();
+            if(rs.next()) {
+                result = rs.getInt("pro_no");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
 
     public List<Category> getCategoryList(){
         List<Category> cateList = new ArrayList<Category>();
@@ -343,25 +381,22 @@ public class ProductDAO {
         } return reviewList;
     }
 
-    //상품 리뷰 등록하기
-    public int addReview(Review rev) {
-        int cnt = 0;
+    //출고 관리
+    public int addReceive(Receive rec){
+        int cnt =0;
         DBConnect con = new MariaDBCon();
-        conn = con.connect();
+        conn=con.connect();
 
         try {
-            pstmt = conn.prepareStatement(DBConnect.REVIEW_INSERT);
-            pstmt.setString(1, rev.getMem_id());
-            pstmt.setInt(2,rev.getPay_no());
-            pstmt.setString(3, rev.getPro());
-            pstmt.setInt(4,rev.getStar());
-            pstmt.setString(5, rev.getContent());
-            pstmt.setInt(6, rev.getPro_no());
-            cnt = pstmt.executeUpdate();
+            pstmt= conn.prepareStatement(DBConnect.RECEIVE_INSERT);
+            pstmt.setInt(1, rec.getPro_no());
+            pstmt.setInt(2,rec.getAmount());
+            pstmt.setInt(3,rec.getRe_price());
+            cnt=pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } finally {
-            con.close(pstmt, conn);
+        }finally {
+            con.close(pstmt,conn);
         }
         return cnt;
     }

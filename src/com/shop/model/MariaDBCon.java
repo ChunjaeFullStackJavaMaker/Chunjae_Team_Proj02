@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class MariaDBCon implements DBConnect {
     final String DRIVER = "org.mariadb.jdbc.Driver";
-    final String URL = "jdbc:mariadb://localhost:3306/cornbook";
-    final String USER = "root";
-    final String PASS = "1234";
+    final String URL = "jdbc:mariadb://10.41.1.198:3306/team32";
+    final String USER = "team3";
+    final String PASS = "chunjae33";
     Connection conn = null;
 
     @Override
@@ -26,14 +26,14 @@ public class MariaDBCon implements DBConnect {
 
     @Override
     public void close(PreparedStatement pstmt, Connection conn) {
-        if(pstmt!=null) {
+        if (pstmt != null) {
             try {
                 pstmt.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        if(conn!=null) {
+        if (conn != null) {
             try {
                 conn.close();
             } catch (SQLException e) {
@@ -44,21 +44,21 @@ public class MariaDBCon implements DBConnect {
 
     @Override
     public void close(ResultSet rs, PreparedStatement pstmt, Connection conn) {
-        if(rs!=null){
+        if (rs != null) {
             try {
                 rs.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        if(pstmt!=null) {
+        if (pstmt != null) {
             try {
                 pstmt.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        if(conn!=null) {
+        if (conn != null) {
             try {
                 conn.close();
             } catch (SQLException e) {

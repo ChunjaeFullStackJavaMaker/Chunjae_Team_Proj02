@@ -66,7 +66,8 @@ public class MemberDAO {
         DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_ONE);
+
+            pstmt = conn.prepareStatement(DBConnect.MEMBER_SELECT_LOG);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -189,6 +190,10 @@ public class MemberDAO {
         return cnt;
     }
 
+
+
+
+
     public int deleteMember(String id) {
         int cnt = 0;
         DBConnect con = new MariaDBCon();
@@ -200,36 +205,9 @@ public class MemberDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
+            con.close(pstmt, conn);
             con.close(rs, pstmt, conn);
         }
         return cnt;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

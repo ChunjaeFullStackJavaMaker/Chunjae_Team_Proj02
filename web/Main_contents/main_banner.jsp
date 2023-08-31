@@ -9,13 +9,14 @@
             <li class="item1 active">
                 <input type="radio" name="vs_ra" id="vs_ra1" class="vs_ra" checked>
                 <div class="bg_box"></div>
-                <h2 class="vs_tit"><b>학생들의 미래를 그려나가는 책을 만듭니다.</b><br>
-                    CornBooks</h2>
+                <h2 class="vs_tit">지식의 씨앗을 뿌리는 곳,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;함께 성장하는 <b>CORNBOOK</b></h2>
             </li>
             <li class="item2">
                 <input type="radio" name="vs_ra" id="vs_ra2" class="vs_ra" checked>
                 <div class="bg_box"></div>
-                <h2 class="vs_tit"><b>최고의 교육회사에서 만드는 최고의 교재</b></h2>
+                <h2 class="vs_tit">단단한 지식의 알갱이,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;성장과 발전을 열어주는 <b>CORNBOOK</b></h2>
             </li>
             <ul class="btn_box">
                 <li class="item1 active"><label for="vs_ra1" class="vs_btn"></label></li> &nbsp;&nbsp;

@@ -39,9 +39,11 @@ public class CartDAO {
     public int delCart(int cart_no){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
+
+
         conn = con.connect();
         try {
-            pstmt = conn.prepareStatement(DBConnect.CART_DELETE);
+            pstmt = conn.prepareStatement(DBConnect.CART_DELETE_PRO_NO);
             pstmt.setInt(1, cart_no);
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -52,29 +54,13 @@ public class CartDAO {
         return cnt;
     }
 
-    public int delCartWithProNo(int pro_no) {
-        int cnt = 0;
-        DBConnect con = new MariaDBCon();
-        conn = con.connect();
-        try {
-            pstmt = conn.prepareStatement(DBConnect.CART_DELETE_PRO_NO);
-            pstmt.setInt(1, pro_no);
-            cnt = pstmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            con.close(pstmt, conn);
-        }
-        return cnt;
-    }
-
-    public List<CartVO> getByIdCartList(String cid){
+    public List<CartVO> getByIdCartList(String cus_id){
         List<CartVO> cartList = new ArrayList<>();
         DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_SELECT_CID);
-            pstmt.setString(1, cid);
+            pstmt.setString(1, cus_id);
             rs = pstmt.executeQuery();
             while(rs.next()){
                 CartVO cart = new CartVO();
@@ -90,11 +76,27 @@ public class CartDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            con.close(pstmt, conn);
+            con.close(rs, pstmt, conn);
         }
         return cartList;
     }
 
+    public int delCartWithProNo(int pro_no) {
+        int cnt = 0;
+        DBConnect con = new MariaDBCon();
+
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.CART_DELETE_PRO_NO);
+            pstmt.setInt(1, pro_no);
+            cnt = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(pstmt, conn);
+        }
+        return cnt;
+    }
 
     public String getNAME(String id){
         MemberDAO dao = new MemberDAO();

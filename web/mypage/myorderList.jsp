@@ -21,6 +21,7 @@
             color: #333;
             font-weight: bold;
         }
+        .breadcrumb-section {background-image: url("${path }/img/breadcrumb.jpg");}
     </style>
 
     <c:if test="${msg eq 'success'}">
@@ -76,15 +77,10 @@
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
-<<<<<<< HEAD
-                    <a href="" class="d-block menu_item"> 개인정보 변경 </a>
-                    <a href="${path}/MyOrderList.do" class="d-block mt-2 menu_item" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
-                    <a href="" class="d-block mt-2 menu_item"> 리뷰 관리</a>
-=======
+
                     <a href="${path}/mypageInfo.do" class="d-block"> 개인정보 변경 </a>
                     <a href="${path}/MyOrderList.do" class="d-block mt-2" style="color:#7FAD39; font-weight:bold"> 주문/배송 조회 </a>
                     <a href="${path}/mypageReview.do" class="d-block mt-2"> 리뷰 관리</a>
->>>>>>> a1acae8530b51a04ff30da003c50bf6d71a3955d
                 </div>
             </div>
             <div class="col col-lg-9 mt-3">
@@ -144,6 +140,7 @@
                                 </c:if>
                                 <c:if test="${order.del_state eq '배송 도착'}">
                                     <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?pay_no=${order.pay_no}'"> 환불 </button>
+                                    <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/AddReview.do?pay_no=${order.pay_no}'"> 구매 확정 </button>
                                 </c:if>
                             </div>
                         </div>
