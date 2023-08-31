@@ -75,20 +75,35 @@
 <br><br>
 
 ### 📂DATABASE - 테이블 구현
+#### MEMBER
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/0c7cf4a4-5949-4db3-b110-81b11cbfbacc)
+#### PRODUCT
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/41c637b1-e9cd-4d4f-a267-6182165dd8be)
+#### CATEGORY
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/7ae3762c-6d1a-4731-83ef-2e7b1ca9b43a)
+#### CART
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/0a5354d9-0d5c-41e7-8b78-6edae17e8423)
+#### DELIVERY
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/3d1d823b-b877-48bf-b1f3-b6b4ec540651)
+#### PAYMENT
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/7c95e5b4-cfb3-4581-a4f8-700cf8fc0c1c)
+#### SERVE
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/9b8dad23-60d0-45ce-b7d9-133a91dc5c68)
+#### RECEIVE
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/0ac86a4f-5064-40d0-b917-10cc09bb906d)
+#### REVIEW
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/e5229d9b-a216-404c-84c3-56292e10c009)
+#### NOTICE
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/531f3e0c-e558-4e05-95e9-772144745d37)
+#### FAQ
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/7fb5ca43-1395-4217-b347-646344377c03)
+#### BOARD
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/470af99f-fc74-4d85-8f0b-cabd3f8ed2a0)
+#### ADD INFO
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/23ce9e50-4caf-443a-8fce-06ea75b7bf42)
+#### FILETEST
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/56682f89-faf3-473f-824b-8561596f3b02)
+#### FILETEST2
 ![initial](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/5a593e54-e3c6-4a7c-acca-f31b98679bfd)
 
 ### 📂CLASS DIAGRAM
