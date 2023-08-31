@@ -72,16 +72,16 @@
             </div>
             <div class="col col-lg-9 mt-3">
                 <div class="container">
-                    <form action="${path }/AddReviewPro.do" method="post" enctype="multipart/form-data">
+                    <form action="${path }/AddReviewPro.do" method="post">
                         <table class="table">
                             <tbody>
                             <tr>
                                 <th><label>상품명</label></th>
                                 <td><label>${pro.title}</label></td>
-                            </tr>
-                            <tr>
-                                <th><label>주문번호</label></th>
-                                <td><label>${pay.pay_no}</label></td>
+                                <input type="hidden" name="pro_no" id="pro_no" value="${pro.pro_no}">
+                                <input type="hidden" name="pay_no" id="pay_no" value="${pay.pay_no}">
+                                <input type="hidden" name="cus_id" id="cus_id" value="${pay.cus_id}">
+                                <input type="hidden" name="title" id="title" value="${pro.title}">
                             </tr>
                             <tr>
                                 <th><label>별점</label></th>
@@ -93,6 +93,7 @@
                                     <input type="radio" name="star" id="star5" value="5" checked><label for="star5" id="lb5">5점</label>
                                 </td>
                             </tr>
+
                             <tr>
                                 <th><label for="content">후기</label></th>
                                 <td><textarea name="content" id="content" class="form-control" style="resize: none; "></textarea></td>

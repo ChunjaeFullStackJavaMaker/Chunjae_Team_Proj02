@@ -112,7 +112,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">ADD TO CARD</a>
+                    <a href="${path}/AddCart.do" class="primary-btn">장바구니 추가</a>
                 </div>
             </div>
             <div class="col-lg-12">
