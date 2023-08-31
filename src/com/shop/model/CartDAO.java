@@ -18,11 +18,27 @@ public class CartDAO {
     static ResultSet rs = null;
     String sql = "";
 
-    public int addCart(Cart cart){
+    public int addCart(Cart cart) {
         int cnt = 0;
         DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try{
+            pstmt = conn.prepareStatement(DBConnect.CART_INSERT);
+            pstmt.setString(1, cart.getCus_id());
+            pstmt.setInt(2, cart.getPro_no());
+            pstmt.setInt(3, 1);
+            cnt = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(pstmt, conn);
+        }
+        return cnt;
+    }
 
-
+    public int delCart(int cart_no){
+        int cnt = 0;
+        DBConnect con = new MariaDBCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_INSERT);

@@ -4,6 +4,8 @@
 <%@ page import="java.util.*, java.lang.*" %>
 <%@ page import="java.text.*, java.net.InetAddress" %>
 <c:set var="path" value="<%=request.getContextPath() %>" />
+
+<%-- 수정 완료 --%>
 <!DOCTYPE html>
 <html lang="en">
 <head>

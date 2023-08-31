@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 public class DelCartCtrl extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String[] cartno = request.getParameterValues("cartno");
+        String[] cartno = request.getParameterValues("cart_no");
 
         CartDAO dao = new CartDAO();
         int cnt = 0;
@@ -26,7 +26,7 @@ public class DelCartCtrl extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         if(cnt>0){
-            response.sendRedirect(request.getContextPath()+"/CartList.do");
+            response.sendRedirect(request.getContextPath()+"/cartList.do");
         } else {
             out.println("<script>history.go(-1);</script>");
         }

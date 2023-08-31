@@ -216,4 +216,36 @@ public class PaymentDAO {
         return del.getDel_state();
     }
 
+    // 지난 1년 간의 매출액 불러오기
+    public List<ProfitVO> getSaleList() {
+        List<ProfitVO> voList = new ArrayList<>();
+        DBConnect con = new MariaDBCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.GET_SALES_LIST);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                ProfitVO vo = new ProfitVO();
+                vo.setDate(rs.getString("pay_resdate"));
+                vo.setSales(rs.getInt("sum"));
+                voList.add(vo);
+            }
+            rs.close();
+            pstmt.close();
+
+            pstmt = conn.prepareStatement(DBConnect.GET_PROFIT_LIST);
+            rs = pstmt.executeQuery();
+            int idx = 0;
+            while(rs.next()) {
+                voList.get(idx).setProfit(rs.getInt("gross_profit"));
+                idx++;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return voList;
+    }
+
 }

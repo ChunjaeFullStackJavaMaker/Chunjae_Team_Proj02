@@ -42,7 +42,8 @@
                         <h2> 제품 등록하기 </h2>
                         <div class="breadcrumb__option">
                             <a href="${path}/">Home</a>
-                            <span> 관리자 페이지 </span>
+                            <a href="${path}/AdminDashboard.do">관리자 페이지</a>
+                            <span> 제품 등록 </span>
                         </div>
                     </div>
                 </div>

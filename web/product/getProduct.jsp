@@ -10,6 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>제품 상세보기</title>
+    <script src="https://kit.fontawesome.com/67fc414e58.js" crossorigin="anonymous"></script>
+    <style>
+        button.player_btn {
+            border: none;
+            background-color: #ffffff;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -37,10 +45,10 @@
                         <span>All departments</span>
                     </div>
                     <ul>
-                        <li><a href="${path}/ProList.do?cate=child">유아</a></li>
-                        <li><a href="${path}/ProList.do?cate=elementary">초등</a></li>
-                        <li><a href="${path}/ProList.do?cate=middle">중등</a></li>
-                        <li><a href="${path}/ProList.do?cate=high">고등</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=Q&cate_id=R&cate_id=S">유아</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=A&cate_id=B&cate_id=C&cate_id=D">초등</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=E&cate_id=F&cate_id=G&cate_id=H">중등</a></li>
+                        <li><a href="${path}/CateProList.do?cate_id=I&cate_id=J&cate_id=K&cate_id=L">고등</a></li>
                     </ul>
                 </div>
             </div>
@@ -64,7 +72,7 @@
 <!-- Hero Section End -->
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="${path}/img/breadcrumb.jpg">
+<section class="breadcrumb-section set-bg" style="background-image: url('${path}/img/breadcrumb.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -72,8 +80,7 @@
                     <h2>${pro.title}</h2>
                     <div class="breadcrumb__option">
                         <a href="${path}/">Home</a>
-                        <a href="${path}/">${pro.title}</a>
-                        <span>${pro.title}</span>
+                        <span>교 재</span>
                     </div>
                 </div>
             </div>
@@ -81,8 +88,6 @@
     </div>
 </section>
 <!-- Breadcrumb Section End -->
-
-<!-- Product Details Section Begin -->
 <section class="product-details spad">
     <div class="container">
         <div class="row">
@@ -90,14 +95,14 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                             src="${path }/storage/${pro.img_src }" alt="">
+                             src="${path}/storage/${pro.thumb}" alt="썸네일 이미지">
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
                     <h3>${pro.title}</h3>
-                    <div class="product__details__price">${pro.price }</div>
+                    <div class="product__details__price">${pro.price}</div>
                     <p>${pro.description}</p>
                     <div class="product__details__quantity">
                         <div class="quantity">
@@ -111,6 +116,7 @@
                             </div>
                         </div>
                     </div>
+                    <a href="#" class="primary-btn">ADD TO CARD</a>
                     <c:if test="${sid eq 'admin'}">
                     <a href="${path }/Receive.do?pro_no=${pro.pro_no }" class="primary-btn">입고</a>
                     </c:if>
@@ -132,26 +138,76 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                               aria-selected="false">Reviews <span>(리뷰의 갯수가 들어갈 자리입니다.)</span></a>
+                               aria-selected="false">Reviews</a>
                         </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>상품 정보</h6>
+                                <h6>상품 상세 설명</h6>
                                 <p>${pro.pro_content}</p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>예시동영상</h6>
-                                <p>${pro.video}</p>
+                                <h6>상품 동영상</h6>
+                                <div class="player" style="width: 800px; margin: 0 auto;">
+                                    <div class="vdo_fr">
+                                        <video id="video" autoplay style="width: 100%">
+                                            <source src="${path}/storage/${info.movie}" type="video/mp4"/>
+                                        </video>
+                                    </div>
+                                    <div id="buttonbar" style="width: 100%">
+                                        <button id="play" class="player_btn"> <i class="fas fa-play"></i> </button>
+                                        <button id="pause" class="player_btn"> <i class="fas fa-pause"></i> </button>
+                                        <button id="stop" class="player_btn"> <i class="fas fa-stop"></i> </button>
+                                        <div class="btn float-right">
+                                            <input id="vol" type="range" value="500" min="0" max="1000">
+                                            <button id="volTxt" class="player_btn">50%</button>
+                                            <button id="full" class="player_btn"> <i class="fas fa-expand-arrows-alt"></i> </button>
+                                        </div>
+                                    </div>
+                                    <script src="${path}/js/vdo.js"></script>
+                                </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>후기</h6>
-                                <p>리뷰와 리뷰 작성란이 들어갈 자리입니다.</p>
+                                <h5 style="margin-bottom: 20px"><strong>후기</strong></h5>
+                                <div>
+                                    <c:forEach var="review" items="${reviewList}">
+                                        <div class="name"><strong>회원 ID: </strong>${review.mem_id}&nbsp;&nbsp;&nbsp;&nbsp;<strong>작성일시: </strong>${review.regdate}</div>
+                                        <div class="star"><strong>별점: </strong>
+                                            <c:if test="${review.star eq 5}">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </c:if>
+                                            <c:if test="${review.star eq 4}">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </c:if>
+                                            <c:if test="${review.star eq 3}">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </c:if>
+                                            <c:if test="${review.star eq 2}">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </c:if>
+                                            <c:if test="${review.star eq 1}">
+                                                <i class="fa fa-star"></i>
+                                            </c:if>
+                                        </div>
+                                        <div class="content">${review.content}</div>
+                                        <hr>
+                                    </c:forEach>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -160,7 +216,6 @@
         </div>
     </div>
 </section>
-<!-- Product Details Section End -->
 
 <!-- Footer Section Begin -->
 <%@ include file="../layout/footer.jsp"%>

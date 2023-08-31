@@ -1,6 +1,7 @@
 package com.shop.controller.custom;
 
 import com.shop.dto.Member;
+import com.shop.dto.Member;
 import com.shop.model.MemberDAO;
 
 import javax.servlet.RequestDispatcher;

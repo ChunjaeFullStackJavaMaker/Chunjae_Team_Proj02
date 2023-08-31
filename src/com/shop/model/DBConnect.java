@@ -18,7 +18,7 @@ public interface DBConnect {
     final static String NOTICE_SELECT_TITLE_RANGE = "select * from notice where title like ? order by resdate desc limit 5 offset ?";
     final static String NOTICE_SELECT_CONTENT_RANGE = "select * from notice where content like ? order by resdate desc limit 5 offset ?";
     final static String NOTICE_SELECT_ALL_RANGE = "select * from notice where title like ? or content like ? order by resdate desc limit 5 offset ?";
-
+    
     //FAQ
     final static String FAQ_SELECT_ALL = "select * from faq order by fno asc";
 
@@ -63,7 +63,7 @@ public interface DBConnect {
     final static String PAYMENT_SELECT_LIST = "select * from payment where cus_id=? and resdate between ? and ?";
     final static String GET_PAY_NO = "select pay_no from payment order by pay_no desc limit 1";
     final static String PAYMENT_SELECT_CID ="select * from payment where custom_id=?";
-
+    
     // 관리자 메인 페이지
     // 매출액 가져오기
     final static String GET_SALES_LIST = "SELECT date_format(pay_resdate, '%Y-%m') AS 'pay_resdate', SUM(pay_price) AS 'sum' FROM payment " +
@@ -71,7 +71,7 @@ public interface DBConnect {
             "GROUP BY month(pay_resdate), YEAR(pay_resdate) ORDER BY pay_resdate";
     final static String GET_PROFIT_LIST = "SELECT b.profit_month, if(avg_re IS NULL, 0, avg_re) - avg_se AS gross_profit FROM receive_stats a RIGHT OUTER JOIN serve_stats b ON (a.profit_month=b.profit_month) ORDER BY b.profit_month";
     final static String ADMIN_HOT_PRODUCT_LIST = "SELECT * FROM admin_hot_product";
-
+    
     //출고 관리 sql문
     final static String SERVE_PAYMENT =  "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?, '')";
     final static String SERVE_INSERT = "insert into serve values(default, ?, ?, ?, default)";
@@ -89,6 +89,7 @@ public interface DBConnect {
 
     //회원 관리 sql문
     final static String MEMBER_SELECT_ALL = "select * from member order by resdate limit 5 offset ?";
+    final static String MEMBER_SELECT_ONE = "select * from member where id=?";
     final static String MEMBER_SELECT_LOG = "select * from member where id=?";
     final static String MEMBER_COUNT_ALL = "select count(*) as cnt from member";
     final static String MEMBER_INSERT = "insert into member(id, pw, name, tel, email, birth, address) values (?,?,?,?,?,?::date,?)";
