@@ -14,10 +14,10 @@
     <%@ include file="/setting/head.jsp"%>
 
     <style>
-        a {
+        .menu_item {
             color: #333;
         }
-        a:hover {
+        .menu_item:hover {
             color: #333;
             font-weight: bold;
         }
@@ -44,7 +44,7 @@
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+    <section class="breadcrumb-section" style="background-image: url('${path}/img/breadcrumb.jpg'); background-position: center; background-size: cover">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -65,9 +65,9 @@
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
-                    <a href="${path}/mypageInfo.do" class="d-block"> 개인정보 변경 </a>
-                    <a href="${path}/MyOrderList.do" class="d-block mt-2" > 주문/배송 조회 </a>
-                    <a href="${path}/mypageReview.do" class="d-block mt-2" style="color:#7FAD39; font-weight:bold"> 리뷰 관리</a>
+                    <a href="${path}/mypageInfo.do" class="d-block menu_item"> 개인정보 변경 </a>
+                    <a href="${path}/MyOrderList.do" class="d-block mt-2 menu_item" > 주문/배송 조회 </a>
+                    <a href="${path}/mypageReview.do" class="d-block mt-2 menu_item" style="color:#7FAD39; font-weight:bold"> 리뷰 관리</a>
                 </div>
             </div>
             <div class="col col-lg-9 mt-3">

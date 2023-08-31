@@ -12,7 +12,7 @@
                             <div class="header__top__right__auth">
                                 <c:if test="${sid eq null}">
                                     <a href="${path}/Login.do"><i class="fa fa-user"></i> Login</a>
-                                    <a href="${path}/Join.do"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
+                                    <a href="${path}/Term.do"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
                                 </c:if>
                                 <c:if test="${sid ne null and sid ne 'admin'}">
                                     <a href="${path}/Logout.do"><i class="fa fa-user"></i> Logout </a>

@@ -97,7 +97,7 @@ public interface DBConnect {
     final static String MEMBER_SELECT_ONE = "select * from member where id=?";
     final static String MEMBER_SELECT_LOG = "select * from member where id=?";
     final static String MEMBER_COUNT_ALL = "select count(*) as cnt from member";
-    final static String MEMBER_INSERT = "insert into member(id, pw, name, tel, email, birth, address) values (?,?,?,?,?,?::date,?)";
+    final static String MEMBER_INSERT = "insert into member(id, pw, name, tel, email, birth, address) values (?,?,?,?,?,?,?)";
     final static String MEMBER_UPDATE = "update member set pw=?, address=?,tel=?, email=?, birth=? where id=?";
     final static String MEMBER_DELETE = "delete from member where id = ?";
 
