@@ -111,7 +111,7 @@
                                 <input type="text" value="품절" readonly>
                                 </c:if>
                                 <c:if test="${amount>0}">
-                                    <input type="number" value="1" min="1" max="${amount}">
+                                    <input type="number" id="amount" name="amount" value="1" min="1" max="${amount}">
                                 </c:if>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                     <a href="${path }/Receive.do?pro_no=${pro.pro_no }" class="primary-btn">입고</a>
                     </c:if>
                     <c:if test="${sid ne null and sid ne 'admin'}">
-                    <a href="${path }/AddCart.do?pro_no=${pro.pro_no }" class="primary-btn">장바구니 추가</a>
+                    <button type="button" class="primary-btn" onclick="addCart()">장바구니 추가</button>
                     </c:if>
                 </div>
             </div>
@@ -215,6 +215,13 @@
         </div>
     </div>
 </section>
+
+<script>
+    function addCart() {
+        var cart_amount = document.getElementById("amount").value;
+        location.href="${path}/AddCart.do?pro_no=${pro.pro_no}&amount="+cart_amount;
+    }
+</script>
 
 <!-- Footer Section Begin -->
 <%@ include file="../layout/footer.jsp"%>

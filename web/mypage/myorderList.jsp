@@ -73,7 +73,7 @@
     </section>
     <!-- Breadcrumb Section End -->
 
-    <div class="container">
+    <div class="container blog spad">
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">

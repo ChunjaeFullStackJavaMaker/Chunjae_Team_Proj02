@@ -26,7 +26,7 @@ public class CartDAO {
             pstmt = conn.prepareStatement(DBConnect.CART_INSERT);
             pstmt.setString(1, cart.getCus_id());
             pstmt.setInt(2, cart.getPro_no());
-            pstmt.setInt(3, 1);
+            pstmt.setInt(3, cart.getAmount());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

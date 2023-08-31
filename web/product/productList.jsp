@@ -138,13 +138,6 @@
                     <c:if test="${empty proList}">
                         <li class="col-12">해당 상품이 존재하지 않습니다.</li>
                     </c:if>
-
-                </div>
-                <div class="product__pagination">
-                    <a href="${path}/CateProList.do?cate_id=${pro.cate_id}&page=1">1</a>
-                    <a href="${path}/CateProList.do?cate_id=${pro.cate_id}&page=2">2</a>
-                    <a href="${path}/CateProList.do?cate_id=${pro.cate_id}&page=3">3</a>
-                    <a href=""><i class="fa fa-long-arrow-right"></i></a>
                 </div>
             </div>
         </div>

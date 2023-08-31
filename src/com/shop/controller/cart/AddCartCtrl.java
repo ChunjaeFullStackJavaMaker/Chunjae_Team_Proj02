@@ -16,11 +16,12 @@ public class AddCartCtrl extends HttpServlet {
         int pro_no = Integer.parseInt(request.getParameter("pro_no"));
         HttpSession session = request.getSession();
         String cid = (String) session.getAttribute("sid");
+        int amount = Integer.parseInt(request.getParameter("amount"));
 
         Cart cart = new Cart();
         cart.setCus_id(cid);
         cart.setPro_no(pro_no);
-        cart.setAmount(1);
+        cart.setAmount(amount);
 
         CartDAO dao = new CartDAO();
         int cnt = dao.addCart(cart);

@@ -16,8 +16,7 @@ public class ReturnPaymentsCtrl extends HttpServlet {
         String resdate = request.getParameter("resdate");
 
         HttpSession session = request.getSession();
-//        String cus_id = (String) session.getAttribute("sid");
-        String cus_id = "shin";
+        String cus_id = (String) session.getAttribute("sid");
 
         PaymentDAO payDAO = new PaymentDAO();
         List<Payment> payList = payDAO.getMyPaymentList(resdate, cus_id);

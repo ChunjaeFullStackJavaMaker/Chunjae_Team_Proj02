@@ -65,7 +65,7 @@ public interface DBConnect {
 
     // 결제 테이블 sql문
     final static String PAYMENT_SELECT_ONE = "select * from payment where pay_no=?";
-    final static String PAYMENT_SELECT_LIST = "select * from payment where cus_id=? and resdate between ? and ?";
+    final static String PAYMENT_SELECT_LIST = "select * from payment where cus_id=? and pay_resdate=?";
     final static String GET_PAY_NO = "select pay_no from payment order by pay_no desc limit 1";
     final static String PAYMENT_SELECT_CID ="select * from payment where custom_id=?";
     
@@ -74,7 +74,7 @@ public interface DBConnect {
     final static String GET_SALES_LIST = "SELECT date_format(pay_resdate, '%Y-%m') AS 'pay_resdate', SUM(pay_price) AS 'sum' FROM payment " +
             "WHERE pay_resdate > DATE(SUBDATE(NOW(), INTERVAL 12 MONTH)) " +
             "GROUP BY month(pay_resdate), YEAR(pay_resdate) ORDER BY pay_resdate";
-    final static String GET_PROFIT_LIST = "SELECT b.profit_month, if(avg_re IS NULL, 0, avg_re) - avg_se AS gross_profit FROM receive_stats a RIGHT OUTER JOIN serve_stats b ON (a.profit_month=b.profit_month) ORDER BY b.profit_month";
+    final static String GET_PROFIT_LIST = "SELECT b.profit_month, if(avg_se IS NULL, 0, avg_se) - avg_re AS gross_profit FROM receive_stats a RIGHT OUTER JOIN serve_stats b ON (a.profit_month=b.profit_month) ORDER BY b.profit_month";
     final static String ADMIN_HOT_PRODUCT_LIST = "SELECT * FROM admin_hot_product";
     
     //출고 관리 sql문
@@ -84,13 +84,13 @@ public interface DBConnect {
     // 반품 처리 sql문
     final static String SELECT_MY_ORDER_LIST = "select pay.pay_no, pay_resdate, thumb, description, title, amount, pay_price, del_state from payment pay, delivery del, product pro where pay.pay_no = del.pay_no and pro.pro_no=pay.pro_no and cus_id=? order by pay_resdate desc";
     final static String RETURN_PAYMENT = "delete from payment where pay_no=?";
-    final static String RETURN_PAYMENTS = "delete from payment where cus_id=? and resdate between ? and ?";
+    final static String RETURN_PAYMENTS = "delete from payment where cus_id=? and pay_resdate=?";
     final static String RETURN_RECEIVE = "insert into receive values (default, ?, ?, ?, default)";
     final static String RETURN_SERVE = "delete from serve where se_no=?";
-    final static String RETURN_SERVES = "delete from serve where se_no in (select pay_no from payment where resdate between ? and ? and cus_id=?)";
+    final static String RETURN_SERVES = "delete from serve where se_no in (select pay_no from payment where pay_resdate=? and cus_id=?)";
     final static String RETURN_CART = "insert into cart values (default, ?, ?, ?)";
     final static String RETURN_DELIVERY = "delete from delivery where pay_no=?";
-    final static String RETURN_DELIVERIES = "delete from delivery where pay_no in (select pay_no from payment where resdate between ? and ? and cus_id=?)";
+    final static String RETURN_DELIVERIES = "delete from delivery where pay_no in (select pay_no from payment where pay_resdate=? and cus_id=?)";
 
     //회원 관리 sql문
     final static String MEMBER_SELECT_ALL = "select * from member order by resdate limit 5 offset ?";

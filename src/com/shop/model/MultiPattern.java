@@ -30,12 +30,11 @@ public class MultiPattern {
             int cnt =0;
 
             //배송 처리
-            sql ="insert into delivery values (default, ?, ?, ?, ?, '','',default,default,'','')";
+            sql ="insert into delivery values (default, 0, ?, ?, ?, '','',default,default,'','')";
             pstmt=conn.prepareStatement(sql);
-            pstmt.setInt(1, delivery.getPay_no());
-            pstmt.setString(2, delivery.getCustom_id());
-            pstmt.setString(3, delivery.getDel_addr());
-            pstmt.setString(4, delivery.getCus_tel());
+            pstmt.setString(1, delivery.getCustom_id());
+            pstmt.setString(2, delivery.getDel_addr());
+            pstmt.setString(3, delivery.getCus_tel());
             cnt += pstmt.executeUpdate();
 
             //배송 번호(del_no) 불러오기
@@ -46,7 +45,6 @@ public class MultiPattern {
             if(rs.next()) {
                 del_no = rs.getInt("del_no");
             }
-
 
             //결제 처리
             sql = "insert into payment(cus_id, cus_num, pro_no, amount, pay_method,pay_com, pay_price, pay_account,del_no) values ( ?, ?, ?, ?, ?, ?, ?, ?,?)";
@@ -60,6 +58,22 @@ public class MultiPattern {
             pstmt.setInt(7, payment.getPay_price());
             pstmt.setString(8, payment.getPay_account());
             pstmt.setInt(9, del_no);
+            cnt += pstmt.executeUpdate();
+
+            // 추가된 결제 번호와 배송 번호 가져오기
+//            sql = "SELECT pay_count, del_count FROM (SELECT COUNT(*) AS pay_count FROM payment) a, (SELECT COUNT(*) AS del_count FROM delivery) b";
+//            pstmt = conn.prepareStatement(sql);
+//            rs = pstmt.executeQuery();
+//            int pay_count = 0;
+//            int del_count = 0;
+//            if(rs.next()) {
+//                pay_count = rs.getInt("pay_count");
+//                del_count = rs.getInt("del_count");
+//            }
+
+            // 배송 테이블에 결제 번호 업데이트
+            sql = "update delivery set pay_no=del_no where pay_no=0";
+            pstmt = conn.prepareStatement(sql);
             cnt += pstmt.executeUpdate();
 
             //출고 처리

@@ -70,7 +70,6 @@
                         <c:forEach var="cart" items="${cartList}" >
                             <tr>
                                 <td class="shoping__cart__item">
-                                    <img src="${path }/img/cart/cart-1.jpg" alt="">
                                     <h5>${cart.title }</h5>
                                     <input type="hidden" id="cart_no" name="cart_no" value="${cart.cart_no }">
                                 </td>
@@ -80,7 +79,7 @@
                                 <td class="shoping__cart__quantity">
                                     <div class="quantity">
                                         <div class="pro-qty">
-                                            <input type="text" value="${cart.amount}">
+                                            <input type="text" value="${cart.amount}" readonly>
                                         </div>
                                     </div>
                                 </td>
