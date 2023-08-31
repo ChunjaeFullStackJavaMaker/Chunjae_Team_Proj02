@@ -9,33 +9,44 @@
     <title>공지사항 상세보기</title>
     <c:set var="path" value="<%=request.getContextPath() %>" />
     <%@ include file="../common.jsp"%>
+    <%@ include file="/setting/head.jsp" %>
     <style>
     #tb1 { width:960px; margin:40px auto; }
-    #tb1 th { background-color: #111; color:#fff; }
+    #tb1 th { background-color: #7fad39; color:#fff; }
+    .table {background-color: #F5F5F5; border-radius:10px; overflow:hidden;}
     .item1 { width:10%; }
     .item2 { width:70%; }
-    .item3 { width:10%; }
+    .item3 { width:11%; }
     .item4 { width:10%; }
     #page-nation1 { width: 960px; margin:20px auto; }
     </style>
 </head>
 <body>
 <div class="container-fluid">
+    <%@include file="/layout/header_top.jsp"%>
     <%@ include file="/layout/header.jsp" %>
     <div class="contents" style="min-height:100vh">
-        <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
+        <!-- Breadcrumb Section Begin -->
+        <section class="breadcrumb-section set-bg" style="background-image: url('${path}/img/breadcrumb.jpg')">
             <div class="container">
-                <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item"><a href="${path }">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Notice</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Detail</li>
-                </ol>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="breadcrumb__text">
+                            <h2>공지사항</h2>
+                            <div class="breadcrumb__option">
+                                <a href="${path}">Home</a>
+                                <span>고객지원</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </nav>
+        </section>
+        <!-- Breadcrumb Section End -->
         <h2 class="title">공지사항 상세보기</h2>
         <div class="container">
             <div class="box_wrap">
-                <table class="table table-secondary" id="tb1">
+                <table class="table" id="tb1">
                     <tbody>
                     <tr>
                         <th>글 번호</th>

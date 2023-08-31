@@ -47,10 +47,11 @@
     <link rel="stylesheet" href="<%=path5%>/css/style.css">
     <style>
         /* 본문 영역 스타일 */
+
         .contents {
             clear: both;
             min-height: 100vh;
-            background-image: linear-gradient(to bottom, #f7f7f7, #e2e2e2);
+
         }
 
         .contents::after {
@@ -66,6 +67,12 @@
             margin: 80px 30px 30px 10px;
         }
         /* 나머지 스타일 */
+
+        .title {
+            text-align: center;
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+        }
 
         .faqlist li {
             padding: 20px;
@@ -121,27 +128,33 @@
 <body>
 <div class="container">
     <header class="hd" id="hd">
+        <%@include file="/layout/header_top.jsp"%>
         <%@ include file="/layout/header.jsp" %>
     </header>
     <div class="contents" id="contents">
-        <div class="content_header">
-            <div class="breadcrumb">
-                <h2 class="page_tit"> </h2>
-            </div>
-        </div>
-        <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
+
+        <!-- Breadcrumb Section Begin -->
+        <section class="breadcrumb-section set-bg" style="background-image: url('${path}/img/breadcrumb.jpg')">
             <div class="container">
-                <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item"><a href="${path }">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">고객지원</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">FAQ</li>
-                </ol>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="breadcrumb__text">
+                            <h2>F A Q</h2>
+                            <div class="breadcrumb__option">
+                                <a href="${path}">Home</a>
+                                <span>고객지원</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </nav>
+        </section>
+        <!-- Breadcrumb Section End -->
+        <h2 class="title">자주 묻는 질문</h2>
         <section class="page" id="page1">
             <div class="page_wrap">
-                <p class="content_tit"> FAQ </p>
                 <hr>
+                <div class="container">
                 <ul class="faqlist">
                     <c:forEach var="faq" items="${faqList }" varStatus="status">
                     <li>
@@ -150,6 +163,7 @@
                     </li>
                     </c:forEach>
                 </ul>
+                </div>
                 <script>
                     $(document).ready(function(){
                         $(".faqlist li").click(function(){
