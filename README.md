@@ -26,7 +26,7 @@
 * usecaseDiagram 작성
 * 메인페이지 디자인
 * FAQ 기능 구현
-* 공지사항 기능 구현
+* 공지사항, FAQ 게시판 제작
 
 <br><br>
 **팀원 : 김보경**
@@ -65,17 +65,20 @@
 * 로그인 기능 구현
 * 회원가입 기능 구현
 * 메인페이지 사이드바 구현
-* 카카오톡 1:1 상담 기능 구
+* 카카오톡 1:1 상담 기능 구현
+* 장바구니 
 
 
 ### ⚙️ 개발 환경
-#### ✅FRONTEND : <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white"><img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=7952B3">
+#### ✅FRONTEND : <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img src="https://img.shields.io/badge/css-0769AD?style=for-the-badge&logo=jquery&logoColor=white"><img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white"><img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=7952B3">
 
 #### ✅BACKEND : <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"><img src="https://img.shields.io/badge/intellijidea-000000?style=for-the-badge&logo=intellijidea&logoColor=white">
 
 #### ✅DATABASE : <img src="https://img.shields.io/badge/mariaDB-003545?style=for-the-badge&logo=mariaDB&logoColor=white"><img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
 
 #### ✅Server : <img src="https://img.shields.io/badge/apache tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white">
+<br><br>
+<hr>
 <br><br>
 
 # ⚒프로젝트 설계
