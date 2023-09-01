@@ -160,8 +160,7 @@
 <p align="center"><img alt="시퀀스다이아그램6" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/eb220af3-59c1-43a5-9692-d18b0702f9ef"></p>
 
 #### 입고
-<p align="center"><img alt="시퀀스다이아그램7" src=""></p>
-
+<p align="center"><img alt="시퀀스다이아그램7" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/d03ac3b6-0556-4bef-8575-59eb904365cc"></p>
 
 #### 리뷰
 <p align="center"><img alt="시퀀스다이아그램8" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/94f59868-d322-4dac-85f3-54628f4f08cf"></p>
