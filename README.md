@@ -1,4 +1,4 @@
-![image](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/ed4205ee-478f-4757-969c-d7dc19d32690)## 📍Chunjae Project 01
+## 📍Chunjae Project 01
 천재교육 풀스택 JAVA 과정 2기 2차 팀 프로젝트 _ 스토어 페이지
 <br><br>
 
@@ -170,13 +170,13 @@
 - 내가 쓴 리뷰 관리
 - 배송 조회 기능: 구매 확정 후 리뷰 등록
 <p align="center"><img alt="나의 정보 수정" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/86284942-9f4a-48ad-a136-2f000f9a683c"></p>
-   <sub><b> PIC4 : 나의 정보 수정 </sub></b>
+  
 <p align="center"><img alt="배송 조회" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/6a8cc848-e193-47a1-81e6-17ac18c528b5"></p>
-    <sub><b> PIC5 : 배송 조회 </sub></b>
+   
 <p align="center"><img alt="구매확정" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/e1d0cfe7-4c1d-4a5f-8f0b-ab87b0fcf4ed"></p>
-     <sub><b> PIC6 : 리뷰 작성 </sub></b>
+     
 <p align="center"><img alt="나의 리뷰관리" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/8c4e1ed0-d13a-49fa-bb0d-5fa24c227993"></p>
-      <sub><b> PIC7 : 나의 리뷰 관리 </sub></b>
+  
        
 ## 고객 지원
 #### 공지사항
@@ -184,11 +184,11 @@
   - 관리자: 글쓰기, 수정, 삭제
   - 회원: 읽기
   <p align="center"><img alt="공지사항 글 목록" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/a49fd606-45f2-4fae-90b0-1c19fc50642c"></p>
-       <sub><b> PIC8 : 공지사항 글 목록 </sub></b>
+   
   <p align="center"><img alt="공지사항 글 쓰기, 수정" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/2b72daa6-c552-4fba-8491-d35ee599ddda"></p>
-        <sub><b> PIC9 : 공지사항 글 쓰기, 수정 </sub></b>
+       
  <p align="center"><img alt="공지사항 글 상세보기" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/03ed96d0-b867-4898-b1df-67b327ab9d82"></p>
-         <sub><b> PIC10 : 공지사항 글 상세보기 </sub></b>
+        
           
 #### FAQ
 - 토글 형식의 FAQ 기능
@@ -199,13 +199,13 @@
 #### (1)상품리스트
 - 유아/초/중/고 카테고리별 리스트 출력 기능
 <p align="center"><img alt="유아상품 리스트" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/7bcfc1d0-3f53-4b9a-a45e-f24a2110431f"></p>
-           <sub><b> PIC12 : 유아 상품 리스트 </sub></b>
+           
 <p align="center"><img alt="초등상품 리스트" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/1e80a638-ca3a-438a-a82d-9a4b456b9913"></p>
-            <sub><b> PIC13 : 초등 상품 리스트 </sub></b>
+            
 <p align="center"><img alt="중등상품 리스트" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/fcbd9ebc-49fa-4bd2-a8e8-45ff2f0eea92"></p>
-             <sub><b> PIC14 : 중등 상품 리스트 </sub></b>
+           
 <p align="center"><img alt="고등상품 리스트" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/fc11b92a-3517-4f81-8ad5-89b4c960b255"></p>
-              <sub><b> PIC15 : 고등 상품 리스트 </sub></b>
+             
                
 #### (2)상품 상세페이지
 - 장바구니 추가 기능
@@ -213,11 +213,11 @@
 - 상품 비디오 재생 기능
 - 상품 후기리스트 기능
 <p align="center"><img alt="상품 상세페이지" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/51fc71c0-40da-40a6-9244-eb8a061d7837"></p>
-               <sub><b> PIC16 : 상품 상세페이지 </sub></b>
+               
 <p align="center"><img alt="상품 비디오" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/e23a0a9f-ff76-4f89-b43f-ae15bfb76b56"></p>
-                <sub><b> PIC17 : 상품 비디오 </sub></b>
+                
 <p align="center"><img alt="상품 리뷰 리스트" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/a4638f51-fbd9-4911-b273-0d2d3d53bcf4"></p>
-                 <sub><b> PIC18 : 상품 리뷰 리스트 </sub></b>
+                
                   
 ## 관리자 기능
 #### 관리자 페이지
@@ -226,10 +226,10 @@
 - 배송정보 관리: 결제완료 주문 배송상태 변경
 - 회원관리 기능: 회원정보 수정/강퇴
 <p align="center"><img alt="관리자 페이지" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/13466fd1-dc2c-4eab-b91a-e6c698de7e7f"></p>
-                  <sub><b> PIC19 : 관리자 메인 페이지 </sub></b>
+                
 <p align="center"><img alt="상품 관리" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/0a8b5fdb-634c-4c61-8e6a-1c25c8f515ec"></p>
-                   <sub><b> PIC20 : 상품 관리 </sub></b>
+                  
 <p align="center"><img alt="배송정보" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/287cbe7f-2c63-4e8d-aedc-ccafe473154f"></p>
-                    <sub><b> PIC21 : 배송 정보 </sub></b>
+                   
 <p align="center"><img alt="회원관리" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/bf6fedfd-e21f-48aa-ae25-f1068ed1d95c"></p>
-<sub><b> PIC22 : 회원관리 </sub></b>
+
