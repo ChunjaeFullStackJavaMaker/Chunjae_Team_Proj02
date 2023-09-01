@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Chunjae_Team_Pro02" options="--add-exports java.xml/com.sun.org.apache.xalan.internal.lib=ALL-UNNAMED" />
+      <module name="team32" options="--add-exports java.xml/com.sun.org.apache.xalan.internal.lib=ALL-UNNAMED" />
     </option>
   </component>
 </project>

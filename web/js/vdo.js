@@ -35,12 +35,10 @@ pause.addEventListener("click",function (){ playPause();});
 //재생 일시정지 함수
 function playPause () {
     if (video.paused) {
-        alert("hi1");
         video.play();
         play.style.display = "none";
         pause.style.display = "inline-block";
     } else {
-        alert("hi2");
         video.pause();
         play.style.display="inline-block";
         pause.style.display="none";
