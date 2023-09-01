@@ -306,13 +306,13 @@ public class ProductDAO {
     }
 
     //재고
-    public int getAmount(int re_no){
+    public int getAmount(int pro_no){
         int amount = 0;
         DBConnect con = new MariaDBCon();
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.INVENTORY_SELECT_ONE);
-            pstmt.setInt(1, re_no);
+            pstmt.setInt(1, pro_no);
             rs = pstmt.executeQuery();
             if(rs.next()){
                 amount = rs.getInt("amount");

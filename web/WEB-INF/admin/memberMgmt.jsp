@@ -39,10 +39,6 @@
     <%@include file="/layout/header.jsp"%>
     <!-- Header Section End -->
 
-    <!-- Search Section Begin -->
-    <%@include file="/layout/rollup_sideMenu.jsp"%>
-    <!-- Search Section End -->
-
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section" style="background-image: url('${path}/img/breadcrumb.jpg'); background-position: bottom, center; background-size: cover">
         <div class="container">
@@ -65,10 +61,9 @@
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
-                    <a href="${path}/AdminDashboard.do" class="d-block menu_item"> 관리자 메인 </a>
+                    <a href="${path}/AdminDashboard.do" class="d-block menu_item"> ADMIN MAIN </a>
                     <a href="${path}/AdminProductList.do" class="d-block menu_item mt-2"> 상품 관리 </a>
                     <a href="${path}/DeliveryList.do" class="d-block menu_item mt-2"> 배송 정보 관리 </a>
-                    <a href="${path}/" class="d-block menu_item mt-2"> 입출고 관리 </a>
                     <a href="${path}/MemberMgmt.do" class="d-block menu_item mt-2" style="color:#7FAD39; font-weight:bold"> 회원 관리 </a>
                 </div>
             </div>

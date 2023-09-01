@@ -76,7 +76,7 @@ public class CheckoutProCtrl extends HttpServlet {
         }
 
         String path = request.getContextPath();
-        response.sendRedirect(path + "/shop/shopping-cart.do");
+        response.sendRedirect(path + "/MyOrderList.do");
 
     }
 

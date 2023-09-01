@@ -12,7 +12,7 @@
                             <div class="header__top__right__auth">
                                 <c:if test="${sid eq null}">
                                     <a href="${path}/Login.do"><i class="fa fa-user"></i> Login</a>
-                                    <a href="${path}/Join.do"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
+                                    <a href="${path}/Term.do"><i class="fa fa-sign-in" aria-hidden="true"></i> Join </a>
                                 </c:if>
                                 <c:if test="${sid ne null and sid ne 'admin'}">
                                     <a href="${path}/Logout.do"><i class="fa fa-user"></i> Logout </a>
@@ -28,68 +28,68 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="${path}/"><img src="${path}/img/logo/corn_book_85-55.png" alt=""></a>
-                    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="header__logo">
+                    <a href="${path}/"><img src="${path}/img/logo/corn_book_85-55.png" alt=""></a>
                 </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
-                        <ul>
-                            <li><a href="${path}/CateProList.do?cate_id=Q&cate_id=R&cate_id=S"> 유아 </a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="${path}/CateProList.do?cate_id=Q">유아 콘텐츠</a></li>
-                                    <li><a href="${path}/CateProList.do?cate_id=R">유아 놀이</a></li>
-                                    <li><a href="${path}/CateProList.do?cate_id=S">유아 기타</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="${path}/CateProList.do?cate_id=A&cate_id=B&cate_id=C&cate_id=D"> 초등 </a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="${path}/CateProList.do?cate_id=B">초등 참고서</a></li>
-                                    <li><a href="${path}/CateProList.do?cate_id=C">초등 문제집</a></li>
-                                    <li><a href="${path}/CateProList.do?cate_id=D">초등 기타</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="${path}/CateProList.do?cate_id=E&cate_id=F&cate_id=G&cate_id=H"> 중등 </a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="${path}/CateProList.do?cate_id=E">중등 교과서</a></li>
-                                    <li><a href="${path}/CateProList.do?cate_id=F">중등 참고서</a></li>
-                                    <li><a href="${path}/CateProList.do?cate_id=G">중등 문제집</a></li>
-                                    <li><a href="${path}/CateProList.do?cate_id=H">중등 기타</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="${path}/CateProList.do?cate_id=I&cate_id=J&cate_id=K&cate_id=L"> 고등 </a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="${path}/CateProList.do?cate_id=I">고등 교과서</a></li>
-                                    <li><a href="${path}/CateProList.do?cate_id=J">고등 참고서</a></li>
-                                    <li><a href="${path}/CateProList.do?cate_id=K">고등 문제집</a></li>
-                                    <li><a href="${path}/CateProList.do?cate_id=L">고등 기타</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#"> 고객지원 </a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="${path}/NoticeList.do"> 공지사항 </a></li>
-                                    <li><a href="${path}/FaqList.do"> FAQ </a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
+            </div>
+            <div class="col-lg-6">
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="${path}/CateProList.do?cate_id=Q&cate_id=R&cate_id=S"> 유아 </a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="${path}/CateProList.do?cate_id=Q">유아콘텐츠</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=R">유아놀이</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=S">유아기타</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="${path}/CateProList.do?cate_id=A&cate_id=B&cate_id=C&cate_id=D"> 초등 </a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="${path}/CateProList.do?cate_id=B">초등참고서</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=C">초등문제집</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=D">초등기타</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="${path}/CateProList.do?cate_id=E&cate_id=F&cate_id=G&cate_id=H"> 중등 </a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="${path}/CateProList.do?cate_id=E">중등교과서</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=F">중등참고서</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=G">중등문제집</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=H">중등기타</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="${path}/CateProList.do?cate_id=I&cate_id=J&cate_id=K&cate_id=L"> 고등 </a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="${path}/CateProList.do?cate_id=I">고등교과서</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=J">고등참고서</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=K">고등문제집</a></li>
+                                <li><a href="${path}/CateProList.do?cate_id=L">고등기타</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"> 고객지원 </a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="${path}/NoticeList.do"> 공지사항 </a></li>
+                                <li><a href="${path}/FaqList.do"> FAQ </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <c:if test="${sid ne null and sid ne 'admin'}">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="${path}/CartList.do"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="${path}/CartList.do"><i class="fa fa-shopping-bag"></i></a></li>
                         </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
                     </div>
-                </div>
+                </c:if>
             </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars"></i>
         </div>
     </div>
 </div>

@@ -21,6 +21,7 @@ public class JoinProCtrl extends HttpServlet {
         String name = request.getParameter("name");
         String addr1 = request.getParameter("address1");
         String addr2 = request.getParameter("address2");
+        String postcode = request.getParameter("postcode");
         String email = request.getParameter("email");
         String tel = request.getParameter("tel");
         String birth = request.getParameter("birth");
@@ -45,11 +46,10 @@ public class JoinProCtrl extends HttpServlet {
         user.setPw(encrypted);
         user.setNAME(name);
         user.setNAME(name);
-        user.setAddress(addr1 + "<br>" +addr2);
+        user.setAddress(addr1 + "<br>" + addr2 + "<br>" + postcode);
         user.setTel(tel);
         user.setEmail(email);
         user.setBirth(birth);
-        suc = dao.addMember(user);
         suc = dao.addMember(user);
 
         if(suc>0){

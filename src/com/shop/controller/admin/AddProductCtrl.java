@@ -1,7 +1,6 @@
 package com.shop.controller.admin;
 
 import com.shop.dto.Category;
-import com.shop.dto.Product;
 import com.shop.model.ProductDAO;
 
 import javax.servlet.*;
@@ -11,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/AddProduct.do")
-public class addProductCtrl extends HttpServlet {
+public class AddProductCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String msg = "관리자의 상품 등록 폼이 로딩되었습니다.";

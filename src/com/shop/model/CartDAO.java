@@ -26,7 +26,7 @@ public class CartDAO {
             pstmt = conn.prepareStatement(DBConnect.CART_INSERT);
             pstmt.setString(1, cart.getCus_id());
             pstmt.setInt(2, cart.getPro_no());
-            pstmt.setInt(3, 1);
+            pstmt.setInt(3, cart.getAmount());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -39,11 +39,9 @@ public class CartDAO {
     public int delCart(int cart_no){
         int cnt = 0;
         DBConnect con = new MariaDBCon();
-
-
         conn = con.connect();
         try {
-            pstmt = conn.prepareStatement(DBConnect.CART_DELETE_PRO_NO);
+            pstmt = conn.prepareStatement(DBConnect.CART_DELETE_CART_NO);
             pstmt.setInt(1, cart_no);
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -87,7 +85,7 @@ public class CartDAO {
 
         conn = con.connect();
         try {
-            pstmt = conn.prepareStatement(DBConnect.CART_DELETE_PRO_NO);
+            pstmt = conn.prepareStatement(DBConnect.CART_DELETE_CART_NO);
             pstmt.setInt(1, pro_no);
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {

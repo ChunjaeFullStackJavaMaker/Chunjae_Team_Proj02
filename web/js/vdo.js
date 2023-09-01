@@ -6,6 +6,7 @@ var stop = document.getElementById("stop");
 var vol = document.getElementById("vol");
 var progress = document.getElementById("progress");
 var progressBar = document.getElementById("progressBar");
+var timeCurrent = document.getElementById("currentTime");
 var volTxt = document.getElementById("volTxt");
 var full = document.getElementById("full");
 var original = document.getElementById("original");
@@ -33,10 +34,14 @@ play.addEventListener("click", function (){ playPause();});
 pause.addEventListener("click",function (){ playPause();});
 //재생 일시정지 함수
 function playPause () {
-    if (video.pause) {
+    if (video.paused) {
         video.play();
         play.style.display = "none";
         pause.style.display = "inline-block";
+    } else {
+        video.pause();
+        play.style.display="inline-block";
+        pause.style.display="none";
     }
 }
 //정지함수 호출
@@ -91,8 +96,9 @@ function playTime () {
 
         timeCurrent.innerHTML = currentTime + " / " + totalTime;
     });
+
     //프로그레스바
-    function progressPlayer () {
+    function progressPlayer() {
         video.addEventListener("timeupdate", function () {
             var max = Math.floor(video.duration);
             var current = Math.floor(video.currentTime);
@@ -101,7 +107,7 @@ function playTime () {
         });
     }
 
-//프로그래스바 seek
+    //프로그래스바 seek
     function seek (event) {
         var seekTotal = parseInt(progress.style.width);
         var seekX = event.offsetX;
@@ -110,6 +116,7 @@ function playTime () {
         var seekMove = (seekPercent / 100) * Math.floor(video.duration);
         video.currentTime = seekMove;
     }
+
     /* 파이어폭스 이벤트 크로스브라우징코드 */
     if (navigator.userAgent.indexOf("Firefox") >= 0) {
         var eventNames = ["mousedown", "mouseover", "mouseout", "mousemove", "mousedrag", "click", "dbclick", "keydown", "keypress", "keyup"];
@@ -119,6 +126,7 @@ function playTime () {
             }, true);
         }
     }
+
     progress.addEventListener("click", function () {
         seek(event);
     });//seek

@@ -11,10 +11,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원가입</title>
+    <title>로그인</title>
     <%@ include file="/setting/head.jsp"%>
     <%@ include file="/layout/Chat.jsp"%>
     <%@include file="/setting/encoding.jsp"%>
+
+    <style>
+        .breadcrumb-section {background-image: url("${path }/img/breadcrumb.jpg");}
+    </style>
 </head>
 <body>
 <!-- Page Preloder -->
@@ -33,38 +37,63 @@
 <%@include file="/layout/header.jsp"%>
 <!-- Header Section End -->
 
-<div class="contents" style="min-height:100vh">
-    <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
-        <div class="container">
-            <ol class="breadcrumb justify-content-end">
-                <li class="breadcrumb-item"><a href="${path }">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Custom</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Login</li>
-            </ol>
-        </div>
-    </nav>
-    <h2 class="title">로그인</h2>
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
     <div class="container">
-        <form action="${path }/LoginPro.do" method="post">
-            <table class="table">
-                <tbody>
-                <tr>
-                    <td><input type="text" name="id" id="id" class="form-control" placeholder="아이디 입력"></td>
-                </tr>
-                <tr>
-                    <td><input type="password" name="pw" id="pw" class="form-control" placeholder="비밀번호 입력"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" value="로그인" class="btn btn-primary">
-                        <a href="" class="btn btn-secondary">회원가입</a>
-                        <a href="${path }/custom/naverLogin.jsp" class="btn btn-primary">네이버 로그인</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </form>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb__text">
+                    <h2>로그인</h2>
+                    <div class="breadcrumb__option">
+                        <a href="${path }">Home</a>
+                        <span>로그인</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- 로그인 양식 시작 -->
+<div class="contact-form spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact__form__title">
+                    <h2>환영합니다~!</h2>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center" >
+            <form action="${path }/LoginPro.do" method="post">
+                <div class="row" >
+                    <div class="col-lg-12 ">
+                        <input type="text" name="id" id="id" class="form-control" placeholder="아이디 입력">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <input type="password" name="pw" id="pw" class="form-control" placeholder="비밀번호 입력">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-center" style="width:400px;">
+                        <button type="submit" class="site-btn" style="width:370px;">LOGIN</button><br><br>
+                        <div><span>처음이신가요?</span>&nbsp;
+                            <a href="${path}/custom/term.jsp" style="font-size : 15px; font-weight:bold; text-decoration-line: none; color:yellowgreen;">회원가입</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+<!-- 로그인 양식 끝 -->
+
+<!-- Footer Section Begin -->
+<%@include file="/layout/footer.jsp"%>
+<!-- Footer Section End -->
+
 </body>
 </html>

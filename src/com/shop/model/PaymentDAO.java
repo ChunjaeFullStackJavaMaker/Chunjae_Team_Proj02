@@ -43,8 +43,7 @@ public class PaymentDAO {
             System.out.println(resdate.concat(".999999"));
             pstmt = conn.prepareStatement(DBConnect.PAYMENT_SELECT_LIST);
             pstmt.setString(1, cus_id);
-            pstmt.setTimestamp(2, Timestamp.valueOf(resdate.concat(".000000")));
-            pstmt.setTimestamp(3, Timestamp.valueOf(resdate.concat(".999999")));
+            pstmt.setTimestamp(2, Timestamp.valueOf(resdate));
             rs = pstmt.executeQuery();
             while(rs.next()) {
                 Payment pay = new Payment();
@@ -114,23 +113,20 @@ public class PaymentDAO {
 
             // 1. 반품 시 배송 정보 제거
             pstmt = conn.prepareStatement(DBConnect.RETURN_DELIVERIES);
-            pstmt.setTimestamp(1, Timestamp.valueOf(resdate.concat(".000000")));
-            pstmt.setTimestamp(2, Timestamp.valueOf(resdate.concat(".999999")));
-            pstmt.setString(3, cus_id);
+            pstmt.setTimestamp(1, Timestamp.valueOf(resdate));
+            pstmt.setString(2, cus_id);
             cnt = cnt + pstmt.executeUpdate();
 
             // 2. 반품 시 출고 제거
             pstmt = conn.prepareStatement(DBConnect.RETURN_SERVES);
-            pstmt.setTimestamp(1, Timestamp.valueOf(resdate.concat(".000000")));
-            pstmt.setTimestamp(2, Timestamp.valueOf(resdate.concat(".999999")));
-            pstmt.setString(3, cus_id);
+            pstmt.setTimestamp(1, Timestamp.valueOf(resdate));
+            pstmt.setString(2, cus_id);
             cnt = cnt + pstmt.executeUpdate();
 
             // 3. 반품 시 결제 내용 제거
             pstmt = conn.prepareStatement(DBConnect.RETURN_PAYMENTS);
             pstmt.setString(1, cus_id);
-            pstmt.setTimestamp(2, Timestamp.valueOf(resdate.concat(".000000")));
-            pstmt.setTimestamp(3, Timestamp.valueOf(resdate.concat(".999999")));
+            pstmt.setTimestamp(2, Timestamp.valueOf(resdate));
             cnt = cnt + pstmt.executeUpdate();
 
             // 4. 반품 시 장바구니에 다시 담기

@@ -32,12 +32,14 @@ public class MypageInfoCtrl extends HttpServlet {
             String []  addr = address.split("<br>");
             String addr1 = addr[0];
             String addr2 = addr[1];
+            String postcode = addr[2];
 
 
             request.setAttribute("mem", mem);
             request.setAttribute("pw",pw);
             request.setAttribute("addr1", addr1);
             request.setAttribute("addr2", addr2);
+            request.setAttribute("postcode", postcode);
             RequestDispatcher view = request.getRequestDispatcher("/mypage/mypageInfo.jsp");
             view.forward(request, response);
     }

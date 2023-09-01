@@ -27,59 +27,16 @@
 <%@include file="../../layout/header.jsp"%>
 <!-- Header Section End -->
 
-<!-- Hero Section Begin -->
-<%@ include file="../../layout/rollup_sideMenu.jsp"%>
-<!-- Hero Section End -->
-
-
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>All departments</span>
-                    </div>
-                    <ul>
-                        <li><a href="${path}/ProList.do?cate=child">유아</a></li>
-                        <li><a href="${path}/ProList.do?cate=elementary">초등</a></li>
-                        <li><a href="${path}/ProList.do?cate=middle">중등</a></li>
-                        <li><a href="${path}/ProList.do?cate=high">고등</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                All Categories
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text" placeholder="어떤 책이 필요하신가요?">
-                            <button type="submit" class="site-btn">검색</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
-
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg" data-setbg="${path}/img/breadcrumb.jpg">
+<section class="breadcrumb-section" style="background-image: url('${path}/img/breadcrumb.jpg'); background-size: cover; background-position: center">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>${pro.title }</h2>
+                    <h2> ${pro.title } 상품 입고 </h2>
                     <div class="breadcrumb__option">
                         <a href="${path}/">Home</a>
-                        <a href="${path}/">${pro.title}</a>
-                        <span>${pro.title}</span>
+                        <span> ${pro.title} 상품 입고 </span>
                     </div>
                 </div>
             </div>
@@ -106,20 +63,22 @@
                     <div class="product__details__price">${pro.price }</div>
                     <p>${pro.description}</p>
                     <div class="product__details__quantity">
-                        <div class="row">
-                            <div class="col-lg-6">
+                        <form action="${path}/ReceivePro.do" method="post">
+                            <p class="mb-2">입고 금액<span>*</span></p>
+                            <div class="col-lg-12">
                                 <div class="checkout__input">
-                                    <p>입고 수량<span>*</span></p>
-                                    <input type="number" name="receive" id="receive" min="1" max="100" value="1" >
+                                    <input type="hidden" id="pro_no" name="pro_no" value="${pro.pro_no}">
+                                    <input class="form-control" type="number" name="receive" id="receive" min="1" value="1000">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <p class="mb-2">입고 수량<span>*</span></p>
+                            <div class="col-lg-12">
                                 <div class="checkout__input">
-                                    <p><span></span></p>
-                                    <button type="button" id="receive_btn" class="site-btn" onclick="javascript:location.href='${path}/ReceivePro.do?pro_no=${pro.pro_no}'">RECEIVE</button>
+                                    <input class="form-control" type="number" name="re_amount" id="re_amount" min="1" max="100" value="1" >
                                 </div>
                             </div>
-                        </div>
+                            <input type="submit" id="receive_btn" class="site-btn" value="RECEIVE"/>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -127,6 +86,10 @@
     </div>
 </section>
 <!-- 제품 상세 보기 및 입고 처리  -->
+
+<!-- Footer Section Begin -->
+<%@ include file="../../layout/footer.jsp"%>
+<!-- Footer Section End -->
 
 </body>
 </html>

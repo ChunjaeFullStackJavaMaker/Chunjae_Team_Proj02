@@ -1,28 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%-- 1. 필요한 라이브러리 임포트 --%>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.util.*" %>
-<%@ page import="java.text.*" %>
-<%@ page import="com.shop.dto.Notice" %>
-<%@ page import="com.shop.util.*" %>
-<%@ page import="com.shop.model.*" %>
-<%@ page import="com.shop.dto.*" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="com.shop.model.MariaDBCon" %>
-<%@ page import="com.shop.model.DBConnect" %>
-
-<%
-    String path5 = request.getContextPath();
-%>
-
-<%
-    request.setCharacterEncoding("UTF-8");
-    response.setContentType("text/html; charset=UTF-8");
-    response.setCharacterEncoding("UTF-8");
-%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,21 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ</title>
     <%@ include file="/setting/head.jsp" %>
+    <%@ include file="/setting/encoding.jsp" %>
+    <c:set var="path" value="<%=request.getContextPath()%>"/>
     <!-- 스타일 초기화 : reset.css 또는 normalize.css -->
     <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet">
 
     <!-- 필요한 폰트를 로딩 : 구글 웹 폰트에서 폰트를 선택하여 해당 내용을 붙여 넣기 -->
-    <link rel="stylesheet" href="<%=path5%>/css/fonts-awesome.min.css">
+    <link rel="stylesheet" href="${path}/css/fonts-awesome.min.css">
 
     <!-- 필요한 플러그인 연결 -->
     <script src="https://code.jquery.com/jquery-latest.js"></script>
-    <link rel="stylesheet" href="<%=path5%>/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<%=path5%>/css/elegant-icons.css">
-    <link rel="stylesheet" href="<%=path5%>/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="<%=path5%>/css/nice-select.css">
-    <link rel="stylesheet" href="<%=path5%>/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="<%=path5%>/css/slicknav.min.css">
-    <link rel="stylesheet" href="<%=path5%>/css/style.css">
+    <link rel="stylesheet" href="${path}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${path}/css/elegant-icons.css">
+    <link rel="stylesheet" href="${path}/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="${path}/css/nice-select.css">
+    <link rel="stylesheet" href="${path}/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="${path}/css/slicknav.min.css">
+    <link rel="stylesheet" href="${path}/css/style.css">
     <style>
         /* 본문 영역 스타일 */
 
@@ -60,13 +40,6 @@
             display: block;
             width: 100%;
         }
-
-        .content_tit {
-            font-weight: bold;
-            font-size: 25px;
-            margin: 80px 30px 30px 10px;
-        }
-        /* 나머지 스타일 */
 
         .title {
             text-align: center;
@@ -126,7 +99,7 @@
 
 </head>
 <body>
-<div class="container">
+<div class="container-fluid m-0 p-0">
     <header class="hd" id="hd">
         <%@include file="/layout/header_top.jsp"%>
         <%@ include file="/layout/header.jsp" %>

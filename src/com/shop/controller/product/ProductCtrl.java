@@ -19,12 +19,13 @@ public class ProductCtrl extends HttpServlet {
         request.setAttribute("msg","상품리스트를 출력합니다.");
 
         int pro_no = Integer.parseInt(request.getParameter("pro_no"));
+        int amount = 0;
 
         ProductDAO dao = new ProductDAO();
         ReviewDAO redao = new ReviewDAO();
         Product pro = dao.getProduct(pro_no);
         AddInfo info = dao.getAddInfo(pro_no);
-        int amount = dao.getAmount(pro_no);
+        amount = dao.getAmount(pro_no);
 
         request.setAttribute("pro",pro);
         request.setAttribute("amount",amount);

@@ -175,12 +175,12 @@ public class MemberDAO {
         try{
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.MEMBER_UPDATE);
-            pstmt.setString(1,user.getId());
-            pstmt.setString(2,user.getPw());
-            pstmt.setString(3,user.getAddress());
-            pstmt.setString(4,user.getTel());
-            pstmt.setString(5,user.getEmail());
-            pstmt.setString(6,user.getBirth());
+            pstmt.setString(1,user.getPw());
+            pstmt.setString(2,user.getAddress());
+            pstmt.setString(3,user.getTel());
+            pstmt.setString(4,user.getEmail());
+            pstmt.setString(5,user.getBirth());
+            pstmt.setString(6,user.getId());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

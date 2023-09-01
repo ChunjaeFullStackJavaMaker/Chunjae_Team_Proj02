@@ -14,17 +14,16 @@
     <%@ include file="/setting/head.jsp"%>
 
     <style>
-        a {
+        .menu_item {
             color: #333;
         }
-        a:hover {
+        .menu_item:hover {
             color: #333;
             font-weight: bold;
         }
         .breadcrumb-section {background-image: url("${path }/img/breadcrumb.jpg");}
         #post_btn {margin-top : 22px;}
     </style>
-
 
 </head>
 
@@ -43,13 +42,8 @@
     <%@include file="/layout/header.jsp"%>
     <!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
-    <%@ include file="/layout/rollup_sideMenu.jsp"%>
-    <!-- Hero Section End -->
-
-
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg">
+    <section class="breadcrumb-section" style="background-image: url('${path}/img/breadcrumb.jpg'); background-position: center; background-size: cover">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -72,34 +66,34 @@
         <div class="row">
             <div class="col col-lg-3 mb-3 p-3">
                 <div class="p-4 border">
-                    <a href="${path}/mypageInfo.do" class="d-block" style="color:#7FAD39; font-weight:bold"> 개인정보 변경 </a>
-                    <a href="${path}/MyOrderList.do" class="d-block mt-2" > 주문/배송 조회 </a>
-                    <a href="${path}/mypageReview.do" class="d-block mt-2"> 리뷰 관리</a>
+                    <a href="${path}/mypageInfo.do" class="d-block menu_item" style="color:#7FAD39; font-weight:bold"> 개인정보 변경 </a>
+                    <a href="${path}/MyOrderList.do" class="d-block mt-2 menu_item" > 주문/배송 조회 </a>
+                    <a href="${path}/mypageReview.do" class="d-block mt-2 menu_item"> 리뷰 관리</a>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-7">
+            <div class="col-lg-9 col-md-9">
                 <form action="${path}/mypageInfoPro.do" method="post">
                     <div class="row">
-                        <div class="col-lg-8 col-md-6">
+                        <div class="col-lg-12 col-md-12">
                             <div class="checkout__input">
                                 <p>아이디<span>*</span></p>
                                 <input type="text" value="${mem.id }" name="id" id="id" class="indata" readonly required>
                             </div>
                             <div class="checkout__input">
                                 <p>비밀번호<span>*</span></p>
-                                <input type="text" value="${pw }" name="pw" id="pw" class="indata"  required>
+                                <input type="password" value="${pw }" name="pw" id="pw" class="indata"  required>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>주소<span>*</span></p>
-                                        <input type="text" name="postcode" id="postcode" class="indata"  required>
+                                        <input type="text" name="postcode" id="postcode" class="indata" value="${postcode}" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p><span></span></p>
-                                        <button type="button" value="" id="post_btn" onclick="findAddr()" class="site-btn" >우편번호검색</button>
+                                        <button type="button" id="post_btn" onclick="findAddr()" class="site-btn" >우편번호검색</button>
                                     </div>
                                 </div>
                             </div>
@@ -119,7 +113,7 @@
                             </div>
                             <div class="checkout__input">
                                 <p>생년월일<span>*</span></p>
-                                <input type="birth" value="${mem.birth }" name="birth" id="birth" class="indata"  required>
+                                <input type="date" value="${mem.birth }" name="birth" id="birth" class="indata"  required>
                             </div>
                             <div>
                                 <button type="submit" class="site-btn" style="float:right;">개인정보수정</button>

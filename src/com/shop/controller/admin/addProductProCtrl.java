@@ -2,6 +2,7 @@ package com.shop.controller.admin;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.shop.dto.AddInfo;
 import com.shop.dto.Product;
 import com.shop.model.ProductDAO;
 
@@ -31,6 +32,8 @@ public class addProductProCtrl extends HttpServlet {
 
             MultipartRequest mr = new MultipartRequest(request, saveDirectory, maxSize, encoding, new DefaultFileRenamePolicy());
 
+            AddInfo addInfo = new AddInfo();
+
             Product add = new Product();
             add.setCate_id(mr.getParameter("cate_id"));
             add.setTitle(mr.getParameter("title"));
@@ -54,8 +57,10 @@ public class addProductProCtrl extends HttpServlet {
                     if(upfile.exists()) {
                         long filesize = upfile.length();
                         if(idx == 1) {
-                            add.setImg_src(upfile.getName());
+                            addInfo.setMovie(upfile.getName());
                         } else if(idx == 2) {
+                            add.setImg_src(upfile.getName());
+                        } else if(idx == 3) {
                             add.setThumb(upfile.getName());
                         }
                         msg = "파일 업로드 성공";
@@ -68,6 +73,11 @@ public class addProductProCtrl extends HttpServlet {
 
             ProductDAO dao = new ProductDAO();
             int cnt = dao.addProduct(add);
+
+            // 상품의 동영상 정보 추가하기
+            addInfo.setTitle(mr.getParameter("title"));
+            addInfo.setPro_no(dao.latestProNo());
+            cnt += dao.addAddInfo(addInfo);
 
             if(cnt>0){
                 response.sendRedirect(request.getContextPath()+"/AdminProductList.do");
