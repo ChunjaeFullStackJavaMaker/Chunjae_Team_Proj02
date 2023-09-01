@@ -21,15 +21,16 @@ CREATE TABLE member(
 
 -- 관리자 페이지에서 사용자가 특정 인원 판매자 지정 필요
 INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('admin','1234', '관리자', 'admin@shop.com', '010-1004-1004', '1998-01-01', 0);
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('kimhk','1234', '김현경', 'kimhk@shop.com', '010-1234-5678', '2000-01-01', 1);
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('kimbk','qwer1234!', '김보경', 'kimbk@shop.com', '010-8765-4321', '2000-01-01', 1);
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('parkjk','2318358', '박진권', 'park@shop.com', '010-1111-2222', '2000-01-01', 1);
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('sirious920','xogns1234!', '오태훈', 'dhxogns920@shop.com', '010-7329-7484', '1998-09-20', 1);
-INSERT INTO member(id, pw, NAME, email, tel, birth, per) VALUES('shin','asdf1234!', '신예은', 'shin@shop.com', '010-9999-8888', '2000-01-01', 1);
+INSERT INTO member(id, pw, NAME, email, tel, birth, address, per) VALUES('kimhk','1234', '김현경', 'kimhk@shop.com', '010-1234-5678', '2000-01-01','서울 금천구 디지털로 185<br>2관 11층<br>08511', 1);
+INSERT INTO member(id, pw, NAME, email, tel, birth, address, per) VALUES('kimbk','qwer1234!', '김보경', 'kimbk@shop.com', '010-8765-4321', '2000-01-01','서울 금천구 디지털로 185<br>2관 11층<br>08511', 1);
+INSERT INTO member(id, pw, NAME, email, tel, birth, address, per) VALUES('parkjk','2318358', '박진권', 'park@shop.com', '010-1111-2222', '2000-01-01','서울 금천구 디지털로 185<br>2관 11층<br>08511', 1);
+INSERT INTO member(id, pw, NAME, email, tel, birth, address, per) VALUES('sirious920','xogns1234!', '오태훈', 'dhxogns920@shop.com', '010-7329-7484', '1998-09-20','서울 금천구 디지털로 185<br>2관 11층<br>08511', 1);
+INSERT INTO member(id, pw, NAME, email, tel, birth, address, per) VALUES('shin','asdf1234!', '신예은', 'shin@shop.com', '010-9999-8888', '2000-01-01','서울 금천구 디지털로 185<br>2관 11층<br>08511', 1);
 
 COMMIT;
 
 SELECT * FROM member;
+
 
 UPDATE member SET pw='6lRVDcHqc9ceHafDPXmPbz2r4KRXzN1Bi/k0wAQZFua0seXPMFKXMHY6Ut5PW6anSpaKsA==' WHERE id='admin';
 UPDATE member SET pw='6lRVDcHqc9ceHafDPXmPbz2r4KRXzN1Bi/k0wAQZFua0seXPMFKXMHY6Ut5PW6anSpaKsA==' WHERE id='kimhk';
@@ -51,25 +52,23 @@ create table notice(
 
 -- 매장 전용 공지사항 더미글 추가 10건
 
-INSERT INTO notice(title, content) VALUES ('공지사항1', '여기는 공지사항1입니다');
+INSERT INTO notice(title, content) VALUES ('새 학년을 맞이하는 초등학교 교과서 세일! 준비되셨나요?', '학부모님과 학생 여러분, 새 학년을 맞이하는 시즌이 왔습니다! 새로운 학년을 위해 준비하시고, 재미있고 흥미로운 학습을 도와줄 초등학교 교과서, 문제집 및 학습 자료를 만나보세요. 특별 할인 혜택과 번들 상품을 놓치지 마세요. 지금 바로 쇼핑하고 아이의 학습 여정을 응원해주세요!');
 
-INSERT INTO notice(title, content) VALUES ('공지사항2', '여기는 공지사항2입니다');
+INSERT INTO notice(title, content) VALUES ('더 높은 학습 경험을 위해: 중학교 교과서 세일 중!', '학생들과 교사님들께 알립니다! 중학교 교과서 판매가 시작되었습니다. 과학부터 문학까지 다양한 주제와 과목을 다루는 포괄적인 중학교 교과서를 만나보세요. 수학부터 문학까지, 다양한 분야의 교과서를 제공합니다. 제한된 시간의 특별 혜택을 놓치지 마시고, 지금 교과서를 구매하여 학년을 효과적으로 시작하세요!');
 
-INSERT INTO notice(title, content) VALUES ('공지사항3', '여기는 공지사항3입니다');
+INSERT INTO notice(title, content) VALUES ('학업 우수성을 달성하세요! 고등학교 교과서 세일 진행 중!', '고등학교 학생 여러분, 학업적인 도전을 뛰어넘을 준비가 되셨나요? 우수한 고등학교 교과서 컬렉션으로 교육적인 목표를 달성해보세요. 대학 입학 시험 준비 또는 고급 과목에 깊이 빠져들 때 필요한 교과서를 만나보세요. 과학, 역사, 고급 수학 및 외국어까지 모두 다양한 주제를 다루고 있습니다. 지금 쇼핑하고 교육적인 성공을 향한 투자를 시작하세요!');
 
-INSERT INTO notice(title, content) VALUES ('공지사항4', '여기는 공지사항4입니다');
+INSERT INTO notice(title, content) VALUES ('호기심과 학습의 불꽃을 키우세요! 초등학교 문제집 세일을 만나보세요!', '학부모님과 어린 학습자 여러분, 초등학교 문제집 세일로 호기심과 발견의 세계로 빠져보세요. 신중하게 디자인된 문제집을 통해 과목을 생생하게 만들어 활동적인 학습을 장려합니다. 다채로운 수학 문제에서 창의적인 글 쓰기까지, 교육을 재미있게 만들어주는 도구를 제공합니다. 이 기회를 놓치지 마시고 지금 바로 쇼핑을 시작하여 아이의 학습 여정을 풍요롭게 해보세요!');
 
-INSERT INTO notice(title, content) VALUES ('공지사항5', '여기는 공지사항5입니다');
+INSERT INTO notice(title, content) VALUES ('중학교 문제집으로 학습의 힘을 높이세요: 콘에듀에서 쇼핑하세요!', '중학교 학생 여러분, 중학교 문제집 세일로 학습을 한 단계 더 업그레이드해보세요. 다양한 과목을 다루는 포괄적인 문제집은 학습을 동시에 도전적이고 즐겁게 만들어줍니다. 과학 개념을 다지거나 언어 기술을 향상시킬 때까지, 우리의 문제집은 여러분의 성공을 돕기 위해 디자인되었습니다. 뛰어남을 위한 기회를 잡아보세요 - 문제집을 지금 구매하세요!');
 
-INSERT INTO notice(title, content) VALUES ('공지사항6', '여기는 공지사항6입니다');
+INSERT INTO notice(title, content) VALUES ('뛰어난 성취를 이루세요: 고등학교 문제집 세일이 시작되었습니다!', '고등학교 학생 여러분, 뛰어난 성취의 시작은 지식에서 출발합니다. 고등학교 문제집 세일로 깊은 이해와 비판적 사고를 키워보세요. 고급 수학부터 생각을 자극하는 문학 분석까지, 문제집은 여러분이 뛰어난 성과를 이루기 위한 실습을 제공합니다. 기다리지 마세요 - 세일을 살펴보고 학업적 성공을 위한 투자를 시작하세요!');
 
-INSERT INTO notice(title, content) VALUES ('공지사항7', '여기는 공지사항7입니다');
+INSERT INTO notice(title, content) VALUES ('지식의 세계를 열다! 초등학교 참고서 세일을 만나보세요', '학부모님과 귀여운 학생 여러분, 우리와 함께 초등학교 참고서 세일을 통해 발견의 여행을 떠나보세요. 다양한 주제를 흥미롭고 유익하게 다루는 참고서로 지식의 세계로의 입구를 열어드립니다. 다채로운 백과사전부터 매력적인 지도까지, 호기심을 자극하고 학습을 사랑하게 만들 준비가 되어 있습니다. 놓치지 마세요 - 지금 바로 쇼핑을 시작하여 아이의 교육을 풍요롭게 해보세요!');
 
-INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
+INSERT INTO notice(title, content) VALUES ('교실 밖의 세계를 탐험하세요: 중학교 참고서 세일을 만나보세요!', '중학교 학생 여러분, 중학교 참고서 세일로 교실 밖의 지식을 넓혀보세요. 정성껏 고른 참고서는 어린 마음을 사로잡는 다양한 주제를 자세히 다룹니다. 역사를 파헤치거나 과학의 경이를 탐험하던 중, 참고서는 깊이 있는 통찰력을 제공하며 비판적 사고를 격려합니다. 교실을 벗어나 더 많이 배울 수 있는 이 기회를 잡아보세요 - 지금 쇼핑하세요!');
 
-INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
-
-INSERT INTO notice(title, content) VALUES ('공지사항8', '여기는 공지사항8입니다');
+INSERT INTO notice(title, content) VALUES ('고등학교 참고서 세일로 학습을 높이세요!', '고등학교 학생 여러분, 고등학교 참고서 세일로 교육을 한 단계 더 업그레이드해보세요. 다양한 주제에 걸쳐 뛰어난 학습을 지원하는 참고서 컬렉션을 만나보실 수 있습니다. 문학 분석부터 포괄적인 과학 안내까지, 참고서는 권위 있는 정보를 제공하여 연구와 탐험을 돕습니다. 기다리지 마세요 - 학업적 성장을 위해 투자하고 지금 세일을 살펴보세요!');
 
 commit;
 
@@ -257,25 +256,26 @@ CREATE TABLE faq (
                      cnt INT DEFAULT 0 NOT NULL
 );
 
-INSERT INTO faq(question, answer) VALUES('자주 묻는 질문입니다1', '답변입니다1');
+INSERT INTO faq(question, answer) VALUES('어떤 유형의 교육자료를 제공하나요?', '초등학교, 중학교 및 고등학교 학생들을 위한 교과서, 참고서 및 워크북을 포함한 다양한 교육자료를 제공합니다.');
 
-INSERT INTO faq(question, answer) VALUES('자주 묻는 질문입니다2', '답변입니다2');
+INSERT INTO faq(question, answer) VALUES('책은 실물 및 디지털 형식으로 모두 제공되나요?', '네, 대부분의 책은 실물 및 디지털 형식으로 제공되며 다양한 학습 선호도를 고려합니다.');
 
-INSERT INTO faq(question, answer) VALUES('자주 묻는 질문입니다3', '답변입니다3');
+INSERT INTO faq(question, answer) VALUES('어떻게 주문을 할 수 있나요?', '웹사이트를 통해 원하는 책을 선택하고 결제 과정을 따라주시면 간편하게 주문하실 수 있습니다.');
 
-INSERT INTO faq(question, answer) VALUES('자주 묻는 질문입니다4', '답변입니다4');
+INSERT INTO faq(question, answer) VALUES('책 내용의 샘플을 볼 수 있나요?', '네, 책 제품 페이지에서 일부 페이지의 미리보기를 제공합니다. 내용과 레이아웃을 미리 확인하실 수 있습니다.');
 
-INSERT INTO faq(question, answer) VALUES('자주 묻는 질문입니다5', '답변입니다5');
+INSERT INTO faq(question, answer) VALUES('반품 정책은 어떻게 되나요?', '배송 후 30일 이내에 반품이 가능합니다. 자세한 내용은 반품 정책 페이지를 참조하시기 바랍니다.');
 
-INSERT INTO faq(question, answer) VALUES('자주 묻는 질문입니다6', '답변입니다6');
+INSERT INTO faq(question, answer) VALUES('반품을 어떻게 진행하나요?', ' 웹사이트 내 계정을 통해 반품을 진행하실 수 있습니다. 안내된 지침을 따르시고 고객 지원팀의 도움을 받으실 수 있습니다.');
 
-INSERT INTO faq(question, answer) VALUES('자주 묻는 질문입니다7', '답변입니다7');
+INSERT INTO faq(question, answer) VALUES('책이나 주제에 대한 제안을 할 수 있나요?', '물론입니다! 귀하의 제안을 소중히 생각합니다. 고객 지원팀에 귀하의 의견을 보내주시면 됩니다.
 
-INSERT INTO faq(question, answer) VALUES('자주 묻는 질문입니다8', '답변입니다8');
+');
 
-INSERT INTO faq(question, answer) VALUES('자주 묻는 질문입니다9', '답변입니다9');
+INSERT INTO faq(question, answer) VALUES(' 환불을 제공하나요?', '네, 반품이 가능한 경우 환불을 제공합니다. 반품 물품을 수령하고 검사한 후 환불 절차를 진행합니다.');
 
-INSERT INTO faq(question, answer) VALUES('자주 묻는 질문입니다10', '답변입니다10');
+INSERT INTO faq(question, answer) VALUES('책은 정기적으로 업데이트되나요?', '네, 정확성과 관련성을 보장하기 위해 최신 교과서 및 참고 자료의 최신 판을 제공하기 위해 노력하고 있습니다.');
+
 
 COMMIT;
 
@@ -347,14 +347,271 @@ create table product(
                         img_src VARCHAR(5000) DEFAULT 'no_img.jpg', 				-- 상품 이미지 리스트
                         regdate timestamp default CURRENT_TIMESTAMP 				-- 상품 게시 날짜
 );
-insert into product values (default, 'A','A-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
-insert into product values (default, 'B','B-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
-insert into product values (default, 'C','C-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
-insert into product values (default, 'D','D-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
-insert into product values (default, 'E','E-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
-insert into product values (default, 'F','F-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
-insert into product values (default, 'G','G-1',1000,'수학','목차입니다','상세설명입니다','noImg.jpg',default, default);
-insert into product values (default, 'H','H-1',1000,'수학2','목차2입니다','상세설명2입니다','noImg.jpg',default, default);
+
+-- 상품 더미데이터 취합
+INSERT INTO product VALUES (DEFAULT, 'A', 'A-1', 11000, '초등학교 음악 6학년 교과서', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-1.jpg', 'A-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'A', 'A-2', 11000, '초등학교 미술 3학년 교과서', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-2.jpg', 'A-2.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'A', 'A-3', 11000, '초등학교 사회 3학년 교과서', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-3.jpg', 'A-3.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'A', 'A-4', 11000, '초등학교 사회 4학년 2학기 교과서', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-4.jpg', 'A-4.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'A', 'A-5', 11000, '초등학교 사회 4학년 1학기 교과서', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-5.jpg', 'A-5.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'A', 'A-6', 11000, '초등학교 사회 6학년 1학기 교과서', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-6.jpg', 'A-6.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'A', 'A-7', 11000, '초등학교 과학 5학년 1학기 교과서', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-7.jpg', 'A-7.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'A', 'A-8', 11000, '초등학교 과학 5학년 2학기 교과서', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-8.jpg', 'A-8.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'A', 'A-9', 11000, '초등학교 음악 3학년 교과서', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-9.jpg', 'A-9.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'A', 'A-10', 11000, '초등학교 음악 5학년 교과서', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-10.jpg', 'A-10.jpg' , DEFAULT);
+
+
+INSERT INTO product VALUES (DEFAULT, 'B', 'B-1', 5000, '어떤 교과서를 쓰더라도 언제나 우등생 사회 5-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'B-1.jpg', 'B-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'B', 'B-2', 5000, '어떤 교과서를 쓰더라도 언제나 우등생 가을＊겨울 1-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'B-2.jpg', 'B-2.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'B', 'B-3', 5000, '어떤 교과서를 쓰더라도 언제나 우등생 과학 6-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'B-3.jpg', 'B-3.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'B', 'B-4', 5000, '어떤 교과서를 쓰더라도 언제나 우등생 국어 3-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'B-4.jpg', 'B-4.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'B', 'B-5', 5000, '어떤 교과서를 쓰더라도 언제나 우등생 수학 1-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'B-5.jpg', 'B-5.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'B', 'B-6', 5000, '어떤 교과서를 쓰더라도 언제나 우등생 수학 5-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'B-6.jpg', 'B-6.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'B', 'B-7', 5000, '어떤 교과서를 쓰더라도 언제나 우등생 과학 6-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'B-7.jpg', 'B-7.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'B', 'B-8', 5000, '개념 꿀꺽 국어, 과학, 사회 3-1', '상품 요약설명',  '상품상세설명-목차, 내용', 'B-8.jpg', 'B-8.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'B', 'B-9', 5000, '개념 꿀꺽 수학 6-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'B-9.jpg', 'B-9.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'B', 'B-10', 5000, '개념 꿀꺽 수학 6-1', '상품 요약설명',  '상품상세설명-목차, 내용', 'B-10.jpg', 'B-10.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'C', 'C-1', 5000, '문해력 독해가 힘이다 디지털, 비문학편 3단계 B', '상품 요약설명',  '상품상세설명-목차, 내용', 'C-1.jpg', 'C-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'C', 'C-2', 5000, '문해력 독해가 힘이다 디지털, 비문학편 4단계 B', '상품 요약설명',  '상품상세설명-목차, 내용', 'C-2.jpg', 'C-2.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'C', 'C-3', 5000, '문해력 독해가 힘이다 5-B 문장제 수학편', '상품 요약설명',  '상품상세설명-목차, 내용', 'C-3.jpg', 'C-3.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'C', 'C-4', 5000, '문해력 독해가 힘이다 4-B 문장제 수학편', '상품 요약설명',  '상품상세설명-목차, 내용', 'C-4.jpg', 'C-4.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'C', 'C-5', 5000, '수학 리더 응용, 심화 5-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'C-5.jpg', 'C-5.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'C', 'C-6', 5000, '수학 리더 응용, 심화 6-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'C-6.jpg', 'C-6.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'C', 'C-7', 5000, '똑똑한 하루 Phonics 3A', '상품 요약설명',  '상품상세설명-목차, 내용', 'C-7.jpg', 'C-7.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'C', 'C-8', 5000, '똑똑한 하루 Phonics 2B', '상품 요약설명',  '상품상세설명-목차, 내용', 'C-8.jpg', 'C-8.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'C', 'C-9', 5000, '똑똑한 하루 Grammar 3A', '상품 요약설명',  '상품상세설명-목차, 내용', 'C-9.jpg', 'C-9.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'C', 'C-10', 5000, '수학 리더 연산 5A', '상품 요약설명',  '상품상세설명-목차, 내용', 'C-10.jpg', 'C-10.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'D', 'D-1', 5000, '수업을 살리는 실과 레시피101', '상품 요약설명',  '상품상세설명-목차, 내용', 'D-1.jpg', 'D-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'D', 'D-2', 5000, 'A가시개미와 나무괴물', '상품 요약설명',  '상품상세설명-목차, 내용', 'D-2.jpg', 'D-2.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'D', 'D-3', 5000, '예쁘군과 멋진걸', '상품 요약설명',  '상품상세설명-목차, 내용', 'D-3.jpg', 'D-3.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'D', 'D-4', 5000, '수업을 살리는 체육 레시피', '상품 요약설명',  '상품상세설명-목차, 내용', 'D-4.jpg', 'D-4.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'D', 'D-5', 5000, '수업을 살리는 음악 레시피', '상품 요약설명',  '상품상세설명-목차, 내용', 'D-5.jpg', 'D-5.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'D', 'D-6', 5000, 'A가시개미와 나무괴물', '상품 요약설명',  '상품상세설명-목차, 내용', 'D-6.jpg', 'D-6.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'D', 'D-7', 5000, 'LIVE 세계사 - 인도', '상품 요약설명',  '상품상세설명-목차, 내용', 'D-7.jpg', 'D-7.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'D', 'D-8', 5000, '산과 염기 LIVE  과학', '상품 요약설명',  '상품상세설명-목차, 내용', 'D-8.jpg', 'D-8.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'D', 'D-9', 5000, '초등학교 음악 6학년', '상품 요약설명',  '상품상세설명-목차, 내용', 'D-9.jpg', 'D-9.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'D', 'D-10', 5000, '누구나 쉽고 재미있게 사고력 수학 노크 PA3', '상품 요약설명',  '상품상세설명-목차, 내용', 'D-10.jpg', 'D-10.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'E', 'E-1', 5000, '중학교 국어 1-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'E-1.jpg', 'E-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'E', 'E-2', 5000, '중학교 국어 1-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'E-2.jpg', 'E-2.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'E', 'E-3', 5000, '중학교 국어 3-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'E-3.jpg', 'E-3.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'E', 'E-4', 5000, '중학교 사회 2', '상품 요약설명',  '상품상세설명-목차, 내용', 'E-4.jpg', 'E-4.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'E', 'E-5', 5000, '중학교 역사 부도', '상품 요약설명',  '상품상세설명-목차, 내용', 'E-5.jpg', 'E-5.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'E', 'E-6', 5000, 'Middle School English 2', '상품 요약설명',  '상품상세설명-목차, 내용', 'E-6.jpg', 'E-6.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'E', 'E-7', 5000, '중학교 역사 2', '상품 요약설명',  '상품상세설명-목차, 내용', 'E-7.jpg', 'E-7.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'E', 'E-8', 5000, '중학교 사회 1', '상품 요약설명',  '상품상세설명-목차, 내용', 'E-8.jpg', 'E-8.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'E', 'E-9', 5000, 'Middle School English 3', '상품 요약설명',  '상품상세설명-목차, 내용', 'E-9.jpg', 'E-9.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'E', 'E-10', 5000, '중학교 수학 3', '상품 요약설명',  '상품상세설명-목차, 내용', 'E-10.jpg', 'E-10.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'F', 'F-1', 5000, '수학의 힘 개념편 3-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'F-1.jpg', 'F-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'F', 'F-2', 5000, '시험비법 과학전략 중학 1-2 ', '상품 요약설명',  '상품상세설명-목차, 내용', 'F-1.jpg', 'F-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'F', 'F-3', 5000, '체크체크 베이직 N제 수학 3-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'F-1.jpg', 'F-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'F', 'F-4', 5000, '체크체크 영어 2-B', '상품 요약설명',  '상품상세설명-목차, 내용', 'F-1.jpg', 'F-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'F', 'F-5', 5000, '시작은 하루 영어 어휘 2', '상품 요약설명',  '상품상세설명-목차, 내용', 'F-1.jpg', 'F-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'F', 'F-6', 5000, '체크체크 베이직 N제 수학 2-1', '상품 요약설명',  '상품상세설명-목차, 내용', 'F-1.jpg', 'F-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'F', 'F-7', 5000, '체크체크 베이직 수학 3-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'F-1.jpg', 'F-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'F', 'F-8', 5000, '체크체크 사회 2-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'F-1.jpg', 'F-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'F', 'F-9', 5000, '체크체크 역사 1', '상품 요약설명',  '상품상세설명-목차, 내용', 'F-1.jpg', 'F-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'F', 'F-10', 5000, '체크체크 과학 2-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'F-1.jpg', 'F-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'G', 'G-1', 5000, '해법 열공 기출 문제집 수학 중간범위 1', '상품 요약설명',  '상품상세설명-목차, 내용', 'G-1.jpg', 'G-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'G', 'G-2', 5000, 'All 100 올백 기출문제집 중1 수학', '상품 요약설명',  '상품상세설명-목차, 내용', 'G-1.jpg', 'G-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'G', 'G-3', 5000, '중학전략 사회 2', '상품 요약설명',  '상품상세설명-목차, 내용', 'G-1.jpg', 'G-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'G', 'G-4', 5000, '영어전략 구문  중학 2', '상품 요약설명',  '상품상세설명-목차, 내용', 'G-1.jpg', 'G-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'G', 'G-5', 5000, '시험비법 수학전략 중학 3-2 ', '상품 요약설명',  '상품상세설명-목차, 내용', 'G-1.jpg', 'G-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'G', 'G-6', 5000, '특목고 대비 일등 전략 중학 수학 3-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'G-1.jpg', 'G-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'G', 'G-7', 5000, '특목고 대비 일등 전략 중학 영어 문법', '상품 요약설명',  '상품상세설명-목차, 내용', 'G-1.jpg', 'G-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'G', 'G-8', 5000, '국가수준 학업성취도 평가 문제집 중3 국어', '상품 요약설명',  '상품상세설명-목차, 내용', 'G-1.jpg', 'G-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'G', 'G-9', 5000, '국가수준 학업성취도 평가 문제집 중3 과학', '상품 요약설명',  '상품상세설명-목차, 내용', 'G-1.jpg', 'G-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'G', 'G-10', 5000, '7일 끝 중간고사 기말고사 중학 과학 3-2', '상품 요약설명',  '상품상세설명-목차, 내용', 'G-1.jpg', 'G-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'H', 'H-1', 5000, '홍길동전 최고운전', '상품 요약설명',  '상품상세설명-목차, 내용', 'H-1.jpg', 'H-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'H', 'H-2', 5000, '춘향전 운영전', '상품 요약설명',  '상품상세설명-목차, 내용', 'H-1.jpg', 'H-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'H', 'H-3', 5000, '숙향전 최척전', '상품 요약설명',  '상품상세설명-목차, 내용', 'H-1.jpg', 'H-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'H', 'H-4', 5000, '한번에 풀리는 물리학 esc', '상품 요약설명',  '상품상세설명-목차, 내용', 'H-1.jpg', 'H-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'H', 'H-5', 5000, '한번에 풀리는 화학 esc', '상품 요약설명',  '상품상세설명-목차, 내용', 'H-1.jpg', 'H-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'H', 'H-6', 5000, '한번에 풀리는 생명과학 esc', '상품 요약설명',  '상품상세설명-목차, 내용', 'H-1.jpg', 'H-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'H', 'H-7', 5000, '한번에 풀리는 지구과학 esc', '상품 요약설명',  '상품상세설명-목차, 내용', 'H-1.jpg', 'H-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'H', 'H-8', 5000, 'MY VOCA 1800 Level 1', '상품 요약설명',  '상품상세설명-목차, 내용', 'H-1.jpg', 'H-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'H', 'H-9', 5000, 'MY VOCA 1800 Level 1', '상품 요약설명',  '상품상세설명-목차, 내용', 'H-1.jpg', 'H-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'H', 'H-10', 5000, '쉽게 읽는 고전 소설 세트', '상품 요약설명',  '상품상세설명-목차, 내용', 'H-1.jpg', 'H-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'I', 'I-1', 5000, '고등학교 국어', '상품 요약설명',  '상품상세설명-목차, 내용', 'I-1.jpg', 'I-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'I', 'I-2', 5000, '고등학교 문학', '상품 요약설명',  '상품상세설명-목차, 내용', 'I-1.jpg', 'I-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'I', 'I-3', 5000, '고등학교 한국사', '상품 요약설명',  '상품상세설명-목차, 내용', 'I-1.jpg', 'I-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'I', 'I-4', 5000, '고등학교 사회 문화', '상품 요약설명',  '상품상세설명-목차, 내용', 'I-1.jpg', 'I-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'I', 'I-5', 5000, 'High School English', '상품 요약설명',  '상품상세설명-목차, 내용', 'I-1.jpg', 'I-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'I', 'I-6', 5000, '고등학교 수학2', '상품 요약설명',  '상품상세설명-목차, 내용', 'I-1.jpg', 'I-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'I', 'I-7', 5000, '고등학교 통합과학', '상품 요약설명',  '상품상세설명-목차, 내용', 'I-1.jpg', 'I-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'I', 'I-8', 5000, '고등학교 교육학', '상품 요약설명',  '상품상세설명-목차, 내용', 'I-1.jpg', 'I-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'I', 'I-9', 5000, '고등학교 생명과학1', '상품 요약설명',  '상품상세설명-목차, 내용', 'I-1.jpg', 'I-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'I', 'I-10', 5000, '고등학교 기하', '상품 요약설명',  '상품상세설명-목차, 내용', 'I-1.jpg', 'I-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'J', 'J-1', 5000, '고등 기하 셀파', '상품 요약설명',  '상품상세설명-목차, 내용', 'J-1.jpg', 'J-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'J', 'J-2', 5000, '고등 기하 확률과 통계', '상품 요약설명',  '상품상세설명-목차, 내용', 'J-1.jpg', 'J-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'J', 'J-3', 5000, '고등 수학(하) 개념 해결의 법칙', '상품 요약설명',  '상품상세설명-목차, 내용', 'J-1.jpg', 'J-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'J', 'J-4', 5000, '개념 해결의 법칙 확률과 통계', '상품 요약설명',  '상품상세설명-목차, 내용', 'J-1.jpg', 'J-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'J', 'J-5', 5000, '고등 셀파 윤리와 사상', '상품 요약설명',  '상품상세설명-목차, 내용', 'J-1.jpg', 'J-1.jpg' , DEFAULT);
+
+-- INSERT INTO product VALUES (DEFAULT, 'J', 'J-6', 5000, '초등학교 음악 6학년', '상품 요약설명',  '상품상세설명-목차, 내용', 'A-1.jpg', 'A-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'J', 'J-7', 5000, '실전에 강한 수능전략 화법과 작문', '상품 요약설명',  '상품상세설명-목차, 내용', 'J-1.jpg', 'J-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'J', 'J-8', 5000, '실전에 강한 수능전략 생활과 윤리', '상품 요약설명',  '상품상세설명-목차, 내용', 'J-1.jpg', 'J-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'J', 'J-9', 5000, '시작은 하루 수능', '상품 요약설명',  '상품상세설명-목차, 내용', 'J-1.jpg', 'J-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'J', 'J-10', 5000, '고등 셀파 통합과학', '상품 요약설명',  '상품상세설명-목차, 내용', 'J-1.jpg', 'J-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'K', 'K-1', 5000, '실전에 강한 수능전략 미적분', '상품 요약설명',  '상품상세설명-목차, 내용', 'K-1.jpg', 'K-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'K', 'K-2', 5000, '실전에 강한 수능전략 확률과 통계', '상품 요약설명',  '상품상세설명-목차, 내용', 'K-1.jpg', 'K-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'K', 'K-3', 5000, '실전에 강한 수능전략 화법과 작문', '상품 요약설명',  '상품상세설명-목차, 내용', 'K-1.jpg', 'K-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'K', 'K-4', 5000, '실전에 강한 수능전략 생활과 윤리', '상품 요약설명',  '상품상세설명-목차, 내용', 'K-1.jpg', 'K-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'K', 'K-5', 5000, '시작은 하루 수능 수학2 기초', '상품 요약설명',  '상품상세설명-목차, 내용', 'K-1.jpg', 'K-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'K', 'K-6', 5000, '시작은 하루 수능 한국사 기초', '상품 요약설명',  '상품상세설명-목차, 내용', 'K-1.jpg', 'K-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'K', 'K-7', 5000, '처음 만나는 수능 구문 Basic  기본', '상품 요약설명',  '상품상세설명-목차, 내용', 'K-1.jpg', 'K-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'K', 'K-8', 5000, '고단백 독서', '상품 요약설명',  '상품상세설명-목차, 내용', 'K-1.jpg', 'K-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'K', 'K-9', 5000, '고단백 언어와 매체', '상품 요약설명',  '상품상세설명-목차, 내용', 'K-1.jpg', 'K-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'K', 'K-10', 5000, '한 권에 끝내는 수능 필독서 수능 셀파 국어영역 문법 특강', '상품 요약설명',  '상품상세설명-목차, 내용', 'K-1.jpg', 'K-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'L', 'L-1', 5000, '한자 1800', '상품 요약설명',  '상품상세설명-목차, 내용', 'L-1.jpg', 'L-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'L', 'L-2', 5000, '자격증 한번에 따기 3급', '상품 요약설명',  '상품상세설명-목차, 내용', 'L-1.jpg', 'L-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'L', 'L-3', 5000, '국가수준 학업 성취도 평가 문제집 3권', '상품 요약설명',  '상품상세설명-목차, 내용', 'L-1.jpg', 'L-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'L', 'L-4', 5000, '국가수준 학업 성취도 평가 문제집 고2  국어', '상품 요약설명',  '상품상세설명-목차, 내용', 'L-1.jpg', 'L-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'L', 'L-5', 5000, '국가수준 학업 성취도 평가 문제집 고2  영어', '상품 요약설명',  '상품상세설명-목차, 내용', 'L-1.jpg', 'L-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'L', 'L-6', 5000, '국가수준 학업 성취도 평가 문제집 고2  수학', '상품 요약설명',  '상품상세설명-목차, 내용', 'L-1.jpg', 'L-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'Q', 'Q-1', 5000, '돌잡이 한글 18종+디지털 북', '상품 요약설명',  '상품상세설명-목차, 내용', 'Q-1.jpg', 'Q-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'Q', 'Q-2', 5000, '돌잡이 수학 18종+디지털 북', '상품 요약설명',  '상품상세설명-목차, 내용', 'Q-1.jpg', 'Q-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'Q', 'Q-3', 5000, '빅키즈 수학 29종+디지털 북', '상품 요약설명',  '상품상세설명-목차, 내용', 'Q-1.jpg', 'Q-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'Q', 'Q-4', 5000, '빅키즈 지식자람 25종+디지털 북', '상품 요약설명',  '상품상세설명-목차, 내용', 'Q-1.jpg', 'Q-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'Q', 'Q-5', 5000, '돌잡이 영어 33종+ 디지털 북', '상품 요약설명',  '상품상세설명-목차, 내용', 'Q-1.jpg', 'Q-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'Q', 'Q-6', 5000, '돌잡이 한글 18종+ 디지털 북', '상품 요약설명',  '상품상세설명-목차, 내용', 'Q-1.jpg', 'Q-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'Q', 'Q-7', 5000, '탐험스티커 3종 세트 동물+탈것+영화', '상품 요약설명',  '상품상세설명-목차, 내용', 'Q-1.jpg', 'Q-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'R', 'R-1', 5000, '코딩토이 마이빅 46종+전용 앱 2종', '상품 요약설명',  '상품상세설명-목차, 내용', 'R-1.jpg', 'R-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'S', 'S-1', 5000, 'MOYAMONG & Friends', '상품 요약설명',  '상품상세설명-목차, 내용', 'S-1.jpg', 'S-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'S', 'S-2', 5000, 'MOYAMONG & Friends', '상품 요약설명',  '상품상세설명-목차, 내용', 'S-1.jpg', 'S-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'S', 'S-3', 5000, 'MOYAMONG & Friends', '상품 요약설명',  '상품상세설명-목차, 내용', 'S-1.jpg', 'S-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'S', 'S-4', 5000, 'MOYAMONG & Friends', '상품 요약설명',  '상품상세설명-목차, 내용', 'S-1.jpg', 'S-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'S', 'S-5', 5000, 'MOYAMONG & Friends', '상품 요약설명',  '상품상세설명-목차, 내용', 'S-1.jpg', 'S-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'S', 'S-6', 5000, 'MOYAMONG & Friends', '상품 요약설명',  '상품상세설명-목차, 내용', 'S-1.jpg', 'S-1.jpg' , DEFAULT);
+
+INSERT INTO product VALUES (DEFAULT, 'S', 'S-7', 5000, 'MOYAMONG & Friends년', '상품 요약설명',  '상품상세설명-목차, 내용', 'S-1.jpg', 'S-1.jpg' , DEFAULT);
+
 select * from product;
 -- 상품 부가정보 테이블 생성
 create table addinfo(
@@ -365,6 +622,144 @@ create table addinfo(
                         resdate timestamp default current_timestamp
 );
 
+INSERT INTO addinfo VALUES (DEFAULT, 1,'초등학교 사회 3학년 교과서','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 2,'초등학교 사회 4학년 2학기 교과서','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 3,'초등학교 사회 4학년 1학기 교과서','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 4,'초등학교 사회 6학년 1학기 교과서','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 5,'초등학교 과학 5학년 1학기 교과서','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 6,'초등학교 과학 5학년 2학기 교과서','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 7,'초등학교 음악 3학년 교과서','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 8,'초등학교 음악 5학년 교과서','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 9,'초등학교 음악 6학년 교과서','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 10,'초등학교 미술 3학년 교과서','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 11,'초등학교 사회 3학년 교과서','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 12,'초등학교 사회 4학년 2학기 교과서','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 13,'초등학교 사회 4학년 1학기 교과서','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 14,'초등학교 사회 6학년 1학기 교과서','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 15,'초등학교 과학 5학년 1학기 교과서','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 16,'초등학교 과학 5학년 2학기 교과서','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 17,'초등학교 음악 3학년 교과서','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 18,'초등학교 음악 5학년 교과서','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 19,'어떤 교과서를 쓰더라도 언제나 우등생 사회 5-2','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 20,'어떤 교과서를 쓰더라도 언제나 우등생 가을＊겨울 1-2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 21,'어떤 교과서를 쓰더라도 언제나 우등생 과학 6-2','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 22,'어떤 교과서를 쓰더라도 언제나 우등생 국어 3-2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 23,'어떤 교과서를 쓰더라도 언제나 우등생 수학 1-2','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 24,'어떤 교과서를 쓰더라도 언제나 우등생 수학 5-2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 25,'어떤 교과서를 쓰더라도 언제나 우등생 과학 6-2','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 26,'개념 꿀꺽 국어, 과학, 사회 3-1','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 27,'개념 꿀꺽 수학 6-2','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 28,'개념 꿀꺽 수학 6-1','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 29,'문해력 독해가 힘이다 디지털, 비문학편 3단계 B','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 30,'문해력 독해가 힘이다 디지털, 비문학편 4단계 B','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 31,'문해력 독해가 힘이다 5-B 문장제 수학편','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 32,'문해력 독해가 힘이다 4-B 문장제 수학편','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 33,'수학 리더 응용, 심화 5-2','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 34,'수학 리더 응용, 심화 6-2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 35,'똑똑한 하루 Phonics 3A','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 36,'똑똑한 하루 Phonics 2B','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 37,'똑똑한 하루 Grammar 3A','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 38,'수학 리더 연산 5A','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 39,'수업을 살리는 실과 레시피101','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 40,'A가시개미와 나무괴물','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 41,'예쁘군과 멋진걸','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 42,'수업을 살리는 체육 레시피','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 43,'수업을 살리는 음악 레시피','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 44,'A가시개미와 나무괴물','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 45,'LIVE 세계사 - 인도','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 46,'산과 염기 LIVE  과학','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 47,'초등학교 음악 6학년','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 48,'누구나 쉽고 재미있게 사고력 수학 노크 PA3','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 49,'중학교 국어 1-2','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 50,'중학교 국어 1-2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 51,'중학교 국어 3-2','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 52,'중학교 사회 2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 53,'중학교 역사 부도','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 54,'Middle School English 2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 55,'중학교 역사 2','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 56,'중학교 사회 1','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 57,'Middle School English 3','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 58,'중학교 수학 3','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 59,'수학의 힘 개념편 3-2','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 60,'시험비법 과학전략 중학 1-2 ','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 61,'체크체크 베이직 N제 수학 3-2','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 62,'체크체크 영어 2-B','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 63,'시작은 하루 영어 어휘 2','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 64,'체크체크 베이직 N제 수학 2-1','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 65,'체크체크 베이직 수학 3-2','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 66,'체크체크 사회 2-2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 67,'체크체크 역사 1','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 68,'체크체크 과학 2-2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 69,'해법 열공 기출 문제집 수학 중간범위 1','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 70,'All 100 올백 기출문제집 중1 수학','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 71,'중학전략 사회 2','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 72,'영어전략 구문  중학 2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 73,'시험비법 수학전략 중학 3-2 ','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 74,'특목고 대비 일등 전략 중학 수학 3-2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 75,'특목고 대비 일등 전략 중학 영어 문법','lecture_video03.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 76,'국가수준 학업성취도 평가 문제집 중3 국어','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 77,'국가수준 학업성취도 평가 문제집 중3 과학','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 78,'7일 끝 중간고사 기말고사 중학 과학 3-2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 79,'홍길동전 최고운전','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 80,'춘향전 운영전','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 81,'숙향전 최척전','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 82,'한번에 풀리는 물리학 esc','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 83,'한번에 풀리는 화학 esc','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 84,'한번에 풀리는 생명과학 esc','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 85,'한번에 풀리는 지구과학 esc','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 86,'MY VOCA 1800 Level 1','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 87,'MY VOCA 1800 Level 1','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 88,'쉽게 읽는 고전 소설 세트','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 89,'고등학교 국어','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 90,'고등학교 문학','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 91,'고등학교 한국사','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 92,'고등학교 사회 문화','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 93,'High School English','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 94,'고등학교 수학2','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 95,'고등학교 통합과학','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 96,'고등학교 교육학','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 97,'고등학교 생명과학1','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 98,'고등학교 기하','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 99,'고등 기하 셀파','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 100,'고등 기하 확률과 통계','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 101,'고등 수학(하) 개념 해결의 법칙','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 102,'개념 해결의 법칙 확률과 통계','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 103,'고등 셀파 윤리와 사상','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 104,'실전에 강한 수능전략 화법과 작문','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 105,'실전에 강한 수능전략 생활과 윤리','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 106,'시작은 하루 수능','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 107,'고등 셀파 통합과학','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 108,'실전에 강한 수능전략 미적분','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 109,'실전에 강한 수능전략 확률과 통계','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 110,'실전에 강한 수능전략 화법과 작문','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 111,'실전에 강한 수능전략 생활과 윤리','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 112,'시작은 하루 수능 수학2 기초','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 113,'시작은 하루 수능 한국사 기초','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 114,'처음 만나는 수능 구문 Basic  기본','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 115,'고단백 독서','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 116,'고단백 언어와 매체','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 117,'한 권에 끝내는 수능 필독서 수능 셀파 국어영역 문법 특강','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 118,'한자 1800','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 119,'자격증 한번에 따기 3급','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 120,'국가수준 학업 성취도 평가 문제집 3권','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 121,'국가수준 학업 성취도 평가 문제집 고2  국어','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 122,'국가수준 학업 성취도 평가 문제집 고2  영어','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 123,'국가수준 학업 성취도 평가 문제집 고2  수학','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 124,'돌잡이 한글 18종+디지털 북','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 125,'돌잡이 수학 18종+디지털 북','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 126,'빅키즈 수학 29종+디지털 북','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 127,'빅키즈 지식자람 25종+디지털 북','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 128,'돌잡이 영어 33종+ 디지털 북','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 129,'돌잡이 한글 18종+ 디지털 북','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 130,'탐험스티커 3종 세트 동물+탈것+영화','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 131,'코딩토이 마이빅 46종+전용 앱 2종','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 132,'MOYAMONG & Friends','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 133,'MOYAMONG & Friends','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 134,'MOYAMONG & Friends','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 135,'MOYAMONG & Friends','lecture_video01.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 136,'MOYAMONG & Friends','lecture_video02.mp4', DEFAULT);
+INSERT INTO addinfo VALUES (DEFAULT, 137,'MOYAMONG & Friends','lecture_video03.mp4', default);
+INSERT INTO addinfo VALUES (DEFAULT, 138,'MOYAMONG & Friends','lecture_video02.mp4', DEFAULT);
 ---------------------------------------------------------------------------------------------------
 
 -- 입고 테이블 생성
@@ -587,4 +982,4 @@ select * from receive;
 select * from delivery;
 select * from payment;
 select * from custom;
-select * from inventory;
+select * from inventory;team32productproduct

@@ -56,7 +56,7 @@ public interface DBConnect {
 
     //재고 조회
     final static String INVENTORY_SELECT_ALL = "select * from inventory order by pro_no desc";
-    final static String INVENTORY_SELECT_ONE = "select * from inventory where re_no=?";
+    final static String INVENTORY_SELECT_ONE = "select * from inventory where pro_no=?";
 
     // 결제 테이블 sql문
     final static String PAYMENT_SELECT_ONE = "select * from payment where pay_no=?";
@@ -78,7 +78,7 @@ public interface DBConnect {
 
     // 반품 처리 sql문
     final static String SELECT_MY_ORDER_LIST = "select pay.pay_no, pay_resdate, thumb, description, title, amount, pay_price, del_state from payment pay, delivery del, product pro where pay.pay_no = del.pay_no and pro.pro_no=pay.pro_no and cus_id=? order by pay_resdate desc";
-    final static String SELECT_MY_ORDER_LIST = "select pay.pay_no, pay_resdate, thumb, description, title, amount, pay_price, del_state from payment pay, delivery del, product pro where pay.pay_no = del.pay_no and pro.pro_no=pay.pro_no and cus_id=? order by pay_resdate desc";
+
     final static String RETURN_PAYMENT = "delete from payment where pay_no=?";
     final static String RETURN_PAYMENTS = "delete from payment where cus_id=? and resdate between ? and ?";
     final static String RETURN_RECEIVE = "insert into receive values (default, ?, ?, ?, default)";
