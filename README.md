@@ -145,6 +145,7 @@
 - 카카오톡 1:1 상담 기능
 <p align="center"><img alt="메인페이지" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/c1e37e3a-be97-4a12-a750-0599e7975e4e"></p>
 <sub><b> PIC1 : 메인페이지 </sub></b>
+ 
 ## 🗂 회원 기능
 ### 1. 로그인
 #### (1) 일반 로그인
@@ -153,12 +154,15 @@
 - 로그인 시 쿠키(Cookie) 및 세션(Session) 생성
   <p align="center"><img alt="로그인 화면" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/34374adb-efc7-4326-b3c3-306d744f0064"></p>
  <sub><b> PIC2 : 로그인 </sub></b>
+ 
 #### (2)회원가입
 - 주소 API 연동
 - ID 중복 체크
 - 비밀번호 유효성 검사
+  
 <p align="center"><img alt="회원가입 화면" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/f5075b17-1287-4f98-9be3-4df2330b7cf8"></p>
   <sub><b> PIC3 : 회원가입 </sub></b>
+   
 ### 2.마이 페이지
 - 주소 API 연동
 - 회원정보 변경
@@ -173,6 +177,7 @@
      <sub><b> PIC6 : 리뷰 작성 </sub></b>
 <p align="center"><img alt="나의 리뷰관리" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/8c4e1ed0-d13a-49fa-bb0d-5fa24c227993"></p>
       <sub><b> PIC7 : 나의 리뷰 관리 </sub></b>
+       
 ## 고객 지원
 #### 공지사항
 - CURD
@@ -184,10 +189,12 @@
         <sub><b> PIC9 : 공지사항 글 쓰기, 수정 </sub></b>
  <p align="center"><img alt="공지사항 글 상세보기" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/03ed96d0-b867-4898-b1df-67b327ab9d82"></p>
          <sub><b> PIC10 : 공지사항 글 상세보기 </sub></b>
+          
 #### FAQ
 - 토글 형식의 FAQ 기능
 <p align="center"><img alt="FAQ" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/45577714-fe6a-4138-93a5-a39d2df38f3a"></p>
           <sub><b> PIC11 : FAQ </sub></b>
+           
 ## 상품
 #### (1)상품리스트
 - 유아/초/중/고 카테고리별 리스트 출력 기능
@@ -199,6 +206,7 @@
              <sub><b> PIC14 : 중등 상품 리스트 </sub></b>
 <p align="center"><img alt="고등상품 리스트" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/fc11b92a-3517-4f81-8ad5-89b4c960b255"></p>
               <sub><b> PIC15 : 고등 상품 리스트 </sub></b>
+               
 #### (2)상품 상세페이지
 - 장바구니 추가 기능
 - 관리자 입고 기능
@@ -210,6 +218,7 @@
                 <sub><b> PIC17 : 상품 비디오 </sub></b>
 <p align="center"><img alt="상품 리뷰 리스트" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/a4638f51-fbd9-4911-b273-0d2d3d53bcf4"></p>
                  <sub><b> PIC18 : 상품 리뷰 리스트 </sub></b>
+                  
 ## 관리자 기능
 #### 관리자 페이지
 - 대시보드 형식의 관리자 페이지
