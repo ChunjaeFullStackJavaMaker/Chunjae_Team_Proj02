@@ -141,25 +141,25 @@
 
 ### 📂시퀀스 다이어그램 (Sequence Diagram)
 
-####회원
+#### 회원
 <p align="center"><img alt="시퀀스다이아그램1" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/fdf92b69-7f3c-4487-b791-4b2f62395b8a"></p>
 
-####공지사항
+#### 공지사항
 <p align="center"><img alt="시퀀스다이아그램2" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/f2250e75-5009-4840-b70e-3be913b7d501"></p>
 
-####FAQ
+#### FAQ
 <p align="center"><img alt="시퀀스다이아그램3" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/5165fd25-911f-482c-b7d9-3066aab374b0"></p>
 
-####장바구니
+#### 장바구니
 <p align="center"><img alt="시퀀스다이아그램4" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/0298422d-f296-4b14-a003-daa4b7bfa331"></p>
 
-####상품
+#### 상품
 <p align="center"><img alt="시퀀스다이아그램5" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/ea85de63-4a21-4dba-8537-5a23c22a31e0"></p>
 
-####결제
+#### 결제
 <p align="center"><img alt="시퀀스다이아그램6" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/eb220af3-59c1-43a5-9692-d18b0702f9ef"></p>
 
-####리뷰
+#### 리뷰
 <p align="center"><img alt="시퀀스다이아그램7" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/94f59868-d322-4dac-85f3-54628f4f08cf"></p>
 
 
