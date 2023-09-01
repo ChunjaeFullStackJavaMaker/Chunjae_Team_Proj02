@@ -139,12 +139,36 @@
 ![classdiagram](https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/95fd77b4-96fb-4381-9694-a26aebd7d519)
 <br><br>
 
+### 📂시퀀스 다이어그램 (Sequence Diagram)
+
+####회원
+<p align="center"><img alt="시퀀스다이아그램1" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/fdf92b69-7f3c-4487-b791-4b2f62395b8a"></p>
+
+####공지사항
+<p align="center"><img alt="시퀀스다이아그램2" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/f2250e75-5009-4840-b70e-3be913b7d501"></p>
+
+####FAQ
+<p align="center"><img alt="시퀀스다이아그램3" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/5165fd25-911f-482c-b7d9-3066aab374b0"></p>
+
+####장바구니
+<p align="center"><img alt="시퀀스다이아그램4" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/0298422d-f296-4b14-a003-daa4b7bfa331"></p>
+
+####상품
+<p align="center"><img alt="시퀀스다이아그램5" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/ea85de63-4a21-4dba-8537-5a23c22a31e0"></p>
+
+####결제
+<p align="center"><img alt="시퀀스다이아그램6" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/eb220af3-59c1-43a5-9692-d18b0702f9ef"></p>
+
+####리뷰
+<p align="center"><img alt="시퀀스다이아그램7" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/94f59868-d322-4dac-85f3-54628f4f08cf"></p>
+
+
 # 📎기능 구현
 ## 메인 페이지
 - 사이드바
 - 카카오톡 1:1 상담 기능
 <p align="center"><img alt="메인페이지" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/c1e37e3a-be97-4a12-a750-0599e7975e4e"></p>
-<sub><b> PIC1 : 메인페이지 </sub></b>
+
  
 ## 🗂 회원 기능
 ### 1. 로그인
@@ -153,7 +177,6 @@
 - ID찾기, PW찾기
 - 로그인 시 쿠키(Cookie) 및 세션(Session) 생성
   <p align="center"><img alt="로그인 화면" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/34374adb-efc7-4326-b3c3-306d744f0064"></p>
- <sub><b> PIC2 : 로그인 </sub></b>
  
 #### (2)회원가입
 - 주소 API 연동
@@ -161,7 +184,7 @@
 - 비밀번호 유효성 검사
   
 <p align="center"><img alt="회원가입 화면" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/f5075b17-1287-4f98-9be3-4df2330b7cf8"></p>
-  <sub><b> PIC3 : 회원가입 </sub></b>
+
    
 ### 2.마이 페이지
 - 주소 API 연동
