@@ -24,6 +24,7 @@
 **팀장 : 박진권**
 * 로고 제작
 * usecaseDiagram 작성
+* 공지사항, FAQ 게시판 제작
 
 <br><br>
 **팀원 : 김보경**
@@ -40,6 +41,7 @@
 <br><br>
 **팀원 : 오태훈**
 * 데이터베이스 설계
+* 장바구니, 회원가입, 로그인 제작
 
 
 ### ⚙️ 개발 환경
@@ -50,6 +52,8 @@
 #### ✅DATABASE : <img src="https://img.shields.io/badge/mariaDB-003545?style=for-the-badge&logo=mariaDB&logoColor=white"><img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
 
 #### ✅Server : <img src="https://img.shields.io/badge/apache tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white">
+<br><br>
+<hr>
 <br><br>
 
 # ⚒프로젝트 설계
