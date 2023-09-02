@@ -260,7 +260,7 @@
 <p align="center"><img alt="회원관리" src="https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/139138265/bf6fedfd-e21f-48aa-ae25-f1068ed1d95c"></p>
 
 
-## 🎬 콘 시연영상
+## 🎬 콘북 시연영상
 
 https://github.com/ChunjaeFullStackJavaMaker/Chunjae_Team_Proj02/assets/138674233/faf5cf33-df97-4f60-8262-b77b872fdf8d
 
